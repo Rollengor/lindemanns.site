@@ -1,0 +1,53 @@
+@use './functions/range';
+
+main {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+}
+
+.container {
+    --container-width: var(--width-max);
+    --container-px: var(--gap-container);
+    --container-py: 0;
+    --container-pt: var(--container-py);
+    --container-pb: var(--container-py);
+    --container-pl: var(--container-px);
+    --container-pr: var(--container-px);
+
+    width: calc(var(--container-width) + var(--gap-container) * 2);
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: var(--container-pt) var(--container-pr) var(--container-pb) var(--container-pl);
+}
+
+.page-content {
+    padding-top: range.build(110, 160);
+}
+
+.formatted-text {
+    & > * {
+        &:not(:first-child) {
+            margin-top: 1em;
+        }
+
+        &:not(:last-child) {
+            margin-bottom: 1em;
+        }
+    }
+
+    p:empty {
+        min-height: .5em;
+    }
+}
+
+.spectacular-canvas {
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}

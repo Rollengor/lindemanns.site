@@ -1,0 +1,5 @@
+@use "../base";
+
+@function build($min, $max, $unit: px, $to: base.$width-min or 320, $from: base.$width-max or 1600) {
+    @return clamp(#{$min}#{$unit}, calc((#{$min} + (#{$max} - #{$min}) * ((#{base.$window-width} - #{$to}) / ($from - $to))) * #{1 + $unit}), #{$max + $unit});
+};

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="{{ config('app.locale') }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    @php
+        $page_seo_title = isset($page->seo_title) && filled($page->seo_title) ? $page->seo_title : config('app.name');
+        $page_seo_description = isset($page->seo_description) && filled($page->seo_description) ? $page->seo_description : null;
+        $page_seo_keywords = isset($page->seo_keywords) && filled($page->seo_keywords) ? $page->seo_keywords : null;
+    @endphp
+
+    <title>{{ $page_seo_title }}</title>
+
+    @if($page_seo_description)
+        <meta content="{{ $page_seo_description }}" name="description">
+    @endif
+    @if($page_seo_keywords)
+        <meta content="{{ $page_seo_keywords }}" name="keywords">
+    @endif
+
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <link href="{{ url()->current() }}" rel="canonical">
+
+    <meta property="og:locale" content="uk_UA">
+    <meta property="og:title" content="{{ $page_seo_title }}">
+    @if($page_seo_description)
+        <meta property="og:description" content="{{ $page_seo_description }}">
+    @endif
+    <meta property="og:image" content="{{ config('app.url') }}/img/og-logo.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:site_name" content="{{ config('app.name') }}">
+    <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ $page_seo_title }}">
+    @if($page_seo_description)
+        <meta name="twitter:description" content="{{ $page_seo_description }}">
+    @endif
+    <meta name="twitter:image" content="{{ config('app.url') }}/img/og-logo.png">
+
+    @include('public.fragments.favicon')
+
+    <meta name="theme-color" content="#0B0B0B">
+
+    <script>
+        supportsWebP();
+
+        function supportsWebP() {
+            const webP = new Image();
+            webP.onload = () => {
+                document.documentElement.classList.add('webp-support');
+            };
+            webP.src = 'data:image/webp;base64,UklGRiIAAABXRUJQVlA4TAYAAAAvAAAAABAAAQAAAAAAAAAAAAA=';
+        }
+    </script>
+
+    @include('public.fragments.fonts')
+
+    @vite('resources/css/public/public.scss')
+</head>
+<body {{ isset($page) ? 'id=' . $page->slug . '-page' : null }} class="{{ !Route::is('public.home') ? 'page-content' : null }}">
+
+@include('public.sections.header')
+
+<main>
+    @yield('content')
+</main>
+
+@include('public.sections.footer')
+
+<div class="scroll-mouse-down"></div>
+<canvas id="fluid-canvas" class="spectacular-canvas"></canvas>
+
+@vite('resources/js/public/public.js')
+
+@stack('footer-scripts')
+
+</body>
+</html>

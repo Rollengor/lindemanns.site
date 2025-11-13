@@ -1,0 +1,6 @@
+@use "../functions/hexToRGB";
+
+@mixin color($name, $color) {
+    --#{$name}: #{$color};
+    --#{$name}-rgb: #{hexToRGB.build($color)};
+}

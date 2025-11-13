@@ -1,0 +1,39 @@
+@use "base";
+
+@use "sass:map";
+@use "functions/range";
+@use "mixins/colors";
+
+$colors: (
+    1: #FFFFFF,
+    2: #000000,
+    3: #c24040,
+    //3: #e60000,
+    //4: #009900
+);
+
+:root {
+    @each $key, $value in $colors {
+        @include colors.color("clr-#{$key}", $value);
+    }
+
+    --font-1: "HelveticaNeueCyr", sans-serif;
+
+    --width-min: #{base.$width-min + px};
+    --width-max: #{base.$width-max + px};
+    --width-full: 100%;
+
+    --gap-container: #{range.build(20, 30)};
+
+    --header-height: #{range.build(80, 110)};
+
+    --radius: #{range.build(10, 20)};
+
+    --transition: all .15s linear;
+
+    --field-size: 48px;
+    --field-radius: 10px;
+    --field-ff: var(--font-1);
+    --field-fs: #{range.build(18, 20)};
+    --field-px: 1em;
+}

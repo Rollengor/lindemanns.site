@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg style="display: none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <symbol id="lock" viewBox="0 0 50 50" fill="currentColor">
+        <path d="M37.5 17.5v-5a12.501 12.501 0 0 0-25 0v5A7.497 7.497 0 0 0 5 25v17.5a7.497 7.497 0 0 0 7.5 7.5h25a7.497 7.497 0 0 0 7.5-7.5V25a7.497 7.497 0 0 0-7.5-7.5Zm-20-5A7.497 7.497 0 0 1 25 5a7.497 7.497 0 0 1 7.5 7.5v5h-15v-5Zm22.5 30a2.5 2.5 0 0 1-2.5 2.5h-25a2.5 2.5 0 0 1-2.5-2.5V25a2.5 2.5 0 0 1 2.5-2.5h25A2.5 2.5 0 0 1 40 25v17.5Z"/>
+    </symbol>
+</svg>
+<!--
+    <symbol id="name" viewBox="0 0 50 50" fill="currentColor">
+    </symbol>
+-->
+<!-- <svg class="icon" viewBox="0 0 50 50"><use xlink:href="<?= BASE_URL; ?>assets/img/icons/sprite.svg#name"/></svg> -->

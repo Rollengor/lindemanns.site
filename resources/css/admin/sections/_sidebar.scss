@@ -1,0 +1,87 @@
+.sidebar {
+    --sidebar-width: 270px;
+
+    width: var(--sidebar-width);
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1010;
+    transition: margin .2s linear;
+
+    &:not(.active) {
+        margin-left: calc(var(--sidebar-width) * -1);
+    }
+
+    @media (min-width: 1200px) {
+        --sidebar-width: 300px;
+
+        position: relative;
+        top: auto;
+        left: auto;
+    }
+}
+
+.sidebar-header {
+    height: var(--header-height);
+    z-index: 10;
+}
+
+.sidebar-menu {
+    --bs-accordion-color: var(--bs-white);
+    --bs-accordion-bg: transparent;
+    --bs-accordion-border-color: rgba(var(--bs-white-rgb), .25);
+    --bs-accordion-border-width: 1px;
+    --bs-accordion-border-radius: 0;
+    --bs-accordion-inner-border-radius: 0;
+    --bs-accordion-btn-padding-x: 1rem;
+    --bs-accordion-btn-padding-y: 1rem;
+    --bs-accordion-btn-color: var(--bs-white);
+    --bs-accordion-btn-bg: transparent;
+    --bs-accordion-btn-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+    --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+    --bs-accordion-btn-icon-width: 1rem;
+    --bs-accordion-btn-focus-border-color: rgba(var(--bs-white-rgb), .25);
+    --bs-accordion-btn-focus-box-shadow: inset 0 calc(-1 * var(--bs-accordion-border-width)) 0 var(--bs-accordion-border-color);
+    --bs-accordion-body-padding-x: 1.25rem;
+    --bs-accordion-body-padding-y: 1rem;
+    --bs-accordion-active-color: var(--bs-white);
+    --bs-accordion-active-bg: transparent;
+
+    a {
+        text-decoration: none;
+
+        &.accordion-button {
+            box-shadow: none;
+        }
+    }
+
+    button.accordion-button {
+        --bs-accordion-active-bg: rgba(var(--bs-white-rgb), .15);
+    }
+
+    .accordion-item {
+        border-width: 0 0 var(--bs-accordion-border-width) 0;
+
+        &:last-child {
+            border: 0;
+        }
+    }
+
+    .accordion-button {
+        &.active,
+        &:hover {
+            --bs-accordion-btn-bg: rgba(var(--bs-white-rgb), .15);
+
+            background-color: var(--bs-accordion-btn-bg);
+        }
+
+        &:not([data-bs-target])::after {
+            display: none;
+        }
+
+        &.collapsed:focus {
+            box-shadow: none;
+        }
+    }
+}

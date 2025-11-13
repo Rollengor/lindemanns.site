@@ -1,0 +1,7 @@
+.sortable-ghost {
+    --ghost-clr: rgba(var(--bs-secondary-rgb), .15);
+
+    background-color: var(--ghost-clr);
+    box-shadow: 0 0 0 .5rem var(--ghost-clr);
+    border-radius: 0.125rem;
+}

@@ -1,0 +1,10 @@
+$width-max: 960;
+$width-min: 375;
+
+@property --w-size {
+    syntax: '<length>';
+    inherits: true;
+    initial-value: 100vw;
+}
+
+$window-width: tan(atan2(var(--w-size), 1px));

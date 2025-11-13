@@ -1,0 +1,27 @@
+@import "../../../../node_modules/overlayscrollbars/styles/overlayscrollbars";
+
+.os-theme-admin {
+    --os-size: 10px;
+    --os-padding-perpendicular: 2.5px;
+    --os-padding-axis: 2.5px;
+    --os-track-border-radius: 10px;
+    --os-handle-interactive-area-offset: 4px;
+    --os-handle-border-radius: 10px;
+
+    --os-rgb-color: 140, 140, 140;
+    --os-handle-bg: rgba(var(--os-rgb-color), 0.44);
+    --os-handle-bg-hover: rgba(var(--os-rgb-color), 0.55);
+    --os-handle-bg-active: rgba(var(--os-rgb-color), 0.66);
+
+    box-sizing: border-box;
+}
+
+.wysiwyg-full-screen .os-scrollbar {
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+[data-overlayscrollbars-viewport] {
+    display: flex;
+    flex-direction: column;
+}

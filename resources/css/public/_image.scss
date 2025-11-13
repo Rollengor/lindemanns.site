@@ -1,0 +1,66 @@
+.img-fluid {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.img,
+.img-cover,
+.img-contain {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.img-cover {
+    object-fit: cover;
+}
+
+.img-contain {
+    object-fit: contain;
+}
+
+.bg-img-cover,
+.bg-img-contain {
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.bg-img-cover {
+    background-size: cover
+}
+
+.bg-img-contain {
+    background-size: contain
+}
+
+/*picture {
+    --picture-width: 100%;
+    --picture-height: auto;
+    --picture-ratio: 1 / .58;
+    --picture-radius: var(--radius-sm);
+
+    display: block;
+    width: var(--picture-width);
+    height: var(--picture-height);
+    aspect-ratio: var(--picture-ratio);
+    position: relative;
+
+    img {
+        border-radius: var(--picture-radius);
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #ddd;
+    }
+}*/
+
+.icon {
+    --icon-size: 100%;
+    --icon-clr: inherit;
+
+    display: block;
+    width: 200vw;
+    max-width: var(--icon-size);
+    color: var(--icon-clr);
+}

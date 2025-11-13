@@ -1,0 +1,529 @@
+@import "../../../../node_modules/suneditor/dist/css/suneditor.min";
+
+.sun-editor {
+    --se-border-radius: .375rem;
+    --se-font-family: var(--bs-font-sans-serif, sans-serif);
+    --se-icon-size: 24px;
+    --se-checkbox-size: 1rem;
+
+    border-color: rgba(#000, .25);
+    border-radius: var(--se-border-radius);
+    color: #212529;
+    font-family: var(--se-font-family);
+
+    * {
+        font-size: 15px;
+        font-family: var(--se-font-family);
+    }
+
+    button {
+        display: flex;
+        align-items: center;
+        gap: .75em;
+        font-family: var(--se-font-family);
+    }
+
+    svg {
+        display: block;
+        width: var(--se-icon-size);
+        height: var(--se-icon-size);
+    }
+}
+
+.wysiwyg-full-screen {
+    main {
+        z-index: 1100;
+    }
+
+    .main-panel {
+        z-index: 0;
+    }
+
+    .sun-editor {
+        --se-border-radius: 0;
+
+        border: 0;
+    }
+
+    .se-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .se-wrapper {
+        flex: 1 0 0;
+    }
+}
+
+.sun-editor .se-resizing-bar {
+    min-height: calc(1em * 1.4);
+    border-color: rgba(#000, .25);
+    border-radius: 0 0 var(--se-border-radius) var(--se-border-radius);
+    background-color: var(--bs-light, #fafafa);
+}
+
+.sun-editor .se-resizing-bar .se-navigation {
+    font-size: 14px;
+}
+
+.sun-editor .se-toolbar {
+    outline: none;
+    border-radius: var(--se-border-radius) var(--se-border-radius) 0 0;
+    border-bottom: 1px solid rgba(#000, .25);
+    background-color: var(--bs-light, #fafafa);
+}
+
+.sun-editor-editable {
+    font-size: 16px;
+    line-height: 1.3;
+
+    p {
+        margin-bottom: .75em;
+    }
+}
+
+.sun-editor-editable .__se__float-left {
+    margin-right: 1em;
+}
+
+.sun-editor-editable .se-component {
+    margin-bottom: 1em
+}
+
+.sun-editor .se-svg,
+.sun-editor button > svg {
+    width: var(--se-icon-size);
+    height: var(--se-icon-size);
+}
+
+.sun-editor .se-btn-select.se-btn-tool-format {
+    width: auto;
+    min-width: 110px;
+}
+
+.sun-editor .se-btn-list {
+    font-size: 15px;
+
+    & > .se-list-icon {
+        display: block;
+        width: auto;
+        height: auto;
+        margin: 0;
+    }
+}
+
+.sun-editor-editable {
+    h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+        margin-inline-start: 0;
+        margin-inline-end: 0;
+        margin-block-start: 0;
+        margin-block-end: 0;
+        margin-bottom: 1rem;
+        font-weight: 600;
+    }
+}
+
+.sun-editor .se-toolbar-separator-vertical {
+    display: none;
+}
+
+.sun-editor .se-btn-tray {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75rem;
+    padding: .75rem;
+}
+
+.sun-editor .se-btn-module-border {
+    border: 0;
+    border-radius: 0;
+    margin: 0;
+}
+
+.sun-editor .se-btn {
+    --se-btn-size: 38px;
+
+    width: var(--se-btn-size);
+    height: var(--se-btn-size);
+    margin: 0 !important;
+    border: 1px solid var(--bs-secondary, #232730);
+    border-radius: .375rem;
+    background-color: var(--bs-white, #fff);
+}
+
+.sun-editor .se-btn:disabled,
+.sun-editor button:disabled {
+    color: var(--bs-black, #000);
+    opacity: .25;
+    pointer-events: none;
+}
+
+.sun-editor .se-btn-select {
+    padding: .25rem .5rem;
+}
+
+.sun-editor .se-btn:enabled:focus,
+.sun-editor .se-btn:enabled:hover,
+.sun-editor .se-btn:enabled.active:focus,
+.sun-editor .se-btn:enabled.active:hover,
+.sun-editor .se-btn:enabled.on:focus,
+.sun-editor .se-btn:enabled.on:hover,
+.sun-editor .se-btn:enabled:active {
+    border-color: var(--bs-gray, #6c757d);
+    background-color: var(--bs-gray, #6c757d);
+    color: var(--bs-white, #fff);
+    box-shadow: none;
+}
+
+.sun-editor .se-btn:enabled.active,
+.sun-editor .se-btn:enabled.on {
+    border-color: var(--bs-secondary, #232730);
+    background-color: var(--bs-secondary, #232730);
+    color: var(--bs-white, #fff);
+}
+
+.sun-editor .se-menu-list li {
+    &:not(:first-child) {
+        margin-left: -1px;
+    }
+}
+
+.sun-editor .se-menu-list li {
+    .se-btn {
+        border-radius: 0
+    }
+
+    &:first-child .se-btn {
+        border-top-left-radius: .375rem;
+        border-bottom-left-radius: .375rem;
+    }
+
+    &:last-child .se-btn {
+        border-top-right-radius: .375rem;
+        border-bottom-right-radius: .375rem;
+    }
+}
+
+.sun-editor .se-list-layer {
+    box-shadow: 0 .25rem .5rem rgba(#000, .15);
+    border-radius: .375rem;
+    border-color: rgba(#000, .175);
+    margin-top: .25rem;
+}
+
+.sun-editor .se-btn-list:focus,
+.sun-editor .se-btn-list:hover,
+.sun-editor .se-list-inner .se-list-basic li button.active,
+.sun-editor .se-list-inner .se-list-basic li button.active:hover {
+    background-color: #e9ecef;
+    border: 0;
+}
+
+.sun-editor .se-list-layer.se-list-format ul h1,
+.sun-editor .se-list-layer.se-list-format ul .h1 {
+    color: inherit;
+}
+
+.sun-editor .se-dialog {
+    --se-icon-size: 20px;
+}
+
+.sun-editor .se-dialog .se-dialog-back {
+    background-color: #000;
+}
+
+.sun-editor .se-dialog .se-dialog-inner {
+    display: flex !important;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 16px;
+}
+
+.sun-editor .se-dialog .se-dialog-inner .se-dialog-content {
+    width: 100%;
+    margin: auto;
+    border-color: rgba(0, 0, 0, 0.175);
+    border-radius: .5rem;
+    box-shadow: none;
+}
+
+.sun-editor .se-dialog .se-dialog-inner .se-dialog-header {
+    display: flex;
+    align-items: center;
+    height: auto;
+    padding: 1rem;
+    border-color: #dee2e6;
+}
+
+.sun-editor .se-dialog .se-dialog-inner .se-dialog-header .se-modal-title {
+    font-size: 20px;
+    order: -1;
+    margin-right: auto;
+    line-height: 1.1;
+    font-weight: 500;
+}
+
+.sun-editor .se-dialog .se-dialog-inner .se-dialog-header .se-dialog-close {
+    opacity: .5;
+}
+
+.sun-editor .se-dialog .se-dialog-inner .se-dialog-header .se-dialog-close,
+.sun-editor .se-dialog .se-dialog-inner .se-dialog-header .se-dialog-close:hover,
+.sun-editor .se-dialog .se-dialog-inner .se-dialog-header .se-dialog-close:focus,
+.sun-editor .se-dialog .se-dialog-inner .se-dialog-header .se-dialog-close:active {
+    border: 0;
+    background-color: transparent;
+    color: #000;
+}
+
+.sun-editor .se-dialog .se-dialog-inner .se-dialog-header .se-dialog-close:hover {
+    opacity: 1;
+}
+
+.sun-editor .se-dialog-close > svg {
+    width: var(--se-icon-size);
+    height: var(--se-icon-size);
+}
+
+.sun-editor .se-dialog .se-dialog-inner .se-dialog-content label {
+    font-size: 16px;
+    font-weight: normal;
+    margin-bottom: .25rem;
+}
+
+.sun-editor input,
+.sun-editor select,
+.sun-editor textarea {
+    border-color: #ced4da;
+    border-radius: .375rem;
+    font-size: 15px;
+
+    &:focus {
+        box-shadow: none;
+    }
+}
+
+.sun-editor .se-dialog .se-dialog-body {
+    display: flex;
+    flex-direction: column;
+
+    & > * {
+        border: 0 !important;
+    }
+}
+
+.sun-editor .se-dialog .se-dialog-inner .se-dialog-form {
+    margin: 0 0 1rem 0;
+
+    &-footer {
+        margin: 0;
+    }
+}
+
+.sun-editor .se-dialog .se-dialog-inner .se-dialog-footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-color: #dee2e6;
+}
+
+.sun-editor .se-dialog .se-dialog-inner .se-dialog-form .se-input-form,
+.sun-editor .se-dialog .se-dialog-inner .se-dialog-form .se-input-control {
+    height: 38px;
+    padding: 0.375rem 0.75rem;
+    font-size: 15px;
+    flex: 1 0 0;
+}
+
+.sun-editor .se-dialog .se-dialog-inner .se-dialog-btn-check,
+.sun-editor .se-dialog .se-dialog-inner .se-dialog-btn-radio {
+    width: var(--se-checkbox-size);
+    height: var(--se-checkbox-size);
+    margin-bottom: 2px;
+    cursor: pointer;
+}
+
+.sun-editor .se-dialog .se-dialog-inner .se-dialog-form .se-dialog-form-files > input {
+    flex: 1 0 0;
+}
+
+.sun-editor input::file-selector-button {
+    height: 36px;
+    border-width: 0 1px 0 0;
+    border-style: solid;
+    border-color: #ced4da;
+    padding: 0 1rem;
+    background-color: var(--bs-gray, #6c757d);
+    color: var(--bs-white, #fff);
+}
+
+.sun-editor .se-dialog .se-dialog-inner .se-link-preview {
+    font-size: 12px;
+    padding: 0 calc(.75rem + 1px);
+}
+
+.sun-editor .se-dialog .se-dialog-inner .se-dialog-form .se-dialog-form-files .se-dialog-files-edge-button {
+    flex: none;
+}
+
+.sun-editor .se-dialog .se-dialog-inner .se-dialog-form .se-dialog-form-files {
+    gap: 1rem;
+}
+
+.sun-editor .se-dialog .se-dialog-inner .se-dialog-body {
+    padding: 1rem;
+}
+
+.sun-editor .se-dialog .se-dialog-inner .se-btn {
+    border-color: var(--bs-secondary, #232730);
+    background-color: var(--bs-secondary, #232730);
+    color: var(--bs-white, #fff);
+
+    &:hover,
+    &:focus,
+    &:active {
+        border-color: var(--bs-gray, #6c757d);
+        background-color: var(--bs-gray, #6c757d);
+        color: var(--bs-white, #fff);
+        box-shadow: none;
+    }
+}
+
+.sun-editor .se-dialog .se-dialog-inner .se-dialog-form .se-dialog-form-files .se-dialog-files-edge-button {
+    opacity: 1;
+    border-color: var(--bs-secondary, #232730);
+
+    &:hover,
+    &:focus,
+    &:active {
+        border-color: var(--bs-gray, #6c757d);
+        background-color: var(--bs-gray, #6c757d);
+        color: var(--bs-white, #fff);
+        box-shadow: none;
+    }
+}
+
+.sun-editor .se-dialog .se-dialog-inner .se-dialog-form .se-dialog-form-files .se-dialog-files-edge-button.se-file-remove > svg {
+    width: var(--se-icon-size);
+    height: var(--se-icon-size);
+}
+
+.sun-editor .se-dialog .se-dialog-inner .se-dialog-content .se-btn-primary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 38px;
+    min-height: 38px;
+    border-color: var(--bs-secondary, #232730);
+    background-color: var(--bs-secondary, #232730);
+    color: var(--bs-white, #fff);
+    border-radius: .375rem;
+    padding: .25rem 1rem;
+    margin: 0 0 0 auto !important;
+    font-family: var(--se-font-family);
+
+    &:hover,
+    &:focus,
+    &:active {
+        border-color: var(--bs-gray, #6c757d);
+        background-color: var(--bs-gray, #6c757d);
+        color: var(--bs-white, #fff);
+        box-shadow: none;
+    }
+}
+
+.sun-editor .se-dialog .se-dialog-inner .se-dialog-footer > div > label > .se-dialog-btn-radio {
+    margin-left: 0;
+}
+
+.sun-editor .se-dialog .se-dialog-inner .se-dialog-footer > div > label {
+    margin-right: 1rem;
+}
+
+.sun-editor .se-dialog .se-dialog-inner .se-anchor-preview-form {
+    --se-icon-size: 18px;
+
+    align-items: center;
+}
+
+.sun-editor .se-dialog-tabs {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border: 0;
+    height: auto;
+    padding: 1rem 1rem 0;
+}
+
+.sun-editor .se-dialog-tabs button {
+    display: flex;
+    min-width: 38px;
+    min-height: 38px;
+    border: 1px solid var(--bs-secondary, #232730);
+    border-radius: .375rem;
+    font-size: 15px;
+    color: #212529;
+    padding: .25rem 1rem;
+    background-color: var(--bs-white, #fff);
+
+    &.active {
+        border-bottom-width: 1px;
+        background-color: var(--bs-secondary, #232730);
+        color: var(--bs-white, #fff);
+    }
+}
+
+body:has(.se-dialog[style*="display: block"]) {
+    main {
+        z-index: 1100;
+    }
+
+    [data-overlayscrollbars] {
+        z-index: 10;
+    }
+}
+
+.se-dialog {
+    input::file-selector-button {
+        height: 24px;
+        padding: 0 .5em;
+        border-radius: 4px;
+        margin-right: .75em;
+    }
+}
+
+.se-container:has(.se-toolbar-sticky) {
+    padding-top: var(--toolbar-height, 63px);
+}
+
+.sun-editor .se-container {
+    height: 100%;
+}
+
+.sun-editor-editable {
+    h1, .h1 {
+        font-size: 28px;
+    }
+
+    h2, .h2 {
+        font-size: 26px;
+    }
+
+    h3, .h3 {
+        font-size: 24px;
+    }
+
+    h4, .h4 {
+        font-size: 22px;
+    }
+
+    h5, .h5 {
+        font-size: 20px;
+    }
+
+    h6, .h6 {
+        font-size: 18px;
+    }
+}

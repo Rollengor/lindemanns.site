@@ -1,0 +1,24 @@
+@use '../../../node_modules/reset-css/sass/reset';
+@use 'functions/range';
+
+*, *:before, *:after {
+    box-sizing: border-box;
+    outline: none !important;
+}
+
+html {
+    scroll-behavior: smooth
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-height: 100dvh;
+    font-family: var(--font-1);
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--clr-1);
+    background-color: var(--clr-2);
+    line-height: 1.5;
+}

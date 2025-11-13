@@ -1,0 +1,332 @@
+// Configuration
+@import "../../../../node_modules/bootstrap/scss/functions";
+@import "../../../../node_modules/bootstrap/scss/variables";
+@import "../../../../node_modules/bootstrap/scss/variables-dark";
+
+$border-color: $gray-500;
+$body-tertiary-bg: $gray-200;
+$enable-cssgrid: true;
+$enable-negative-margins: true;
+$btn-padding-y: .5rem;
+$btn-padding-x: 1rem;
+$input-padding-y: .5rem;
+$input-padding-x: 1rem;
+$form-check-input-width: 1.25em;
+$form-check-padding-start: $form-check-input-width + .75em;
+$accordion-bg: var(--#{$prefix}light);
+$accordion-button-active-bg: var(--#{$prefix}gray-300);
+$accordion-button-active-color: var(--#{$prefix}dark);
+
+$custom-colors: (
+    "secondary": #232730,
+    "gray": $secondary,
+    "orange": $orange,
+    "purple": $purple
+);
+
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+$custom-ratios: (
+    "2x1": calc(1 / 2 * 100%),
+    "1x2": calc(2 / 1 * 100%),
+    "3x2": calc(2 / 3 * 100%),
+    "2x3": calc(3 / 2 * 100%),
+    "3x4": calc(4 / 3 * 100%),
+    "4x3": calc(3 / 4 * 100%),
+    "5x6": calc(6 / 5 * 100%),
+    "6x5": calc(5 / 6 * 100%),
+    "9x16": calc(16 / 9 * 100%),
+    "16x9": calc(9 / 16 * 100%),
+    "9x21": calc(21 / 9 * 100%),
+    "21x9": calc(9 / 21 * 100%)
+);
+
+$aspect-ratios: map-merge($aspect-ratios, $custom-ratios);
+
+$grid-breakpoints: (
+    xxs: 0,
+    xs: 425px,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1400px,
+    hd: 1600px
+);
+
+$box-shadow-sm: 0 .175rem .25rem rgba($black, .1);
+$box-shadow-md: 0 .25rem .5rem rgba($black, .15);
+
+@import "../../../../node_modules/bootstrap/scss/maps";
+@import "../../../../node_modules/bootstrap/scss/mixins";
+@import "../../../../node_modules/bootstrap/scss/utilities";
+
+$utilities: map-merge($utilities, (
+    "shadow": (
+        property: box-shadow,
+        class: shadow,
+        values: ( null: $box-shadow, sm: $box-shadow-sm, md: $box-shadow-md, lg: $box-shadow-lg, none: none, )
+    ),
+    "color": map-merge(map-get($utilities, "color"), (values: map-merge(map-get(map-get($utilities, "color"), "values"),($colors),),),),)
+);
+
+// Layout & components
+@import "../../../../node_modules/bootstrap/scss/root";
+@import "../../../../node_modules/bootstrap/scss/reboot";
+@import "../../../../node_modules/bootstrap/scss/type";
+@import "../../../../node_modules/bootstrap/scss/images";
+@import "../../../../node_modules/bootstrap/scss/containers";
+@import "../../../../node_modules/bootstrap/scss/grid";
+@import "../../../../node_modules/bootstrap/scss/tables";
+@import "../../../../node_modules/bootstrap/scss/forms";
+@import "../../../../node_modules/bootstrap/scss/buttons";
+@import "../../../../node_modules/bootstrap/scss/transitions";
+@import "../../../../node_modules/bootstrap/scss/dropdown";
+@import "../../../../node_modules/bootstrap/scss/button-group";
+@import "../../../../node_modules/bootstrap/scss/nav";
+@import "../../../../node_modules/bootstrap/scss/navbar";
+@import "../../../../node_modules/bootstrap/scss/card";
+@import "../../../../node_modules/bootstrap/scss/accordion";
+@import "../../../../node_modules/bootstrap/scss/breadcrumb";
+@import "../../../../node_modules/bootstrap/scss/pagination";
+@import "../../../../node_modules/bootstrap/scss/badge";
+@import "../../../../node_modules/bootstrap/scss/alert";
+@import "../../../../node_modules/bootstrap/scss/progress";
+@import "../../../../node_modules/bootstrap/scss/list-group";
+@import "../../../../node_modules/bootstrap/scss/close";
+@import "../../../../node_modules/bootstrap/scss/toasts";
+@import "../../../../node_modules/bootstrap/scss/modal";
+@import "../../../../node_modules/bootstrap/scss/tooltip";
+@import "../../../../node_modules/bootstrap/scss/popover";
+@import "../../../../node_modules/bootstrap/scss/carousel";
+@import "../../../../node_modules/bootstrap/scss/spinners";
+@import "../../../../node_modules/bootstrap/scss/offcanvas";
+@import "../../../../node_modules/bootstrap/scss/placeholders";
+
+// Helpers
+@import "../../../../node_modules/bootstrap/scss/helpers";
+
+// Utilities
+@import "../../../../node_modules/bootstrap/scss/utilities/api";
+
+:root {
+    --header-height: 60px;
+}
+
+.border {
+    &-1s {
+        --bs-border-width: .25rem;
+    }
+    &-2s {
+        --bs-border-width: .5rem;
+    }
+    &-3s {
+        --bs-border-width: 1rem;
+    }
+    &-4s {
+        --bs-border-width: 1.5rem;
+    }
+    &-4s {
+        --bs-border-width: 3rem;
+    }
+    &-solid {
+        --bs-border-style: solid;
+    }
+    &-dashed {
+        --bs-border-style: dashed;
+    }
+    &-dotted {
+        --bs-border-style: dotted;
+    }
+}
+
+.dropdown-menu {
+    --bs-dropdown-min-width: 100%;
+}
+
+.form-control,
+.form-check-input {
+    &:focus {
+        box-shadow: none;
+    }
+}
+
+.form-control-color {
+    width: 100px;
+    max-width: 100%;
+    height: calc(1.75em + 0.75rem + calc(var(--bs-border-width) * 2));
+}
+
+.form-control-placeholder {
+    --placeholder-top: #{$input-padding-y};
+    --placeholder-left: #{$input-padding-x};
+    --placeholder-px: 0;
+
+    position: absolute;
+    top: var(--placeholder-top);
+    left: var(--placeholder-left);
+    padding: 0 var(--placeholder-px);
+    color: $gray-500;
+    z-index: 10;
+    pointer-events: none;
+    transition: top .15s ease-in-out, left .15s ease-in-out, padding .15s ease-in-out, font-size .15s ease-in-out, color .15s ease-in-out;
+
+    &::before {
+        display: block;
+        content: '';
+        height: 1px;
+        background-color: var(--bs-body-bg);
+        position: absolute;
+        top: calc(var(--placeholder-top) * -1);
+        left: 50%;
+        right: 50%;
+        z-index: -1;
+        transition: top .15s ease-in-out, left .15s ease-in-out, right .15s ease-in-out;
+    }
+
+    &.glued {
+        --placeholder-px: 6px;
+
+        font-size: 14px;
+        top: -12px;
+        left: calc(var(--placeholder-left) - var(--placeholder-px));
+        color: var(--bs-gray);
+
+        &::before {
+            top: 12px;
+            left: 0;
+            right: 0;
+        }
+    }
+}
+
+.form-control-sm ~ .form-control-placeholder {
+    --placeholder-top: #{$input-padding-y-sm};
+    --placeholder-left: #{$input-padding-x-sm};
+
+    font-size: .875rem;
+}
+
+.sun-editor ~ .form-control-placeholder::before {
+    background-color: var(--bs-light);
+}
+
+.form-control {
+    text-overflow: ellipsis;
+}
+
+.form-control,
+[data-form-control],
+[class*=ss-open] {
+    &:not([type=file]):focus,
+    &.filled {
+        & ~ .form-control-placeholder {
+            --placeholder-px: 6px;
+
+            font-size: 14px;
+            top: -12px;
+            left: calc(var(--placeholder-left) - var(--placeholder-px));
+            color: var(--bs-gray);
+
+            &::before {
+                top: 12px;
+                left: 0;
+                right: 0;
+            }
+        }
+    }
+}
+
+.form-control-sm {
+    &:not([type=file]):focus,
+    &.filled {
+        & ~ .form-control-placeholder {
+            font-size: 12px;
+            top: -10px;
+
+            &::before {
+                top: 10px;
+            }
+        }
+    }
+}
+
+.shadow-fill {
+    --shadow-fill-size: 1rem;
+    --shadow-fill-opacity: .15;
+
+    box-shadow: 0 0 var(--shadow-fill-size) rgba($black, var(--shadow-fill-opacity));
+
+    &-sm,
+    &-md,
+    &-lg {
+        --shadow-fill-size: 1rem;
+        --shadow-fill-opacity: .15;
+
+        box-shadow: 0 0 var(--shadow-fill-size) rgba($black, var(--shadow-fill-opacity));
+    }
+
+    &-sm {
+        --shadow-fill-size: .25rem;
+        --shadow-fill-opacity: .1;
+    }
+
+    &-md {
+        --shadow-fill-size: .5rem;
+        --shadow-fill-opacity: .15;
+    }
+
+    &-lg {
+        --shadow-fill-size: 3rem;
+        --shadow-fill-opacity: .175;
+    }
+
+    &-inset {
+        --shadow-fill-size: .25rem;
+        --shadow-fill-opacity: .075;
+
+        box-shadow: inset 0 0 var(--shadow-fill-size) rgba($black, var(--shadow-fill-opacity));
+    }
+}
+
+[class*=line-clamp] {
+    --line-clamp: 1;
+
+    display: -webkit-box;
+    -webkit-line-clamp: var(--line-clamp);
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.line-clamp {
+    --line-clamp: 1;
+
+    &-1 {
+        --line-clamp: 1;
+    }
+
+    &-2 {
+        --line-clamp: 2;
+    }
+
+    &-3 {
+        --line-clamp: 3;
+    }
+
+    &-4 {
+        --line-clamp: 4;
+    }
+
+    &-5 {
+        --line-clamp: 5;
+    }
+}
+
+.grayscale {
+    filter: grayscale(100%);
+}
+
+.fs-sm {
+    font-size: 14px;
+}

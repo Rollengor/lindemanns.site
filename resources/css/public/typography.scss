@@ -1,0 +1,25 @@
+@use './functions/range';
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+    font-family: var(--font-2);
+    font-weight: normal;
+}
+
+h1, .h1 {
+    font-size: range.build(36, 72, px, 370, 1920);
+    line-height: 1.05;
+}
+
+h2, .h2 {
+    font-size: range.build(20, 32);
+}
+
+h3, .h3 {
+    font-size: 24px;
+    line-height: 1.05;
+}

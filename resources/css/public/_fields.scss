@@ -1,0 +1,28 @@
+input,
+textarea,
+select {
+    width: 100%;
+    height: var(--field-size);
+    border-radius: var(--field-radius);
+    background-color: var(--clr-3);
+    padding: 0 var(--field-px);
+    font-family: var(--field-ff);
+    font-size: var(--field-fs);
+    border: 2px solid transparent;
+    transition: var(--transition);
+    transition-property: border-color;
+
+    &:hover,
+    &:focus {
+        border-color: var(--clr-5);
+    }
+}
+
+textarea {
+    height: 160px;
+    padding: .5em var(--field-px);
+}
+
+::placeholder {
+    color: rgba(var(--clr-4-rgb), .5);
+}
