@@ -22,18 +22,10 @@ main {
     padding: var(--container-pt) var(--container-pr) var(--container-pb) var(--container-pl);
 }
 
-.page-content {
-    padding-top: range.build(110, 160);
-}
-
 .formatted-text {
     & > * {
         &:not(:first-child) {
             margin-top: 1em;
-        }
-
-        &:not(:last-child) {
-            margin-bottom: 1em;
         }
     }
 
@@ -42,12 +34,33 @@ main {
     }
 }
 
-.spectacular-canvas {
-    width: 100vw;
-    height: 100vh;
-    height: 100dvh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -1;
+* {
+    @media (hover: hover) {
+        &::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: var(--scroll-thumb-clr);
+            border-radius: 4px;
+            box-shadow: none;
+            border: 2px solid transparent;
+
+            &:hover {
+                background-color: var(--scroll-thumb-hover-clr);
+            }
+        }
+    }
+
+    @-moz-document url-prefix() {
+        @media (hover: hover) {
+            scrollbar-width: thin;
+            scrollbar-color: var(--scroll-thumb-clr) transparent;
+
+            &:hover {
+                scrollbar-color: var(--scroll-thumb-hover-clr) transparent;
+            }
+        }
+    }
 }

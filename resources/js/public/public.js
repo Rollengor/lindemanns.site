@@ -1,9 +1,9 @@
 import '../bootstrap';
 
 import { scrollPage } from './scroll-page.js';
-import { mainMenu } from './main-menu.js';
+import { extendedMenu } from './extended-menu.js';
 
 scrollPage();
-mainMenu();
+extendedMenu();
 
 console.log('all scripts inited');

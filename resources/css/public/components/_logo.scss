@@ -1,0 +1,17 @@
+@use '../functions/range';
+
+.logo {
+    --logo-size: #{range.build(120, 210)};
+
+    display: block;
+    width: var(--logo-size);
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+    transition-property: color;
+    margin-bottom: calc(var(--logo-size) * .025);
+
+    &:hover {
+        color: var(--color-primary);
+    }
+}

@@ -6,20 +6,30 @@ h3, .h3,
 h4, .h4,
 h5, .h5,
 h6, .h6 {
-    font-family: var(--font-2);
-    font-weight: normal;
+    font-weight: 300;
 }
 
 h1, .h1 {
-    font-size: range.build(36, 72, px, 370, 1920);
+    font-size: range.build(60, 80);
     line-height: 1.05;
 }
 
 h2, .h2 {
-    font-size: range.build(20, 32);
+    font-size: range.build(34, 60);
+    line-height: 1.05;
 }
 
 h3, .h3 {
-    font-size: 24px;
+    font-size: range.build(28, 50);
     line-height: 1.05;
+}
+
+h4, .h4 {
+    font-size: range.build(26, 36);
+    line-height: 1.05;
+}
+
+h5, .h5 {
+    font-size: range.build(20, 28);
+    line-height: 1.2;
 }

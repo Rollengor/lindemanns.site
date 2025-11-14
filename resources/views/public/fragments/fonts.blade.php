@@ -1,13 +1,10 @@
 @php
     $fonts = [
         [
-            'name' => 'HelveticaNeueCyr',
+            'name' => 'HeliosExt',
             'weights' => [
-                'Roman' => 400,
+                'Regular' => 400,
                 'Light' => 300,
-                'Medium' => 500,
-                'Bold' => 700,
-                'Black' => 800,
             ],
         ],
     ];

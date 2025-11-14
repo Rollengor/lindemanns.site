@@ -73,9 +73,6 @@
 
 @include('public.sections.footer')
 
-<div class="scroll-mouse-down"></div>
-<canvas id="fluid-canvas" class="spectacular-canvas"></canvas>
-
 @vite('resources/js/public/public.js')
 
 @stack('footer-scripts')

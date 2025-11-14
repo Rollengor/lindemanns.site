@@ -2,5 +2,5 @@
 <link rel="icon" type="image/svg+xml" href="/img/favicon/favicon.svg" />
 <link rel="shortcut icon" href="favicon.ico" />
 <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png" />
-<meta name="apple-mobile-web-app-title" content="MyWebSite" />
+<meta name="apple-mobile-web-app-title" content="{{ config('app.name') }}" />
 <link rel="manifest" href="/img/favicon/site.webmanifest" />

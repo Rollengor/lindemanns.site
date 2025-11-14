@@ -13,12 +13,27 @@ html {
 body {
     display: flex;
     flex-direction: column;
+    min-width: var(--width-min);
     min-height: 100vh;
     min-height: 100dvh;
-    font-family: var(--font-1);
+    font-family: var(--font-primary);
     font-size: 16px;
     font-weight: 300;
-    color: var(--clr-1);
-    background-color: var(--clr-2);
-    line-height: 1.5;
+    color: var(--color-dark);
+    background-color: var(--color-body);
+    line-height: 1.6;
+}
+
+.is-opened-extended-menu body {
+    overflow: hidden;
+    margin-right: var(--compensate-scrollbar, 0);
+}
+
+button,
+input,
+textarea,
+select {
+    font-family: var(--font-primary);
+    font-weight: 300;
+    color: var(--color-dark);
 }
