@@ -7,11 +7,10 @@
     --btn-gap: 1em;
     --btn-border-size: 0;
     --btn-shadow-size: calc(var(--btn-size) / 10);
-    --btn-radius: calc(var(--btn-size) / 2);
+    --btn-radius: 100px;
     --btn-px: 0;
     --btn-py: 0;
     --btn-fz: 16px;
-    --btn-ff: var(--font-3);
 
     --btn-color: var(--color-dark);
     --btn-color-border: var(--color-dark);
@@ -32,7 +31,6 @@
     cursor: pointer;
     text-decoration: none;
     padding: var(--btn-py) var(--btn-px);
-    font-family: var(--btn-ff);
     font-size: var(--btn-fz);
     transition: var(--transition);
     line-height: 1.1;
@@ -54,5 +52,40 @@
     &:hover {
         --btn-color-bg: var(--color-primary);
         --btn-color-border: var(--color-primary);
+    }
+}
+
+.btn-submit {
+    --btn-size: #{range.build(56, 70)};
+    --btn-px: calc(var(--btn-size) * 0.45);
+    --btn-color: var(--color-white);
+    --btn-color-bg: var(--color-primary-medium);
+
+    font-weight: bold;
+
+    &::after {
+        display: block;
+        content: '';
+        width: 12px;
+        aspect-ratio: 1;
+        background-color: var(--color-green);
+        mask-image: var(--icon-corner-arrow);
+        mask-repeat: no-repeat;
+        mask-position: center;
+        mask-size: contain;
+        transition: var(--transition);
+        transition-property: opacity, translate;
+        rotate: 45deg;
+        position: absolute;
+        right: range.build(20, 26);
+        translate: -150% 0;
+        opacity: 0;
+    }
+
+    &:hover {
+        &::after {
+            opacity: 1;
+            translate: 0 0;
+        }
     }
 }

@@ -11,8 +11,10 @@
 @use "components/logo";
 @use "components/lang";
 @use "components/socials";
-@use "components/primary-link";
+@use "components/links";
 
 @use "sections/header";
+@use "sections/news";
+@use "sections/contact-section";
 
 @use "pages/home";

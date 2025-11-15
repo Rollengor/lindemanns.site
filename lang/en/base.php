@@ -11,4 +11,13 @@ return [
     'who_we_are' => 'Who we are',
     'recent_cases' => 'Recent Cases',
     'view_all' => 'View all',
+    'news_and_events' => 'News & Events',
+    'blog' => 'Blog',
+    'event' => 'Event',
+    'all' => 'All',
+    'your_name' => 'Your Name',
+    'last_name' => 'Last Name',
+    'phone' => 'Phone',
+    'email' => 'Email',
+    'send' => 'Send',
 ];

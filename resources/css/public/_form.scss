@@ -1,13 +1,40 @@
+@use './functions/range';
+
 .form {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
+    gap: range.build(26, 30);
+}
+
+.form-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
 
     &-row {
-        width: 100%;
+        --col-count: 1;
+        --col-gap: 14px;
+
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+        grid-template-columns: repeat(var(--col-count), calc((100% - var(--col-gap) * (var(--col-count) - 1)) / var(--col-count)));
+        gap: var(--col-gap);
+
+        @media (min-width: 600px) {
+            --col-count: 2;
+        }
+    }
+}
+
+.form-info {
+    font-size: range.build(12, 14);
+    text-align: center;
+    color: var(--color-gray);
+
+    a {
+        color: inherit;
+
+        &:hover {
+            text-decoration: none;
+        }
     }
 }

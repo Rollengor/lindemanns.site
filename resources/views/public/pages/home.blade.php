@@ -105,4 +105,7 @@
             </div>
         </div>
     </section>
+
+    @include('public.sections.news')
+    @include('public.sections.contact-section')
 @endsection

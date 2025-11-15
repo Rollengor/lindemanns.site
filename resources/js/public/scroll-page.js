@@ -5,5 +5,5 @@ export function scrollPage() {
 }
 
 function toggleScrollClass() {
-    document.documentElement.classList.toggle('is-page-scrolled', window.scrollY > window.innerHeight);
+    document.documentElement.classList.toggle('is-page-scrolled', window.scrollY > 0/*window.innerHeight*/);
 }

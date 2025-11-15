@@ -1,16 +1,18 @@
+@use './functions/range';
+
 input,
 textarea,
 select {
     width: 100%;
     height: var(--field-size);
     border-radius: var(--field-radius);
-    background-color: var(--clr-3);
-    padding: 0 var(--field-px);
-    font-family: var(--field-ff);
+    background-color: var(--field-bg-color);
+    padding: range.build(16, 22) var(--field-px) 0;
     font-size: var(--field-fs);
-    border: 2px solid transparent;
+    border: 1px solid var(--color-border-color);
     transition: var(--transition);
     transition-property: border-color;
+    font-weight: normal;
 
     &:hover,
     &:focus {
@@ -25,4 +27,42 @@ textarea {
 
 ::placeholder {
     color: rgba(var(--clr-4-rgb), .5);
+}
+
+.form-control {
+    display: block;
+    position: relative;
+
+    &-placeholder {
+        display: flex;
+        align-items: center;
+        height: var(--field-size);
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 0 var(--field-px);
+        font-size: range.build(16, 18);
+        color: var(--color-gray);
+        transition: var(--transition);
+        transition-property: padding-bottom, font-size;
+        pointer-events: none;
+
+        sup {
+            color: var(--color-red);
+            font-size: 1.25em;
+            margin-left: .25em;
+        }
+    }
+}
+
+input,
+textarea,
+select {
+    &.is-filled,
+    &:focus {
+        & ~ .form-control-placeholder {
+            font-size: range.build(12, 14);
+            padding-bottom: 28px;
+        }
+    }
 }

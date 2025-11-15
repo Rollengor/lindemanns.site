@@ -5,6 +5,7 @@
             'weights' => [
                 'Regular' => 400,
                 'Light' => 300,
+                'Bold' => 700,
             ],
         ],
     ];
