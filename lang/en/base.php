@@ -20,4 +20,8 @@ return [
     'phone' => 'Phone',
     'email' => 'Email',
     'send' => 'Send',
+    'follow_us' => 'Follow us',
+    'imprint' => 'Imprint',
+    'privacy_notice' => 'Privacy notice',
+    'terms_of_use' => 'Terms of use',
 ];
