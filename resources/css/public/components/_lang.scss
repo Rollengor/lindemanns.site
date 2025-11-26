@@ -36,6 +36,7 @@
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
+    color: var(--color-white);
 }
 
 .lang ul li:not(:first-child) {

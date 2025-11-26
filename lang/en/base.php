@@ -24,4 +24,5 @@ return [
     'imprint' => 'Imprint',
     'privacy_notice' => 'Privacy notice',
     'terms_of_use' => 'Terms of use',
+    'related_articles' => 'Related Articles',
 ];

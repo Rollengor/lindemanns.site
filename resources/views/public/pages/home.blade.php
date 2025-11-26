@@ -6,7 +6,7 @@
             <h1>Lindemanns<br> Real</h1>
 
             <div class="home-hero-body">
-                <img src="/img/circle-logo.svg" alt="Circle logo" class="img-fluid home-hero-logo">
+                <x-public.circle-logo class="home-hero-logo"/>
 
                 <div class="formatted-text home-hero-description">
                     <h4>Swis Excellence.<br> Global Perspective</h4>

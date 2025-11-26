@@ -39,7 +39,6 @@
     --icon-color: inherit;
 
     display: block;
-    width: 200vw;
-    max-width: var(--icon-size);
+    width: var(--icon-size);
     color: var(--icon-color);
 }

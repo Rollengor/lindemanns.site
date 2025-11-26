@@ -1,13 +1,27 @@
 @use '../functions/range';
 
 .news {
-    padding: range.build(60, 80) 0 60px;
+    padding: range.build(60, 70) 0 60px;
+}
+
+.inner-page .news {
+    padding: range.build(50, 60) 0 0;
 }
 
 .news-container {
     display: flex;
     flex-direction: column;
-    gap: range.build(50, 78);
+    gap: range.build(50, 60);
+}
+
+.inner-page {
+    .news {
+        padding: range.build(40, 50) 0 0;
+
+        &-container {
+            gap: range.build(40, 50);
+        }
+    }
 }
 
 .news-head {
@@ -44,11 +58,8 @@
 
 .news-tags {
     display: flex;
-    border: 2px solid var(--color-border);
-    background-color: var(--color-border);
     margin: 0 auto;
-    border-radius: 5em;
-    gap: 5px;
+    gap: range.build(10, 26);
 
     @media (max-width: 1299px) {
         margin-top: .5em;
@@ -56,14 +67,18 @@
 }
 
 .news-tag-btn {
-    --btn-width: #{range.build(76, 125)};
-    --btn-height: #{range.build(50, 70)};
-    --btn-px: .5em;
+    --btn-width: 0;
+    --btn-height: #{range.build(40, 60)};
+    --btn-px: #{range.build(1.25, 1.75, em)};
     --btn-fz: #{range.build(14, 18)};
+    --btn-color-bg: transparent;
+
+    border-bottom: 2px solid transparent;
+    border-radius: 0;
 
     &:hover,
     &.is-active {
-        --btn-color-bg: var(--color-white);
+        border-bottom-color: var(--color-primary);
     }
 }
 
@@ -86,22 +101,45 @@
 .article-card {
     display: flex;
     flex-direction: column;
-    min-height: 260px;
     border-radius: var(--radius);
     overflow: hidden;
     background-color: var(--color-white);
-    padding: range.build(20, 40);
     position: relative;
     box-shadow: 0 5px 20px 0 rgba(var(--color-dark-rgb), .05);
     transition: var(--transition);
     transition-property: color, background-color;
 
-    @media (min-width: 768px) {
-        min-height: range.build(300, 320, px, 768, 991);
+    &-wrapper {
+        display: flex;
+        flex-direction: column;
+        min-height: 260px;
+        position: relative;
+        z-index: 5;
+        padding: range.build(20, 40);
+
+        @media (min-width: 768px) {
+            min-height: range.build(300, 320, px, 768, 991);
+        }
+
+        @media (min-width: 992px) {
+            min-height: range.build(320, 388, px, 992);
+        }
     }
 
-    @media (min-width: 992px) {
-        min-height: range.build(320, 388, px, 992);
+    &-icon {
+        --icon-size: min(70%, 320px);
+        --icon-color: var(--color-primary);
+
+        position: absolute;
+        top: 10%;
+        right: -8%;
+        transition: var(--transition);
+        transition-property: opacity;
+        opacity: 0;
+
+        @media (min-width: 768px) {
+            --icon-size: 70%;
+        }
     }
 
     &-title {
@@ -209,6 +247,10 @@
         background-color: var(--color-primary-medium);
 
         .article-card {
+            &-icon {
+                opacity: .5;
+            }
+
             &-title {
                 &::after {
                     background-color: var(--color-white);

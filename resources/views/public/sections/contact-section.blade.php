@@ -16,7 +16,7 @@
             <div class="contact-section-form-head">
                 <h4 class="contact-section-form-title">Contact Us to Get Some Exclusive</h4>
                 <div class="contact-section-form-avatar">
-                    <img src="/img/circle-logo.svg" alt="Circle logo" class="img-fluid">
+                    <x-public.circle-logo/>
                     <img src="/img/avatar.jpg" alt="Circle logo" class="img-fluid">
                 </div>
             </div>

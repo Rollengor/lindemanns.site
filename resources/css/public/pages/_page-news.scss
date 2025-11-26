@@ -1,0 +1,17 @@
+@use '../functions/range';
+
+.news-page-head {
+    position: relative;
+}
+
+.news-page-head-icon {
+    --icon-size: #{range.build(310, 406)};
+    --icon-color: var(--color-primary);
+
+    position: absolute;
+    top: -60px;
+    right: range.build(32, 70);
+    opacity: .2;
+    pointer-events: none;
+    z-index: -1;
+}

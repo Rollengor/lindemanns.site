@@ -10,7 +10,6 @@ use Illuminate\View\View;
 class HomePageController extends Controller
 {
     public function index(): View {
-        $page = Page::where('slug', 'home')->first();
         $projects = [
             [
                 'image' => '/img/temp/project-1.webp',
@@ -38,6 +37,6 @@ class HomePageController extends Controller
             ],
         ];
 
-        return view('public.pages.home', compact('page', 'projects'));
+        return view('public.pages.home', compact('projects'));
     }
 }

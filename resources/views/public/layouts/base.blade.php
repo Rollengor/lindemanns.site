@@ -63,7 +63,21 @@
 
     @vite('resources/css/public/public.scss')
 </head>
-<body {{ isset($page) ? 'id=' . $page->slug . '-page' : null }} class="{{ !Route::is('public.home') ? 'page-content' : null }}">
+
+@php
+    $bodyClass = 'home-page';
+
+    if (Route::is('public.news.*')) {
+        $bodyClass = '';
+    } elseif (!Route::is('public.home')) {
+        $bodyClass = 'inner-page';
+    }
+@endphp
+
+<body
+    {{ isset($page) ? 'id=' . $page->slug . '-page' : null }}
+    class="{{ $bodyClass }}"
+>
 
 @include('public.sections.header')
 
