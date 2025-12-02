@@ -73,6 +73,11 @@
     background-color: var(--bs-light, #fafafa);
 }
 
+.modal .sun-editor .se-toolbar {
+    position: sticky;
+    top: 0;
+}
+
 .sun-editor-editable {
     font-size: 16px;
     line-height: 1.3;
@@ -87,7 +92,13 @@
 }
 
 .sun-editor-editable .se-component {
-    margin-bottom: 1em
+    &:not(:first-child) {
+        margin-top: 2em;
+    }
+
+    &:not(:last-child) {
+        margin-bottom: 2em;
+    }
 }
 
 .sun-editor .se-svg,
@@ -109,17 +120,6 @@
         width: auto;
         height: auto;
         margin: 0;
-    }
-}
-
-.sun-editor-editable {
-    h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-        margin-inline-start: 0;
-        margin-inline-end: 0;
-        margin-block-start: 0;
-        margin-block-end: 0;
-        margin-bottom: 1rem;
-        font-weight: 600;
     }
 }
 
@@ -503,6 +503,19 @@ body:has(.se-dialog[style*="display: block"]) {
 }
 
 .sun-editor-editable {
+    h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+        margin-inline-start: 0;
+        margin-inline-end: 0;
+        margin-block-start: 0;
+        margin-block-end: 0;
+        margin-bottom: 1rem;
+        font-weight: normal;
+
+        & * {
+            font-size: 1em;
+        }
+    }
+
     h1, .h1 {
         font-size: 28px;
     }
@@ -525,5 +538,20 @@ body:has(.se-dialog[style*="display: block"]) {
 
     h6, .h6 {
         font-size: 18px;
+    }
+
+    p {
+        min-height: 1em;
+    }
+
+    b, strong {
+        font-weight: bold;
+    }
+
+    blockquote {
+        color: inherit;
+        font-style: italic;
+        border-left-width: 4px;
+        padding: 0 0 0 16px;
     }
 }

@@ -36,17 +36,17 @@
                 <?php
                     $menu = [
                         [
-                            'title' => __('titles.profile'),
+                            'title' => __('admin.profile'),
                             'url' => 'admin.profile',
                             'icon' => 'gear',
                         ],
                         [
-                            'title' => __('titles.password'),
+                            'title' => __('admin.password'),
                             'url' => 'admin.password',
                             'icon' => 'key',
                         ],
                         [
-                            'title' => __('titles.managers'),
+                            'title' => __('admin.managers'),
                             'url' => 'admin.manager',
                             'icon' => 'people',
                         ],
@@ -74,7 +74,7 @@
                             <svg class="bi" width="18" height="18" fill="currentColor">
                                 <use xlink:href="/img/icons/bootstrap-icons.svg#box-arrow-left"/>
                             </svg>
-                            <span>{{ __('titles.logOut') }}</span>
+                            <span>{{ __('admin.log_out') }}</span>
                         </button>
                     </form>
                 </li>

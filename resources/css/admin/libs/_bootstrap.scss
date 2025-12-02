@@ -321,6 +321,96 @@ $utilities: map-merge($utilities, (
     &-5 {
         --line-clamp: 5;
     }
+
+    @media (min-width: 576px) {
+        &-sm-1 {
+            --line-clamp: 1;
+        }
+        &-sm-2 {
+            --line-clamp: 2;
+        }
+        &-sm-3 {
+            --line-clamp: 3;
+        }
+        &-sm-4 {
+            --line-clamp: 4;
+        }
+        &-sm-5 {
+            --line-clamp: 5;
+        }
+    }
+
+    @media (min-width: 768px) {
+        &-md-1 {
+            --line-clamp: 1;
+        }
+        &-md-2 {
+            --line-clamp: 2;
+        }
+        &-md-3 {
+            --line-clamp: 3;
+        }
+        &-md-4 {
+            --line-clamp: 4;
+        }
+        &-md-5 {
+            --line-clamp: 5;
+        }
+    }
+
+    @media (min-width: 992px) {
+        &-lg-1 {
+            --line-clamp: 1;
+        }
+        &-lg-2 {
+            --line-clamp: 2;
+        }
+        &-lg-3 {
+            --line-clamp: 3;
+        }
+        &-lg-4 {
+            --line-clamp: 4;
+        }
+        &-lg-5 {
+            --line-clamp: 5;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        &-xl-1 {
+            --line-clamp: 1;
+        }
+        &-xl-2 {
+            --line-clamp: 2;
+        }
+        &-xl-3 {
+            --line-clamp: 3;
+        }
+        &-xl-4 {
+            --line-clamp: 4;
+        }
+        &-xl-5 {
+            --line-clamp: 5;
+        }
+    }
+
+    @media (min-width: 1400px) {
+        &-xxl-1 {
+            --line-clamp: 1;
+        }
+        &-xxl-2 {
+            --line-clamp: 2;
+        }
+        &-xxl-3 {
+            --line-clamp: 3;
+        }
+        &-xxl-4 {
+            --line-clamp: 4;
+        }
+        &-xxl-5 {
+            --line-clamp: 5;
+        }
+    }
 }
 
 .grayscale {

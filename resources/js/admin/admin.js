@@ -17,8 +17,6 @@ import { select } from "./components/select.js";
 
 import { saveAndShowActiveTab } from "./saveAndShowActiveTab.js";
 
-//import { tiptapWysiwyg } from "./tiptap-wysiwyg/tiptapWysiwyg.js";
-
 import { preloader } from "./components/preloader.js";
 
 fields();
@@ -37,8 +35,6 @@ datepicker();
 select();
 
 saveAndShowActiveTab();
-
-//tiptapWysiwyg();
 
 preloader();
 

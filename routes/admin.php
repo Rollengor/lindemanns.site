@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
+/* Upload File */
+Route::post('/upload-image', [\App\Http\Controllers\Admin\ImageUploadController::class, 'store'])->name('admin.image.upload');
+
 /* Main */
 Route::get('/', [\App\Http\Controllers\Admin\MainController::class, 'index'])->name('admin.main');
 
@@ -36,13 +39,41 @@ Route::group([
     'middleware' => [\Spatie\Permission\Middleware\RoleOrPermissionMiddleware::using([\App\Enums\PermissionsEnum::CANALL->value])]
 ], function () {
 
-    /*Route::get('/wysiwyg', [\App\Http\Controllers\Admin\WysiwygController::class, 'index'])->name('admin.wysiwyg');*/
-
     Route::group(['prefix' => 'home'], function () {
 
         Route::get('/', [\App\Http\Controllers\Admin\HomePageController::class, 'index'])->name('admin.home.page');
-
         Route::patch('/{page}/update', [\App\Http\Controllers\Admin\HomePageController::class, 'update'])->name('admin.home.page.update');
+
+    });
+
+    Route::group(['prefix' => 'news'], function () {
+
+        Route::get('/', [\App\Http\Controllers\Admin\News\PageController::class, 'index'])->name('admin.news.page');
+        Route::patch('/{page}/update', [\App\Http\Controllers\Admin\News\PageController::class, 'update'])->name('admin.news.page.update');
+
+        Route::group(['prefix' => 'categories'], function () {
+
+            Route::get('/', [\App\Http\Controllers\Admin\News\CategoryController::class, 'index'])->name('admin.news.categories');
+
+            Route::get('/create', [\App\Http\Controllers\Admin\News\CategoryController::class, 'create'])->name('admin.news.category.create');
+            Route::post('/store', [\App\Http\Controllers\Admin\News\CategoryController::class, 'store'])->name('admin.news.category.store');
+            Route::get('/{newsCategory}/edit', [\App\Http\Controllers\Admin\News\CategoryController::class, 'edit'])->name('admin.news.category.edit');
+            Route::patch('/{newsCategory}/update', [\App\Http\Controllers\Admin\News\CategoryController::class, 'update'])->name('admin.news.category.update');
+            Route::delete('/{newsCategory}/delete', [\App\Http\Controllers\Admin\News\CategoryController::class, 'delete'])->name('admin.news.category.delete');
+
+        });
+
+        Route::group(['prefix' => 'articles'], function () {
+
+            Route::get('/', [\App\Http\Controllers\Admin\News\ArticleController::class, 'index'])->name('admin.news.articles');
+
+            Route::get('/create', [\App\Http\Controllers\Admin\News\ArticleController::class, 'create'])->name('admin.news.article.create');
+            Route::post('/store', [\App\Http\Controllers\Admin\News\ArticleController::class, 'store'])->name('admin.news.article.store');
+            Route::get('/{newsArticle}/edit', [\App\Http\Controllers\Admin\News\ArticleController::class, 'edit'])->name('admin.news.article.edit');
+            Route::patch('/{newsArticle}/update', [\App\Http\Controllers\Admin\News\ArticleController::class, 'update'])->name('admin.news.article.update');
+            Route::delete('/{newsArticle}/delete', [\App\Http\Controllers\Admin\News\ArticleController::class, 'delete'])->name('admin.news.article.delete');
+
+        });
 
     });
 
@@ -51,28 +82,4 @@ Route::group([
         Route::get('/', [\App\Http\Controllers\Admin\DeleteModalController::class, 'show'])->name('admin.confirm-delete-modal');
 
     });
-
-    /*Route::group(['prefix' => 'faq'], function () {
-
-        Route::get('/', [\App\Http\Controllers\Admin\FAQController::class, 'index'])->name('admin.faq');
-
-        Route::get('/create', [\App\Http\Controllers\Admin\FAQController::class, 'create'])->name('admin.faq.create');
-        Route::post('/store', [\App\Http\Controllers\Admin\FAQController::class, 'store'])->name('admin.faq.store');
-        Route::get('/{faq}/edit', [\App\Http\Controllers\Admin\FAQController::class, 'edit'])->name('admin.faq.edit');
-        Route::patch('/{faq}/update', [\App\Http\Controllers\Admin\FAQController::class, 'update'])->name('admin.faq.update');
-        Route::delete('/{faq}/delete', [\App\Http\Controllers\Admin\FAQController::class, 'delete'])->name('admin.faq.delete');
-
-    });*/
-
 });
-
-/*Route::group([
-    'middleware' => [\Spatie\Permission\Middleware\RoleOrPermissionMiddleware::using([\App\Enums\RolesEnum::SUPERADMIN->value, \App\Enums\RolesEnum::ADMIN->value])],
-    'prefix' => 'settings'
-], function () {
-
-    Route::get('/', [\App\Http\Controllers\Admin\SettingsController::class, 'index'])->name('admin.settings');
-
-    Route::patch('/email/{setting}', [\App\Http\Controllers\Admin\SettingsController::class, 'updateEmail'])->name('admin.settings.email.update');
-
-});*/

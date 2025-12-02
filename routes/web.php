@@ -1,13 +1,21 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
-require __DIR__.'/auth.php';
+Route::group([
+    'prefix' => LaravelLocalization::setLocale(),
+    'middleware' => [ 'localizationRedirect', 'localeViewPath']
+], function () {
 
-Route::group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'admin'], function () {
-    require __DIR__ . '/admin.php';
-});
+    require __DIR__.'/auth.php';
 
-Route::group(['namespace' => 'Public'], function () {
-    require __DIR__ . '/public.php';
+    Route::group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'admin'], function () {
+        require __DIR__ . '/admin.php';
+    });
+
+    Route::group(['namespace' => 'Public'], function () {
+        require __DIR__ . '/public.php';
+    });
+
 });

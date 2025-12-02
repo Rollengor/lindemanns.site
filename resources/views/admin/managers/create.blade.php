@@ -1,16 +1,16 @@
 @extends('admin.layouts.base')
 
-@section('title', __('titles.creatingManager') . ' - ' . config('app.name'))
+@section('title', __('admin.create') . ' - ' . config('app.name'))
 
 @section('panel')
     <x-admin.main-panel
-        :title="__('titles.createManager')"
+        :title="__('admin.create')"
     >
         <x-admin.button
             data-submit-loader
             :type="'submit'"
-            :form="'createManager'"
-            :title="__('buttons.save')"
+            :form="'controlForm'"
+            :title="__('admin.save')"
             :iconName="'floppy'"
             :withLoader="true"
         />
@@ -19,7 +19,7 @@
 
 @section('content')
     <x-admin.container
-        :id="'createManager'"
+        :id="'controlForm'"
         :action="route('admin.manager.store')"
         :method="'POST'"
     >
@@ -30,7 +30,7 @@
                 style="width: 108px;"
 
                 :name="'avatar'"
-                :placeholder="__('fields.avatar')"
+                :placeholder="__('admin.avatar')"
                 :ratio="'1x1'"
                 :rounded="'rounded-circle'"
                 :required="false"
@@ -41,14 +41,14 @@
                 <x-admin.field.text
                     :name="'first_name'"
                     :value="old('first_name')"
-                    :placeholder="__('fields.firstName')"
+                    :placeholder="__('admin.first_name')"
                 />
 
                 <!-- last name -->
                 <x-admin.field.text
                     :name="'last_name'"
                     :value="old('last_name')"
-                    :placeholder="__('fields.lastName')"
+                    :placeholder="__('admin.last_name')"
                 />
             </div>
 
@@ -57,7 +57,7 @@
                 <x-admin.field.text
                     :name="'username'"
                     :value="old('username')"
-                    :placeholder="__('fields.username')"
+                    :placeholder="__('admin.username')"
                     :pattern="'.{4,}'"
                 />
 
@@ -65,7 +65,7 @@
                 <x-admin.field.email
                     :name="'email'"
                     :value="old('email')"
-                    :placeholder="__('fields.email')"
+                    :placeholder="__('admin.email')"
                 />
             </div>
 
@@ -74,14 +74,14 @@
                 <x-admin.field.password
                     :name="'password'"
                     :value="old('password')"
-                    :placeholder="__('fields.password')"
+                    :placeholder="__('admin.password')"
                 />
 
                 <!-- roles -->
                 <x-admin.field.select
                     class="flex-auto"
                     :name="'role'"
-                    :placeholder="__('fields.role')"
+                    :placeholder="__('admin.role')"
                 >
                     @foreach($roles as $key => $label)
                         <option value="{{ $key }}">{{ __('roles.' . $key) }}</option>

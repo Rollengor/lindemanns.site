@@ -1,16 +1,16 @@
 @extends('admin.layouts.base')
 
-@section('title', __('titles.profile') . ' - ' . config('app.name'))
+@section('title', __('admin.profile') . ' - ' . config('app.name'))
 
 @section('panel')
     <x-admin.main-panel
-        :title="__('titles.profile')"
+        :title="__('admin.profile')"
     >
         <x-admin.button
             data-submit-loader
             :type="'submit'"
             :form="'profileForm'"
-            :title="__('buttons.save')"
+            :title="__('admin.save')"
             :iconName="'floppy'"
             :withLoader="true"
         />
@@ -29,7 +29,7 @@
                 style="width: 108px;"
 
                 :name="'avatar'"
-                :placeholder="__('fields.avatar')"
+                :placeholder="__('admin.avatar')"
                 :ratio="'1x1'"
                 :rounded="'rounded-circle'"
                 :required="false"
@@ -41,14 +41,14 @@
                 <x-admin.field.text
                     :name="'first_name'"
                     :value="old('first_name', $user->first_name)"
-                    :placeholder="__('fields.firstName')"
+                    :placeholder="__('admin.first_name')"
                 />
 
                 <!-- last name -->
                 <x-admin.field.text
                     :name="'last_name'"
                     :value="old('last_name', $user->last_name)"
-                    :placeholder="__('fields.lastName')"
+                    :placeholder="__('admin.last_name')"
                 />
             </div>
 
@@ -59,7 +59,7 @@
 
                     :name="'username'"
                     :value="old('username', $user->username)"
-                    :placeholder="__('fields.username')"
+                    :placeholder="__('admin.username')"
                     :pattern="'.{4,}'"
                 />
 
@@ -69,7 +69,7 @@
 
                     :name="'email'"
                     :value="old('email', $user->email)"
-                    :placeholder="__('fields.email')"
+                    :placeholder="__('admin.email')"
                 />
             </div>
         </div>

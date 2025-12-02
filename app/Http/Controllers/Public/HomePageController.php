@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Public;
 
 use App\Http\Controllers\Controller;
+use App\Models\NewsArticle;
+use App\Models\NewsCategory;
 use App\Models\Page;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -37,6 +39,10 @@ class HomePageController extends Controller
             ],
         ];
 
-        return view('public.pages.home', compact('projects'));
+        $page = Page::where('slug', 'home')->first();
+        $newsCategories = NewsCategory::where('active', '1')->get();
+        $newsArticles = NewsArticle::where('active', '1')->latest()->limit(6)->get();
+
+        return view('public.pages.home', compact('page', 'projects', 'newsCategories', 'newsArticles'));
     }
 }

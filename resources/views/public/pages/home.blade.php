@@ -1,17 +1,14 @@
 @extends('public.layouts.base')
 
 @section('content')
-    <section class="home-hero bg-img-cover" style="background-image: url(/img/temp/hero.webp);">
+    <section class="home-hero bg-img-cover" style="background-image: url({{ $page->getFirstMediaUrl('hero-image', 'hd-webp') }});">
         <div class="container home-hero-container">
-            <h1>Lindemanns<br> Real</h1>
+            <h1>{{ data_get($page->content_data, 'hero.title') }}</h1>
 
             <div class="home-hero-body">
                 <x-public.circle-logo class="home-hero-logo"/>
 
-                <div class="formatted-text home-hero-description">
-                    <h4>Swis Excellence.<br> Global Perspective</h4>
-                    <p>At LINDEMANNNS REAL GMBH, we transform real estate aspirations into tangible success. With unmatched expertise and a client-first approach, we are committed to helping you achieve your property goals.</p>
-                </div>
+                <div class="formatted-text home-hero-description">{!! data_get($page->content_data, 'hero.description') !!}</div>
             </div>
         </div>
     </section>

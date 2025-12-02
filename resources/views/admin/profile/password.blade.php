@@ -1,16 +1,16 @@
 @extends('admin.layouts.base')
 
-@section('title', __('titles.changePassword') . ' - ' . config('app.name'))
+@section('title', __('admin.change_password') . ' - ' . config('app.name'))
 
 @section('panel')
     <x-admin.main-panel
-        :title="__('titles.changePassword')"
+        :title="__('admin.change_password')"
     >
         <x-admin.button
             data-submit-loader
             :type="'submit'"
             :form="'passwordForm'"
-            :title="__('buttons.save')"
+            :title="__('admin.save')"
             :iconName="'floppy'"
             :withLoader="true"
         />
@@ -30,7 +30,7 @@
 
                 :name="'current_password'"
                 :value="old('password')"
-                :placeholder="__('fields.currentPassword')"
+                :placeholder="__('admin.current_password')"
             />
 
             <!-- password -->
@@ -39,7 +39,7 @@
 
                 :name="'password'"
                 :value="old('password')"
-                :placeholder="__('fields.newPassword')"
+                :placeholder="__('admin.new_password')"
             />
 
             <!-- confirm password -->
@@ -48,7 +48,7 @@
 
                 :name="'password_confirmation'"
                 :value="old('password_confirmation')"
-                :placeholder="__('fields.repeatPassword')"
+                :placeholder="__('admin.repeat_password')"
             />
         </div>
     </x-admin.container>

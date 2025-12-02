@@ -13,7 +13,7 @@
 
                     <!-- heading -->
                     <div class="p-3 border-bottom border-dark border-opacity-25 text-center">
-                        <h1 class="fs-4 m-0 lh-sm text-uppercase">{{ __('titles.adminPanel') }}</h1>
+                        <h1 class="fs-4 m-0 lh-sm text-uppercase">{{ __('admin.admin_panel') }}</h1>
                         <div class="fs-5 text-gray">{{ config('app.name') }}</div>
                     </div>
 
@@ -23,7 +23,7 @@
                         <x-admin.field.text
                             :name="'username'"
                             :value="old('username')"
-                            :placeholder="__('fields.usernameOrEmail')"
+                            :placeholder="__('admin.username_or_email')"
                             :pattern="'.{4,}'"
                         />
 
@@ -31,7 +31,7 @@
                         <x-admin.field.password
                             :name="'password'"
                             :value="old('password')"
-                            :placeholder="__('fields.password')"
+                            :placeholder="__('admin.password')"
                         />
 
                         <!-- remember -->
@@ -40,7 +40,7 @@
 
                             :name="'remember'"
                             :value="1"
-                            :title="__('fields.rememberMe')"
+                            :title="__('admin.remember_me')"
                             :required="false"
                         />
                     </div>
@@ -58,7 +58,7 @@
                     <!-- actions -->
                     <div class="d-flex flex-column align-items-center gap-2 p-3 pt-4 border-top border-dark border-opacity-25 text-center">
                         <button type="submit" class="btn btn-secondary px-5 submit-loader">
-                            <span>{{ __('buttons.logIn') }}</span>
+                            <span>{{ __('admin.log_in') }}</span>
 
                             <span class="submit-loader-spinner">
                                 <span class="spinner-border m-auto text-white"></span>
@@ -66,7 +66,7 @@
                         </button>
 
                         @if (Route::has('password.request'))
-                            <a href="{{ route('password.request') }}" class="text-decoration-none">{{ __('texts.forgotYourPassword') }}</a>
+                            <a href="{{ route('password.request') }}" class="text-decoration-none">{{ __('admin.forgot_your_password') }}</a>
                         @endif
 
                         <x-admin.lang :withIcon="true" />

@@ -1,8 +1,12 @@
+@props([
+    'article'
+])
+
 <div class="related-article-card">
-    <h3 class="related-article-card-title">Stay Ahead of the Market: 19 Best Real Estate Blogs in 2025</h3>
+    <h3 class="related-article-card-title">{{ $article->title }}</h3>
     <div class="related-article-card-info">
-        <time datetime="2025-07-25">25 Jul 2025</time>
-        <div>{{ __('base.blog') }}</div>
+        <time datetime="{{ $article->created_at->format('Y-m-d') }}">{{ $article->created_at->translatedFormat('d M Y') }}</time>
+        <div>{{ $article->first_category->name }}</div>
     </div>
-    <a href="{{ route('public.news.article') }}" class="primary-link"></a>
+    <a href="{{ route('public.news.article', $article->slug) }}" class="primary-link"></a>
 </div>

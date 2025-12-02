@@ -5,8 +5,8 @@
         id="waitRequestProcessedMessage"
         class="hide"
 
-        :title="__('titles.waiting')"
-        :message="__('texts.requestProcessing')"
+        :title="__('admin.waiting')"
+        :message="__('admin.request_processing')"
         :type="'info'"
         :alone="true"
     />
@@ -14,7 +14,7 @@
     @if($errors->any())
         @foreach($errors->all() as $message)
             <x-admin.alert
-                :title="__('titles.error')"
+                :title="__('admin.error')"
                 :message="$message"
                 :type="'error'"
             />
@@ -23,7 +23,7 @@
 
     @if(session()->has('success'))
         <x-admin.alert
-            :title="__('titles.success')"
+            :title="__('admin.success')"
             :message="session()->get('success')"
             :type="'success'"
         />
@@ -31,7 +31,7 @@
 
     @if(session()->has('danger'))
         <x-admin.alert
-            :title="__('titles.error')"
+            :title="__('admin.error')"
             :message="session()->get('danger')"
             :type="'error'"
         />

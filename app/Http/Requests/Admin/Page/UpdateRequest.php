@@ -22,18 +22,23 @@ class UpdateRequest extends FormRequest
      */
     public function rules(): array
     {
-        $page = $this->route('page');
+        $rules['hero_image'] = ['nullable', 'image', 'mimes:jpg,png,webp', 'max:20480'];
 
-        return [
-            'title' => ['nullable', 'string', Rule::unique('pages')->ignore($page),'max:255'],
+        foreach (supported_languages_keys() as $locale) {
+            $rules['title'] = ['required', 'array'];
+            $rules['title.' . $locale] = ['required', 'string', 'max:255'];
 
-            'seo_title' => ['nullable', 'string', 'max:255'],
-            'seo_description' => ['nullable', 'string', 'max:255'],
-            'seo_keywords' => ['nullable', 'string', 'max:255'],
+            $rules['seo_title'] = ['nullable', 'array'];
+            $rules['seo_title.' . $locale] = ['nullable', 'string', 'max:255'];
+            $rules['seo_description'] = ['nullable', 'array'];
+            $rules['seo_description.' . $locale] = ['nullable', 'string', 'max:255'];
+            $rules['seo_keywords'] = ['nullable', 'array'];
+            $rules['seo_keywords.' . $locale] = ['nullable', 'string', 'max:255'];
 
-            'image' => ['nullable', 'image', 'mimes:jpg,png,webp', 'max:20480'],
+            $rules['content_data'] = ['nullable', 'array'];
+            $rules['content_data.' . $locale] = ['nullable', 'array'];
+        }
 
-            'content_data' => ['nullable', 'array'],
-        ];
+        return $rules;
     }
 }

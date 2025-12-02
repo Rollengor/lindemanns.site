@@ -4,7 +4,7 @@
     "name": "bootstrap"
   },
   "resources/css/admin/admin.scss": {
-    "file": "assets/css/admin-Cibx1Oe1.css",
+    "file": "assets/css/admin-KbnAnQY9.css",
     "src": "resources/css/admin/admin.scss",
     "isEntry": true,
     "names": [
@@ -12,7 +12,7 @@
     ]
   },
   "resources/css/public/public.scss": {
-    "file": "assets/css/public-BfzPeINK.css",
+    "file": "assets/css/public-DvWCq3M2.css",
     "src": "resources/css/public/public.scss",
     "isEntry": true,
     "names": [
@@ -20,7 +20,7 @@
     ]
   },
   "resources/js/admin/admin.js": {
-    "file": "assets/js/admin-OOs8246X.js",
+    "file": "assets/js/admin-C87grzOj.js",
     "name": "admin",
     "src": "resources/js/admin/admin.js",
     "isEntry": true,

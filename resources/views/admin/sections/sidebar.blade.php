@@ -3,77 +3,49 @@
 
     $menu = [
             [
-                'title' => __('titles.main'),
+                'title' => __('admin.main'),
                 'url' => 'admin.main',
                 'icon' => 'buildings',
                 'submenu' => [],
                 'isCan' => true,
             ],
             [
-                'title' => __('titles.home'),
+                'title' => __('admin.home'),
                 'url' => 'admin.home.page',
                 'icon' => 'house',
                 'submenu' => [],
                 'isCan' => $user->can('all'),
             ],
             [
-                'title' => __('titles.clarity'),
-                'url' => 'admin.clarity.page',
-                'icon' => 'gem',
-                'submenu' => [],
-                'isCan' => $user->can('all'),
-            ],
-            [
-                'title' => __('titles.performance'),
-                'url' => 'admin.performance.page',
-                'icon' => 'columns-gap',
-                'submenu' => [],
-                'isCan' => $user->can('all'),
-            ],
-            [
-                'title' => __('titles.framework'),
-                'url' => 'admin.framework.page',
-                'icon' => 'shadows',
-                'submenu' => [],
-                'isCan' => $user->can('all'),
-            ],
-            [
-                'title' => __('titles.learning'),
-                'url' => 'admin.learning',
-                'icon' => 'mortarboard',
+                'title' => __('admin.news'),
+                'url' => 'admin.news',
+                'icon' => 'list-columns',
                 'submenu' => [
                     [
-                        'title' => __('SEO'),
-                        'url' => 'admin.learning.page',
-                        'groupUrl' => 'admin.learning.page*',
+                        'title' => __('admin.page'),
+                        'url' => 'admin.news.page',
+                        'groupUrl' => 'admin.news.page',
                         'icon' => null,
                         'submenu' => [],
                         'isCan' => $user->can('all'),
                     ],
                     [
-                        'title' => __('titles.categories'),
-                        'url' => 'admin.learning.categories',
-                        'groupUrl' => 'admin.learning.categor*',
+                        'title' => __('admin.categories'),
+                        'url' => 'admin.news.categories',
+                        'groupUrl' => 'admin.news.categor*',
                         'icon' => null,
                         'submenu' => [],
                         'isCan' => $user->can('all'),
                     ],
                     [
-                        'title' => __('titles.articles'),
-                        'url' => 'admin.learning.articles',
-                        'groupUrl' => 'admin.learning.article*',
+                        'title' => __('admin.articles'),
+                        'url' => 'admin.news.articles',
+                        'groupUrl' => 'admin.news.article*',
                         'icon' => null,
                         'submenu' => [],
                         'isCan' => $user->can('all'),
                     ],
                 ],
-                'isCan' => $user->can('all'),
-            ],
-            [
-                'title' => __('titles.login'),
-                'url' => 'admin.login.page',
-                'icon' => 'lock',
-                'submenu' => [],
                 'isCan' => $user->can('all'),
             ],
         ];
@@ -82,7 +54,7 @@
 <aside id="adminSidebar" class="sidebar d-flex flex-column bg-secondary text-white active">
     <div class="sidebar-header d-flex align-items-center gap-4 lh-sm border-bottom border-white border-opacity-25 shadow-sm py-2 px-3 position-relative">
         <a href="{{ route('public.home') }}" target="_blank" class="position-relative rounded-circle">
-            <img src="/img/icons/logo.svg" alt="Logo" width="36" class="img-fluid p-1">
+            <img src="/img/admin-logo.jpg" alt="Logo" width="36" class="img-fluid p-1 rounded-pill">
         </a>
 
         <span>{{ config('app.name') }}</span>

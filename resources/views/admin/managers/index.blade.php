@@ -1,15 +1,14 @@
 @extends('admin.layouts.base')
 
-@section('title', __('titles.managers') . ' - ' . config('app.name'))
+@section('title', __('admin.managers') . ' - ' . config('app.name'))
 
 @section('panel')
     <x-admin.main-panel
-        :title="__('titles.managers')"
+        :title="__('admin.managers')"
     >
         <x-admin.button
             :href="route('admin.manager.create')"
-            :shortTitle="__('buttons.create')"
-            :longTitle="__('buttons.createManager')"
+            :title="__('admin.create')"
             :iconName="'plus-circle'"
         />
     </x-admin.main-panel>
@@ -47,7 +46,7 @@
         </div>
 
         @if($managers->isEmpty())
-            <x-admin.empty-message :message="__('texts.emptyManagers')"/>
+            <x-admin.empty-message :message="__('admin.empty_list')"/>
         @endif
     </x-admin.container>
 

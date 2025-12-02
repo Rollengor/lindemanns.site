@@ -12,7 +12,7 @@
 
                     <!-- heading -->
                     <div class="p-3 border-bottom border-dark border-opacity-25 text-center">
-                        <h1 class="fs-4 m-0 lh-sm text-uppercase">{{ __('titles.registration') }}</h1>
+                        <h1 class="fs-4 m-0 lh-sm text-uppercase">{{ __('admin.registration') }}</h1>
                         <div class="fs-5 text-gray">{{ config('app.name') }}</div>
                     </div>
 
@@ -24,7 +24,7 @@
                                 style="width: 108px;"
 
                                 :name="'avatar'"
-                                :placeholder="__('fields.avatar')"
+                                :placeholder="__('admin.avatar')"
                                 :ratio="'1x1'"
                                 :rounded="'rounded-circle'"
                                 :required="false"
@@ -35,14 +35,14 @@
                                 <x-admin.field.text
                                     :name="'first_name'"
                                     :value="old('first_name')"
-                                    :placeholder="__('fields.firstName')"
+                                    :placeholder="__('admin.first_name')"
                                 />
 
                                 <!-- last name -->
                                 <x-admin.field.text
                                     :name="'last_name'"
                                     :value="old('last_name')"
-                                    :placeholder="__('fields.lastName')"
+                                    :placeholder="__('admin.last_name')"
                                 />
                             </div>
                         </div>
@@ -54,7 +54,7 @@
 
                                 :name="'username'"
                                 :value="old('username')"
-                                :placeholder="__('fields.username')"
+                                :placeholder="__('admin.username')"
                                 :pattern="'.{4,}'"
                             />
 
@@ -64,7 +64,7 @@
 
                                 :name="'email'"
                                 :value="old('email')"
-                                :placeholder="__('fields.email')"
+                                :placeholder="__('admin.email')"
                             />
                         </div>
 
@@ -75,7 +75,7 @@
 
                                 :name="'password'"
                                 :value="old('password')"
-                                :placeholder="__('fields.password')"
+                                :placeholder="__('admin.password')"
                             />
 
                             <!-- confirm password -->
@@ -84,7 +84,7 @@
 
                                 :name="'password_confirmation'"
                                 :value="old('password_confirmation')"
-                                :placeholder="__('fields.repeatPassword')"
+                                :placeholder="__('admin.repeat_password')"
                             />
                         </div>
                     </div>
@@ -95,14 +95,14 @@
                     <!-- actions -->
                     <div class="d-flex flex-column align-items-center gap-2 p-3 pt-4 border-top border-dark border-opacity-25 text-center">
                         <button type="submit" class="btn btn-secondary px-5 submit-loader">
-                            <span>{{ __('buttons.register') }}</span>
+                            <span>{{ __('admin.register') }}</span>
 
                             <span class="submit-loader-spinner">
                                 <span class="spinner-border m-auto text-white"></span>
                             </span>
                         </button>
 
-                        <a href="{{ route('login') }}" class="text-decoration-none">{{ __('texts.alreadyRegistered') }}</a>
+                        <a href="{{ route('login') }}" class="text-decoration-none">{{ __('admin.already_registered') }}</a>
 
                         <x-admin.lang :withIcon="true" />
                     </div>

@@ -9,12 +9,12 @@
 
     <section class="news">
         <div class="container news-container">
-            <x-public.news.tags/>
+            <x-public.news.categories :categories="$newsCategories"/>
 
             <div class="news-list">
-                @for($i = 0; $i < 15; $i++)
-                    <x-public.news.article-card/>
-                @endfor
+                @foreach($newsArticles as $article)
+                    <x-public.news.article-card :article="$article"/>
+                @endforeach
             </div>
 
             <ul class="pagination">

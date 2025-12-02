@@ -8,12 +8,13 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Spatie\Translatable\HasTranslations;
 
 class Page extends Model implements HasMedia
 {
-    use HasFactory, InteractsWithMedia;
+    use HasFactory, InteractsWithMedia, HasTranslations;
 
-    public string $mediaCollection = 'page';
+    public string $mediaCollection = 'pages';
 
     public array $mediaSizes = [
         'xl' => 3840,
@@ -34,16 +35,27 @@ class Page extends Model implements HasMedia
         'content_data',
     ];
 
+    public array $translatable = [
+        'title',
+        'description',
+
+        'seo_title',
+        'seo_description',
+        'seo_keywords',
+
+        'content_data',
+    ];
+
     protected function casts(): array
     {
         return [
+            'title' => 'json',
+            'description' => 'json',
+            'seo_title' => 'json',
+            'seo_description' => 'json',
+            'seo_keywords' => 'json',
             'content_data' => 'json',
         ];
-    }
-
-    public function sections(): HasMany
-    {
-        return $this->hasMany(PageSection::class);
     }
 
     public function registerMediaConversions(Media $media = null): void

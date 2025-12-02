@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [App\Http\Controllers\Public\HomePageController::class, 'index'])->name('public.home');
 Route::get('/news', [App\Http\Controllers\Public\News\NewsPageController::class, 'index'])->name('public.news');
-Route::get('/news/article', [App\Http\Controllers\Public\News\ArticlePageController::class, 'index'])->name('public.news.article');
+Route::get('/news/{newsArticle:slug}', [App\Http\Controllers\Public\News\ArticlePageController::class, 'index'])->name('public.news.article');
 
 //Route::get('/services', [App\Http\Controllers\Public\ServicesPageController::class, 'index'])->name('public.services');
 //Route::get('/gallery', [App\Http\Controllers\Public\GalleryPageController::class, 'index'])->name('public.gallery');

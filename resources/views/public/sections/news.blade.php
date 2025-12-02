@@ -5,13 +5,13 @@
 
             <div class="news-subtitle">Stay informed about market insights, design trends and exclusive opportunities.</div>
 
-            <x-public.news.tags/>
+            <x-public.news.categories :categories="$newsCategories"/>
         </div>
 
         <div class="news-list">
-            @for($i = 0; $i < 6; $i++)
-                <x-public.news.article-card/>
-            @endfor
+            @foreach($newsArticles as $article)
+                <x-public.news.article-card :article="$article"/>
+            @endforeach
         </div>
     </div>
 </section>

@@ -1,7 +1,7 @@
 <div class="modal-dialog modal-dialog-centered modal-sm">
     <div class="modal-content">
         <div class="modal-body text-center">
-            <h3 class="modal-title fs-5 lh-sm">{{ __('base.confirm_deletion') }}</h3>
+            <h3 class="modal-title fs-5 lh-sm">{{ __('admin.confirm_delete') }}</h3>
 
             @if($subtitle)
                 <div class="text-gray mt-2">{{ $subtitle }}</div>
@@ -20,7 +20,7 @@
                 <x-admin.button
                     class="w-100"
                     :btn="'btn-danger'"
-                    :title="__('buttons.delete')"
+                    :title="__('admin.delete')"
                     :withLoader="true"
                     :type="'submit'"
                 />
@@ -29,7 +29,7 @@
             <x-admin.button
                 class="flex-auto m-0"
                 data-bs-dismiss="modal"
-                :title="__('buttons.close')"
+                :title="__('admin.close')"
             />
         </div>
     </div>

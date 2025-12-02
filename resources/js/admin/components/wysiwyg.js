@@ -1,7 +1,7 @@
 import suneditor from 'suneditor';
 import plugins from 'suneditor/src/plugins/index.js';
-import langUa from 'suneditor/src/lang/ua.js';
-//import langDe from 'suneditor/src/lang/de.js';
+//import langUa from 'suneditor/src/lang/ua.js';
+import langDe from 'suneditor/src/lang/de.js';
 
 const html = document.documentElement;
 
@@ -26,8 +26,8 @@ function init(element) {
 	const form = element.closest('form');
 	const wrapper = element.closest('[data-wysiwyg-wrapper]');
 	const langs = {
-		'uk': langUa,
-		//'de': langDe,
+		//'uk': langUa,
+		'de': langDe,
 	};
 	const currentLang = html.lang;
 
@@ -74,7 +74,7 @@ function init(element) {
 	const options = {
 		plugins: plugins,
 		buttonList: buttonList,
-		formats: ['p', /*'div', 'blockquote', 'pre',*/ 'h2', 'h3', 'h4', 'h5'],
+		formats: ['p', /*'div', 'blockquote', 'pre',*/ 'h2', 'h3', 'h4', 'h5', 'h6'],
 		maxCharCount: charLimit,
 		width: 'auto',
 		height: 'auto',
@@ -88,7 +88,8 @@ function init(element) {
 		},
 		icons: icons(),
 		placeholder: element.getAttribute('placeholder') || null,
-		imageUrlInput: false,
+		//imageUrlInput: false,
+        linkProtocol: '',
 		lang: langs[currentLang],
 	};
 
@@ -147,33 +148,31 @@ function init(element) {
 
 		const parser = new DOMParser();
 		const parseDocument = parser.parseFromString(contents, 'text/html');
-		const imageContainers = parseDocument.querySelectorAll('.se-image-container');
+        const imageContainers = parseDocument.querySelectorAll('.se-image-container');
 
-		imageContainers.forEach((container) => {
-			const image = container.querySelector('img');
-			const attrDataKeys = Object.keys(image.dataset);
-			const picture = parseDocument.createElement('picture');
-			const styles = {
-				width: image.dataset.size?.split(',')[0] || [],
-				float: container.classList.contains('__se__float-left') ? 'left' : (container.classList.contains('__se__float-right') ? 'right' : null),
-			};
+        imageContainers.forEach((container) => {
+            const image = container.querySelector('img');
+            const figure = container.querySelector('figure');
 
-			Object.keys(styles).forEach(function (key) {
-				if (!styles[key]) return;
+            if (!image || !figure) {
+                console.warn('Missing <img> or <figure> in a container. Skipping.');
+                return;
+            }
 
-				picture.style[key] = styles[key];
-			});
+            const picture = parseDocument.createElement('picture');
+            const float = container.classList.contains('__se__float-left') ? 'left' : (container.classList.contains('__se__float-right') ? 'right' : null);
 
-			/*attrDataKeys.forEach(function(key) {
-				delete image.dataset[key];
-			});*/
+            if (float) {
+                figure.classList.add(`float-${float}`);
+            }
 
-			picture.insertBefore(image, null);
-			parseDocument.body.insertBefore(picture, container);
-			container.remove();
-		});
+            figure.insertBefore(picture, image);
+            picture.appendChild(image);
+            parseDocument.body.insertBefore(figure, container);
+            container.remove();
+        });
 
-		element.value = parseDocument.getElementsByTagName('body')[0].innerHTML;
+		element.value = trimTrailingEmptyParagraphs(parseDocument.getElementsByTagName('body')[0].innerHTML);
 
 		if (form) {
 			form.waitWysiwygEditotSaving = false;
@@ -204,6 +203,15 @@ function init(element) {
 		setEditorScrollProps(scrollWrapper, editor, wrapper);
 		updateToolbarPosition(scrollWrapper, editor, wrapper);
 	});
+}
+
+function trimTrailingEmptyParagraphs(htmlContent) {
+    let cleanedContent = htmlContent.trim();
+    const pattern = /(?:<p\s*>\s*(?:<br\s*>)?\s*<\/p>\s*)+$/i;
+
+    cleanedContent = cleanedContent.replace(pattern, '');
+
+    return cleanedContent.trim();
 }
 
 function updateToolbarPosition(scrollWrapper, editor, wrapper) {

@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="main-admin d-flex flex-column align-items-center m-auto w-100">
-        <img src="/img/logo.svg" alt="Logo" class="img-fluid main-admin-logo">
+        <img src="/img/circle-logo.svg" alt="Logo" class="img-fluid main-admin-logo">
 
         {{--<h1 class="text-center mt-5 main-admin-title mb-0 text-uppercase">{{ __('titles.adminPanel') }}</h1>--}}
     </div>
