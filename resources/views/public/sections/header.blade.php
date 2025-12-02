@@ -15,10 +15,13 @@
         <button class="btn btn-outline-primary btn-light header-contact-btn">{{ __('base.contact_us') }}</button>
 
         <div class="lang">
-            <p>ENG</p>
+            <p>{{ current_locale() }}</p>
             <ul>
-                <li><a href="#">DE</a></li>
-                <li><a href="#">UA</a></li>
+                @foreach(supported_languages_keys() as $lang)
+                    @if(current_locale() !== $lang)
+                        <li><a rel="alternate" hreflang="{{ $lang . '-CH' }}" href="{{ localized_url($lang) }}">{{ $lang }}</a></li>
+                    @endif
+                @endforeach
             </ul>
         </div>
 
