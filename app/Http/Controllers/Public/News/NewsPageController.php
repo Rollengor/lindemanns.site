@@ -13,7 +13,7 @@ class NewsPageController extends Controller
 {
     public function index(): View {
         $newsCategories = NewsCategory::where('active', '1')->get();
-        $newsArticles = NewsArticle::where('active', '1')->latest()->limit(12)->get();
+        $newsArticles = NewsArticle::where('active', '1')->latest()->paginate(12);
 
         return view('public.pages.news.news', compact('newsCategories', 'newsArticles'));
     }

@@ -17,16 +17,9 @@
                 @endforeach
             </div>
 
-            <ul class="pagination">
-                <li><a href="#" class="page-prev-link"></a></li>
-                <li><a href="#" class="page-link is-active">1</a></li>
-                <li><a href="#" class="page-link">2</a></li>
-                <li><a href="#" class="page-link">3</a></li>
-                <li><a href="#" class="page-link">4</a></li>
-                <li><span class="dots">...</span></li>
-                <li><a href="#" class="page-link">135</a></li>
-                <li><a href="#" class="page-next-link"></a></li>
-            </ul>
+            <nav class="pagination">
+                {{ $newsArticles->links('vendor.pagination.public') }}
+            </nav>
         </div>
     </section>
 @endsection
