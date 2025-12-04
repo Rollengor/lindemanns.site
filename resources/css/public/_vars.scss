@@ -46,11 +46,11 @@ $colors: (
 
     --line-gradient: linear-gradient(to right, var(--color-body) 0%, var(--color-primary) 75%, var(--color-body) 100%);
 
-    --field-size: #{range.build(56, 70)};
-    --field-radius: var(--radius);
-    --field-fs: #{range.build(16, 18)};
-    --field-px: #{range.build(20, 30)};
-    --field-bg-color: var(--color-border);
+    --field-size: 56px;
+    --field-radius: 0;
+    --field-fs: 16px;
+    --field-px: 0;
+    --field-bg-color: transparent;
     --field-border-color: var(--color-border);
 
     --icon-corner-arrow: url("data:image/svg+xml,%3Csvg width='10' height='10' viewBox='0 0 10 10' fill='black' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0.331017 9.07598e-06L8.38687 1.02772e-05C8.88122 9.93999e-06 9.28196 0.400757 9.28196 0.895104L9.28196 8.95095L7.49177 8.95095V3.05605L1.26643 9.28139L0.000580254 8.01553L6.22592 1.7902L0.331017 1.7902L0.331017 9.07598e-06Z'/%3E%3C/svg%3E%0A");

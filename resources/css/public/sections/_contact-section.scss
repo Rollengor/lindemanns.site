@@ -7,11 +7,29 @@
     padding: range.build(40, 80) range.build(20, 100);
     background-color: var(--color-primary-medium);
     border-radius: range.build(12, 26);
+    position: relative;
+    overflow: hidden;
+
+    & > * {
+        position: relative;
+        z-index: 5;
+    }
 
     @media (min-width: 768px) {
         flex-direction: row;
         padding: range.build(40, 80, px, 768) range.build(20, 100, px, 768);
     }
+}
+
+.contact-section-icon {
+    --icon-size: #{range.build(300, 500)};
+    --icon-color: var(--color-primary);
+
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    opacity: .5;
+    z-index: 0;
 }
 
 .contact-section-body {

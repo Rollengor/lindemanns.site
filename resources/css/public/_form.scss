@@ -4,6 +4,10 @@
     display: flex;
     flex-direction: column;
     gap: range.build(26, 30);
+
+    .btn-submit {
+        margin-right: auto;
+    }
 }
 
 .form-fields {
@@ -27,7 +31,6 @@
 
 .form-info {
     font-size: range.build(12, 14);
-    text-align: center;
     color: var(--color-gray);
 
     a {

@@ -56,36 +56,38 @@
 }
 
 .btn-submit {
-    --btn-size: #{range.build(56, 70)};
-    --btn-px: calc(var(--btn-size) * 0.45);
-    --btn-color: var(--color-white);
-    --btn-color-bg: var(--color-primary-medium);
+    --btn-size: 0;
+    --btn-px: 0;
+    --btn-fz: 22px;
+    --btn-fw: bold;
+    --btn-color: var(--color-dark);
 
     font-weight: bold;
+    padding-right: 24px;
 
     &::after {
         display: block;
         content: '';
         width: 12px;
         aspect-ratio: 1;
-        background-color: var(--color-green);
+        background-color: var(--color-primary);
         mask-image: var(--icon-corner-arrow);
         mask-repeat: no-repeat;
         mask-position: center;
         mask-size: contain;
         transition: var(--transition);
-        transition-property: opacity, translate;
+        transition-property: translate;
         rotate: 45deg;
         position: absolute;
-        right: range.build(20, 26);
-        translate: -150% 0;
-        opacity: 0;
+        right: 0;
     }
 
     &:hover {
+        --btn-color: var(--color-primary);
+
         &::after {
             opacity: 1;
-            translate: 0 0;
+            translate: 75% 0;
         }
     }
 }

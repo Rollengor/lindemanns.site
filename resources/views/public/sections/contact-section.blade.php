@@ -1,5 +1,7 @@
 <section class="container contact-section">
     <div class="contact-section-content">
+        <x-public.icon.building-outline class="contact-section-icon"/>
+
         <div class="contact-section-body">
             <div class="contact-section-head">
                 <h2 class="contact-section-title">Ready to Build Your Future?</h2>
@@ -49,9 +51,9 @@
                     </label>
                 </div>
 
-                <button type="submit" class="btn btn-submit">{{ __('base.send') }}</button>
-
                 <p class="form-info">By clicking “Send,” I agree to the <a href="#">Privacy Policy</a>.</p>
+
+                <button type="submit" class="btn btn-submit">{{ __('base.send') }}</button>
             </form>
         </div>
     </div>
