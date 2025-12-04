@@ -10,6 +10,9 @@
     transition: var(--transition);
     transition-property: color;
     margin-bottom: calc(var(--logo-size) * .025);
+    font-weight: bold;
+    font-size: range.build(15, 22);
+    text-transform: uppercase;
 
     &:hover {
         color: var(--color-primary);

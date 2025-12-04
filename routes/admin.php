@@ -8,6 +8,9 @@ Route::post('/upload-image', [\App\Http\Controllers\Admin\ImageUploadController:
 /* Main */
 Route::get('/', [\App\Http\Controllers\Admin\MainController::class, 'index'])->name('admin.main');
 
+/* UI */
+Route::get('/ui', [\App\Http\Controllers\Admin\UIController::class, 'index'])->name('admin.ui');
+
 /* Profile */
 Route::group([
     'middleware' => [\Spatie\Permission\Middleware\RoleOrPermissionMiddleware::using([\App\Enums\RolesEnum::SUPERADMIN->value, \App\Enums\RolesEnum::ADMIN->value])],

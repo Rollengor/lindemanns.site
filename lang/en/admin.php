@@ -29,6 +29,7 @@ return [
     'close' => 'Close',
     'seo' => 'SEO',
     'hero' => 'Hero',
+    'ui_elements' => 'UI Elements',
 
     'username' => 'Username',
     'username_or_email' => 'Username or Email',
