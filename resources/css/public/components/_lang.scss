@@ -20,6 +20,12 @@
     }
 }
 
+.lang p {
+    @media (max-width: 424px) {
+        font-size: 14px;
+    }
+}
+
 .lang ul {
     min-width: 100%;
     position: absolute;

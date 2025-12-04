@@ -2,7 +2,7 @@
 
 @section('content')
     <section class="container inner-page-head news-page-head">
-        <h1 class="h3 inner-page-title">{{ __('base.news') }}</h1>
+        <h4 class="inner-page-title">{{ __('base.news') }}</h4>
 
         <x-public.icon.building-outline class="news-page-head-icon"/>
     </section>
@@ -11,13 +11,13 @@
         <div class="container news-container">
             <x-public.news.categories :categories="$newsCategories"/>
 
-            <div class="news-list">
+            <div id="news-list" class="news-list">
                 @foreach($newsArticles as $article)
                     <x-public.news.article-card :article="$article"/>
                 @endforeach
             </div>
 
-            <nav class="pagination">
+            <nav id="news-pagination" class="pagination">
                 {{ $newsArticles->links('vendor.pagination.public') }}
             </nav>
         </div>

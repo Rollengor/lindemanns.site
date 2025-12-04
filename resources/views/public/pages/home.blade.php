@@ -15,15 +15,21 @@
 
     <section class="home-about">
         <div class="container home-about-container">
-            <div class="home-about-title">{{ __('base.who_we_are') }}</div>
+            <div class="home-about-pictures">
+                <img src="/img/temp/home-about-1.webp" alt="Image" class="img-cover home-about-image-back">
+                <img src="/img/temp/home-about-2.webp" alt="Image" class="img-cover home-about-image-front">
+            </div>
 
-            <div class="home-about-content">
-                <div class="formatted-text home-about-row">
-                    <h4>Our Vision</h4>
+            <div class="home-about-body">
+                <h6 class="home-about-title">{{ __('base.who_we_are') }}</h6>
+
+                <div class="formatted-text home-about-description">
+                    <h2>Our Vision</h2>
                     <p>Our vision is to be a leading force in creating real estate opportunities that shape better communities and brighter futures.</p>
                 </div>
-                <div class="formatted-text home-about-row">
-                    <h4>Our Mission</h4>
+
+                <div class="formatted-text home-about-description">
+                    <h2>Our Mission</h2>
                     <p>To deliver exceptional real estate services through innovation, professionalism, and a commitment to understanding our clients’ unique needs.</p>
                 </div>
             </div>
@@ -45,7 +51,7 @@
                         <li><a href="#" class="primary-link">Renovation</a></li>
                     </ul>
                 </div>
-                <img src="/img/temp/service-1.webp" alt="Service image" class="img-cover home-services-row-image">
+                <img src="/img/temp/service-1.webp?v-2" alt="Service image" class="img home-services-row-image">
             </div>
 
             <div class="home-services-row">
@@ -58,7 +64,7 @@
                         <li><a href="#" class="primary-link">Wealth protection</a></li>
                     </ul>
                 </div>
-                <img src="/img/temp/service-2.webp" alt="Service image" class="img-cover home-services-row-image">
+                <img src="/img/temp/service-2.webp?v-2" alt="Service image" class="img home-services-row-image">
             </div>
 
             <div class="home-services-row">
@@ -69,7 +75,7 @@
                         <li><a href="#" class="primary-link">Relocation to Switzerland</a></li>
                     </ul>
                 </div>
-                <img src="/img/temp/service-3.webp" alt="Service image" class="img-cover home-services-row-image">
+                <img src="/img/temp/service-3.webp?v-2" alt="Service image" class="img home-services-row-image">
             </div>
         </div>
     </section>

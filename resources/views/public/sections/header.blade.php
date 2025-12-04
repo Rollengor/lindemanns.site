@@ -12,7 +12,7 @@
             </ul>
         </nav>
 
-        <button class="btn btn-outline-primary btn-light header-contact-btn">{{ __('base.contact_us') }}</button>
+        <button class="btn header-contact-btn">{{ __('base.contact_us') }}</button>
 
         <div class="lang">
             <p>{{ current_locale() }}</p>
@@ -25,9 +25,11 @@
             </ul>
         </div>
 
-        <button id="extended-menu-toggle-button" type="button" class="btn extended-menu-toggle-button"><span>{{ __('base.menu') }}</span></button>
+        <button id="main-menu-toggle-button" type="button" class="btn main-menu-toggle-button"><span>{{ __('base.menu') }}</span></button>
 
-        <div class="extended-menu">
+        {{--<button id="extended-menu-toggle-button" type="button" class="btn extended-menu-toggle-button"><span>{{ __('base.menu') }}</span></button>--}}
+
+        {{--<div class="extended-menu">
             <div class="extended-menu-body">
                 <div class="container">
                     <div class="extended-menu-row extended-menu-head">
@@ -94,6 +96,6 @@
                     <x-public.socials class="extended-menu-socials"/>
                 </div>
             </div>
-        </div>
+        </div>--}}
     </div>
 </header>

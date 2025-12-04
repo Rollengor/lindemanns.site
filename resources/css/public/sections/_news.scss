@@ -37,12 +37,6 @@
     }
 }
 
-.news-title {
-    @media (min-width: 1300px) {
-        font-size: range.build(32, 50, px, 1300);
-    }
-}
-
 .news-subtitle {
     color: var(--color-gray);
 
@@ -105,7 +99,7 @@
     overflow: hidden;
     background-color: var(--color-white);
     position: relative;
-    box-shadow: 0 5px 20px 0 rgba(var(--color-dark-rgb), .05);
+    box-shadow: 0 5px 20px 0 rgba(var(--color-dark-rgb), .15);
     transition: var(--transition);
     transition-property: color, background-color;
 

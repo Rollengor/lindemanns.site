@@ -1,11 +1,15 @@
 @props([
-    'categories'
+    'categories',
+    'updateListId' => 'news-list',
+    'updatePaginationId' => 'news-pagination'
 ])
 
-<div class="news-categories">
-    <button type="button" class="btn news-category-btn is-active">{{ __('base.all') }}</button>
+<div id="news-categories-tabs" data-update-list-id="{{ $updateListId }}" data-update-pagination-id="{{ $updateListId }}" class="news-categories">
+    <button data-category-id="all" type="button" class="btn news-category-btn is-active">{{ __('base.all') }}</button>
 
     @foreach($categories as $category)
-        <button type="button" class="btn news-category-btn">{{ $category->name }}</button>
+        @if($category->articles->isNotEmpty())
+            <button data-category-id="{{ $category->id }}" type="button" class="btn news-category-btn">{{ $category->name }}</button>
+        @endif
     @endforeach
 </div>

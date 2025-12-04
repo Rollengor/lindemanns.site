@@ -35,18 +35,19 @@
         @media (min-width: 992px) {
             flex-direction: row;
             justify-content: space-between;
+            align-items: center;
         }
     }
 
     h1 {
-        font-size: range.build(44, 70, px, 375, 992);
+        font-size: range.build(44, 84, px, 375, 992);
         font-weight: normal;
         text-transform: uppercase;
         letter-spacing: -0.02em;
 
         @media (min-width: 992px) {
-            width: 7.5em;
-            font-size: 5.25vw;
+            width: 8.5em;
+            font-size: range.build(60, 84, px, 992);
         }
     }
 }
@@ -55,10 +56,6 @@
     display: flex;
     align-items: flex-start;
     gap: 16px 20px;
-
-    @media (max-width: 599px) {
-        flex-direction: column;
-    }
 
     @media (min-width: 992px) {
         max-width: range.build(500, 670, px, 992);
@@ -71,58 +68,90 @@
 
 .home-hero-description {
     flex: 1 0 0;
+    align-self: center;
+
+    h2, h3, h4, h4, h6 {
+        line-height: 1.1;
+    }
+
+    h2 {
+        font-size: range.build(20, 36);
+    }
 }
 
 .home-about {
-    padding: range.build(40, 60, px, 375, 992) 0;
-    background-color: var(--color-white);
+    padding: range.build(40, 100) 0;
 
-    @media (min-width: 1780px) {
-        padding: range.build(60, 120, px, 992) 0;
-    }
-}
-
-.home-about-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 40px;
-
-    @media (max-width: 991px) {
+    &-container {
+        display: flex;
         flex-direction: column;
-    }
-}
+        gap: 40px 0;
 
-.home-about-title {
-    font-size: 22px;
-    text-transform: uppercase;
-    position: relative;
-    padding-bottom: .5em;
-    line-height: 1.1;
-
-    &::after {
-        display: block;
-        content: '';
-        width: calc(100% + var(--gap-container));
-        height: 2px;
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        background: var(--line-gradient);
-
-        @media (min-width: 1780px) {
-            width: calc(100% + (100vw - 1780px) / 2 + var(--gap-container));
+        @media (min-width: 768px) {
+            flex-direction: row;
+            align-items: center;
         }
     }
 }
 
-.home-about-content {
+.home-about-pictures {
+    width: 100%;
+    aspect-ratio: 1 / .866;
+    position: relative;
+    order: 2;
+
+    @media (min-width: 768px) {
+        width: 50%;
+        order: 0;
+    }
+}
+
+.home-about-image {
+    &-back,
+    &-front {
+        position: absolute;
+        aspect-ratio: 1 / 1.16;
+        border-radius: var(--radius);
+    }
+
+    &-back {
+        width: 50%;
+        top: 0;
+        left: 0;
+    }
+
+    &-front {
+        width: 63%;
+        right: 0;
+        bottom: 0;
+    }
+}
+
+.home-about-body {
     display: flex;
     flex-direction: column;
-    gap: range.build(30, 70, px, 992);
+    gap: range.build(26, 74, px, 768);
 
-    @media (min-width: 992px) {
-        width: range.build(600, 860, px, 992);
+    @media (min-width: 768px) {
+        width: 50%;
+
+        padding: 0 range.build(0, 130, px, 768) 0 range.build(40, 244, px, 768);
+    }
+}
+
+.home-about-title {
+    text-transform: uppercase;
+}
+
+.home-about-description {
+    & > * {
+        &:not(:is(h2, h3, h4, h5, h6)) {
+            opacity: .5;
+        }
+    }
+
+    h2, h3, h4, h5, h6 {
+        font-weight: normal;
     }
 }
 
@@ -133,7 +162,7 @@
 .home-services-container {
     display: flex;
     flex-direction: column;
-    gap: range.build(40, 140, px, 768);
+    gap: 60px range.build(40, 140, px, 768);
 }
 
 .home-services-row {
@@ -184,18 +213,15 @@
 }
 
 .home-services-row-title {
+    font-weight: normal;
+
     @media (min-width: 600px) {
-        font-size: range.build(26, 30, px, 600, 768);
+        font-size: 26px;
     }
 
     @media (min-width: 768px) {
-        font-size: range.build(26, 50, px, 768);
+        font-size: range.build(26, 42, px, 768);
     }
-}
-
-.home-services-row-image {
-    border-radius: var(--radius);
-    aspect-ratio: 1 / 0.646;
 }
 
 .home-portfolio {
@@ -272,21 +298,27 @@
 
     display: grid;
     grid-template-columns: repeat(var(--col-count), 1fr);
-    gap: 20px;
+    gap: range.build(20, 78, px, 992);
+
+    @media (min-width: 600px) {
+        --col-count: 2;
+
+        gap: range.build(20, 60, px, 600, 992);
+    }
 
     @media (min-width: 992px) {
-        --col-count: 2;
+        --col-count: 3;
     }
 }
 
 .project-card {
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 1 / 1.2;
     border-radius: var(--radius);
     overflow: hidden;
     position: relative;
 
     @media (min-width: 600px) {
-        aspect-ratio: 1 / 0.588;
+        aspect-ratio: 1 / 1.4;
     }
 
     &::before {
@@ -303,7 +335,7 @@
     &-content {
         --content-px: #{range.build(20, 40)};
         --content-py: #{range.build(20, 32)};
-        --content-gap: 14px;
+        --content-gap: 20px;
 
         display: flex;
         flex-direction: column;
@@ -317,21 +349,6 @@
         transition-property: background-color, padding-bottom;
         color: var(--color-white);
         gap: var(--content-gap);
-
-        &::after {
-            display: block;
-            content: '';
-            width: 0;
-            height: 4px;
-            background: var(--line-gradient);
-            position: absolute;
-            left: var(--content-px);
-            bottom: var(--content-py);
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition);
-            transition-property: width, opacity, visibility;
-        }
     }
 
     &-description {
@@ -366,6 +383,8 @@
             border-radius: 5em;
             background-color: rgba(var(--color-black-rgb), .1);
             backdrop-filter: blur(10px);
+            transition: var(--transition);
+            transition-property: background-color, border-color;
         }
     }
 
@@ -417,14 +436,7 @@
     &:hover {
         .project-card {
             &-content {
-                background-color: rgba(var(--color-primary-medium-rgb), .8);
-                padding-bottom: calc(var(--content-py) + 28px);
-
-                &::after {
-                    width: calc(100% - var(--content-px) * 2);
-                    opacity: 1;
-                    visibility: visible;
-                }
+                background-color: rgba(var(--color-secondary-rgb), .8);
             }
 
             &-description {
@@ -432,6 +444,13 @@
                 opacity: 1;
                 visibility: visible;
                 margin-bottom: 0;
+            }
+
+            &-tags {
+                p {
+                    background-color: var(--color-primary-medium);
+                    border-color: var(--color-primary-medium);
+                }
             }
 
             &-link {

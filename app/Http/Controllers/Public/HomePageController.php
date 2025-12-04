@@ -14,26 +14,38 @@ class HomePageController extends Controller
     public function index(): View {
         $projects = [
             [
-                'image' => '/img/temp/project-1.webp',
+                'image' => '/img/temp/project-1.webp?v-2',
                 'title' => 'Basel Art District Loft',
                 'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias debitis dolorem labore odio quasi totam vel.',
                 'categories' => ['Lake Zurich', 'New Build'],
             ],
             [
-                'image' => '/img/temp/project-2.webp',
+                'image' => '/img/temp/project-2.webp?v-2',
                 'title' => 'St. Moritz Chalet',
                 'description' => 'Ultra-luxury alpine retreat blending traditional swiss craftsmanship with contemporary design excellence.',
                 'categories' => ['Lake Zurich', 'New Build'],
             ],
             [
-                'image' => '/img/temp/project-3.webp',
-                'title' => 'Lausanne Heigths',
+                'image' => '/img/temp/project-3.webp?v-2',
+                'title' => 'Lake Zurich Residence',
                 'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias debitis dolorem labore odio quasi totam vel.',
                 'categories' => ['Lake Zurich', 'New Build'],
             ],
             [
-                'image' => '/img/temp/project-4.webp',
-                'title' => 'Zurich Green Tower',
+                'image' => '/img/temp/project-4.webp?v-2',
+                'title' => 'Basel Art District Loft',
+                'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias debitis dolorem labore odio quasi totam vel.',
+                'categories' => ['Lake Zurich', 'New Build'],
+            ],
+            [
+                'image' => '/img/temp/project-5.webp?v-2',
+                'title' => 'Basel Art District Loft',
+                'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias debitis dolorem labore odio quasi totam vel.',
+                'categories' => ['Lake Zurich', 'New Build'],
+            ],
+            [
+                'image' => '/img/temp/project-6.webp?v-2',
+                'title' => 'Basel Art District Loft',
                 'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias debitis dolorem labore odio quasi totam vel.',
                 'categories' => ['Lake Zurich', 'New Build'],
             ],

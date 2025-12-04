@@ -1,7 +1,7 @@
 @use '../functions/range';
 
 .logo {
-    --logo-size: #{range.build(120, 210)};
+    --logo-size: #{range.build(140, 210)};
 
     display: block;
     width: var(--logo-size);
