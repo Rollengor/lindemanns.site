@@ -70,8 +70,6 @@ class NewsArticle extends Model implements HasMedia
         parent::boot();
 
         static::saving(function ($model) {
-            $model->active = app()->runningInConsole() ? 1 : !!request()->active;
-
             if (empty($model->getOriginal('slug')) && is_null($model->slug)) {
                 $title = $model->getTranslation('title', 'en');
                 $model->slug = Str::of($title)->slug('-');

@@ -22,7 +22,7 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
         $rules['sort'] = ['required', 'integer'];
-        $rules['active'] = ['nullable', 'boolean'];
+        $rules['active'] = ['required', 'boolean'];
         $rules['category_id'] = ['required', 'exists:news_categories,id'];
 
         foreach (supported_languages_keys() as $locale) {

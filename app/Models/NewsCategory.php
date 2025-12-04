@@ -52,8 +52,6 @@ class NewsCategory extends Model
         parent::boot();
 
         static::saving(function ($model) {
-            $model->active = !!request()->active;
-
             if (empty($model->getOriginal('slug')) && is_null($model->slug)) {
                 $name = $model->getTranslation('name', 'en');
                 $model->slug = Str::of($name)->slug('-');

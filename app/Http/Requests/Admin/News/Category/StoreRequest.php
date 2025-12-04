@@ -22,7 +22,7 @@ class StoreRequest extends FormRequest
     public function rules(): array
     {
         $rules['sort'] = ['required', 'integer'];
-        $rules['active'] = ['nullable', 'boolean'];
+        $rules['active'] = ['required', 'boolean'];
 
         foreach (supported_languages_keys() as $locale) {
             $rules['name'] = ['required', 'array'];

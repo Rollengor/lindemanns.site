@@ -84,13 +84,11 @@
     />
 
     <!-- active -->
-    <x-admin.field.checkbox
+    <x-admin.field.radio-switch
         class="m-0 me-auto"
 
         :name="'active'"
-        :value="1"
         :title="__('admin.show')"
         :checked="isset($article) ? $article->active : true"
-        :required="false"
     />
 </div>
