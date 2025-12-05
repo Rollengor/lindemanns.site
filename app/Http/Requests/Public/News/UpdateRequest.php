@@ -40,6 +40,7 @@ class UpdateRequest extends FormRequest
                     }
                 },
             ],
+            'limit_articles' => ['nullable', 'integer', 'min:1'],
         ];
     }
 }

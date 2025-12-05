@@ -1,7 +1,5 @@
 <section class="container contact-section">
-    <div class="contact-section-content">
-        <x-public.icon.building-outline class="contact-section-icon"/>
-
+    <div class="contact-section-content bg-img-cover" style="background-image: url(/img/temp/contact-section.webp);">
         <div class="contact-section-body">
             <div class="contact-section-head">
                 <h2 class="contact-section-title">Ready to Build Your Future?</h2>

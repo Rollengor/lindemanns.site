@@ -3,6 +3,7 @@
     'updateListId' => 'news-list',
     'updatePaginationId' => 'news-pagination',
     'anchorSectionId' => 'news',
+    'limitArticles' => null,
 ])
 
 <div
@@ -11,6 +12,9 @@
     data-update-list-id="{{ $updateListId }}"
     data-update-pagination-id="{{ $updatePaginationId }}"
     data-anchor-section-id="{{ $anchorSectionId }}"
+    @if($limitArticles)
+        data-limit-articles="{{ $limitArticles }}"
+    @endif
     class="news-categories">
     <button data-category data-id="all" type="button" class="btn news-category-btn is-active">{{ __('base.all') }}</button>
 

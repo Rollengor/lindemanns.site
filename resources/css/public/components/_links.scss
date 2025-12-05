@@ -5,7 +5,7 @@ a.base-link {
     transition-property: color;
 
     &:hover {
-        color: var(--color-primary);
+        color: var(--color-secondary);
     }
 }
 
@@ -25,7 +25,7 @@ a.primary-link {
         width: 10px;
         aspect-ratio: 1;
         vertical-align: middle;
-        background-color: var(--color-primary);
+        background-color: var(--color-secondary);
         mask-image: var(--icon-corner-arrow);
         mask-repeat: no-repeat;
         mask-position: center;
@@ -37,7 +37,7 @@ a.primary-link {
     }
 
     &:hover {
-        color: var(--color-primary);
+        color: var(--color-secondary);
 
         &::after {
             rotate: 45deg;

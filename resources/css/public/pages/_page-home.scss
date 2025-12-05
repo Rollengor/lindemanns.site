@@ -226,7 +226,7 @@
 
 .home-portfolio {
     background-color: var(--color-white);
-    padding: range.build(40, 78) 0 range.build(50, 78);
+    padding: range.build(40, 78) 0 range.build(30, 60);
 }
 
 .home-portfolio-container {
@@ -274,7 +274,7 @@
     }
 
     &:hover {
-        color: var(--color-primary);
+        color: var(--color-secondary);
     }
 
     &::before,
@@ -283,7 +283,7 @@
         content: '';
         width: 2em;
         height: range.build(1, 2);
-        background-color: var(--color-primary);
+        background-color: var(--color-secondary);
     }
 
     &::before {
@@ -428,7 +428,7 @@
 
         &:hover {
             &::before {
-                background-color: var(--color-primary);
+                background-color: var(--color-secondary);
             }
         }
     }
@@ -436,7 +436,7 @@
     &:hover {
         .project-card {
             &-content {
-                background-color: rgba(var(--color-secondary-rgb), .8);
+                background-color: rgba(var(--color-primary-rgb), .8);
             }
 
             &-description {
@@ -448,8 +448,8 @@
 
             &-tags {
                 p {
-                    background-color: var(--color-primary-medium);
-                    border-color: var(--color-primary-medium);
+                    background-color: var(--color-secondary-medium);
+                    border-color: var(--color-secondary-medium);
                 }
             }
 

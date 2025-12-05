@@ -70,7 +70,7 @@
         content: '';
         width: 12px;
         aspect-ratio: 1;
-        background-color: var(--color-primary);
+        background-color: var(--color-secondary);
         mask-image: var(--icon-corner-arrow);
         mask-repeat: no-repeat;
         mask-position: center;
@@ -83,7 +83,7 @@
     }
 
     &:hover {
-        --btn-color: var(--color-primary);
+        --btn-color: var(--color-secondary);
 
         &::after {
             opacity: 1;

@@ -81,13 +81,13 @@ section:has(.target-anchor-section) {
 
     a {
         color: inherit;
-        text-decoration-color: var(--color-primary);
+        text-decoration-color: var(--color-secondary);
         text-underline-offset: .2em;
         transition: var(--transition);
         transition-property: color, text-decoration-color;
 
         &:hover {
-            color: var(--color-primary);
+            color: var(--color-secondary);
         }
     }
 
@@ -110,7 +110,7 @@ section:has(.target-anchor-section) {
                 top: calc((1em * var(--base-line-height)) / 2);
                 left: -2em;
                 translate: 0 -50%;
-                background-color: var(--color-primary);
+                background-color: var(--color-secondary);
             }
         }
     }
@@ -122,7 +122,7 @@ section:has(.target-anchor-section) {
     picture {
         display: block;
         padding: 14px;
-        background-color: var(--color-white);
+        background-color: var(--color-gray-light);
         border-radius: var(--radius);
 
         &:not(:first-child) {
@@ -141,6 +141,10 @@ section:has(.target-anchor-section) {
         }
     }
 
+    img {
+        border-radius: var(--radius-sm);
+    }
+
     figure {
         display: flex;
         flex-direction: column;
@@ -149,11 +153,11 @@ section:has(.target-anchor-section) {
         color: var(--color-gray);
 
         &:not(:first-child) {
-            margin-top: 3.5em;
+            margin-top: range.build(2, 3.5, em);
         }
 
         &:not(:last-child) {
-            margin-bottom: 3em;
+            margin-bottom: range.build(2, 3, em);
         }
 
         picture {
@@ -170,7 +174,7 @@ section:has(.target-anchor-section) {
             text-decoration-color: var(--color-gray);
 
             &:hover {
-                text-decoration-color: var(--color-primary);
+                text-decoration-color: var(--color-secondary);
             }
         }
     }
@@ -180,13 +184,14 @@ section:has(.target-anchor-section) {
         border-radius: var(--radius);
         padding: range.build(24, 48) range.build(34, 78);
         position: relative;
+        box-shadow: 0 6px 26px rgba(var(--color-dark-rgb), .05);
 
         &:not(:first-child) {
-            margin-top: 3em;
+            margin-top: range.build(2, 3, em);
         }
 
         &:not(:last-child) {
-            margin-bottom: 3em;
+            margin-bottom: range.build(2, 3, em);
         }
 
         &::before,
@@ -197,7 +202,7 @@ section:has(.target-anchor-section) {
             content: '';
             width: range.build(18, 24);
             aspect-ratio: 1;
-            background-color: var(--color-primary);
+            background-color: var(--color-secondary);
             mask-image: var(--icon-bloquote);
             mask-repeat: no-repeat;
             mask-position: center;

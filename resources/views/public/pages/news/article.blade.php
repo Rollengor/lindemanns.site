@@ -36,7 +36,7 @@
                 <div class="related-news-articles">
                     <div class="related-news-articles-head">
                         <h3 class="related-news-articles-title">{{ __('base.related_articles') }}</h3>
-                        <a href="#" class="related-news-articles-link">{{ __('base.all') }}</a>
+                        <a href="{{ route('public.news') }}" class="related-news-articles-link">{{ __('base.all') }}</a>
                     </div>
 
                     <div class="related-news-articles-list">

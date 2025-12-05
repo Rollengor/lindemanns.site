@@ -18,8 +18,9 @@ class NewsPageController extends Controller
 
         $newsCategories = NewsCategory::where('active', '1')->get();
         $categoryId = data_get($data, 'category_id', 'all');
+        $limitArticles = (int) data_get($data, 'limit_articles', 0);
 
-        $query = NewsArticle::query()->where('active', '1')->with('categories');
+        $query = NewsArticle::query()->where('active', '1')->latest()->with('categories');
 
         if ($categoryId !== 'all') {
             $query = $query->whereHas('categories', function ($query) use ($categoryId) {
@@ -27,20 +28,30 @@ class NewsPageController extends Controller
             });
         }
 
-        $newsArticles = $query->latest()->paginate(12);
+        if ($limitArticles) {
+            $newsArticles = $query->limit($limitArticles)->get();
+        } else {
+            $newsArticles = $query->paginate(12);
+        }
 
         if($request->ajax()) {
             $listHtml = view('public.pages.news.list', compact('newsArticles'))->render();
-            $paginationHtml = view('public.pages.news.pagination', compact('newsArticles'))->render();
+
+            $responseData = [
+                'success' => true,
+                'category_id' => $categoryId,
+                'articles_list_html' => $listHtml,
+            ];
+
+            if (!$limitArticles) {
+                $paginationHtml = view('public.pages.news.pagination', compact('newsArticles'))->render();
+
+                $responseData['pagination_html'] = $paginationHtml;
+            }
 
             sleep(1);
 
-            return response()->json([
-                'success' => true,
-                'articles_list_html' => $listHtml,
-                'pagination_html' => $paginationHtml,
-                'category_id' => $categoryId,
-            ]);
+            return response()->json($responseData);
         }
 
         return view('public.pages.news.news', compact('newsCategories', 'newsArticles'));

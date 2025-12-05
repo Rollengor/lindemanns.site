@@ -9,11 +9,13 @@ $colors: (
     black: #000000,
     dark: #212931,
     gray: #94938F,
-    body: #FCF9F0,
-    primary: #49966A,
-    primary-medium: #214842,
-    primary-large: #193632,
-    secondary: #122F4D,
+    gray-light: #F8F8F8,
+    line: #EEE6CF,
+    primary: #122F4D,
+    primary-light: #6091CB,
+    secondary: #49966A,
+    secondary-medium: #214842,
+    secondary-large: #193632,
     border: #E3E3E3,
     red: #FF2F2F,
     green: #72E4A3,
@@ -37,6 +39,7 @@ $colors: (
     --header-height: #{range.build(80, 110)};
 
     --radius: #{range.build(10, 20)};
+    --radius-sm: #{range.build(6, 10)};
     --radius-md: #{range.build(20, 40)};
 
     --transition: all .15s linear;
@@ -44,7 +47,7 @@ $colors: (
     --scroll-thumb-clr: rgba(var(--color-primary-rgb), .5);
     --scroll-thumb-hover-clr: var(--color-primary);
 
-    --line-gradient: linear-gradient(to right, var(--color-body) 0%, var(--color-primary) 75%, var(--color-body) 100%);
+    --line-gradient: linear-gradient(to right, var(--color-line) 0%, var(--color-secondary) 75%, var(--color-line) 100%);
 
     --field-size: 56px;
     --field-radius: 0;

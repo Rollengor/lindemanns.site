@@ -4,7 +4,7 @@ import { namespaces } from './namespaces.js'
 export function categoriesControl() {
     const tabsList = document.getElementById('news-categories-tabs');
     const tabsItems = tabsList?.querySelectorAll('[data-category]');
-    const updateUrl = tabsList.dataset.updateUrl;
+    const updateUrl = tabsList?.dataset.updateUrl;
 
     if (!tabsItems || !tabsItems?.length || !updateUrl) return;
 
@@ -12,8 +12,9 @@ export function categoriesControl() {
     const anchorSection = document.getElementById(tabsList.dataset.anchorSectionId);
     const updateList = document.getElementById(tabsList.dataset.updateListId);
     const updatePagination = document.getElementById(tabsList.dataset.updatePaginationId);
+    const limitArticles = tabsList.dataset.limitArticles;
 
-    if (!updateList || !updatePagination) return;
+    if (!updateList) return;
 
     tabsItems.forEach(tab => {
         const categoryId = tab.dataset.id;
@@ -33,6 +34,7 @@ export function categoriesControl() {
             method: 'get',
             params: {
                 category_id: categoryId,
+                limit_articles: +limitArticles ? +limitArticles : null,
             },
             beforeHandler: () => {
                 html.classList.add(namespaces.updating);
@@ -48,7 +50,10 @@ export function categoriesControl() {
                 }, 200);*/
 
                 updateList.innerHTML = articles_list_html;
-                updatePagination.innerHTML = pagination_html;
+
+                if (updatePagination && pagination_html) {
+                    updatePagination.innerHTML = pagination_html;
+                }
 
                 updateActiveTab(category_id);
 

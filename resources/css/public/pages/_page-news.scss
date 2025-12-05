@@ -17,12 +17,13 @@
 
 .news-page-head-icon {
     --icon-size: #{range.build(310, 406)};
-    --icon-color: var(--color-primary);
+    --icon-color: var(--color-secondary);
 
     position: absolute;
     top: -60px;
-    right: range.build(32, 70);
+    right: 0;
     opacity: .2;
     pointer-events: none;
     z-index: -1;
+    mask-image: linear-gradient(to top, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 30%, rgba(0,0,0,1) 100%);
 }

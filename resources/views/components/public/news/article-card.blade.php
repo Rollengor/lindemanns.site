@@ -13,7 +13,7 @@
             @endif
         </div>
         <div class="article-card-info">
-            <time datetime="{{ $article->created_at->format('Y-m-d') }}">{{ $article->created_at->translatedFormat('d M Y') }}</time>
+            <time datetime="{{ $article->created_at->format('Y-m-d') }}"><span>{{ $article->created_at->translatedFormat('d M Y') }}</span></time>
             <div class="article-card-tag">{{ $article->first_category->name }}</div>
         </div>
         <a href="{{ route('public.news.article', $article->slug) }}" class="article-card-link">{{ $article->title }}</a>
