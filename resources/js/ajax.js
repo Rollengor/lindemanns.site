@@ -28,15 +28,16 @@ export function ajax(event, {form, submitter, url = null, method = null, params 
         }
     }
 
-    if (!submitter) {
-        const formId = form.id;
-        submitter = formId ? document.querySelector(`[data-submit-loader][form="${formId}"]`) : null;
-    }
-
     if (form) {
         form.isFormSending = true;
         form.classList.add(loadingClassName);
+
+        if (!submitter) {
+            const formId = form.id;
+            submitter = formId ? document.querySelector(`[data-submit-loader][form="${formId}"]`) : null;
+        }
     }
+
     if (submitter) {
         submitter.isSubmitterSending = true;
         submitter.classList.add(loadingClassName);

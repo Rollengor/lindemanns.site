@@ -1,5 +1,16 @@
 @use '../functions/range';
 
+.inner-page {
+    .news {
+        padding: 0;
+        margin-top: range.build(40, 50);
+
+        &-container {
+            gap: range.build(40, 50);
+        }
+    }
+}
+
 .news-page-head {
     position: relative;
 }

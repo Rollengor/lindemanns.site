@@ -4,6 +4,10 @@
     display: flex;
     justify-content: center;
 
+    &:empty {
+        display: none;
+    }
+
     ul {
         display: flex;
         flex-wrap: wrap;

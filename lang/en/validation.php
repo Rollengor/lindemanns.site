@@ -176,6 +176,9 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'category_id' => [
+            'invalid_category' => 'The selected category value is an invalid ID or should be "all".',
+        ],
     ],
 
     /*
@@ -189,6 +192,8 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'category_id' => 'category id',
+    ],
 
 ];

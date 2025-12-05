@@ -8,18 +8,16 @@
     </section>
 
     <section class="news">
+        <div id="news" class="target-anchor-section"></div>
+
         <div class="container news-container">
             <x-public.news.categories :categories="$newsCategories"/>
 
             <div id="news-list" class="news-list">
-                @foreach($newsArticles as $article)
-                    <x-public.news.article-card :article="$article"/>
-                @endforeach
+                @include('public.pages.news.list')
             </div>
 
-            <nav id="news-pagination" class="pagination">
-                {{ $newsArticles->links('vendor.pagination.public') }}
-            </nav>
+            <nav id="news-pagination" data-update-list-id="news-list" data-anchor-section-id="news" class="pagination news-pagination">@include('public.pages.news.pagination')</nav>
         </div>
     </section>
 @endsection
