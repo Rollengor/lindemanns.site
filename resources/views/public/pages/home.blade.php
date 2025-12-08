@@ -16,8 +16,9 @@
     <section class="home-about">
         <div class="container home-about-container">
             <div class="home-about-pictures">
-                <img src="/img/temp/home-about-1.webp" alt="Image" class="img-cover home-about-image-back">
-                <img src="/img/temp/home-about-2.webp" alt="Image" class="img-cover home-about-image-front">
+                <img src="/img/temp/home-about-4.webp" alt="Image" class="img-cover home-about-image">
+                <img src="/img/temp/home-about-3.webp" alt="Image" class="img-cover home-about-image">
+                <img src="/img/temp/home-about-5.webp" alt="Image" class="img-cover home-about-image">
             </div>
 
             <div class="home-about-body">
@@ -51,7 +52,11 @@
                         <li><a href="#" class="primary-link">Renovation</a></li>
                     </ul>
                 </div>
-                <img src="/img/temp/service-1.webp?v-2" alt="Service image" class="img home-services-row-image">
+                <div class="home-services-row-pictures">
+                    <img src="/img/temp/home-about-1.webp" alt="Image" class="img-cover home-services-row-image-back">
+                    <img src="/img/temp/home-about-2.webp" alt="Image" class="img-cover home-services-row-image-front">
+                </div>
+                {{--<img src="/img/temp/service-1.webp?v-2" alt="Service image" class="img home-services-row-image">--}}
             </div>
 
             <div class="home-services-row">

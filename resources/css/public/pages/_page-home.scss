@@ -99,6 +99,7 @@
     aspect-ratio: 1 / .866;
     position: relative;
     order: 2;
+    //background-color: #ccc;
 
     @media (min-width: 768px) {
         width: 50%;
@@ -107,23 +108,26 @@
 }
 
 .home-about-image {
-    &-back,
-    &-front {
-        position: absolute;
-        aspect-ratio: 1 / 1.16;
-        border-radius: var(--radius);
-    }
+    position: absolute;
+    border-radius: var(--radius);
+    box-shadow: 0 0 0 range.build(2, 3) var(--color-white);
 
-    &-back {
-        width: 50%;
+    &:nth-child(1) {
+        width: 70%;
         top: 0;
         left: 0;
     }
 
-    &-front {
-        width: 63%;
+    &:nth-child(2) {
+        width: 44%;
         right: 0;
         bottom: 0;
+    }
+
+    &:nth-child(3) {
+        width: 54%;
+        right: 36%;
+        bottom: 10%;
     }
 }
 
@@ -180,10 +184,41 @@
         @media (min-width: 600px) {
             grid-template-columns: 1fr auto;
 
-            .home-services-row-image {
+            .home-services-row-image,
+            .home-services-row-pictures {
                 order: -1;
             }
         }
+    }
+}
+
+.home-services-row-pictures {
+    aspect-ratio: 1 / .866;
+    position: relative;
+
+    @media (min-width: 768px) {
+        order: 0;
+    }
+}
+
+.home-services-row-image {
+    &-back,
+    &-front {
+        position: absolute;
+        aspect-ratio: 1 / 1.16;
+        border-radius: var(--radius);
+    }
+
+    &-back {
+        width: 50%;
+        top: 0;
+        left: 0;
+    }
+
+    &-front {
+        width: 63%;
+        right: 0;
+        bottom: 0;
     }
 }
 
