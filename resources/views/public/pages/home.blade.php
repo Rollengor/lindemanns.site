@@ -52,11 +52,11 @@
                         <li><a href="#" class="primary-link">Renovation</a></li>
                     </ul>
                 </div>
-                <div class="home-services-row-pictures">
+                {{--<div class="home-services-row-pictures">
                     <img src="/img/temp/home-about-1.webp" alt="Image" class="img-cover home-services-row-image-back">
                     <img src="/img/temp/home-about-2.webp" alt="Image" class="img-cover home-services-row-image-front">
-                </div>
-                {{--<img src="/img/temp/service-1.webp?v-2" alt="Service image" class="img home-services-row-image">--}}
+                </div>--}}
+                <img src="/img/temp/service-1.webp?v-2" alt="Service image" class="img home-services-row-image">
             </div>
 
             <div class="home-services-row">
