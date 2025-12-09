@@ -108,26 +108,23 @@
 }
 
 .home-about-image {
-    position: absolute;
-    border-radius: var(--radius);
-    box-shadow: 0 0 0 range.build(2, 3) var(--color-white);
-
-    &:nth-child(1) {
-        width: 70%;
-        top: 0;
-        left: 0;
+    &-back,
+    &-front {
+        position: absolute;
+        //aspect-ratio: 1 / 1.16;
+        border-radius: var(--radius);
     }
 
-    &:nth-child(2) {
-        width: 44%;
-        right: 0;
-        bottom: 0;
-    }
-
-    &:nth-child(3) {
+    &-back {
         width: 54%;
-        right: 36%;
-        bottom: 10%;
+        top: 0;
+        left: 5%;
+    }
+
+    &-front {
+        width: 44%;
+        right: 5%;
+        bottom: 0;
     }
 }
 

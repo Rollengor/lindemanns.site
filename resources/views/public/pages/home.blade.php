@@ -16,9 +16,12 @@
     <section class="home-about">
         <div class="container home-about-container">
             <div class="home-about-pictures">
-                <img src="/img/temp/home-about-4.webp" alt="Image" class="img-cover home-about-image">
+                {{--<img src="/img/temp/home-about-4.webp" alt="Image" class="img-cover home-about-image">
                 <img src="/img/temp/home-about-3.webp" alt="Image" class="img-cover home-about-image">
-                <img src="/img/temp/home-about-5.webp" alt="Image" class="img-cover home-about-image">
+                <img src="/img/temp/home-about-5.webp" alt="Image" class="img-cover home-about-image">--}}
+
+                <img src="/img/temp/home-about-1.webp" alt="Image" class="img-cover home-about-image-back">
+                <img src="/img/temp/home-about-3.webp" alt="Image" class="img-cover home-about-image-front">
             </div>
 
             <div class="home-about-body">
