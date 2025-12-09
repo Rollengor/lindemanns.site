@@ -1,0 +1,41 @@
+@use '../functions/range';
+
+.contacts-page-head {
+    text-align: left;
+}
+
+.contacts {
+    padding: range.build(60, 100) 0 range.build(80, 250);
+    position: relative;
+}
+
+.contacts-bg-image {
+    width: range.build(800, 1400);
+    position: absolute;
+    left: 40%;
+    bottom: 0;
+    z-index: -1;
+    mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 50%);
+
+    @media (min-width: 768px) {
+        left: 34%;
+    }
+}
+
+.contacts-container {
+    display: flex;
+    flex-direction: column;
+    gap: range.build(20, 60) 0;
+
+    address {
+        color: var(--color-gray);
+    }
+}
+
+.contacts-links {
+    display: flex;
+    flex-direction: column;
+    font-size: range.build(18, 22);
+    line-height: 1.2;
+    gap: 1.27em;
+}

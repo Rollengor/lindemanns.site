@@ -8,7 +8,7 @@
                 <li><a href="#">{{ __('base.expertise') }}</a></li>
                 <li><a href="#">{{ __('base.portfolio') }}</a></li>
                 <li><a href="{{ route('public.news') }}" class="{{ request()->routeIs('public.news*') ? 'is-active' : '' }}">{{ __('base.news') }}</a></li>
-                <li><a href="#">{{ __('base.contacts') }}</a></li>
+                <li><a href="{{ route('public.contacts') }}" class="{{ request()->routeIs('public.contacts') ? 'is-active' : '' }}">{{ __('base.contacts') }}</a></li>
             </ul>
         </nav>
 

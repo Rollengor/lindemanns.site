@@ -30,6 +30,7 @@ return [
     'seo' => 'SEO',
     'hero' => 'Hero',
     'ui_elements' => 'UI Elements',
+    'contacts' => 'Contacts',
 
     'username' => 'Username',
     'username_or_email' => 'Username or Email',

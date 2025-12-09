@@ -11,6 +11,8 @@ Route::group(['prefix' => 'news'], function () {
 
 });
 
+Route::get('/contacts', [App\Http\Controllers\Public\ContactsPageController::class, 'index'])->name('public.contacts');
+
 //Route::get('/services', [App\Http\Controllers\Public\ServicesPageController::class, 'index'])->name('public.services');
 //Route::get('/gallery', [App\Http\Controllers\Public\GalleryPageController::class, 'index'])->name('public.gallery');
 
