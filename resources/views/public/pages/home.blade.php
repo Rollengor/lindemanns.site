@@ -13,32 +13,7 @@
         </div>
     </section>
 
-    <section class="home-about">
-        <div class="container home-about-container">
-            <div class="home-about-pictures">
-                {{--<img src="/img/temp/home-about-4.webp" alt="Image" class="img-cover home-about-image">
-                <img src="/img/temp/home-about-3.webp" alt="Image" class="img-cover home-about-image">
-                <img src="/img/temp/home-about-5.webp" alt="Image" class="img-cover home-about-image">--}}
-
-                <img src="/img/temp/home-about-1.webp" alt="Image" class="img-cover home-about-image-back">
-                <img src="/img/temp/home-about-3.webp" alt="Image" class="img-cover home-about-image-front">
-            </div>
-
-            <div class="home-about-body">
-                <h6 class="home-about-title">{{ __('base.who_we_are') }}</h6>
-
-                <div class="formatted-text home-about-description">
-                    <h2>Our Vision</h2>
-                    <p>Our vision is to be a leading force in creating real estate opportunities that shape better communities and brighter futures.</p>
-                </div>
-
-                <div class="formatted-text home-about-description">
-                    <h2>Our Mission</h2>
-                    <p>To deliver exceptional real estate services through innovation, professionalism, and a commitment to understanding our clients’ unique needs.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    @include('public.sections.who-we-are')
 
     <section class="home-services">
         <div class="container home-services-container">

@@ -16,11 +16,13 @@
 @use "components/breadcrumbs";
 
 @use "sections/header";
+@use "sections/who-we-are";
 @use "sections/news";
 @use "sections/contact-section";
 @use "sections/footer";
 
 @use "pages/page-home";
+@use "pages/page-about";
 @use "pages/page-news";
 @use "pages/page-news-article";
 @use "pages/page-contacts";

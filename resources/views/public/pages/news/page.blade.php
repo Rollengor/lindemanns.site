@@ -2,7 +2,7 @@
 
 @section('content')
     <section class="container inner-page-head news-page-head">
-        <h4 class="inner-page-title">{{ __('base.news') }}</h4>
+        <h1 class="inner-page-title">{{ __('base.news') }}</h1>
 
         <x-public.icon.building-outline class="news-page-head-icon"/>
     </section>

@@ -2,7 +2,7 @@
 
 @section('content')
     <section class="container inner-page-head contacts-page-head">
-        <h4 class="inner-page-title">{{ __('base.contacts') }}</h4>
+        <h1 class="inner-page-title">{{ __('base.contacts') }}</h1>
     </section>
 
     <section class="contacts">

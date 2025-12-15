@@ -3,6 +3,14 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [App\Http\Controllers\Public\HomePageController::class, 'index'])->name('public.home');
+Route::get('/about', [App\Http\Controllers\Public\AboutPageController::class, 'index'])->name('public.about');
+
+Route::group(['prefix' => 'services'], function () {
+
+    Route::get('/', [App\Http\Controllers\Public\Services\ServicesPageController::class, 'index'])->name('public.services');
+    //Route::get('/{newsArticle:slug}', [App\Http\Controllers\Public\News\ArticlePageController::class, 'index'])->name('public.services.article');
+
+});
 
 Route::group(['prefix' => 'news'], function () {
 

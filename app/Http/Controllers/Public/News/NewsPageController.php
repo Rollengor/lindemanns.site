@@ -54,6 +54,6 @@ class NewsPageController extends Controller
             return response()->json($responseData);
         }
 
-        return view('public.pages.news.news', compact('newsCategories', 'newsArticles'));
+        return view('public.pages.news.page', compact('newsCategories', 'newsArticles'));
     }
 }
