@@ -15,11 +15,11 @@
 
     @include('public.sections.who-we-are')
 
-    <section class="home-services">
-        <div class="container home-services-container">
-            <div class="home-services-row">
-                <div class="home-services-row-body">
-                    <h3 class="home-services-row-title">Real Estate Services</h3>
+    <section class="services">
+        <div class="container services-container">
+            <div class="services-row">
+                <div class="services-row-body">
+                    <h3 class="services-row-title">Real Estate Services</h3>
                     <ul>
                         <li><a href="#" class="primary-link">Searching and brokerage of real estate objects in Switzerland</a></li>
                         <li><a href="#" class="primary-link">Planning of real estate</a></li>
@@ -30,16 +30,16 @@
                         <li><a href="#" class="primary-link">Renovation</a></li>
                     </ul>
                 </div>
-                {{--<div class="home-services-row-pictures">
-                    <img src="/img/temp/home-about-1.webp" alt="Image" class="img-cover home-services-row-image-back">
-                    <img src="/img/temp/home-about-2.webp" alt="Image" class="img-cover home-services-row-image-front">
+                {{--<div class="services-row-pictures">
+                    <img src="/img/temp/home-about-1.webp" alt="Image" class="img-cover services-row-image-back">
+                    <img src="/img/temp/home-about-2.webp" alt="Image" class="img-cover services-row-image-front">
                 </div>--}}
-                <img src="/img/temp/service-1.webp?v-2" alt="Service image" class="img home-services-row-image">
+                <img src="/img/temp/service-1.webp?v-2" alt="Service image" class="img services-row-image">
             </div>
 
-            <div class="home-services-row">
-                <div class="home-services-row-body">
-                    <h3 class="home-services-row-title">Financial & Investment Advisory</h3>
+            <div class="services-row">
+                <div class="services-row-body">
+                    <h3 class="services-row-title">Financial & Investment Advisory</h3>
                     <ul>
                         <li><a href="#" class="primary-link">Corporate finance advisory for real estate projects</a></li>
                         <li><a href="#" class="primary-link">Investment consulting</a></li>
@@ -47,18 +47,18 @@
                         <li><a href="#" class="primary-link">Wealth protection</a></li>
                     </ul>
                 </div>
-                <img src="/img/temp/service-2.webp?v-2" alt="Service image" class="img home-services-row-image">
+                <img src="/img/temp/service-2.webp?v-2" alt="Service image" class="img services-row-image">
             </div>
 
-            <div class="home-services-row">
-                <div class="home-services-row-body">
-                    <h3 class="home-services-row-title">Legal & Relocation Services</h3>
+            <div class="services-row">
+                <div class="services-row-body">
+                    <h3 class="services-row-title">Legal & Relocation Services</h3>
                     <ul>
                         <li><a href="#" class="primary-link">Legal structuring</a></li>
                         <li><a href="#" class="primary-link">Relocation to Switzerland</a></li>
                     </ul>
                 </div>
-                <img src="/img/temp/service-3.webp?v-2" alt="Service image" class="img home-services-row-image">
+                <img src="/img/temp/service-3.webp?v-2" alt="Service image" class="img services-row-image">
             </div>
         </div>
     </section>

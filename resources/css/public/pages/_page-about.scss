@@ -45,7 +45,7 @@
 
 
 .about-leaders {
-    --container-pt: #{range.build(30, 120)};
+    --container-pt: 20px;
     --container-pb: #{range.build(60, 120)};
 
     display: flex;
@@ -76,7 +76,7 @@
             display: block;
             content: '';
             width: 100%;
-            aspect-ratio: 1;
+            aspect-ratio: 1 / .84;
             background-color: var(--color-gray-light);
             position: absolute;
             left: 0;
@@ -91,7 +91,7 @@
             position: absolute;
             left: 50%;
             bottom: 0;
-            translate: -50% 20%;
+            translate: -50% 32%;
             opacity: .25;
         }
     }
@@ -120,7 +120,7 @@
 
     &-position {
         font-size: range.build(16, 18, px, 768);
-        margin-top: range.build(16, 36, px, 768);
+        margin-top: range.build(16, 30, px, 768);
         color: var(--color-secondary);
         font-weight: bold;
     }
@@ -128,15 +128,15 @@
     &-info {
         display: flex;
         flex-direction: column;
-        gap: range.build(20, 54, px, 768);
-        margin-top: range.build(20, 84, px, 768);
+        gap: range.build(20, 40, px, 768);
+        margin-top: range.build(20, 60, px, 768);
         font-size: range.build(16, 18, px, 768);
 
         li {
             display: flex;
             flex-direction: column;
             gap: .5em;
-            padding-bottom: range.build(18, 28, px, 768);
+            padding-bottom: range.build(18, 22, px, 768);
             border-bottom: 1px solid var(--color-gray-medium);
         }
 
@@ -150,7 +150,7 @@
     &-download-link {
         font-weight: bold;
         font-size: range.build(18, 22, px, 768);
-        margin-top: range.build(20, 64, px, 768);
+        margin-top: range.build(20, 50, px, 768);
 
         &::after {
             width: max(10px, .6em);

@@ -36,7 +36,7 @@ section:has(.target-anchor-section) {
 
 .inner-page {
     &-head {
-        margin-top: calc(var(--header-height) + 60px);
+        margin-top: calc(var(--header-height) + range.build(30, 60));
         text-align: center;
     }
 

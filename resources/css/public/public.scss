@@ -14,15 +14,19 @@
 @use "components/links";
 @use "components/pagination";
 @use "components/breadcrumbs";
+@use "components/accordion";
 
 @use "sections/header";
 @use "sections/who-we-are";
+@use "sections/services";
 @use "sections/news";
 @use "sections/contact-section";
 @use "sections/footer";
 
 @use "pages/page-home";
 @use "pages/page-about";
+@use "pages/page-services";
+@use "pages/page-service";
 @use "pages/page-news";
 @use "pages/page-news-article";
 @use "pages/page-contacts";

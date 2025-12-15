@@ -1,0 +1,17 @@
+[data-accordion-target] {
+    cursor: pointer;
+    user-select: none;
+}
+
+[data-accordion-content] {
+    max-height: 0;
+    overflow: hidden;
+    transition: var(--transition);
+    transition-property: max-height;
+}
+
+[data-accordion-item].is-active {
+    [data-accordion-content] {
+        max-height: var(--content-scroll-height, none);
+    }
+}

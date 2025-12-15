@@ -8,7 +8,7 @@ Route::get('/about', [App\Http\Controllers\Public\AboutPageController::class, 'i
 Route::group(['prefix' => 'services'], function () {
 
     Route::get('/', [App\Http\Controllers\Public\Services\ServicesPageController::class, 'index'])->name('public.services');
-    //Route::get('/{newsArticle:slug}', [App\Http\Controllers\Public\News\ArticlePageController::class, 'index'])->name('public.services.article');
+    Route::get('/article', [App\Http\Controllers\Public\Services\ServicePageController::class, 'index'])->name('public.services.article');
 
 });
 
