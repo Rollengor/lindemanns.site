@@ -11,7 +11,7 @@
         <div class="container contacts-container">
             <div class="contacts-links">
                 <p><a href="tel:41796750423" class="base-link">+41 79 675 04 23</a></p>
-                <p><a href="mailto:contact@lindemannsreal.com" class="base-link">contact@lindemannsreal.com</a></p>
+                <p><a href="mailto:contact@tnduniverse.com" class="base-link">contact@tnduniverse.com</a></p>
             </div>
 
             <address>Zurich, Switzerland</address>

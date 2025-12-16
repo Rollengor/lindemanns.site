@@ -8,7 +8,7 @@
 
             <div class="contact-section-links">
                 <p><a href="tel:41796750423" class="base-link">+41 79 675 04 23</a></p>
-                <p><a href="mailto:sales@lindemannsreal.com" class="base-link">sales@lindemannsreal.com</a></p>
+                <p><a href="mailto:sales@tnduniverse.com" class="base-link">sales@tnduniverse.com</a></p>
             </div>
         </div>
 
