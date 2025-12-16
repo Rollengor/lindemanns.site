@@ -21,8 +21,9 @@ Route::group(['prefix' => 'news'], function () {
 
 Route::get('/contacts', [App\Http\Controllers\Public\ContactsPageController::class, 'index'])->name('public.contacts');
 
-//Route::get('/services', [App\Http\Controllers\Public\ServicesPageController::class, 'index'])->name('public.services');
-//Route::get('/gallery', [App\Http\Controllers\Public\GalleryPageController::class, 'index'])->name('public.gallery');
+Route::get('/imprint', [App\Http\Controllers\Public\ImprintPageController::class, 'index'])->name('public.imprint');
+Route::get('/privacy-notice', [App\Http\Controllers\Public\PrivacyNoticePageController::class, 'index'])->name('public.privacy-notice');
+Route::get('/terms-of-use', [App\Http\Controllers\Public\TermsOfUsePageController::class, 'index'])->name('public.terms-of-use');
 
 Route::group([
     'middleware' => [App\Http\Middleware\ThrottleEmails::class],

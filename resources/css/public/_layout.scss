@@ -44,6 +44,10 @@ section:has(.target-anchor-section) {
         font-size: range.build(32, 50);
         font-weight: normal;
     }
+
+    &-content {
+        --container-py: #{range.build(40, 80)};
+    }
 }
 
 .formatted-text {
