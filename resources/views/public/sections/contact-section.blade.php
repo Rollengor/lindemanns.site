@@ -15,10 +15,10 @@
         <div class="contact-section-form">
             <div class="contact-section-form-head">
                 <h4 class="contact-section-form-title">Contact Us to Get Some Exclusive</h4>
-                <div class="contact-section-form-avatar">
+                {{--<div class="contact-section-form-avatar">
                     <x-public.circle-logo/>
                     <img src="/img/avatar.jpg" alt="Circle logo" class="img-fluid">
-                </div>
+                </div>--}}
             </div>
 
             <form action="#" method="POST" class="form contact-section-form-body">
