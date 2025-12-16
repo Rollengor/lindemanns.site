@@ -13,7 +13,7 @@ class AboutPageController extends Controller
             [
                 'image' => '/img/temp/about-leader-1.webp',
                 'name' => 'Dr. Alexander Lindemann',
-                'position' => 'Founder, LINDEMANNS REAL GMBH',
+                'position' => 'Founder, TND UNIVERSE',
                 'info' => [
                     [
                         'head' => '110+',
