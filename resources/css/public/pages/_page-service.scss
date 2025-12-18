@@ -213,6 +213,8 @@
         text-decoration: none;
         padding: 1.46em 0 1.46em 2.23em;
         border-bottom: 1px solid var(--color-gray-medium);
+        transition: var(--transition);
+        transition-property: color;
 
         &:first-child {
             margin-top: -1.46em;
@@ -235,6 +237,15 @@
             translate: 0% -45%;
             transition: var(--transition);
             transition-property: rotate, background-color;
+        }
+
+        &:hover {
+            color: var(--color-secondary);
+
+            &::before {
+                background-color: var(--color-secondary);
+                rotate: 45deg;
+            }
         }
     }
 }
