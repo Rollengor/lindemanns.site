@@ -1,18 +1,32 @@
 @extends('public.layouts.base')
 
 @section('content')
-    <section class="container inner-page-head">
+    <section class="container inner-page-head is-text-left">
         <h1 class="inner-page-title">Privacy Notice</h1>
     </section>
 
     <section class="container formatted-text inner-page-content">
-        <p><strong>General</strong></p>
+        <p style="color: #8599ad;">Table of content</p>
+        <p>
+            GENERAL<br>
+            1. COLLECTION AND PROCESSING OF PERSONAL DATA<br>
+            2. PURPOSES AND LEGAL BASIS OF PROCESSING<br>
+            3. RECIPIENTS OF PERSONAL DATA<br>
+            4. COOKIES AND GOOGLE ANALYTICS<br>
+            5. NEWSLETTER<br>
+            6. SOCIAL PLUG-INS<br>
+            7. STORAGE PERIOD AND DATA DELETION<br>
+            8. YOUR RIGHTS<br>
+            9. CONTROLLER<br>
+            10. AMDENDMENTS TO THIS PRIVACY POLICY
+        </p>
+        <h4>GENERAL</h4>
         <p>When you use this website and its features, we LINDEMANN LAW AG (“LINDEMANNLAW”) protect and process your personal data according to this Privacy Policy and in compliance with Swiss and any other applicable data protection laws. This Privacy Policy is a binding part of the Terms of Use. When accessing our website and/or communicating with us via email or other channels you consent to this Privacy Policy. In case you should not agree to any part of this Privacy Policy, you must inform us and discontinue using our website. Therefore, please read the Privacy Policy carefully.</p>
-        <p><strong>1. Collection and Processing of Personal Data</strong></p>
+        <h4>1. COLLECTION AND PROCESSING OF PERSONAL DATA</h4>
         <p>Personal data is any information relating to an identified or identifiable natural person [Art. 5 let. A Federal Act on Data Protection (Data Protection Act, FADP) of 25 September 2020 (Status as of 1 September 2023)]. We primarily process personal data that we obtain from our clients and other business partners as well as other individuals in the context of our business relationships with them or that we collect from users when operating our websites, apps and other applications.</p>
         <p>We collect certain personal data when you use this website. For example, by using cookies and similar technologies, we may process your IP address, your geographic location as indicated by your IP address, the content you access, the website from which the request originates, the search terms you enter on this website, information about the type of device you use to access this website, the operating system and your browser type. Please note that our website may link to other websites, for which different data protection rules may apply.</p>
         <p>We also process limited personal data in the context of our newsletter campaigns (see section „Newsletter“).</p>
-        <p><strong>2. Purposes and Legal Basis of Processing</strong></p>
+        <h4>2. PURPOSES AND LEGAL BASIS OF PROCESSING</h4>
         <p>We process your personal data for the following purposes:</p>
         <ul>
             <li>to operate and improve this website and other platforms we use (see section „Cookies and Google Analytics“ for additional information) which is in our legitimate interest;</li>
@@ -20,31 +34,31 @@
             <li>to comply with legal obligations which we are subject to; and<br>
                 to manage risk and to assert and defend claims in legal disputes and official proceedings which is in our (or, as the case may be, a third party’s) legitimate interest.</li>
         </ul>
-        <p><strong>3. Recipients of Personal Data</strong></p>
+        <h4>3. RECIPIENTS OF PERSONAL DATA</h4>
         <p>We may disclose your personal data, for the purposes set out above to the following categories of recipients which may be located in Switzerland or abroad:</p>
         <ul>
             <li>to our external service providers who process the personal data on our behalf, e.g., marketing service, analytics, telecommunications and IT service providers; and</li>
             <li>to third parties and authorities if such disclosure is necessary to comply with legal obligations.</li>
         </ul>
         <p>If recipients are located in jurisdictions without adequate statutory data protection, any transfer abroad takes place on the basis of appropriate safeguards, in particular the EU standard contractual clauses (available at https://ec.europa.eu) or certifications obtained by the recipients (such as self-certification under the Privacy Shield by U.S. based recipients; see <a href="http://www.privacyshield.gov">www.privacyshield.gov</a>).</p>
-        <p><strong>4. </strong><strong style="font-size: 18px;">Cookies and Google Analytics</strong></p>
+        <h4>4. COOKIES AND GOOGLE ANALYTICS</h4>
         <p>Cookies are text files placed on your device to help analyze how users use a website. After the browser session, most of the cookies we use are deleted from your hard disk („session cookies“). Other cookies remain on your computer („permanent cookies“) and permit its recognition on your next visit to our website. This allows us to improve your access to our website. You can prevent the storage of permanent cookies by choosing a „disable cookies“ option in your browser settings.</p>
         <p>This website uses Google Analytics, a web analytics service provided by Google Inc. (Google). Google Analytics uses cookies, i.e. text files stored on your computer, to enable analysis of website usage by you. Information generated by the cookie about your use of this website is usually transmitted to a Google server in the United States and stored there. In case of activated IP anonymization on this website, however, your IP address is previously truncated by Google within member states of the European Union or in other states which are party to the agreement on the European Economic Area. Only in exceptional cases is a full IP address transmitted to a Google server in the United States and truncated there. On our behalf, Google will use this information to evaluate your use of our website, compile reports about website activities, and provide us with further services related to website and Internet usage. The IP address sent from your browser as part of Google Analytics is not merged with other data by Google. You can prevent storage of cookies by appropriately setting your browser software; in this case, however, please note that you might not be able to fully use all functions offered by this website. In addition, you can prevent data generated by the cookie and relating to your use of the website (including your IP address) from being collected and processed by Google, by downloading and installing a browser plug-in from the following link: tools.google.com/dlpage/gaoptout?hl=en.</p>
         <p>This website uses Google Analytics with the extension „anonymizeIP()“, IP addresses being truncated before further processing in order to rule out direct associations to persons.</p>
-        <p><strong>5. Newsletter</strong></p>
+        <h4>5. NEWSLETTER</h4>
         <p>On this website, you may subscribe to our newsletter by providing us with limited personal data as requested in the relevant entry form. For verification purposes, we will send you a confirmation e-mail right after you have finished the registration process.</p>
         <p>During this process, we may also store your IP address and the date and time of registration. The personal data collected as part of your registration will be used for sending you our newsletter. Our newsletters contain tracking pixels which enable log file recording for statistical analysis of our newsletter campaigns. We may see whether and when an e-mail was opened, and which links in the e-mail were activated. Such personal data may be passed on to our campaign service provider who will process the data only on our behalf and for other purposes only in an anonymized form.</p>
         <p>You may unsubscribe from our newsletter at any time by informing us via mail@lindemannlaw.ch or by clicking on the link at the bottom of each newsletter.</p>
-        <p><strong>6. Social Plug-Ins</strong></p>
+        <h4>6. SOCIAL PLUG-INS</h4>
         <p>No social plug-ins are used on this website.</p>
-        <p><strong>7. </strong><strong style="font-size: 18px;">Storage period and data deletion</strong></p>
+        <h4>7. STORAGE PERIOD AND DATA DELETION</h4>
         <p>We process and store your personal data for the duration of the fulfillment of our contractual and legal obligations, for as long as it is necessary to achieve the purposes pursued with the processing, and for as long as we are legally obliged to store and document it. We may retain personal data for as long as claims may be brought against our company or as long as we are otherwise required to do so by law or legitimate business interests so require. If your personal data is no longer required for the above-mentioned purposes, it will be deleted or anonymized as a matter of principle and to the extent possible.</p>
-        <p><strong>8. Your Rights</strong></p>
+        <h4>8. YOUR RIGHTS</h4>
         <p>You have the right to request access to the data we hold about you, including the right to request correction of incorrect personal data, its restriction and deletion. In addition and subject to applicable law, you may have the right to data portability (right to data surrender and transfer according to Art. 28 FADP) and to lodge a complaint with the competent data protection supervisory authority if you believe that our processing of your personal data infringes applicable data protection laws. The competent data protection authority of Switzerland is the Federal Data Protection and Information Commissioner (<a href="http://www.edoeb.admin.ch">http://www.edoeb.admin.ch</a>). If data processing by us is based on your consent, you can revoke this at any time without giving reasons for the future.</p>
         <p>Please note, however, that we reserve the right to enforce statutory restrictions on our part, for example if we are obliged to retain or process certain data, have an overriding interest (insofar as we may invoke such interests) or need the data for asserting claims. If exercising certain rights incurs costs for you, we will notify you thereof in advance.</p>
-        <p><strong>9. Controller</strong></p>
+        <h4>9. CONTROLLER</h4>
         <p>The «controller» of data processing as described in this data protection statement (i.e. the responsible person) is LINDEMANN LAW AG (“LINDEMANNLAW”), unless we have informed you otherwise in certain cases. You can notify us of any data protection-related concerns at: <a href="mailto:mail@lindemannlaw.ch">mail@lindemannlaw.ch</a> or write us to LINDEMANN LAW AG, Mühlegasse 11, 8001 Zürich, Switzerland.</p>
-        <p><strong>10. </strong><strong>Amdendments to this Privacy Policy</strong></p>
+        <h4>10. AMDENDMENTS TO THIS PRIVACY POLICY</h4>
         <p>We may amend this Policy at any time without prior notice. The current version published on our website shall apply.</p>
     </section>
 

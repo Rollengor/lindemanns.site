@@ -1,7 +1,7 @@
 @extends('public.layouts.base')
 
 @section('content')
-    <section class="container inner-page-head">
+    <section class="container inner-page-head is-text-left">
         <h1 class="inner-page-title">Imprint</h1>
     </section>
 

@@ -38,6 +38,10 @@ section:has(.target-anchor-section) {
     &-head {
         margin-top: calc(var(--header-height) + range.build(30, 60));
         text-align: center;
+
+        &.is-text-left {
+            text-align: left;
+        }
     }
 
     .inner-page-title {
@@ -46,7 +50,7 @@ section:has(.target-anchor-section) {
     }
 
     &-content {
-        --container-py: #{range.build(40, 80)};
+        --container-py: #{range.build(30, 60)};
     }
 }
 

@@ -1,10 +1,12 @@
 @use '../functions/range';
 
 .service-head {
+    --col-gap-x: #{range.build(26, 60, px, 992)};
+    --col-gap-y: 30px;
+
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: range.build(20, 60, px, 992);
+    gap: var(--col-gap-y) var(--col-gap-x);
 
     @media (min-width: 992px) {
         flex-direction: row;
@@ -13,7 +15,8 @@
 
     &-title {
         @media (min-width: 992px) {
-            width: 28%;
+            max-width: calc(50% - var(--col-gap-x) / 2);
+            align-self: center;
         }
     }
 
@@ -22,25 +25,40 @@
 
         @media (min-width: 992px) {
             flex: 1 0 0;
+            padding-top: 10px;
         }
     }
 }
 
 .service-main-picture {
-    height: range.build(260, 650);
-    margin-top: range.build(40, 66);
+    margin-top: 30px;
 }
 
 .service-info {
     --container-py: #{range.build(60, 80)};
 
+    display: flex;
+    flex-direction: column;
+    gap: range.build(30, 54) range.build(26, 68, px, 992);
+
+    @media (min-width: 992px) {
+        flex-direction: row;
+    }
+
     &-title {
-        font-weight: bold;
+        font-weight: normal;
+        line-height: 1.2;
+
+        @media (min-width: 992px) {
+            width: range.build(280, 420, px, 992);
+        }
     }
 }
 
 .service-info-list {
-    margin-top: range.build(30, 54);
+    @media (min-width: 992px) {
+        flex: 1 0 0;
+    }
 }
 
 .service-info-card {
@@ -91,6 +109,9 @@
         flex: 1 0 0;
         position: relative;
         padding-right: 12px;
+        color: var(--color-secondary-large);
+        transition: var(--transition);
+        transition-property: color;
 
         &::after {
             display: inline-block;
@@ -110,68 +131,28 @@
         }
     }
 
-    &-content {
-        background-color: var(--color-primary);
-        color: var(--color-white);
-        font-size: range.build(16, 18);
-        font-weight: bold;
-        box-shadow: 50vw 0 0 0 var(--color-primary), -50vw 0 0 0 var(--color-primary);
-    }
-
-    &-body {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-
-        @media (min-width: 992px) {
-            flex-direction: row;
-            align-items: center;
-        }
-    }
-
     &-description {
-        padding: range.build(30, 84) 0;
-        flex: 1 0 0;
+        padding-bottom: range.build(24, 36);
+        font-size: range.build(16, 18);
+    }
 
-        @media (min-width: 992px) {
-            max-width: 65%;
-            margin-right: auto;
-            //padding-bottom: range.build(20, 84);
+    &:first-child {
+        .service-info-card {
+            &-head {
+                padding-top: 0;
+            }
         }
     }
 
-    &-picture {
-        display: none;
-        width: range.build(80, 124);
-        position: relative;
-        margin: 20px 0 20px auto;
-
-        @media (min-width: 992px) {
-            display: block;
-            margin: 0 5%;
-        }
-
-        .icon {
-            --icon-size: 220%;
-            --icon-color: var(--color-secondary);
-
-            position: absolute;
-            top: 0;
-            left: 50%;
-            translate: -60% -12%;
-            opacity: .25;
-        }
-
-        img {
-            width: 100%;
-            position: relative;
-            z-index: 5;
+    &-head:hover {
+        .service-info-card {
+            &-title {
+                color: var(--color-secondary);
+            }
         }
     }
 
     &.is-active {
-        border-color: transparent;
-
         .service-info-card {
             &-head {
                 &-icon {
@@ -192,55 +173,77 @@
     }
 }
 
-.service-info-links {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    padding-top: range.build(50, 64);
+.service-more-info {
+    --container-pt: #{range.build(50, 80)};
+    --container-pb: 30px;
+
+    &-title {
+        font-weight: normal;
+
+        @media (min-width: 768px) {
+            max-width: 11em;
+        }
+    }
 }
 
-.service-info-link {
-    --link-px: #{range.build(1.125, 1.727, em)};
-    --link-py: 1.272em;
-    --link-pr: #{range.build(2.5, 3, em)};
+.service-more-info-body {
+    display: flex;
+    flex-direction: column;
+    margin-top: range.build(30, 70);
+    gap: 40px range.build(26, 80, px, 768);
 
-    display: block;
-    font-size: range.build(18, 22);
-    padding: var(--link-py) var(--link-pr) var(--link-py) var(--link-px);
-    border-radius: var(--radius-sm);
-    background-color: var(--color-gray-light);
-    text-decoration: none;
-    color: var(--color-primary);
-    font-weight: normal;
-    transition: var(--transition);
-    transition-property: color;
+    @media (min-width: 768px) {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+}
+
+.service-more-info-links {
+    font-size: range.build(18, 26);
     line-height: 1.2;
-    position: relative;
 
-    &::after {
-        display: block;
-        content: '';
-        width: range.build(12, 14);
-        aspect-ratio: 1;
-        vertical-align: middle;
-        background-color: var(--color-secondary);
-        mask-image: var(--icon-corner-arrow);
-        mask-repeat: no-repeat;
-        mask-position: center;
-        mask-size: contain;
-        transition: var(--transition);
-        transition-property: rotate;
-        position: absolute;
-        top: 50%;
-        right: var(--link-px);
-        translate: 0% -50%;
+    @media (min-width: 768px) {
+        flex: 1 0 0;
     }
 
-    &:hover {
-        color: var(--color-secondary);
+    a {
+        display: block;
+        position: relative;
+        color: inherit;
+        text-decoration: none;
+        padding: 1.46em 0 1.46em 2.23em;
+        border-bottom: 1px solid var(--color-gray-medium);
 
-        &::after {
-            rotate: 45deg;
+        &:first-child {
+            margin-top: -1.46em;
         }
+
+        &::before {
+            display: block;
+            content: '';
+            width: range.build(12, 16);
+            aspect-ratio: 1;
+            vertical-align: middle;
+            background-color: var(--color-secondary-large);
+            mask-image: var(--icon-corner-arrow);
+            mask-repeat: no-repeat;
+            mask-position: center;
+            mask-size: contain;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            translate: 0% -45%;
+            transition: var(--transition);
+            transition-property: rotate, background-color;
+        }
+    }
+}
+
+.service-more-info-image {
+    border-radius: var(--radius);
+
+    @media (min-width: 768px) {
+        width: range.build(260, 352, px, 768);
+        aspect-ratio: 1 / 1.119;
     }
 }
