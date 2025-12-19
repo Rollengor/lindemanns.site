@@ -1,4 +1,4 @@
-<div class="grid">
+<div class="grid gap-4">
     <div class="g-col-12 g-col-md-4">
         <!-- image -->
         <x-admin.field.image

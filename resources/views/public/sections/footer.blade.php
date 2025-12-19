@@ -37,13 +37,13 @@
         <div class="footer-bottom">
             <div class="copyright">© 2025 TND Universe. All rights reserved.</div>
 
-            <nav class="footer-bottom-menu">
+            {{--<nav class="footer-bottom-menu">
                 <ul>
                     <li><a href="{{ route('public.imprint') }}" class="{{ request()->routeIs('public.imprint') ? 'is-active' : '' }}">{{ __('base.imprint') }}</a></li>
                     <li><a href="{{ route('public.privacy-notice') }}" class="{{ request()->routeIs('public.privacy-notice') ? 'is-active' : '' }}">{{ __('base.privacy_notice') }}</a></li>
                     <li><a href="{{ route('public.terms-of-use') }}" class="{{ request()->routeIs('public.terms-of-use') ? 'is-active' : '' }}">{{ __('base.terms_of_use') }}</a></li>
                 </ul>
-            </nav>
+            </nav>--}}
 
             <a href="#" class="creator">
                 <img src="/img/citi-logo.svg" alt="CITI Advertising" class="img-fluid">

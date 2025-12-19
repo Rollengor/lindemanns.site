@@ -23,11 +23,12 @@ return new class extends Migration
             $table->json('seo_description')->nullable();
             $table->json('seo_keywords')->nullable();
 
-            $table->json('services');
-            $table->json('links');
+            $table->json('details');
 
-            $table->unsignedInteger('sort')->default(10000);
+            $table->unsignedInteger('sort')->default(100);
             $table->boolean('active')->default(true);
+
+            $table->foreignId('service_category_id')->nullable()->constrained()->nullOnDelete();
 
             $table->softDeletes();
             $table->timestamps();

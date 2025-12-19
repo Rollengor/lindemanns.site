@@ -31,6 +31,8 @@ return [
     'hero' => 'Hero',
     'ui_elements' => 'UI Elements',
     'contacts' => 'Contacts',
+    'service' => 'Service',
+    'services' => 'Services',
 
     'username' => 'Username',
     'username_or_email' => 'Username or Email',
@@ -54,7 +56,10 @@ return [
     'cancel' => 'Cancel',
     'short_description' => 'Short Description',
     'description' => 'Description',
+    'image' => 'Image',
     'bg_image' => 'Background Image',
+    'hero_image' => 'Hero Image',
+    'info_image' => 'Info Image',
 
     'forgot_your_password' => 'Forgot your password?',
     'already_registered' => 'Already registered?',

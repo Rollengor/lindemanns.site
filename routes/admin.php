@@ -2,16 +2,16 @@
 
 use Illuminate\Support\Facades\Route;
 
-/* Upload File */
+/* UPLOAD FILE */
 Route::post('/upload-image', [\App\Http\Controllers\Admin\ImageUploadController::class, 'store'])->name('admin.image.upload');
 
-/* Main */
+/* MAIN */
 Route::get('/', [\App\Http\Controllers\Admin\MainController::class, 'index'])->name('admin.main');
 
 /* UI */
 Route::get('/ui', [\App\Http\Controllers\Admin\UIController::class, 'index'])->name('admin.ui');
 
-/* Profile */
+/* PROFILE */
 Route::group([
     'middleware' => [\Spatie\Permission\Middleware\RoleOrPermissionMiddleware::using([\App\Enums\RolesEnum::SUPERADMIN->value, \App\Enums\RolesEnum::ADMIN->value])],
     'prefix' => 'profile'
@@ -22,7 +22,7 @@ Route::group([
 
 });
 
-/* Managers */
+/* MANAGERS */
 Route::group([
     'middleware' => [\Spatie\Permission\Middleware\RoleOrPermissionMiddleware::using([\App\Enums\RolesEnum::SUPERADMIN->value, \App\Enums\RolesEnum::ADMIN->value])],
     'prefix' => 'managers'
@@ -42,6 +42,7 @@ Route::group([
     'middleware' => [\Spatie\Permission\Middleware\RoleOrPermissionMiddleware::using([\App\Enums\PermissionsEnum::CANALL->value])]
 ], function () {
 
+    /* HOME */
     Route::group(['prefix' => 'home'], function () {
 
         Route::get('/', [\App\Http\Controllers\Admin\HomePageController::class, 'index'])->name('admin.home.page');
@@ -49,6 +50,7 @@ Route::group([
 
     });
 
+    /* NEWS */
     Route::group(['prefix' => 'news'], function () {
 
         Route::get('/', [\App\Http\Controllers\Admin\News\PageController::class, 'index'])->name('admin.news.page');
@@ -80,6 +82,39 @@ Route::group([
 
     });
 
+    /* SERVICES */
+    Route::group(['prefix' => 'services'], function () {
+
+        Route::get('/', [\App\Http\Controllers\Admin\Services\PageController::class, 'index'])->name('admin.services.page');
+        Route::patch('/{page}/update', [\App\Http\Controllers\Admin\Services\PageController::class, 'update'])->name('admin.services.page.update');
+
+        Route::group(['prefix' => 'categories'], function () {
+
+            Route::get('/', [\App\Http\Controllers\Admin\Services\CategoryController::class, 'index'])->name('admin.services.categories');
+
+            Route::get('/create', [\App\Http\Controllers\Admin\Services\CategoryController::class, 'create'])->name('admin.services.category.create');
+            Route::post('/store', [\App\Http\Controllers\Admin\Services\CategoryController::class, 'store'])->name('admin.services.category.store');
+            Route::get('/{serviceCategory}/edit', [\App\Http\Controllers\Admin\Services\CategoryController::class, 'edit'])->name('admin.services.category.edit');
+            Route::patch('/{serviceCategory}/update', [\App\Http\Controllers\Admin\Services\CategoryController::class, 'update'])->name('admin.services.category.update');
+            Route::delete('/{serviceCategory}/delete', [\App\Http\Controllers\Admin\Services\CategoryController::class, 'delete'])->name('admin.services.category.delete');
+
+        });
+
+        Route::group(['prefix' => 'services'], function () {
+
+            Route::get('/', [\App\Http\Controllers\Admin\Services\ServiceController::class, 'index'])->name('admin.services.services');
+
+            Route::get('/create', [\App\Http\Controllers\Admin\Services\ServiceController::class, 'create'])->name('admin.services.service.create');
+            Route::post('/store', [\App\Http\Controllers\Admin\Services\ServiceController::class, 'store'])->name('admin.services.service.store');
+            Route::get('/{service}/edit', [\App\Http\Controllers\Admin\Services\ServiceController::class, 'edit'])->name('admin.services.service.edit');
+            Route::patch('/{service}/update', [\App\Http\Controllers\Admin\Services\ServiceController::class, 'update'])->name('admin.services.service.update');
+            Route::delete('/{service}/delete', [\App\Http\Controllers\Admin\Services\ServiceController::class, 'delete'])->name('admin.services.service.delete');
+
+        });
+
+    });
+
+    /* DELETE */
     Route::group(['prefix' => 'delete'], function () {
 
         Route::get('/', [\App\Http\Controllers\Admin\DeleteModalController::class, 'show'])->name('admin.confirm-delete-modal');

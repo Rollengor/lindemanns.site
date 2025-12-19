@@ -13,4 +13,8 @@ return [
     'article_store_failed' => 'Article store failed',
     'article_update_failed' => 'Article update failed',
     'article_delete_failed' => 'Article delete failed',
+
+    'service_store_failed' => 'Service store failed',
+    'service_update_failed' => 'Service update failed',
+    'service_delete_failed' => 'Service delete failed',
 ];

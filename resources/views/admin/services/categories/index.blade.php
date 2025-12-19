@@ -9,7 +9,7 @@
         <x-admin.ajax.view-modal-button
             class="mx-auto"
 
-            :action="route('admin.news.category.create')"
+            :action="route('admin.services.category.create')"
             :modal_id="'category-create-modal'"
 
             :title="__('admin.create')"
@@ -21,7 +21,7 @@
 @section('content')
     <x-admin.container>
         <div id="categories-list" class="d-flex flex-column flex-auto mx-n3 mx-sm-n4 mt-n4">
-            @include('admin.news.categories.list')
+            @include('admin.services.categories.list')
         </div>
     </x-admin.container>
 @endsection

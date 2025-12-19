@@ -17,6 +17,38 @@
                 'isCan' => $user->can('all'),
             ],
             [
+                'title' => __('admin.services'),
+                'url' => 'admin.services',
+                'icon' => 'columns-gap',
+                'submenu' => [
+                    [
+                        'title' => __('admin.page'),
+                        'url' => 'admin.services.page',
+                        'groupUrl' => 'admin.services.page',
+                        'icon' => null,
+                        'submenu' => [],
+                        'isCan' => $user->can('all'),
+                    ],
+                    [
+                        'title' => __('admin.categories'),
+                        'url' => 'admin.services.categories',
+                        'groupUrl' => 'admin.services.categor*',
+                        'icon' => null,
+                        'submenu' => [],
+                        'isCan' => $user->can('all'),
+                    ],
+                    [
+                        'title' => __('admin.services'),
+                        'url' => 'admin.services.services',
+                        'groupUrl' => 'admin.services.service*',
+                        'icon' => null,
+                        'submenu' => [],
+                        'isCan' => $user->can('all'),
+                    ],
+                ],
+                'isCan' => $user->can('all'),
+            ],
+            [
                 'title' => __('admin.news'),
                 'url' => 'admin.news',
                 'icon' => 'list-columns',

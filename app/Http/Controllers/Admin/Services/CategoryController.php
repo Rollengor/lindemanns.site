@@ -1,0 +1,148 @@
+<?php
+
+namespace App\Http\Controllers\Admin\Services;
+
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\Services\Category\StoreRequest;
+use App\Http\Requests\Admin\Services\Category\UpdateRequest;
+use App\Models\ServiceCategory;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+use Illuminate\View\View;
+
+class CategoryController extends Controller
+{
+    public function index(): View {
+        $categories = ServiceCategory::all();
+
+        return view('admin.services.categories.index', compact('categories'));
+    }
+
+    public function create(Request $request): View|JsonResponse|string {
+        if ($request->ajax()) {
+            return view('admin.services.categories.create')->render();
+        }
+
+        abort(404);
+    }
+
+    public function store(StoreRequest $request): View|JsonResponse|string {
+        $data = $request->validated();
+
+        try {
+            DB::beginTransaction();
+
+            $category = ServiceCategory::create($data);
+
+            if ($request->hasFile('hero_image')) {
+                $category->addMediaFromRequest('hero_image')
+                    ->toMediaCollection($category->mediaHero);
+            }
+
+            DB::commit();
+        } catch (\Exception $exception) {
+            DB::rollBack();
+            Log::error(__('errors.category_store_failed'), ['exception' => $exception]);
+
+            if ($request->ajax()) {
+                return response()->json([
+                    'message' => __('errors.category_store_failed'),
+                    'error' => $exception->getMessage(),
+                ], 500);
+            }
+
+            if(app()->environment('local')) dd($exception);
+            return redirect()->back()->with('error', __('errors.general'));
+        }
+
+        if ($request->ajax()) {
+            return $this->getViewCategories();
+        }
+
+        abort(404);
+    }
+
+    public function edit(Request $request, ServiceCategory $serviceCategory): View|JsonResponse|string {
+        if ($request->ajax()) {
+            return view('admin.services.categories.edit', [
+                'category' => $serviceCategory,
+            ])->render();
+        }
+
+        abort(404);
+    }
+
+    public function update(UpdateRequest $request, ServiceCategory $serviceCategory): View|JsonResponse|string {
+        $data = $request->validated();
+
+        try {
+            DB::beginTransaction();
+
+            if ($request->hasFile('hero_image')) {
+                $serviceCategory->clearMediaCollection($serviceCategory->mediaHero);
+                $serviceCategory->addMediaFromRequest('hero_image')
+                    ->toMediaCollection($serviceCategory->mediaHero);
+            }
+
+            $serviceCategory->updateOrFail($data);
+
+            DB::commit();
+        } catch (\Exception $exception) {
+            DB::rollBack();
+            Log::error(__('errors.category_update_failed'), ['exception' => $exception]);
+
+            if ($request->ajax()) {
+                return response()->json([
+                    'message' => __('errors.category_update_failed'),
+                    'error' => $exception->getMessage(),
+                ], 500);
+            }
+
+            if(app()->environment('local')) dd($exception);
+            return redirect()->back()->with('error', __('errors.general'));
+        }
+
+        if ($request->ajax()) {
+            return $this->getViewCategories();
+        }
+
+        abort(404);
+    }
+
+    public function delete(Request $request, ServiceCategory $serviceCategory) {
+        try {
+            DB::beginTransaction();
+
+            $serviceCategory->deleteOrFail();
+
+            DB::commit();
+        } catch (\Exception $exception) {
+            DB::rollBack();
+            Log::error(__('errors.category_delete_failed'), ['exception' => $exception]);
+
+            if ($request->ajax()) {
+                return response()->json([
+                    'message' => __('errors.category_delete_failed'),
+                    'error' => $exception->getMessage(),
+                ], 500);
+            }
+
+            if(app()->environment('local')) dd($exception);
+            return redirect()->back()->with('error', __('errors.general'));
+        }
+
+        if ($request->ajax()) {
+            return $this->getViewCategories();
+        }
+
+        abort(404);
+    }
+
+    public function getViewCategories(): View|string {
+        $categories = ServiceCategory::all();
+
+        return view('admin.services.categories.list', compact('categories'))->render();
+    }
+}

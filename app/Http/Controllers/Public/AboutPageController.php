@@ -26,7 +26,7 @@ class AboutPageController extends Controller
                 ]
             ],
             [
-                'image' => '/img/temp/about-leader-2.webp?v=2',
+                'image' => '/img/temp/about-leader-2.webp?v=3',
                 'name' => 'Shynar Lindemann',
                 'position' => 'Co-Founder, TND UNIVERSE',
                 'info' => [

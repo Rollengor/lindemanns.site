@@ -147,13 +147,13 @@
     padding: range.build(20, 30) 0;
     font-size: range.build(14, 16);
 
-    @media (min-width: 992px) {
+    @media (min-width: 768px) {
         flex-direction: row;
         text-align: left;
     }
 }
 
-.footer-bottom-menu {
+/*.footer-bottom-menu {
     ul {
         display: flex;
         gap: 10px range.build(20, 30);
@@ -170,7 +170,7 @@
             }
         }
     }
-}
+}*/
 
 .copyright {
     color: var(--color-gray);

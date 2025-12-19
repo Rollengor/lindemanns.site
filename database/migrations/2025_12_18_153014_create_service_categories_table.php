@@ -13,6 +13,20 @@ return new class extends Migration
     {
         Schema::create('service_categories', function (Blueprint $table) {
             $table->id();
+
+            $table->json('name');
+            $table->string('slug')->unique();
+            $table->json('short_description')->nullable();
+            $table->json('description')->nullable();
+
+            $table->json('seo_title')->nullable();
+            $table->json('seo_description')->nullable();
+            $table->json('seo_keywords')->nullable();
+
+            $table->unsignedInteger('sort')->default(100);
+            $table->boolean('active')->default(true);
+
+            $table->softDeletes();
             $table->timestamps();
         });
     }
