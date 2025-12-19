@@ -11,7 +11,7 @@ class AboutPageController extends Controller
     public function index(): View {
         $leaders = [
             [
-                'image' => '/img/temp/about-leader-1.webp?v=2',
+                'image' => '/img/temp/about-leader-1.webp?v=3',
                 'name' => 'Dr. Alexander Lindemann',
                 'position' => 'Founder, TND UNIVERSE',
                 'info' => [
