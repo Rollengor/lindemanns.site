@@ -3,7 +3,7 @@ let lastDownScroll = 0;
 let isScrollDown = false;
 
 export function scrollPage() {
-    document.addEventListener('DOMContentLoaded', toggleScrolledClass);
+    document.addEventListener('DOMContentLoaded', toggleClasses);
 
     window.addEventListener('scroll', () => {
         const currentScroll = window.scrollY;
@@ -22,10 +22,21 @@ export function scrollPage() {
         lastScroll = currentScroll;
         
         document.documentElement.classList.toggle('is-header-hide', isHeaderHide);
-        toggleScrolledClass();
+        toggleClasses();
     });
 }
 
-function toggleScrolledClass() {
-    document.documentElement.classList.toggle('is-page-scrolled', window.scrollY > 0/*window.innerHeight*/);
+function toggleClasses() {
+    const windowHeight = window.innerHeight;
+    const currentScroll = window.scrollY;
+    const isPageScrolled = currentScroll > 0;
+    let isHeaderFixed = currentScroll > windowHeight || document.documentElement.classList.contains('is-header-fixed');
+
+    document.documentElement.classList.toggle('is-page-scrolled', isPageScrolled);
+
+    if (currentScroll === 0) {
+        isHeaderFixed = false;
+    }
+
+    document.documentElement.classList.toggle('is-header-fixed', isHeaderFixed);
 }
