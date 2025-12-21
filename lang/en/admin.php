@@ -33,6 +33,9 @@ return [
     'contacts' => 'Contacts',
     'service' => 'Service',
     'services' => 'Services',
+    'details' => 'Details',
+    'info' => 'Info',
+    'list' => 'List',
 
     'username' => 'Username',
     'username_or_email' => 'Username or Email',
@@ -60,6 +63,7 @@ return [
     'bg_image' => 'Background Image',
     'hero_image' => 'Hero Image',
     'info_image' => 'Info Image',
+    'section_title' => 'Section Title',
 
     'forgot_your_password' => 'Forgot your password?',
     'already_registered' => 'Already registered?',

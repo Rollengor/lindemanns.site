@@ -1,7 +1,6 @@
 import '../bootstrap';
 
 import { fields } from "./fields/fields.js";
-import { addetibleFields } from "./fields/addetibleFields.js";
 
 import { ajaxViewModalButton } from './components/ajaxViewModalButton.js';
 import { ajaxConfirmDeleteButton } from './components/ajaxConfirmDeleteButton.js';
@@ -20,7 +19,6 @@ import { saveAndShowActiveTab } from "./saveAndShowActiveTab.js";
 import { preloader } from "./components/preloader.js";
 
 fields();
-addetibleFields();
 
 ajaxViewModalButton();
 ajaxConfirmDeleteButton();

@@ -11,7 +11,7 @@ class UpdateRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return auth()->check();
     }
 
     /**
@@ -21,8 +21,41 @@ class UpdateRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            //
-        ];
+        $rules['hero_image'] = ['nullable', 'image', 'mimes:jpg,png,webp', 'max:20480'];
+        $rules['info_image'] = ['nullable', 'image', 'mimes:jpg,png,webp', 'max:20480'];
+
+        $rules['service_category_id'] = ['required', 'integer', 'exists:service_categories,id'];
+
+        $rules['sort'] = ['required', 'integer'];
+        $rules['active'] = ['required', 'boolean'];
+
+        foreach (supported_languages_keys() as $locale) {
+            $rules['title'] = ['required', 'array'];
+            $rules['title.' . $locale] = ['required', 'string', 'max:255'];
+
+            $rules['description'] = ['required', 'array'];
+            $rules['description.' . $locale] = ['required', 'string'];
+
+            $rules['details'] = ['required', 'array'];
+            $rules['details.' . $locale . '.title'] = ['required', 'string', 'max:255'];
+            $rules['details.' . $locale . '.list'] = ['required', 'array'];
+            $rules['details.' . $locale . '.list.*.title'] = ['required', 'string', 'max:255'];
+            $rules['details.' . $locale . '.list.*.description'] = ['required', 'string'];
+
+            $rules['info'] = ['nullable', 'array'];
+            $rules['info.' . $locale . '.title'] = ['nullable', 'string', 'max:255'];
+            $rules['info.' . $locale . '.list'] = ['nullable', 'array'];
+            $rules['info.' . $locale . '.list.*.title'] = ['nullable', 'string', 'max:255'];
+            $rules['info.' . $locale . '.list.*.description'] = ['nullable', 'string'];
+
+            $rules['seo_title'] = ['nullable', 'array'];
+            $rules['seo_title.' . $locale] = ['nullable', 'string', 'max:255'];
+            $rules['seo_description'] = ['nullable', 'array'];
+            $rules['seo_description.' . $locale] = ['nullable', 'string', 'max:255'];
+            $rules['seo_keywords'] = ['nullable', 'array'];
+            $rules['seo_keywords.' . $locale] = ['nullable', 'string', 'max:255'];
+        }
+
+        return $rules;
     }
 }

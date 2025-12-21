@@ -12,7 +12,7 @@
     ]
   },
   "resources/css/public/public.scss": {
-    "file": "assets/css/public-CMAgygIn.css",
+    "file": "assets/css/public-hesyNdjj.css",
     "src": "resources/css/public/public.scss",
     "isEntry": true,
     "names": [
@@ -20,7 +20,7 @@
     ]
   },
   "resources/js/admin/admin.js": {
-    "file": "assets/js/admin-DaPmiUAI.js",
+    "file": "assets/js/admin-CHwjTs4f.js",
     "name": "admin",
     "src": "resources/js/admin/admin.js",
     "isEntry": true,
@@ -29,7 +29,7 @@
     ]
   },
   "resources/js/public/public.js": {
-    "file": "assets/js/public-D5tk1x_D.js",
+    "file": "assets/js/public-PeLbWhBX.js",
     "name": "public",
     "src": "resources/js/public/public.js",
     "isEntry": true,
