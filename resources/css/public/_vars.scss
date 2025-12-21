@@ -37,7 +37,7 @@ $colors: (
 
     --gap-container: #{range.build(20, 30, px, 375, 768)};
 
-    --header-height: #{range.build(80, 110)};
+    --header-height: #{range.build(80, 110, px, 1400)};
 
     --radius: #{range.build(10, 20)};
     --radius-sm: #{range.build(6, 12)};
