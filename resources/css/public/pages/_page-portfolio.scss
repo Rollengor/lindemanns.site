@@ -1,0 +1,11 @@
+@use '../functions/range';
+
+.portfolio {
+    padding-top: range.build(30, 60);
+}
+
+.portfolio-container {
+    display: flex;
+    flex-direction: column;
+    gap: range.build(50, 60);
+}

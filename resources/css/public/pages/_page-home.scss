@@ -171,6 +171,8 @@
     border-radius: var(--radius);
     overflow: hidden;
     position: relative;
+    transition: var(--transition);
+    transition-property: translate;
 
     @media (min-width: 600px) {
         aspect-ratio: 1 / 1.4;
@@ -289,6 +291,8 @@
     }
 
     &:hover {
+        translate: 0% calc(range.build(20, 78, px, 992) / -2);
+
         .project-card {
             &-content {
                 background-color: rgba(var(--color-primary-rgb), .8);

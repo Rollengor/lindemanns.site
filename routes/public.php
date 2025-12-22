@@ -12,6 +12,13 @@ Route::group(['prefix' => 'services'], function () {
 
 });
 
+Route::group(['prefix' => 'portfolio'], function () {
+
+    Route::get('/', [App\Http\Controllers\Public\Portfolio\PortfolioPageController::class, 'index'])->name('public.portfolio');
+    //Route::get('/project', [App\Http\Controllers\Public\Portfolio\ProjectPageController::class, 'index'])->name('public.portfolio.project');
+
+});
+
 Route::group(['prefix' => 'news'], function () {
 
     Route::get('/', [App\Http\Controllers\Public\News\NewsPageController::class, 'index'])->name('public.news');
