@@ -39,6 +39,16 @@ class ServiceController extends Controller
 
             $service = Service::create($data);
 
+            if ($request->hasFile('hero_image')) {
+                $service->addMediaFromRequest('hero_image')
+                    ->toMediaCollection($service->mediaHero);
+            }
+
+            if ($request->hasFile('info_image')) {
+                $service->addMediaFromRequest('info_image')
+                    ->toMediaCollection($service->mediaInfo);
+            }
+
             DB::commit();
         } catch (\Exception $exception) {
             DB::rollBack();
@@ -69,11 +79,10 @@ class ServiceController extends Controller
         ];
 
         if ($request->ajax()) {
-            return view('admin.news.articles.edit', $data)->render();
+            return view('admin.services.services.edit', $data)->render();
         }
 
         abort(404);
-        //return view('admin.news.articles.test-edit', $data)->render();
     }
 
     public function update(UpdateRequest $request, Service $service): View|JsonResponse|string {
@@ -81,6 +90,18 @@ class ServiceController extends Controller
 
         try {
             DB::beginTransaction();
+
+            if ($request->hasFile('hero_image')) {
+                $service->clearMediaCollection($service->mediaHero);
+                $service->addMediaFromRequest('hero_image')
+                    ->toMediaCollection($service->mediaHero);
+            }
+
+            if ($request->hasFile('info_image')) {
+                $service->clearMediaCollection($service->mediaInfo);
+                $service->addMediaFromRequest('info_image')
+                    ->toMediaCollection($service->mediaInfo);
+            }
 
             $service->updateOrFail($data);
 
@@ -105,7 +126,6 @@ class ServiceController extends Controller
         }
 
         abort(404);
-        //return redirect()->back();
     }
 
     public function delete(Request $request, Service $service) {

@@ -11,10 +11,10 @@
             :title="__('admin.details')"
         />
 
-        <x-admin.tabs.nav-item
+        {{--<x-admin.tabs.nav-item
             :target="'info-section'"
             :title="__('admin.info')"
-        />
+        />--}}
 
         <x-admin.tabs.nav-item
             :target="'seo-section'"
@@ -31,9 +31,9 @@
             @include('admin.services.services.tabs.details')
         </x-admin.tabs.pane>
 
-        <x-admin.tabs.pane :id="'info-section'">
+        {{--<x-admin.tabs.pane :id="'info-section'">
             @include('admin.services.services.tabs.info')
-        </x-admin.tabs.pane>
+        </x-admin.tabs.pane>--}}
 
         <x-admin.tabs.pane :id="'seo-section'">
             @include('admin.services.services.tabs.seo')

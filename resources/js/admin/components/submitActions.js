@@ -38,13 +38,14 @@ export function submitActions() {
         if (field) firstInvalidCatched = true;
 
         const scrollViewport = field.closest('[data-overlayscrollbars-viewport]');
-        const parentTabPane = field.closest('.tab-pane');
-        const currentTabButton = document.querySelector(`[data-bs-target="#${parentTabPane?.id}"]`);
+        //const parentTabPane = field.closest('.tab-pane');
+        //const currentTabButton = document.querySelector(`[data-bs-target="#${parentTabPane?.id}"]`);
 
         const parentAccordionCollapse = field.closest('.accordion-collapse');
         const currentCollapseButton = document.querySelector(`[data-bs-target="#${parentAccordionCollapse?.id}"]`);
 
-        currentTabButton?.click();
+        //currentTabButton?.click();
+        findAndActiveInvalidTabs(field);
 
         if(currentCollapseButton?.classList?.contains('collapsed')) currentCollapseButton?.click();
 
@@ -61,4 +62,20 @@ export function submitActions() {
             });
         }, 200);
     }, true);
+}
+
+function findAndActiveInvalidTabs(field) {
+    const tabPanes = document.querySelectorAll('.tab-pane');
+    const fieldNameAttr = `[name="${field.name}"]`;
+
+    tabPanes.forEach(tabPane => {
+        const isHasField = tabPane.querySelector(fieldNameAttr);
+
+        if (isHasField) {
+            const currentTabButton = document.querySelector(`[data-bs-toggle][data-bs-target="#${tabPane.id}"]`);
+            const tabInstance = bootstrap.Tab.getOrCreateInstance(currentTabButton);
+
+            tabInstance.show();
+        }
+    });
 }

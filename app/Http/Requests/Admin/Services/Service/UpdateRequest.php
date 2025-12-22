@@ -42,11 +42,11 @@ class UpdateRequest extends FormRequest
             $rules['details.' . $locale . '.list.*.title'] = ['required', 'string', 'max:255'];
             $rules['details.' . $locale . '.list.*.description'] = ['required', 'string'];
 
-            $rules['info'] = ['nullable', 'array'];
+            /*$rules['info'] = ['nullable', 'array'];
             $rules['info.' . $locale . '.title'] = ['nullable', 'string', 'max:255'];
             $rules['info.' . $locale . '.list'] = ['nullable', 'array'];
             $rules['info.' . $locale . '.list.*.title'] = ['nullable', 'string', 'max:255'];
-            $rules['info.' . $locale . '.list.*.description'] = ['nullable', 'string'];
+            $rules['info.' . $locale . '.list.*.description'] = ['nullable', 'string'];*/
 
             $rules['seo_title'] = ['nullable', 'array'];
             $rules['seo_title.' . $locale] = ['nullable', 'string', 'max:255'];

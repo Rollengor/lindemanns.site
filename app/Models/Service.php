@@ -83,8 +83,8 @@ class Service extends Model implements HasMedia
         });
     }
 
-    public function categories(): BelongsTo {
-        return $this->belongsTo(ServiceCategory::class);
+    public function category(): BelongsTo {
+        return $this->belongsTo(ServiceCategory::class, 'service_category_id');
     }
 
     public function registerMediaConversions(Media $media = null): void

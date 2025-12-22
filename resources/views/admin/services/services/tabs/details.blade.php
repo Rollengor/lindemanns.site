@@ -36,14 +36,14 @@
                                 <div class="d-flex flex-column gap-4">
                                     <!-- title -->
                                     <x-admin.field.text
-                                        :name="'details['. $lang .'][' . $loopIndex . '][title]'"
+                                        :name="'details['. $lang .'][list][' . $loopIndex . '][title]'"
                                         :value="!empty($detailsList) ? data_get($detailsList, $loopIndex . '.title') : null"
                                         :placeholder="__('admin.title')"
                                     />
 
                                     <!-- description -->
                                     <x-admin.field.wysiwyg
-                                        :name="'details['. $lang .'][' . $loopIndex . '][description]'"
+                                        :name="'details['. $lang .'][list][' . $loopIndex . '][description]'"
                                         :value="!empty($detailsList) ? data_get($detailsList, $loopIndex . '.description') : null"
                                         :placeholder="__('admin.description')"
                                         :height="100"
@@ -57,13 +57,13 @@
                                 <div class="d-flex flex-column gap-4">
                                     <!-- title -->
                                     <x-admin.field.text
-                                        :name="'details['. $lang .'][0][title]'"
+                                        :name="'details['. $lang .'][list][0][title]'"
                                         :placeholder="__('admin.title')"
                                     />
 
                                     <!-- description -->
                                     <x-admin.field.wysiwyg
-                                        :name="'details['. $lang .'][0][description]'"
+                                        :name="'details['. $lang .'][list][0][description]'"
                                         :placeholder="__('admin.description')"
                                         :height="100"
                                     />
