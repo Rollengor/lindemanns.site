@@ -15,9 +15,7 @@ export function ajaxWithUpdateFromView() {
             successHandler: (response) => {
                 hideAllModals();
 
-                updateSection.innerHTML = response.data;
-
-                updateSyncLibs();
+                updateSection.innerHTML = response.data?.html;
             },
             errorHandler: (error) => {
                 console.error(error);

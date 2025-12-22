@@ -66,7 +66,13 @@ class ServiceController extends Controller
         }
 
         if ($request->ajax()) {
-            return $this->getViewServices();
+            return response()->json([
+                'toast' => [
+                    'type' => 'success',
+                    'message' => __('admin.success_create_data'),
+                ],
+                'html' => $this->getViewServices(),
+            ]);
         }
 
         abort(404);
@@ -122,7 +128,13 @@ class ServiceController extends Controller
         }
 
         if ($request->ajax()) {
-            return $this->getViewServices();
+            return response()->json([
+                'toast' => [
+                    'type' => 'success',
+                    'message' => __('admin.success_update_data'),
+                ],
+                'html' => $this->getViewServices(),
+            ]);
         }
 
         abort(404);
@@ -151,7 +163,13 @@ class ServiceController extends Controller
         }
 
         if ($request->ajax()) {
-            return $this->getViewServices();
+            return response()->json([
+                'toast' => [
+                    'type' => 'success',
+                    'message' => __('admin.success_delete_data'),
+                ],
+                'html' => $this->getViewServices(),
+            ]);
         }
 
         abort(404);

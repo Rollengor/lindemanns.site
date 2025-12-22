@@ -1,4 +1,4 @@
-<div class="toast-alerts toast-container d-flex flex-column gap-3 position-fixed left-0 bottom-0 p-3">
+<div id="toast-alerts-section" style="z-index: 1260" class="toast-alerts toast-container d-flex flex-column gap-3 position-fixed left-0 bottom-0 p-3">
     @stack('alerts')
 
     <x-admin.alert
@@ -36,4 +36,18 @@
             :type="'error'"
         />
     @endif
+
+    <template data-alert-template-success>
+        <x-admin.alert
+            :title="__('admin.success')"
+            :type="'success'"
+        />
+    </template>
+
+    <template data-alert-template-error>
+        <x-admin.alert
+            :title="__('admin.error')"
+            :type="'error'"
+        />
+    </template>
 </div>

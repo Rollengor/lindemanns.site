@@ -1,4 +1,5 @@
 import qs from 'qs';
+import { showAlert } from './admin/components/alerts.js';
 
 const loadingClassName = 'sending';
 
@@ -57,17 +58,35 @@ export function ajax(event, {form, submitter, url = null, method = null, params 
 
     axios[method](url, isGet ? axiosConfig : params, isGet ? undefined : axiosConfig)
         .then(function(response) {
+            const successMessage = response.data?.toast?.message;
+
+            if (successMessage) {
+                showAlert({
+                    message: successMessage,
+                });
+            }
+
             if (typeof successHandler === 'function') successHandler(response);
         })
         .catch(function(error) {
-            const errors = error?.response?.data?.errors;
+            const errors = parseErrorsMessage(error?.response?.data?.errors);
             const message = error?.response?.data?.message;
 
             if (typeof errorHandler === 'function') errorHandler(error);
 
             if (errors) {
+                showAlert({
+                    type: 'error',
+                    message: errors,
+                });
+
                 console.error(errors);
             } else {
+                showAlert({
+                    type: 'error',
+                    message: message,
+                });
+
                 console.error(message);
             }
         })
@@ -89,6 +108,18 @@ export function ajax(event, {form, submitter, url = null, method = null, params 
         });
 }
 
+function parseErrorsMessage(errors) {
+    if (typeof errors === 'string') return errors;
+    if (typeof errors != 'object') return null;
+
+    let message = '';
+
+    for (const [key, value] of Object.entries(errors)) {
+        message += `${value}<br> `;
+    }
+
+    return message;
+}
 
 function getUrl(event, form) {
     const url = form?.getAttribute('action');

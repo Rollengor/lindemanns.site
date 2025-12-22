@@ -58,7 +58,13 @@ class CategoryController extends Controller
         }
 
         if ($request->ajax()) {
-            return $this->getViewCategories();
+            return response()->json([
+                'toast' => [
+                    'type' => 'success',
+                    'message' => __('admin.success_create_data'),
+                ],
+                'html' => $this->getViewCategories(),
+            ]);
         }
 
         abort(404);
@@ -105,7 +111,13 @@ class CategoryController extends Controller
         }
 
         if ($request->ajax()) {
-            return $this->getViewCategories();
+            return response()->json([
+                'toast' => [
+                    'type' => 'success',
+                    'message' => __('admin.success_update_data'),
+                ],
+                'html' => $this->getViewCategories(),
+            ]);
         }
 
         abort(404);
@@ -134,7 +146,13 @@ class CategoryController extends Controller
         }
 
         if ($request->ajax()) {
-            return $this->getViewCategories();
+            return response()->json([
+                'toast' => [
+                    'type' => 'success',
+                    'message' => __('admin.success_delete_data'),
+                ],
+                'html' => $this->getViewCategories(),
+            ]);
         }
 
         abort(404);

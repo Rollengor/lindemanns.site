@@ -1,6 +1,6 @@
 {
-  "_ajax-DD5av5sJ.js": {
-    "file": "assets/js/ajax-DD5av5sJ.js",
+  "_ajax-DuNJINu9.js": {
+    "file": "assets/js/ajax-DuNJINu9.js",
     "name": "ajax"
   },
   "resources/css/admin/admin.scss": {
@@ -20,21 +20,21 @@
     ]
   },
   "resources/js/admin/admin.js": {
-    "file": "assets/js/admin-DADvagW6.js",
+    "file": "assets/js/admin-DuuFfmvM.js",
     "name": "admin",
     "src": "resources/js/admin/admin.js",
     "isEntry": true,
     "imports": [
-      "_ajax-DD5av5sJ.js"
+      "_ajax-DuNJINu9.js"
     ]
   },
   "resources/js/public/public.js": {
-    "file": "assets/js/public-PeLbWhBX.js",
+    "file": "assets/js/public-BH1zq1m_.js",
     "name": "public",
     "src": "resources/js/public/public.js",
     "isEntry": true,
     "imports": [
-      "_ajax-DD5av5sJ.js"
+      "_ajax-DuNJINu9.js"
     ]
   }
 }

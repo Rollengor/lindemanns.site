@@ -1,4 +1,4 @@
-import { showAlerts } from "./alerts.js";
+import { showAllAlerts } from "./alerts.js";
 
 export function preloader() {
     const preloader = document.getElementById('preloader');
@@ -10,7 +10,7 @@ export function preloader() {
 
         setTimeout(() => {
             preloader.remove();
-            showAlerts();
+            showAllAlerts();
         }, 300);
     }, 500);
 }

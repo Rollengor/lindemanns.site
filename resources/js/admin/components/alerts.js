@@ -1,5 +1,7 @@
 import * as bootstrap from 'bootstrap';
 
+const alertsSection = document.getElementById('toast-alerts-section');
+
 export function alerts() {
     const allToastAlerts = document.querySelectorAll('[data-toast-alert]');
 
@@ -10,7 +12,28 @@ export function alerts() {
     });
 }
 
-export function showAlerts() {
+export function showAlert({type= 'success', message = null}) {
+    if (!alertsSection) return;
+
+    if (!type || !message) {
+        console.error('"type" or "message" is null');
+        return;
+    }
+
+    const template = alertsSection.querySelector(`[data-alert-template-${type}]`);
+    const alert = template.content.querySelector('[data-toast-alert]').cloneNode(true);
+    const alertMessage = alert.querySelector('[data-message]');
+
+    alertMessage.innerHTML = message;
+
+    alertsSection.appendChild(alert);
+
+    const toast = new bootstrap.Toast(alert);
+
+    toast.show();
+}
+
+export function showAllAlerts() {
     const allToastAlerts = document.querySelectorAll('[data-toast-alert]');
     let delay = 0;
 

@@ -60,7 +60,13 @@ class ArticleController extends Controller
         }
 
         if ($request->ajax()) {
-            return $this->getViewArticles();
+            return response()->json([
+                'toast' => [
+                    'type' => 'success',
+                    'message' => __('admin.success_create_data'),
+                ],
+                'html' => $this->getViewArticles(),
+            ]);
         }
 
         abort(404);
@@ -109,7 +115,13 @@ class ArticleController extends Controller
         }
 
         if ($request->ajax()) {
-            return $this->getViewArticles();
+            return response()->json([
+                'toast' => [
+                    'type' => 'success',
+                    'message' => __('admin.success_update_data'),
+                ],
+                'html' => $this->getViewArticles(),
+            ]);
         }
 
         abort(404);
@@ -139,7 +151,13 @@ class ArticleController extends Controller
         }
 
         if ($request->ajax()) {
-            return $this->getViewArticles();
+            return response()->json([
+                'toast' => [
+                    'type' => 'success',
+                    'message' => __('admin.success_delete_data'),
+                ],
+                'html' => $this->getViewArticles(),
+            ]);
         }
 
         abort(404);
