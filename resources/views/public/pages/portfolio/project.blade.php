@@ -54,10 +54,45 @@
             </article>
 
             <div class="project-files">
-                <a href="#" class="project-file-link">PDF Presentation</a>
-                <a href="#" class="project-file-link">Agreement Licence (DEMO)</a>
-                <a href="#" class="project-file-link">Document Name</a>
+                <a href="#" class="project-file">
+                    <span class="project-file-name">PDF Presentation</span>
+                    <span class="project-file-size">5.32 Mb</span>
+                </a>
+                <a href="#" class="project-file">
+                    <span class="project-file-name">Agreement Licence (DEMO)</span>
+                    <span class="project-file-size">4.88 Mb</span>
+                </a>
+                <a href="#" class="project-file">
+                    <span class="project-file-name">Document Name</span>
+                    <span class="project-file-size">1.32 Mb</span>
+                </a>
             </div>
+        </div>
+    </section>
+
+    <section class="container other-projects">
+        <div class="other-projects-head">
+            <h3 class="other-projects-title">Other cases</h3>
+            <a href="{{ route('public.portfolio') }}" class="home-portfolio-link">{{ __('base.view_all') }}</a>
+        </div>
+
+        <div class="home-portfolio-projects">
+            @foreach($projects as $project)
+                <div class="bg-img-cover project-card" style="background-image: url({{ $project['image'] }});">
+                    <div class="project-card-content">
+                        <h5 class="project-card-title">{{ $project['title'] }}</h5>
+                           <div class="project-card-description">
+                            <p>{{ $project['description'] }}</p>
+                        </div>
+                        <div class="project-card-tags">
+                            @foreach($project['categories'] as $category)
+                                <p>{{ $category }}</p>
+                            @endforeach
+                        </div>
+                        <a href="{{ route('public.portfolio.project') }}" class="project-card-link"></a>
+                    </div>
+                </div>
+            @endforeach
         </div>
     </section>
 @endsection
