@@ -49,6 +49,30 @@
                 'isCan' => $user->can('all'),
             ],
             [
+                'title' => __('admin.portfolio'),
+                'url' => 'admin.portfolio',
+                'icon' => 'bounding-box',
+                'submenu' => [
+                    [
+                        'title' => __('admin.page'),
+                        'url' => 'admin.portfolio.page',
+                        'groupUrl' => 'admin.portfolio.page',
+                        'icon' => null,
+                        'submenu' => [],
+                        'isCan' => $user->can('all'),
+                    ],
+                    [
+                        'title' => __('admin.projects'),
+                        'url' => 'admin.portfolio.projects',
+                        'groupUrl' => 'admin.portfolio.project*',
+                        'icon' => null,
+                        'submenu' => [],
+                        'isCan' => $user->can('all'),
+                    ],
+                ],
+                'isCan' => $user->can('all'),
+            ],
+            [
                 'title' => __('admin.news'),
                 'url' => 'admin.news',
                 'icon' => 'list-columns',

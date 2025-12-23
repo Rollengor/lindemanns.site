@@ -39,6 +39,8 @@ return [
     'imprint' => 'Imprint',
     'privacy_notice' => 'Privacy notice',
     'terms_of_use' => 'Terms of use',
+    'portfolio' => 'Portfolio',
+    'projects' => 'Projects',
 
     'username' => 'Username',
     'username_or_email' => 'Username or Email',

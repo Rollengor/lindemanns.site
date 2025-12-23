@@ -5,17 +5,14 @@ namespace App\Models;
 use App\Traits\HasImageProcessing;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Spatie\Translatable\HasTranslations;
 
-class NewsArticle extends Model implements HasMedia
+class Project extends Model implements HasMedia
 {
     use HasFactory, HasTranslations, SoftDeletes, InteractsWithMedia, HasImageProcessing;
 
@@ -29,6 +26,10 @@ class NewsArticle extends Model implements HasMedia
         'seo_description',
         'seo_keywords',
 
+        'location',
+        'tags',
+        'info',
+
         'active',
         'sort',
     ];
@@ -41,6 +42,10 @@ class NewsArticle extends Model implements HasMedia
         'seo_title',
         'seo_description',
         'seo_keywords',
+
+        'location',
+        'tags',
+        'info',
     ];
 
     protected function casts(): array
@@ -52,11 +57,16 @@ class NewsArticle extends Model implements HasMedia
             'seo_title' => 'json',
             'seo_description' => 'json',
             'seo_keywords' => 'json',
+            'location' => 'json',
+            'tags' => 'json',
+            'info' => 'json',
             'active' => 'boolean',
         ];
     }
 
-    public string $mediaCollection = 'news-articles';
+    public string $mediaHero = 'hero';
+    public string $mediaDescription = 'description';
+    public string $mediaFiles = 'files';
 
     public array $mediaSizes = [
         'xl' => 3840,
@@ -114,14 +124,6 @@ class NewsArticle extends Model implements HasMedia
                 }
             }
         });
-    }
-
-    public function categories(): BelongsToMany {
-        return $this->belongsToMany(NewsCategory::class, 'news_article_news_category');
-    }
-
-    public function getFirstCategoryAttribute(): ?NewsCategory {
-        return $this->categories?->first();
     }
 
     public function registerMediaConversions(Media $media = null): void

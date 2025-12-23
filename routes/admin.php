@@ -114,6 +114,26 @@ Route::group([
 
     });
 
+    /* PORTFOLIO */
+    Route::group(['prefix' => 'portfolio'], function () {
+
+        Route::get('/', [\App\Http\Controllers\Admin\Portfolio\PageController::class, 'index'])->name('admin.portfolio.page');
+        Route::patch('/{page}/update', [\App\Http\Controllers\Admin\Portfolio\PageController::class, 'update'])->name('admin.portfolio.page.update');
+
+        Route::group(['prefix' => 'services'], function () {
+
+            Route::get('/', [\App\Http\Controllers\Admin\Portfolio\ProjectController::class, 'index'])->name('admin.portfolio.projects');
+
+            Route::get('/create', [\App\Http\Controllers\Admin\Portfolio\ProjectController::class, 'create'])->name('admin.portfolio.project.create');
+            Route::post('/store', [\App\Http\Controllers\Admin\Portfolio\ProjectController::class, 'store'])->name('admin.portfolio.project.store');
+            Route::get('/{project}/edit', [\App\Http\Controllers\Admin\Portfolio\ProjectController::class, 'edit'])->name('admin.portfolio.project.edit');
+            Route::patch('/{project}/update', [\App\Http\Controllers\Admin\Portfolio\ProjectController::class, 'update'])->name('admin.portfolio.project.update');
+            Route::delete('/{project}/delete', [\App\Http\Controllers\Admin\Portfolio\ProjectController::class, 'delete'])->name('admin.portfolio.project.delete');
+
+        });
+
+    });
+
     /* CONTACTS */
     Route::group(['prefix' => 'contacts'], function () {
 

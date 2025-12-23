@@ -21,7 +21,7 @@
 @section('content')
     <x-admin.container
         :id="'controlForm'"
-        :action="route('admin.services.page.update', $page->id)"
+        :action="route('admin.portfolio.page.update', $page->id)"
         :method="'PATCH'"
     >
         <x-admin.tabs.wrapper>
