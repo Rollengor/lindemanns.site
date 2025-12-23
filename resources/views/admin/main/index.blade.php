@@ -1,6 +1,6 @@
 @extends('admin.layouts.base')
 
-@section('title', __('titles.main') . ' - ' . config('app.name'))
+@section('title', __('admin.main') . ' - ' . config('app.name'))
 
 @section('content')
     <div class="main-admin d-flex flex-column align-items-center m-auto w-100">

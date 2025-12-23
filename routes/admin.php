@@ -114,6 +114,38 @@ Route::group([
 
     });
 
+    /* CONTACTS */
+    Route::group(['prefix' => 'contacts'], function () {
+
+        Route::get('/', [\App\Http\Controllers\Admin\ContactsPageController::class, 'index'])->name('admin.contacts.page');
+        Route::patch('/{page}/update', [\App\Http\Controllers\Admin\ContactsPageController::class, 'update'])->name('admin.contacts.page.update');
+
+    });
+
+    /* IMPRINT */
+    Route::group(['prefix' => 'imprint'], function () {
+
+        Route::get('/', [\App\Http\Controllers\Admin\ImprintPageController::class, 'index'])->name('admin.imprint.page');
+        Route::patch('/{page}/update', [\App\Http\Controllers\Admin\ImprintPageController::class, 'update'])->name('admin.imprint.page.update');
+
+    });
+
+    /* PRIVACY NOTICE */
+    Route::group(['prefix' => 'privacy-notice'], function () {
+
+        Route::get('/', [\App\Http\Controllers\Admin\PrivacyNoticePageController::class, 'index'])->name('admin.privacy-notice.page');
+        Route::patch('/{page}/update', [\App\Http\Controllers\Admin\PrivacyNoticePageController::class, 'update'])->name('admin.privacy-notice.page.update');
+
+    });
+
+    /* TERMS OF USE */
+    Route::group(['prefix' => 'terms-of-use'], function () {
+
+        Route::get('/', [\App\Http\Controllers\Admin\TermsOfUsePageController::class, 'index'])->name('admin.terms-of-use.page');
+        Route::patch('/{page}/update', [\App\Http\Controllers\Admin\TermsOfUsePageController::class, 'update'])->name('admin.terms-of-use.page.update');
+
+    });
+
     /* DELETE */
     Route::group(['prefix' => 'delete'], function () {
 

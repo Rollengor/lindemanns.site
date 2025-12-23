@@ -80,6 +80,34 @@
                 ],
                 'isCan' => $user->can('all'),
             ],
+            [
+                'title' => __('admin.contacts'),
+                'url' => 'admin.contacts.page',
+                'icon' => 'person-lines-fill',
+                'submenu' => [],
+                'isCan' => $user->can('all'),
+            ],
+            [
+                'title' => __('admin.imprint'),
+                'url' => 'admin.imprint.page',
+                'icon' => 'card-text',
+                'submenu' => [],
+                'isCan' => $user->can('all'),
+            ],
+            [
+                'title' => __('admin.privacy_notice'),
+                'url' => 'admin.privacy-notice.page',
+                'icon' => 'card-text',
+                'submenu' => [],
+                'isCan' => $user->can('all'),
+            ],
+            [
+                'title' => __('admin.terms_of_use'),
+                'url' => 'admin.terms-of-use.page',
+                'icon' => 'card-text',
+                'submenu' => [],
+                'isCan' => $user->can('all'),
+            ],
         ];
 @endphp
 

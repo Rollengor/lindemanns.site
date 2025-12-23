@@ -28,6 +28,9 @@ class UpdateRequest extends FormRequest
             $rules['title'] = ['required', 'array'];
             $rules['title.' . $locale] = ['required', 'string', 'max:255'];
 
+            $rules['description'] = ['nullable', 'array'];
+            $rules['description.' . $locale] = ['nullable', 'string'];
+
             $rules['seo_title'] = ['nullable', 'array'];
             $rules['seo_title.' . $locale] = ['nullable', 'string', 'max:255'];
             $rules['seo_description'] = ['nullable', 'array'];
