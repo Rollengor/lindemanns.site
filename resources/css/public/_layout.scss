@@ -151,12 +151,15 @@ section:has(.target-anchor-section) {
     }
 
     img {
-        border-radius: var(--radius-sm);
+        max-width: 100%;
+        height: auto;
+        //border-radius: var(--radius-sm);
     }
 
     figure {
         display: flex;
         flex-direction: column;
+        max-width: 100%;
         gap: 1em;
         font-size: range.build(12, 14);
         color: var(--color-gray);

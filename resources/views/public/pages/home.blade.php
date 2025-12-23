@@ -68,7 +68,7 @@
             <div class="home-portfolio-head">
                 <div class="home-portfolio-subtitle">{{ __('base.portfolio') }}</div>
                 <h2 class="home-portfolio-title">{{ __('base.recent_cases') }}</h2>
-                <a href="#" class="home-portfolio-link">{{ __('base.view_all') }}</a>
+                <a href="{{ route('public.portfolio') }}" class="home-portfolio-link">{{ __('base.view_all') }}</a>
             </div>
 
             <div class="home-portfolio-projects">
@@ -84,7 +84,7 @@
                                     <p>{{ $category }}</p>
                                 @endforeach
                             </div>
-                            <a href="#" class="project-card-link"></a>
+                            <a href="{{ route('public.portfolio.project') }}" class="project-card-link"></a>
                         </div>
                     </div>
                 @endforeach

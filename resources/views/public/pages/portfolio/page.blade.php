@@ -22,7 +22,7 @@
                                     <p>{{ $category }}</p>
                                 @endforeach
                             </div>
-                            <a href="#" class="project-card-link"></a>
+                            <a href="{{ route('public.portfolio.project') }}" class="project-card-link"></a>
                         </div>
                     </div>
                 @endforeach

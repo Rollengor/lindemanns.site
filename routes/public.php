@@ -15,7 +15,7 @@ Route::group(['prefix' => 'services'], function () {
 Route::group(['prefix' => 'portfolio'], function () {
 
     Route::get('/', [App\Http\Controllers\Public\Portfolio\PortfolioPageController::class, 'index'])->name('public.portfolio');
-    //Route::get('/project', [App\Http\Controllers\Public\Portfolio\ProjectPageController::class, 'index'])->name('public.portfolio.project');
+    Route::get('/project', [App\Http\Controllers\Public\Portfolio\ProjectPageController::class, 'index'])->name('public.portfolio.project');
 
 });
 
