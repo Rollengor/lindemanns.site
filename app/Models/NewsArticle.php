@@ -56,7 +56,7 @@ class NewsArticle extends Model implements HasMedia
         ];
     }
 
-    public string $mediaCollection = 'news-articles';
+    public string $mediaDescription = 'description';
 
     public array $mediaSizes = [
         'xl' => 3840,

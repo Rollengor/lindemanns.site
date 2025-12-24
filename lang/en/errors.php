@@ -17,4 +17,8 @@ return [
     'service_store_failed' => 'Service store failed',
     'service_update_failed' => 'Service update failed',
     'service_delete_failed' => 'Service delete failed',
+
+    'project_store_failed' => 'Project store failed',
+    'project_update_failed' => 'Project update failed',
+    'project_delete_failed' => 'Project delete failed',
 ];

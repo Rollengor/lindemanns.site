@@ -79,7 +79,7 @@ trait HasImageProcessing
             try {
                 $media = $this
                     ->addMediaFromDisk($diskPath, $diskName)
-                    ->toMediaCollection($this->mediaCollection);
+                    ->toMediaCollection($this->mediaDescription);
 
                 Storage::disk($diskName)->delete($diskPath);
 

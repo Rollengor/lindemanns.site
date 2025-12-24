@@ -23,8 +23,6 @@ class UpdateRequest extends FormRequest
     {
         $rules['hero_image'] = ['nullable', 'image', 'mimes:jpg,png,webp', 'max:20480'];
 
-        $rules['location'] = ['required', 'string', 'max:255'];
-
         $rules['sort'] = ['required', 'integer'];
         $rules['active'] = ['required', 'boolean'];
 
@@ -41,6 +39,9 @@ class UpdateRequest extends FormRequest
 
             $rules['description'] = ['required', 'array'];
             $rules['description.' . $locale] = ['required', 'string'];
+
+            $rules['location'] = ['required', 'array'];
+            $rules['location.' . $locale] = ['required', 'string', 'max:255'];
 
             $rules['tags'] = ['required', 'array'];
             $rules['tags.' . $locale . '.*'] = ['required', 'string', 'max:255'];

@@ -36,9 +36,22 @@ class ProjectController extends Controller
 
             $project = Project::create($data);
 
-            if ($project->hasFile('hero_image')) {
+            $project->description = $project->processImagesInDescription($project->description);
+            $project->save();
+
+            if ($request->hasFile('hero_image')) {
                 $project->addMediaFromRequest('hero_image')
                     ->toMediaCollection($project->mediaHero);
+            }
+
+            foreach ($request->input('files') ?? [] as $index => $fileData) {
+                $file = $request->file("files.{$index}.file");
+
+                $project->addMedia($file)
+                    ->withCustomProperties([
+                        'name' => $fileData['name'],
+                    ])
+                    ->toMediaCollection($project->mediaFiles);
             }
 
             DB::commit();
