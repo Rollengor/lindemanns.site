@@ -20,9 +20,11 @@ function changeField(field) {
     const type = field.type;
     const isValue = type === 'file' ? !!field.files[0] : !!field.value?.trim();
 
+    console.log(field?.files?.[0]);
+
     if (!isValue && type !== 'file') {
         field.value = '';
     }
 
-    field.classList.toggle('filled', isValue);
+    field.classList.toggle('is-filled', isValue);
 }

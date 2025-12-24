@@ -1,18 +1,39 @@
 @props([
-    'title' => null,
-    'name' => null,
+    'name' => '',
+    'placeholder' => null,
+    'value' => 1000,
+    'fieldAttrs' => null,
     'accept' => null,
-    'help' => null,
     'multiple' => false,
-    'dynamiced' => false,
     'required' => true,
 ])
 
-@php
-    $id = uniqid('field_');
-@endphp
+<div {{ $attributes->merge(['class' => 'd-block position-relative']) }}>
+    <input
+        data-form-control
+        class="form-control"
+        {{ $fieldAttrs ?? null }}
+        type="file"
+        name="{{ $name }}"
+        {{ $multiple ? 'multiple' : null }}
+        {{ $required ? 'required' : null }}
+        autocomplete="off"
+    />
 
-<div {{ $attributes->merge(['class' => 'flex flex-col gap-1 ' . ($name && $errors->has($name) ? 'text-red-600 dark:text-red-500' : null) ]) }}>
+    @if($placeholder)
+        <span class="form-control-placeholder">{{ $placeholder }} {!! $required ? '<span class="text-danger opacity-75"> *</span>' : null !!}</span>
+    @endif
+
+    <button 
+        data-form-control-clear-button
+        type="button" 
+        class="d-flex align-items-center justify-content-center btn btn-light rounded-pill p-1 position-absolute top-50 start-100 translate-middle"
+    >
+        <x-admin.icon :name="'x'" :width="20" :height="20" />
+    </button>
+</label>
+
+{{--<div {{ $attributes->merge(['class' => 'flex flex-col gap-1 ' . ($name && $errors->has($name) ? 'text-red-600 dark:text-red-500' : null) ]) }}>
     @if($title)
         <label for="{{ $id }}" class="block font-semibold">
             {{ $title }}
@@ -36,10 +57,6 @@
                     {{ $multiple ? 'multiple' : null }}
                 >
             </div>
-
-            @if($dynamiced)
-                <x-dynamic-fields.action/>
-            @endif
         </div>
 
         @if($help)
@@ -52,4 +69,4 @@
         <p class="text-red-600 dark:text-red-500">{{ $message }}</p>
         @enderror
     @endif
-</div>
+</div>--}}

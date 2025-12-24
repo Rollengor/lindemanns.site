@@ -215,11 +215,15 @@ $utilities: map-merge($utilities, (
     text-overflow: ellipsis;
 }
 
+.form-control[type=file]:not(.is-filled) {
+    color: transparent;
+}
+
 .form-control,
 [data-form-control],
 [class*=ss-open] {
     &:not([type=file]):focus,
-    &.filled {
+    &.is-filled {
         & ~ .form-control-placeholder {
             --placeholder-px: 6px;
 
@@ -239,7 +243,7 @@ $utilities: map-merge($utilities, (
 
 .form-control-sm {
     &:not([type=file]):focus,
-    &.filled {
+    &.is-filled {
         & ~ .form-control-placeholder {
             font-size: 12px;
             top: -10px;
@@ -419,4 +423,8 @@ $utilities: map-merge($utilities, (
 
 .fs-sm {
     font-size: 14px;
+}
+
+.form-control::file-selector-button {
+    display: none;
 }
