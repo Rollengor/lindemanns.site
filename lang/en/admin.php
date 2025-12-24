@@ -73,6 +73,7 @@ return [
     'tag_name' => 'Tag Name',
     'file' => 'File',
     'files' => 'Files',
+    'file_name' => 'File Name',
 
     'forgot_your_password' => 'Forgot your password?',
     'already_registered' => 'Already registered?',

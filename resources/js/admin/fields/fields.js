@@ -3,6 +3,7 @@ import { showPassword } from "./showPassword.js";
 import { previewImageFile } from "./previewImageFile.js";
 import { presetField } from "./presetField.js";
 import { dynamicFields } from "./dynamicFields.js";
+import { clearField } from "./clearField.js";
 
 export function fields() {
     checkFilling();
@@ -10,4 +11,5 @@ export function fields() {
     previewImageFile();
     presetField();
     dynamicFields();
+    clearField();
 }

@@ -217,6 +217,11 @@ $utilities: map-merge($utilities, (
 
 .form-control[type=file]:not(.is-filled) {
     color: transparent;
+
+    & ~ [data-form-control-clear-button] {
+        opacity: 0;
+        visibility: hidden;
+    }
 }
 
 .form-control,
