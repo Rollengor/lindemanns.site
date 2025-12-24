@@ -75,44 +75,6 @@ class NewsArticle extends Model implements HasMedia
                 $title = $model->getTranslation('title', 'en');
                 $model->slug = Str::of($title)->slug('-');
             }
-
-            if ($model->isDirty('description')) {
-                $oldJson = $model->getRawOriginal('description');
-                $newJson = $model->getAttributes()['description'];
-
-                $oldStandardizedJson = json_decode($oldJson, true);
-                $newStandardizedJson = json_decode($newJson, true);
-
-                if ($oldStandardizedJson && $oldStandardizedJson !== $newStandardizedJson) {
-                    $oldUrls = [];
-                    $newUrls = [];
-
-                    foreach (supported_languages_keys() as $lang) {
-                        $oldDescription = $oldStandardizedJson[$lang] ?? '';
-                        $newDescription = $newStandardizedJson[$lang] ?? '';
-
-                        preg_match_all('/<img[^>]+src=["\'](\/media\/[^"\']+)["\'][^>]*>/i', $oldDescription, $oldImages);
-                        preg_match_all('/<img[^>]+src=["\'](\/media\/[^"\']+)["\'][^>]*>/i', $newDescription, $newImages);
-
-                        $oldUrls = array_merge($oldUrls, $oldImages[1] ?? []);
-                        $newUrls = array_merge($newUrls, $newImages[1] ?? []);
-                    }
-
-                    $deletedUrls = array_diff(array_unique($oldUrls), array_unique($newUrls));
-
-                    foreach ($deletedUrls as $url) {
-                        if (preg_match('/\/media\/(\d+)\//', $url, $matches)) {
-                            $mediaId = $matches[1];
-
-                            $media = Media::find($mediaId);
-
-                            if ($media) {
-                                $media->delete();
-                            }
-                        }
-                    }
-                }
-            }
         });
     }
 

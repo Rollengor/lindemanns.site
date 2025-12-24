@@ -17,7 +17,7 @@
                         <!-- seo title -->
                         <x-admin.field.text
                             :name="'seo_title['. $lang .']'"
-                            :value="old('seo_title.' . $lang, isset($service) ? $service->getTranslation('seo_title', $lang) : null)"
+                            :value="old('seo_title.' . $lang, isset($project) ? $project->getTranslation('seo_title', $lang) : null)"
                             :placeholder="__('admin.seo_title')"
                             :required="false"
                         />
@@ -25,7 +25,7 @@
                         <!-- seo description -->
                         <x-admin.field.text
                             :name="'seo_description['. $lang .']'"
-                            :value="old('seo_description.' . $lang, isset($service) ? $service->getTranslation('seo_description', $lang) : null)"
+                            :value="old('seo_description.' . $lang, isset($project) ? $project->getTranslation('seo_description', $lang) : null)"
                             :placeholder="__('admin.seo_description')"
                             :required="false"
                         />
@@ -33,7 +33,7 @@
                         <!-- seo keywords -->
                         <x-admin.field.text
                             :name="'seo_keywords['. $lang .']'"
-                            :value="old('seo_keywords.' . $lang, isset($service) ? $service->getTranslation('seo_keywords', $lang) : null)"
+                            :value="old('seo_keywords.' . $lang, isset($project) ? $project->getTranslation('seo_keywords', $lang) : null)"
                             :placeholder="__('admin.seo_keywords')"
                             :required="false"
                         />

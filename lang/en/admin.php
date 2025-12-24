@@ -69,6 +69,8 @@ return [
     'hero_image' => 'Hero Image',
     'info_image' => 'Info Image',
     'section_title' => 'Section Title',
+    'location' => 'Location',
+    'tag_name' => 'Tag Name',
 
     'forgot_your_password' => 'Forgot your password?',
     'already_registered' => 'Already registered?',
