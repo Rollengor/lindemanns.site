@@ -120,7 +120,7 @@ Route::group([
         Route::get('/', [\App\Http\Controllers\Admin\Portfolio\PageController::class, 'index'])->name('admin.portfolio.page');
         Route::patch('/{page}/update', [\App\Http\Controllers\Admin\Portfolio\PageController::class, 'update'])->name('admin.portfolio.page.update');
 
-        Route::group(['prefix' => 'services'], function () {
+        Route::group(['prefix' => 'project'], function () {
 
             Route::get('/', [\App\Http\Controllers\Admin\Portfolio\ProjectController::class, 'index'])->name('admin.portfolio.projects');
 
@@ -129,6 +129,7 @@ Route::group([
             Route::get('/{project}/edit', [\App\Http\Controllers\Admin\Portfolio\ProjectController::class, 'edit'])->name('admin.portfolio.project.edit');
             Route::patch('/{project}/update', [\App\Http\Controllers\Admin\Portfolio\ProjectController::class, 'update'])->name('admin.portfolio.project.update');
             Route::delete('/{project}/delete', [\App\Http\Controllers\Admin\Portfolio\ProjectController::class, 'delete'])->name('admin.portfolio.project.delete');
+            Route::delete('/{media}/delete-file', [\App\Http\Controllers\Admin\Portfolio\ProjectController::class, 'deleteFile'])->name('admin.portfolio.project.delete.file');
 
         });
 

@@ -1,10 +1,16 @@
 @foreach($categories as $category)
-    <div class="d-flex align-items-center px-3 px-sm-4 py-2 border-bottom border-dark border-opacity-25 gap-3">
-        <div class="col fw-semibold">{{ $category->name }}</div>
-        {{--@if($category->description)
-            <div class="col-12 col-sm line-clamp-2 line-clamp-sm-1 mt-2 mt-sm-0">{!! $category->description !!}</div>
-        @endif--}}
-        <div class="col-auto d-flex align-items-center justify-content-end gap-3">
+    <div class="d-flex align-items-sm-center px-3 px-sm-4 py-2 border-bottom border-dark border-opacity-25">
+        <div class="d-flex align-items-center col pe-0 pe-sm-3 gap-3 pe-3">
+            <x-admin.picture
+                style="width: 60px;"
+                class="overflow-hidden"
+                :src="$category->hasMedia($category->mediaHero) ? $category->getFirstMediaUrl($category->mediaHero, 'sm-webp') : null"
+                :ratio="'1x1'"
+                :fit="'contain'"
+            />
+            <div class="col fw-semibold">{{ $category->name }}</div>
+        </div>
+        <div class="col-auto d-flex align-items-center justify-content-end gap-3 mt-2 mt-sm-0">
             @if(!$category->active)
                 <x-admin.icon
                     class="me-auto"

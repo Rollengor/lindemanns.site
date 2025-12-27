@@ -26,9 +26,9 @@ class StoreRequest extends FormRequest
         $rules['sort'] = ['required', 'integer'];
         $rules['active'] = ['required', 'boolean'];
 
-        $rules['files'] = ['nullable', 'array'];
-        $rules['files.*.name'] = ['nullable', 'string', 'max:255', 'required_with:files.*.file'];
-        $rules['files.*.file'] = ['nullable', 'file', 'required_with:files.*.name'];
+        $rules['new_files'] = ['nullable', 'array'];
+        $rules['new_files.*.name'] = ['nullable', 'string', 'max:255', 'required_with:files.*.file'];
+        $rules['new_files.*.file'] = ['nullable', 'file', 'required_with:files.*.name'];
 
         foreach (supported_languages_keys() as $locale) {
             $rules['title'] = ['required', 'array'];

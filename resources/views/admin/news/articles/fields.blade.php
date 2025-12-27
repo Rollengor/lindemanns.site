@@ -34,7 +34,7 @@
                             :name="'description['. $lang .']'"
                             :value="old('description.' . $lang, isset($article) ? $article->getTranslation('description', $lang) : null)"
                             :placeholder="__('admin.description')"
-                            :buttons="'blockquote|fontColor|list|image'"
+                            :buttons="'blockquote|list|image'"
                         />
 
                         <!-- seo title -->

@@ -21,4 +21,8 @@ return [
     'project_store_failed' => 'Project store failed',
     'project_update_failed' => 'Project update failed',
     'project_delete_failed' => 'Project delete failed',
+
+    'file_store_failed' => 'File store failed',
+    'file_update_failed' => 'File update failed',
+    'file_delete_failed' => 'File delete failed',
 ];

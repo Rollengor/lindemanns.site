@@ -40,6 +40,7 @@ return [
     'privacy_notice' => 'Privacy notice',
     'terms_of_use' => 'Terms of use',
     'portfolio' => 'Portfolio',
+    'project' => 'Project',
     'projects' => 'Projects',
 
     'username' => 'Username',

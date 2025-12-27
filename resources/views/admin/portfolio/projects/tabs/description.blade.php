@@ -19,7 +19,7 @@
                         :placeholder="__('admin.description')"
                         :value="old('description.' . $lang, isset($project) ? $project->getTranslation('description', $lang) : null)"
                         :height="300"
-                        :buttons="'blockquote|fontColor|list|image'"
+                        :buttons="'blockquote|list|image'"
                     />
                 </div>
             </x-admin.tabs.pane>

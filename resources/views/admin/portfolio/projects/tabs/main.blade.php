@@ -34,7 +34,7 @@
                             />
 
                             <!-- short description -->
-                            <x-admin.field.wysiwyg
+                            <x-admin.field.textarea
                                 :name="'short_description['. $lang .']'"
                                 :value="old('short_description.' . $lang, isset($project) ? $project->getTranslation('short_description', $lang) : null)"
                                 :placeholder="__('admin.short_description')"
@@ -49,10 +49,10 @@
 
                             <x-admin.dynamic-fields.wrapper>
                                 @php
-                                    $tags = isset($project) ? data_get($project->getTranslation('tags', $lang), 'list') : [];
+                                    $tags = isset($project) ? $project->getTranslation('tags', $lang) : [];
                                 @endphp
 
-                                @foreach($tags as $tag)
+                                @foreach($tags ?: [] as $tag)
                                     <x-admin.dynamic-fields.group>
                                         <div class="d-flex flex-column gap-4">
                                             <!-- tag name -->

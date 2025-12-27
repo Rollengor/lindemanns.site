@@ -60,53 +60,67 @@ trait HasImageProcessing
         }
     }
 
-    public function processImagesInDescription(string $content): string
+    public function processImagesInDescription(string $content): array
     {
         $pattern = '/<img([^>]+)src=["\'](\/storage\/temp\/[^"\']+)["\']([^>]*)>/i';
+        $standardizedJson = json_decode($content, true);
 
-        return preg_replace_callback($pattern, function ($matches) {
-            $attributesBeforeSrc = $matches[1];
-            $tempUrl = $matches[2];
-            $attributesAfterSrc = $matches[3];
+        static $processedImages = [];
 
-            $diskPath = str_replace('/storage/', '', $tempUrl);
-            $diskName = 'public';
+        foreach (supported_languages_keys() as $lang) {
+            $text = $standardizedJson[$lang] ?? '';
 
-            if (!Storage::disk($diskName)->exists($diskPath)) {
-                return $matches[0];
-            }
+            $standardizedJson[$lang] = preg_replace_callback($pattern, function ($matches) use (&$processedImages) {
+                $attributesBeforeSrc = $matches[1];
+                $tempUrl = $matches[2];
+                $attributesAfterSrc = $matches[3];
 
-            try {
-                $media = $this
-                    ->addMediaFromDisk($diskPath, $diskName)
-                    ->toMediaCollection($this->mediaDescription);
+                $diskPath = str_replace('/storage/', '', $tempUrl);
+                $diskName = 'public';
 
-                Storage::disk($diskName)->delete($diskPath);
+                if (isset($processedImages[$tempUrl])) {
+                    $media = $processedImages[$tempUrl];
+                } else {
+                    if (!Storage::disk($diskName)->exists($diskPath)) {
+                        return $matches[0];
+                    }
 
-            } catch (\Exception $exception) {
-                Log::error(__('errors.upload_image_failed'), ['exception' => $exception]);
+                    try {
+                        $media = $this
+                            ->addMediaFromDisk($diskPath, $diskName)
+                            ->toMediaCollection($this->mediaDescription);
 
-                return $matches[0];
-            }
+                        Storage::disk($diskName)->delete($diskPath);
 
-            $smUrl = $media->getUrl('sm-webp');
-            $mdUrl = $media->getUrl('md-webp');
-            $lgUrl = $media->getUrl('lg-webp');
+                        $processedImages[$tempUrl] = $media;
+                    } catch (\Exception $exception) {
+                        Log::error(__('errors.upload_image_failed'), ['exception' => $exception]);
 
-            $smUrl = $this->getRelativeUrl($smUrl);
-            $mdUrl = $this->getRelativeUrl($mdUrl);
-            $lgUrl = $this->getRelativeUrl($lgUrl);
+                        return $matches[0];
+                    }
+                }
 
-            return sprintf(
-                '<img %s src="%s" srcset="%s 450w, %s 900w, %s 1800w" %s>',
-                trim($attributesBeforeSrc),
-                $mdUrl,
-                $smUrl,
-                $mdUrl,
-                $lgUrl,
-                trim($attributesAfterSrc)
-            );
-        }, $content) ?: $content;
+                $smUrl = $media->getUrl('sm-webp');
+                $mdUrl = $media->getUrl('md-webp');
+                $lgUrl = $media->getUrl('lg-webp');
+
+                $smUrl = $this->getRelativeUrl($smUrl);
+                $mdUrl = $this->getRelativeUrl($mdUrl);
+                $lgUrl = $this->getRelativeUrl($lgUrl);
+
+                return sprintf(
+                    '<img %s src="%s" srcset="%s 450w, %s 900w, %s 1800w" %s>',
+                    trim($attributesBeforeSrc),
+                    $mdUrl,
+                    $smUrl,
+                    $mdUrl,
+                    $lgUrl,
+                    trim($attributesAfterSrc)
+                );
+            }, $text) ?: $text;
+        }
+
+        return $standardizedJson;
     }
 
     private function getRelativeUrl(string $url): string

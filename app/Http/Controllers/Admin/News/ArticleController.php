@@ -40,7 +40,7 @@ class ArticleController extends Controller
             $article = NewsArticle::create($data);
             $article->categories()->sync([$data['category_id']]);
 
-            $article->description = $article->processImagesInDescription($article->description);
+            $article->description = $article->processImagesInDescription($article->getAttributes()['description']);
             $article->save();
 
             DB::commit();
@@ -95,7 +95,7 @@ class ArticleController extends Controller
             $newsArticle->updateOrFail($data);
             $newsArticle->categories()->sync([$data['category_id']]);
 
-            $newsArticle->description = $newsArticle->processImagesInDescription($newsArticle->description);
+            $newsArticle->description = $newsArticle->processImagesInDescription($newsArticle->getAttributes()['description']);
             $newsArticle->save();
 
             DB::commit();

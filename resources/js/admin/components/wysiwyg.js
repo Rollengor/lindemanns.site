@@ -131,7 +131,11 @@ function init(element) {
 	};
 
 	editor.onPaste = function (e, cleanData, maxCharCount, core) {
+        const domain = window.location.origin;
+        const domainRegex = new RegExp(domain, 'g');
+
 		cleanData = cleanData.replace(/&nbsp;/g, ' ');
+        cleanData = cleanData.replace(domainRegex, '');
 
 		return cleanData;
 	};

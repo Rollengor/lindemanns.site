@@ -4,7 +4,7 @@
 >
     <x-slot:body>
         <x-admin.control-form
-            action="{{ route('admin.portfolio.project.update', $service->id) }}"
+            action="{{ route('admin.portfolio.project.update', $project->id) }}"
             id="edit-project-control-form"
 
             :method="'PATCH'"

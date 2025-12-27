@@ -9,6 +9,7 @@ export function ajaxConfirmDeleteButton() {
         if (!button) return;
 
         const targetModal = document.getElementById('confirm-delete-modal');
+        const withHideModals = +button.dataset.withHideModals;
         let url = button.dataset.action;
 
         ajax(event, {
@@ -21,7 +22,7 @@ export function ajaxConfirmDeleteButton() {
                 'update_id_section': button.dataset.updateIdSection,
             },
             successHandler: (response) => {
-                hideAllModals();
+                if (withHideModals) hideAllModals();
                 showModal(targetModal, response.data);
             },
             errorHandler: (error) => {
