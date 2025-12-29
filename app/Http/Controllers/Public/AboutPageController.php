@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Public;
 
 use App\Http\Controllers\Controller;
+use App\Models\SiteSection;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -42,6 +43,9 @@ class AboutPageController extends Controller
             ],
         ];
 
-        return view('public.pages.about', compact('leaders'));
+        $whoWeAreSection = SiteSection::where('slug', 'who-we-are')->first();
+        $contactUsSection = SiteSection::where('slug', 'contact-us')->first();
+
+        return view('public.pages.about', compact('leaders', 'whoWeAreSection', 'contactUsSection'));
     }
 }

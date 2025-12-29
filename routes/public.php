@@ -8,14 +8,14 @@ Route::get('/about', [App\Http\Controllers\Public\AboutPageController::class, 'i
 Route::group(['prefix' => 'services'], function () {
 
     Route::get('/', [App\Http\Controllers\Public\Services\ServicesPageController::class, 'index'])->name('public.services');
-    Route::get('/article', [App\Http\Controllers\Public\Services\ServicePageController::class, 'index'])->name('public.services.article');
+    Route::get('/{service:slug}', [App\Http\Controllers\Public\Services\ServicePageController::class, 'index'])->name('public.services.post');
 
 });
 
 Route::group(['prefix' => 'portfolio'], function () {
 
     Route::get('/', [App\Http\Controllers\Public\Portfolio\PortfolioPageController::class, 'index'])->name('public.portfolio');
-    Route::get('/project', [App\Http\Controllers\Public\Portfolio\ProjectPageController::class, 'index'])->name('public.portfolio.project');
+    Route::get('/{project:slug}', [App\Http\Controllers\Public\Portfolio\ProjectPageController::class, 'index'])->name('public.portfolio.project');
 
 });
 

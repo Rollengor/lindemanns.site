@@ -1,0 +1,132 @@
+@extends('admin.layouts.base')
+
+@section('title', __('admin.edit') . ' - ' . config('app.name'))
+
+@section('panel')
+    <x-admin.main-panel
+        :title="__('admin.edit')"
+    >
+        <x-admin.button
+            data-submit-loader
+            :type="'submit'"
+            :form="'controlForm'"
+            :title="__('admin.save')"
+            :iconName="'floppy'"
+            :withLoader="true"
+            :withMiniStyle="true"
+        />
+    </x-admin.main-panel>
+@endsection
+
+@section('content')
+    <x-admin.container
+        :id="'controlForm'"
+        :action="route('admin.site-sections.contact-us.update', $section->id)"
+        :method="'PATCH'"
+    >
+        <div class="grid gap-4">
+            <div class="g-col-12 g-col-md-4">
+                <!-- image -->
+                <x-admin.field.image
+                    :name="'bg_image'"
+                    :placeholder="__('admin.bg_image') . ' ( 16 / 9 )'"
+                    :ratio="'16x9'"
+                    :src="$section->hasMedia('bg-image') ? $section->getFirstMediaUrl('bg-image', 'md-webp') : null"
+                    :required="!$section->hasMedia('bg-image')"
+                />
+            </div>
+
+            <div class="g-col-12 g-col-md-8">
+                <x-admin.tabs.wrapper>
+                    <x-slot:nav>
+                        @foreach(supported_languages_keys() as $lang)
+                            <x-admin.tabs.nav-item
+                                :is-active="$loop->first"
+                                :target="'locale-' . $lang"
+                                :title="$lang"
+                            />
+                        @endforeach
+                    </x-slot:nav>
+
+                    <x-slot:content>
+                        @foreach(supported_languages_keys() as $lang)
+                            <x-admin.tabs.pane :is-active="$loop->first" :id="'locale-' . $lang">
+                                <div class="d-flex flex-column gap-4">
+                                    <!-- title -->
+                                    <x-admin.field.text
+                                        :name="'title['. $lang .']'"
+                                        :value="old('title.' . $lang, $section->getTranslation('title', $lang) ?? '')"
+                                        :placeholder="__('admin.title')"
+                                    />
+
+                                    <!-- description -->
+                                    <x-admin.field.textarea
+                                        :name="'content_data['. $lang .'][description]'"
+                                        :value="old('content_data.' . $lang . '.description', data_get($section->getTranslation('content_data', $lang), 'description'))"
+                                        :placeholder="__('admin.description')"
+                                    />
+                                </div>
+                            </x-admin.tabs.pane>
+                        @endforeach
+
+                        <div class="d-flex flex-column gap-4 pt-4">
+                            <x-admin.dynamic-fields.wrapper>
+                                @foreach(data_get($section->content_data, 'phones', []) as $phone)
+                                    <x-admin.dynamic-fields.group>
+                                        <div class="d-flex flex-column gap-4">
+                                            <!-- phone -->
+                                            <x-admin.field.tel
+                                                :name="'content_data['. config('app.locale') .'][phones][' . $loop->index . ']'"
+                                                :value="$phone"
+                                                :placeholder="__('admin.phone_number')"
+                                            />
+                                        </div>
+                                    </x-admin.dynamic-fields.group>
+                                @endforeach
+
+                                <x-slot:template>
+                                    <x-admin.dynamic-fields.group>
+                                        <div class="d-flex flex-column gap-4">
+                                            <!-- phone -->
+                                            <x-admin.field.tel
+                                                :name="'content_data['. config('app.locale') .'][phones][0]'"
+                                                :placeholder="__('admin.phone_number')"
+                                            />
+                                        </div>
+                                    </x-admin.dynamic-fields.group>
+                                </x-slot:template>
+                            </x-admin.dynamic-fields.wrapper>
+
+                            <x-admin.dynamic-fields.wrapper>
+                                @foreach(data_get($section->content_data, 'emails', []) as $email)
+                                    <x-admin.dynamic-fields.group>
+                                        <div class="d-flex flex-column gap-4">
+                                            <!-- email -->
+                                            <x-admin.field.email
+                                                :name="'content_data['. config('app.locale') .'][emails][' . $loop->index . ']'"
+                                                :value="$email"
+                                                :placeholder="__('admin.email')"
+                                            />
+                                        </div>
+                                    </x-admin.dynamic-fields.group>
+                                @endforeach
+
+                                <x-slot:template>
+                                    <x-admin.dynamic-fields.group>
+                                        <div class="d-flex flex-column gap-4">
+                                            <!-- email -->
+                                            <x-admin.field.email
+                                                :name="'content_data['. config('app.locale') .'][emails][0]'"
+                                                :placeholder="__('admin.email')"
+                                            />
+                                        </div>
+                                    </x-admin.dynamic-fields.group>
+                                </x-slot:template>
+                            </x-admin.dynamic-fields.wrapper>
+                        </div>
+                    </x-slot:content>
+                </x-admin.tabs.wrapper>
+            </div>
+        </div>
+    </x-admin.container>
+@endsection

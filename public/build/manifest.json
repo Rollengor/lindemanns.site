@@ -4,7 +4,7 @@
     "name": "ajax"
   },
   "resources/css/admin/admin.scss": {
-    "file": "assets/css/admin-KxgRm5YR.css",
+    "file": "assets/css/admin-CY6bf_yC.css",
     "src": "resources/css/admin/admin.scss",
     "isEntry": true,
     "names": [
@@ -12,7 +12,7 @@
     ]
   },
   "resources/css/public/public.scss": {
-    "file": "assets/css/public-BWF6liW6.css",
+    "file": "assets/css/public-CR0A8zv9.css",
     "src": "resources/css/public/public.scss",
     "isEntry": true,
     "names": [
@@ -20,7 +20,7 @@
     ]
   },
   "resources/js/admin/admin.js": {
-    "file": "assets/js/admin-DuuFfmvM.js",
+    "file": "assets/js/admin-DcMemDil.js",
     "name": "admin",
     "src": "resources/js/admin/admin.js",
     "isEntry": true,

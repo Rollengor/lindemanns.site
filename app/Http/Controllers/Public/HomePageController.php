@@ -6,55 +6,27 @@ use App\Http\Controllers\Controller;
 use App\Models\NewsArticle;
 use App\Models\NewsCategory;
 use App\Models\Page;
+use App\Models\Project;
+use App\Models\ServiceCategory;
+use App\Models\SiteSection;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class HomePageController extends Controller
 {
     public function index(): View {
-        $projects = [
-            [
-                'image' => '/img/temp/project-7.webp?v-2',
-                'title' => 'The center of Zürich',
-                'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias debitis dolorem labore odio quasi totam vel.',
-                'categories' => ['Lake Zurich', 'New Build'],
-            ],
-            [
-                'image' => '/img/temp/project-8.webp?v-2',
-                'title' => 'Salt Spring Villa & Spa',
-                'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias debitis dolorem labore odio quasi totam vel.',
-                'categories' => ['Lake Zurich', 'New Build'],
-            ],
-            [
-                'image' => '/img/temp/project-9.webp?v-2',
-                'title' => 'Red Rock Villa',
-                'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias debitis dolorem labore odio quasi totam vel.',
-                'categories' => ['Lake Zurich', 'New Build'],
-            ],
-            [
-                'image' => '/img/temp/project-1.webp?v-2',
-                'title' => 'Basel Art District Loft',
-                'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias debitis dolorem labore odio quasi totam vel.',
-                'categories' => ['Lake Zurich', 'New Build'],
-            ],
-            [
-                'image' => '/img/temp/project-2.webp?v-2',
-                'title' => 'St. Moritz Chalet',
-                'description' => 'Ultra-luxury alpine retreat blending traditional swiss craftsmanship with contemporary design excellence.',
-                'categories' => ['Lake Zurich', 'New Build'],
-            ],
-            [
-                'image' => '/img/temp/project-6.webp?v-2',
-                'title' => 'Basel Art District Loft',
-                'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias debitis dolorem labore odio quasi totam vel.',
-                'categories' => ['Lake Zurich', 'New Build'],
-            ],
-        ];
-
         $page = Page::where('slug', 'home')->first();
+        $serviceCategories = ServiceCategory::whereHas('services', function ($query) {
+            $query->where('active', 1);
+        })->with(['services' => function ($query) {
+            $query->where('active', 1)->orderByDesc('sort');
+        }])->where('active', 1)->orderByDesc('sort')->get();
+        $projects = Project::where('active', 1)->latest()->orderByDesc('sort')->limit(6)->get();
         $newsCategories = NewsCategory::where('active', '1')->get();
-        $newsArticles = NewsArticle::where('active', '1')->latest()->limit(6)->get();
+        $newsArticles = NewsArticle::where('active', '1')->latest()->orderByDesc('sort')->limit(6)->get();
+        $whoWeAreSection = SiteSection::where('slug', 'who-we-are')->first();
+        $contactUsSection = SiteSection::where('slug', 'contact-us')->first();
 
-        return view('public.pages.home', compact('page', 'projects', 'newsCategories', 'newsArticles'));
+        return view('public.pages.home', compact('page', 'serviceCategories', 'projects', 'newsCategories', 'newsArticles', 'whoWeAreSection', 'contactUsSection'));
     }
 }

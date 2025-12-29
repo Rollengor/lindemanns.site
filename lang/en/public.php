@@ -10,4 +10,5 @@ return [
     'framework' => 'Framework',
     'learning' => 'Learning',
     'about' => 'About',
+    'other_cases' => 'Other cases',
 ];

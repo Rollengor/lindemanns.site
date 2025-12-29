@@ -20,7 +20,7 @@ export function scrollPage() {
         }
 
         lastScroll = currentScroll;
-        
+
         document.documentElement.classList.toggle('is-header-hide', isHeaderHide);
         toggleClasses();
     });

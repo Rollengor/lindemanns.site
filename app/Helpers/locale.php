@@ -29,3 +29,9 @@ if (!function_exists('localized_url')) {
         return LaravelLocalization::getLocalizedURL($localeCode, $url, $attributes, $forceDefaultLocation);
     }
 }
+
+if (!function_exists('get_only_numbers')) {
+    function get_only_numbers($string) {
+        return preg_replace('/[^0-9]/', '', $string);
+    }
+}

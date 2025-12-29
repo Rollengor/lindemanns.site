@@ -35,7 +35,7 @@
                             />
 
                             <!-- description -->
-                            <x-admin.field.wysiwyg
+                            <x-admin.field.textarea
                                 :name="'description['. $lang .']'"
                                 :value="old('description.' . $lang, isset($service) ? $service->getTranslation('description', $lang) : null)"
                                 :placeholder="__('admin.description')"

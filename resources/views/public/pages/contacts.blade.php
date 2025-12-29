@@ -2,21 +2,46 @@
 
 @section('content')
     <section class="container inner-page-head contacts-page-head">
-        <h1 class="inner-page-title">{{ __('base.contacts') }}</h1>
+        <h1 class="inner-page-title">{{ $contacts->title }}</h1>
     </section>
 
     <section class="contacts">
-        <img src="/img/temp/contacts.webp" alt="Image" class="img-fluid contacts-bg-image">
+        <img
+            @php
+                $heroImage = $contacts->hasMedia('hero-image') ? $contacts->getFirstMedia('hero-image') : '/img/default.svg';
+                $heroImageSizes = [
+                    'lg' => is_object($heroImage) ? $heroImage->getUrl('lg-webp') : $heroImage,
+                    'hd' => is_object($heroImage) ? $heroImage->getUrl('hd-webp') : $heroImage
+                ];
+            @endphp
+
+            srcset="
+                {{ $heroImageSizes['lg'] }},
+                {{ $heroImageSizes['hd'] }} 1.5x,
+                {{ $heroImageSizes['hd'] }} 2x
+            "
+            src="{{ $heroImageSizes['hd'] }}"
+            alt="Image"
+            class="img-fluid contacts-bg-image"
+        >
 
         <div class="container contacts-container">
             <div class="contacts-links">
-                <p><a href="tel:41796750423" class="base-link">+41 79 675 04 23</a></p>
-                <p><a href="mailto:contact@tnduniverse.com" class="base-link">contact@tnduniverse.com</a></p>
+                <p>
+                    @foreach(data_get($contacts->content_data, 'phones', []) as $phone)
+                        <a href="tel:{{ get_only_numbers($phone) }}" class="base-link">{{ $phone }}</a>
+                    @endforeach
+                </p>
+                <p>
+                    @foreach(data_get($contacts->content_data, 'emails', []) as $email)
+                        <a href="mailto:{{ $email }}" class="base-link">{{ $email }}</a>
+                    @endforeach
+                </p>
             </div>
 
-            <address>Zurich, Switzerland</address>
+            <address>{{ data_get($contacts->content_data, 'address') }}</address>
 
-            <x-public.socials/>
+            @include('public.fragments.socials')
         </div>
     </section>
 

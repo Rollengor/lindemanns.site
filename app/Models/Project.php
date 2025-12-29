@@ -82,7 +82,7 @@ class Project extends Model implements HasMedia
 
         static::saving(function ($model) {
             if (empty($model->getOriginal('slug')) && is_null($model->slug)) {
-                $title = $model->getTranslation('title', 'en');
+                $title = $model->getTranslation('title', config('app.locale'));
                 $model->slug = Str::of($title)->slug('-');
             }
         });

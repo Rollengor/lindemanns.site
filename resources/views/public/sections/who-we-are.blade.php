@@ -1,26 +1,55 @@
-<section class="who-we-are">
-    <div class="container who-we-are-container">
-        <div class="who-we-are-pictures">
-            {{--<img src="/img/temp/who-we-are-4.webp" alt="Image" class="img-cover who-we-are-image">
-            <img src="/img/temp/who-we-are-3.webp" alt="Image" class="img-cover who-we-are-image">
-            <img src="/img/temp/who-we-are-5.webp" alt="Image" class="img-cover who-we-are-image">--}}
+@if(isset($whoWeAreSection))
+    <section class="who-we-are">
+        <div class="container who-we-are-container">
+            <div class="who-we-are-pictures">
+                <img
+                    @php
+                        $backImage = $whoWeAreSection->hasMedia('back-image') ? $whoWeAreSection->getFirstMedia('back-image') : '/img/default.svg';
+                        $backImageSizes = [
+                            'sm' => is_object($backImage) ? $backImage->getUrl('md-webp') : $backImage,
+                            'md' => is_object($backImage) ? $backImage->getUrl('lg-webp') : $backImage
+                        ];
+                    @endphp
 
-            <img src="/img/temp/who-we-are-1.webp" alt="Image" class="img-cover who-we-are-image-back">
-            <img src="/img/temp/who-we-are-3.webp" alt="Image" class="img-cover who-we-are-image-front">
-        </div>
+                    srcset="
+                        {{ $backImageSizes['sm'] }},
+                        {{ $backImageSizes['md'] }} 1.5x,
+                        {{ $backImageSizes['md'] }} 2x
+                    "
+                    src="{{ $backImageSizes['md'] }}"
+                    alt="Image"
+                    class="img-cover who-we-are-image-back"
+                    loading="lazy"
+                >
 
-        <div class="who-we-are-body">
-            <h6 class="who-we-are-title">{{ __('base.who_we_are') }}</h6>
+                <img
+                    @php
+                        $frontImage = $whoWeAreSection->hasMedia('front-image') ? $whoWeAreSection->getFirstMedia('front-image') : '/img/default.svg';
+                        $frontImageSizes = [
+                            'sm' => is_object($frontImage) ? $frontImage->getUrl('md-webp') : $frontImage,
+                            'md' => is_object($frontImage) ? $frontImage->getUrl('lg-webp') : $frontImage
+                        ];
+                    @endphp
 
-            <div class="formatted-text who-we-are-description">
-                <h2>Our Vision</h2>
-                <p>Our vision is to be a leading force in creating real estate opportunities that shape better communities and brighter futures.</p>
+                    srcset="
+                        {{ $frontImageSizes['sm'] }},
+                        {{ $frontImageSizes['md'] }} 1.5x,
+                        {{ $frontImageSizes['md'] }} 2x
+                    "
+                    src="{{ $frontImageSizes['md'] }}"
+                    alt="Image"
+                    class="img-cover who-we-are-image-front"
+                    loading="lazy"
+                >
             </div>
 
-            <div class="formatted-text who-we-are-description">
-                <h2>Our Mission</h2>
-                <p>To deliver exceptional real estate services through innovation, professionalism, and a commitment to understanding our clients’ unique needs.</p>
+            <div class="who-we-are-body">
+                <h6 class="who-we-are-title">{{ $whoWeAreSection->title }}</h6>
+
+                <div class="formatted-text who-we-are-description">{!! data_get($whoWeAreSection->content_data, 'vision') !!}</div>
+
+                <div class="formatted-text who-we-are-description">{!! data_get($whoWeAreSection->content_data, 'mission') !!}</div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+@endif

@@ -21,30 +21,39 @@
 @section('content')
     <x-admin.container
         :id="'controlForm'"
-        :action="route('admin.home.page.update', $page->id)"
+        :action="route('admin.contacts.page.update', $page->id)"
         :method="'PATCH'"
     >
         <x-admin.tabs.wrapper>
             <x-slot:nav>
                 <x-admin.tabs.nav-item
                     :is-active="true"
-                    :target="'hero-pane'"
-                    :title="__('admin.hero')"
+                    :target="'seo-pane'"
+                    :title="__('admin.seo')"
                 />
 
                 <x-admin.tabs.nav-item
-                    :target="'seo-pane'"
-                    :title="__('admin.seo')"
+                    :target="'connection-pane'"
+                    :title="__('admin.connection')"
+                />
+
+                <x-admin.tabs.nav-item
+                    :target="'socials-pane'"
+                    :title="__('admin.socials')"
                 />
             </x-slot:nav>
 
             <x-slot:content>
-                <x-admin.tabs.pane :is-active="true" :id="'hero-pane'">
-                    @include('admin.home.tabs.hero')
+                <x-admin.tabs.pane :is-active="true" :id="'seo-pane'">
+                    @include('admin.contacts.tabs.seo')
                 </x-admin.tabs.pane>
 
-                <x-admin.tabs.pane :id="'seo-pane'">
-                    @include('admin.home.tabs.seo')
+                <x-admin.tabs.pane :id="'connection-pane'">
+                    @include('admin.contacts.tabs.connection')
+                </x-admin.tabs.pane>
+
+                <x-admin.tabs.pane :id="'socials-pane'">
+                    @include('admin.contacts.tabs.socials')
                 </x-admin.tabs.pane>
             </x-slot:content>
         </x-admin.tabs.wrapper>

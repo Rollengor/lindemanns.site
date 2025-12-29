@@ -112,6 +112,30 @@
                 'isCan' => $user->can('all'),
             ],
             [
+                'title' => __('admin.sections'),
+                'url' => 'admin.site-sections',
+                'icon' => 'view-list',
+                'submenu' => [
+                    [
+                        'title' => __('admin.who_we_are'),
+                        'url' => 'admin.site-sections.who-we-are',
+                        'groupUrl' => 'admin.site-sections.who-we-are',
+                        'icon' => null,
+                        'submenu' => [],
+                        'isCan' => $user->can('all'),
+                    ],
+                    [
+                        'title' => __('admin.contact_us'),
+                        'url' => 'admin.site-sections.contact-us',
+                        'groupUrl' => 'admin.site-sections.contact-us',
+                        'icon' => null,
+                        'submenu' => [],
+                        'isCan' => $user->can('all'),
+                    ],
+                ],
+                'isCan' => $user->can('all'),
+            ],
+            [
                 'title' => __('admin.imprint'),
                 'url' => 'admin.imprint.page',
                 'icon' => 'card-text',

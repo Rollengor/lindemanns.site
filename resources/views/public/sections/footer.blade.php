@@ -5,11 +5,19 @@
                 <x-public.logo class="footer-logo"/>
 
                 <div class="footer-contacts-links">
-                    <p><a href="tel:41796750423" class="base-link">+41 79 675 04 23</a></p>
-                    <p><a href="mailto:contact@tnduniverse.com" class="base-link">contact@tnduniverse.com</a></p>
+                    <p>
+                        @foreach(data_get($contacts->content_data, 'phones', []) as $phone)
+                            <a href="tel:{{ get_only_numbers($phone) }}" class="base-link">{{ $phone }}</a>
+                        @endforeach
+                    </p>
+                    <p>
+                        @foreach(data_get($contacts->content_data, 'emails', []) as $email)
+                            <a href="mailto:{{ $email }}" class="base-link">{{ $email }}</a>
+                        @endforeach
+                    </p>
                 </div>
 
-                <address>Zurich, Switzerland</address>
+                <address>{{ data_get($contacts->content_data, 'address') }}</address>
             </div>
 
             <nav class="footer-col footer-menu">
@@ -30,20 +38,12 @@
 
             <div class="footer-col footer-socials">
                 <div class="footer-socials-title">{{ __('base.follow_us') }}</div>
-                <x-public.socials/>
+                @include('public.fragments.socials')
             </div>
         </div>
 
         <div class="footer-bottom">
             <div class="copyright">© 2025 TND Universe. All rights reserved.</div>
-
-            {{--<nav class="footer-bottom-menu">
-                <ul>
-                    <li><a href="{{ route('public.imprint') }}" class="{{ request()->routeIs('public.imprint') ? 'is-active' : '' }}">{{ __('base.imprint') }}</a></li>
-                    <li><a href="{{ route('public.privacy-notice') }}" class="{{ request()->routeIs('public.privacy-notice') ? 'is-active' : '' }}">{{ __('base.privacy_notice') }}</a></li>
-                    <li><a href="{{ route('public.terms-of-use') }}" class="{{ request()->routeIs('public.terms-of-use') ? 'is-active' : '' }}">{{ __('base.terms_of_use') }}</a></li>
-                </ul>
-            </nav>--}}
 
             <a href="#" class="creator">
                 <img src="/img/citi-logo.svg" alt="CITI Advertising" class="img-fluid">

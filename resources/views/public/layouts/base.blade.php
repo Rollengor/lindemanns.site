@@ -24,7 +24,7 @@
 
     <link href="{{ url()->current() }}" rel="canonical">
 
-    <meta property="og:locale" content="uk_UA">
+    <meta property="og:locale" content="{{ config('app.locale') }}">
     <meta property="og:title" content="{{ $page_seo_title }}">
     @if($page_seo_description)
         <meta property="og:description" content="{{ $page_seo_description }}">
@@ -45,19 +45,7 @@
 
     @include('public.fragments.favicon')
 
-    <meta name="theme-color" content="#0B0B0B">
-
-    <script>
-        supportsWebP();
-
-        function supportsWebP() {
-            const webP = new Image();
-            webP.onload = () => {
-                document.documentElement.classList.add('webp-support');
-            };
-            webP.src = 'data:image/webp;base64,UklGRiIAAABXRUJQVlA4TAYAAAAvAAAAABAAAQAAAAAAAAAAAAA=';
-        }
-    </script>
+    <meta name="theme-color" content="#122F4D">
 
     @include('public.fragments.fonts')
 
@@ -68,7 +56,7 @@
     $bodyClass = 'home-page';
 
     if (Route::is(['public.news.*', 'public.portfolio.*'])) {
-        $bodyClass = 'news-page';
+        $bodyClass = 'post-page';
     } elseif (!Route::is('public.home')) {
         $bodyClass = 'inner-page';
     }

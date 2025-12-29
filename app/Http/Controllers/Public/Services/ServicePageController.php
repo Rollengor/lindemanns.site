@@ -3,12 +3,15 @@
 namespace App\Http\Controllers\Public\Services;
 
 use App\Http\Controllers\Controller;
+use App\Models\Service;
+use App\Models\SiteSection;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class ServicePageController extends Controller
 {
-    public function index(): View {
+    public function index(Service $service): View {
+        $page = $service;
         $info = [
             [
                 'title' => 'Tax structuring',
@@ -39,7 +42,8 @@ class ServicePageController extends Controller
                 'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. At eveniet, facilis harum labore nam nihil nulla praesentium recusandae repellendus. Commodi earum error est qui similique ut vitae voluptates. Dignissimos, sint.',
             ],
         ];
+        $contactUsSection = SiteSection::where('slug', 'contact-us')->first();
 
-        return view('public.pages.services.service', compact('info'));
+        return view('public.pages.services.service', compact('page', 'service', 'info', 'contactUsSection'));
     }
 }

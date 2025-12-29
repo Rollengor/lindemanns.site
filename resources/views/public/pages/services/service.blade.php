@@ -2,28 +2,40 @@
 
 @section('content')
     <section class="container inner-page-head service-head">
-        <h1 class="inner-page-title service-head-title">Searching and brokerage of real estate objects in Switzerland</h1>
-        <p class="service-head-description">We are aware that you – as entrepreneur, investment fund, asset manager, bank or investor – consider optimized after-tax profit and after-tax performance as key factor for your success. You need to file tax declarations and other reporting duties on time and communicate successfully with tax authorities, e.g. in tax audits.</p>
+        <h1 class="inner-page-title service-head-title">{{ $service->title }}</h1>
+        <p class="service-head-description">{{ $service->description }}</p>
     </section>
 
     <div class="container service-main-picture">
-        <img src="/img/temp/service-main.webp" alt="picture" class="img-fluid">
+        <img
+            @php
+                $serviceHeroImage = $service->hasMedia($service->mediaHero) ? $service->getFirstMedia($service->mediaHero) : '/img/default.svg';
+            @endphp
+
+            srcset="
+                {{ $serviceHeroImage?->getUrl('lg-webp') ?: $serviceHeroImage }},
+                {{ $serviceHeroImage?->getUrl('hd-webp') ?: $serviceHeroImage }} 1.5x,
+                {{ $serviceHeroImage?->getUrl('hd-webp') ?: $serviceHeroImage }} 2x
+            "
+            src="{{ $serviceHeroImage?->getUrl('hd-webp') ?: $serviceHeroImage }}"
+            alt="{{ $service->title }}"
+            class="img-fluid"
+            loading="lazy"
+        >
     </div>
 
     <section class="container service-info">
-        <h3 class="service-info-title">Our services comprise the following:</h3>
+        <h3 class="service-info-title">{{ data_get($service->details, 'title') }}</h3>
 
         <ul data-accordion class="service-info-list">
-            @foreach($info as $item)
+            @foreach(data_get($service->details, 'list', []) as $item)
                 <li data-accordion-item class="service-info-card">
                     <div data-accordion-target class="service-info-card-head">
                         <div class="service-info-card-head-icon"></div>
                         <div class="service-info-card-title">{{ $item['title'] }}</div>
                     </div>
                     <div data-accordion-content class="service-info-card-content">
-                        <div class="service-info-card-description">
-                            <p>{{ $item['description'] }}</p>
-                        </div>
+                        <div class="service-info-card-description">{!! $item['description'] !!}</div>
                     </div>
                 </li>
             @endforeach
@@ -43,7 +55,7 @@
                 <a href="#">Tax for Private Clients</a>
             </div>
 
-            <img src="/img/temp/service-info.webp" alt="image" class="img-cover service-more-info-image">
+            <img src="/img/temp/service-info.webp" alt="image" class="img-cover service-more-info-image" loading="lazy">
         </div>
     </div>
 @endsection

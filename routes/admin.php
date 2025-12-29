@@ -143,6 +143,25 @@ Route::group([
 
     });
 
+    /* SITE SECTIONS */
+    Route::group(['prefix' => 'site-sections'], function () {
+
+        Route::group(['prefix' => 'who-we-are'], function () {
+
+            Route::get('/', [\App\Http\Controllers\Admin\SiteSections\WhoWeAreSectionController::class, 'index'])->name('admin.site-sections.who-we-are');
+            Route::patch('/{siteSection}/update', [\App\Http\Controllers\Admin\SiteSections\WhoWeAreSectionController::class, 'update'])->name('admin.site-sections.who-we-are.update');
+
+        });
+
+
+        Route::group(['prefix' => 'contact-us'], function () {
+
+            Route::get('/', [\App\Http\Controllers\Admin\SiteSections\ContactUsSectionController::class, 'index'])->name('admin.site-sections.contact-us');
+            Route::patch('/{siteSection}/update', [\App\Http\Controllers\Admin\SiteSections\ContactUsSectionController::class, 'update'])->name('admin.site-sections.contact-us.update');
+
+        });
+    });
+
     /* IMPRINT */
     Route::group(['prefix' => 'imprint'], function () {
 

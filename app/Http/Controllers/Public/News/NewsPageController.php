@@ -16,6 +16,7 @@ class NewsPageController extends Controller
     public function index(UpdateRequest $request): View|JsonResponse {
         $data = $request->validated();
 
+        $page = Page::where('slug', 'news')->first();
         $newsCategories = NewsCategory::where('active', '1')->get();
         $categoryId = data_get($data, 'category_id', 'all');
         $limitArticles = (int) data_get($data, 'limit_articles', 0);
@@ -54,6 +55,6 @@ class NewsPageController extends Controller
             return response()->json($responseData);
         }
 
-        return view('public.pages.news.page', compact('newsCategories', 'newsArticles'));
+        return view('public.pages.news.page', compact('page', 'newsCategories', 'newsArticles'));
     }
 }
