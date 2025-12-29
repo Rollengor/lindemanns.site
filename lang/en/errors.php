@@ -25,4 +25,8 @@ return [
     'file_store_failed' => 'File store failed',
     'file_update_failed' => 'File update failed',
     'file_delete_failed' => 'File delete failed',
+
+    'leader_store_failed' => 'Leader store failed',
+    'leader_update_failed' => 'Leader update failed',
+    'leader_delete_failed' => 'Leader delete failed',
 ];

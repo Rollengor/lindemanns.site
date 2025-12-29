@@ -58,7 +58,7 @@
                         </label>
                     </div>
 
-                    <p class="form-info">By clicking “Send,” I agree to the <a href="#">Privacy Policy</a>.</p>
+                    <p class="form-info">By clicking “Send,” I agree to the <a href="{{ route('public.privacy-notice') }}">{{ __('public.privacy_notice') }}</a>.</p>
 
                     <button type="submit" class="btn btn-submit">{{ __('base.send') }}</button>
                 </form>

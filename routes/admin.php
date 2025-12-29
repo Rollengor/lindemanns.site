@@ -50,6 +50,26 @@ Route::group([
 
     });
 
+    /* ABOUT */
+    Route::group(['prefix' => 'about'], function () {
+
+        Route::get('/', [\App\Http\Controllers\Admin\AboutPageController::class, 'index'])->name('admin.about.page');
+        Route::patch('/{page}/update', [\App\Http\Controllers\Admin\AboutPageController::class, 'update'])->name('admin.about.page.update');
+
+        Route::group(['prefix' => 'leaders'], function () {
+
+            Route::get('/', [\App\Http\Controllers\Admin\LeaderController::class, 'index'])->name('admin.about.leaders');
+
+            Route::get('/create', [\App\Http\Controllers\Admin\LeaderController::class, 'create'])->name('admin.about.leader.create');
+            Route::post('/store', [\App\Http\Controllers\Admin\LeaderController::class, 'store'])->name('admin.about.leader.store');
+            Route::get('/{leader}/edit', [\App\Http\Controllers\Admin\LeaderController::class, 'edit'])->name('admin.about.leader.edit');
+            Route::patch('/{leader}/update', [\App\Http\Controllers\Admin\LeaderController::class, 'update'])->name('admin.about.leader.update');
+            Route::delete('/{leader}/delete', [\App\Http\Controllers\Admin\LeaderController::class, 'delete'])->name('admin.about.leader.delete');
+
+        });
+
+    });
+
     /* NEWS */
     Route::group(['prefix' => 'news'], function () {
 

@@ -11,4 +11,7 @@ return [
     'learning' => 'Learning',
     'about' => 'About',
     'other_cases' => 'Other cases',
+    'resume' => 'Resume',
+    'download_resume' => 'Download Resume',
+    'privacy_notice' => 'Privacy Notice',
 ];

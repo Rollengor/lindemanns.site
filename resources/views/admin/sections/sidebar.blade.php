@@ -17,6 +17,30 @@
                 'isCan' => $user->can('all'),
             ],
             [
+                'title' => __('admin.about'),
+                'url' => 'admin.about',
+                'icon' => 'people',
+                'submenu' => [
+                    [
+                        'title' => __('admin.page'),
+                        'url' => 'admin.about.page',
+                        'groupUrl' => 'admin.about.page',
+                        'icon' => null,
+                        'submenu' => [],
+                        'isCan' => $user->can('all'),
+                    ],
+                    [
+                        'title' => __('admin.leaders'),
+                        'url' => 'admin.about.leaders',
+                        'groupUrl' => 'admin.about.leader*',
+                        'icon' => null,
+                        'submenu' => [],
+                        'isCan' => $user->can('all'),
+                    ],
+                ],
+                'isCan' => $user->can('all'),
+            ],
+            [
                 'title' => __('admin.services'),
                 'url' => 'admin.services',
                 'icon' => 'columns-gap',
