@@ -2,7 +2,11 @@
     <div class="container header-container">
         <x-public.logo class="header-logo"/>
 
-        <nav class="main-menu header-main-menu">
+        <nav id="main-menu" class="main-menu">
+            <div class="main-menu-head">
+                <x-public.logo class="main-menu-logo"/>
+            </div>
+
             <ul>
                 <li><a href="{{ route('public.about') }}" class="{{ request()->routeIs('public.about') ? 'is-active' : '' }}">{{ __('base.about') }}</a></li>
                 <li><a href="{{ route('public.services') }}" class="{{ request()->routeIs('public.service*') ? 'is-active' : '' }}">{{ __('base.expertise') }}</a></li>
@@ -12,7 +16,7 @@
             </ul>
         </nav>
 
-        <button class="btn header-contact-btn">{{ __('base.contact_us') }}</button>
+        <button data-fancybox data-src="#contact-modal" type="button" class="btn header-contact-btn">{{ __('base.contact_us') }}</button>
 
         <div class="lang">
             <p>{{ current_locale() }}</p>

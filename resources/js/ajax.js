@@ -108,7 +108,7 @@ export function ajax(event, {form, submitter, url = null, method = null, params 
         });
 }
 
-function parseErrorsMessage(errors) {
+export function parseErrorsMessage(errors) {
     if (typeof errors === 'string') return errors;
     if (typeof errors != 'object') return null;
 

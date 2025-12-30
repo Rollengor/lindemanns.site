@@ -1,13 +1,13 @@
 <?php
 
 return [
-    'about' => 'Über uns',
+    'about' => 'Über',
     'expertise' => 'Expertise',
     'portfolio' => 'Portfolio',
-    'news' => 'Neuigkeiten',
-    'contacts' => 'Kontakte',
+    'news' => 'News',
+    'contacts' => 'Kontakt',
+    'contact_us' => 'Schreiben Sie uns',
     'menu' => 'Menü',
-    'contact_us' => 'Kontaktieren Sie uns',
     'who_we_are' => 'Wer wir sind',
     'recent_cases' => 'Aktuelle Fälle',
     'view_all' => 'Alle anzeigen',
@@ -25,4 +25,6 @@ return [
     'privacy_notice' => 'Datenschutzerklärung',
     'terms_of_use' => 'Nutzungsbedingungen',
     'related_articles' => 'Ähnliche Artikel',
+    'full_name' => 'Vollständiger Name',
+    'phone_number' => 'Telefonnummer',
 ];

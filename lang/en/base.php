@@ -25,4 +25,6 @@ return [
     'privacy_notice' => 'Privacy notice',
     'terms_of_use' => 'Terms of use',
     'related_articles' => 'Related Articles',
+    'full_name' => 'Full Name',
+    'phone_number' => 'Phone Number',
 ];

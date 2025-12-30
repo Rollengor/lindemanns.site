@@ -1,0 +1,50 @@
+@use '../functions/range';
+
+.modals {
+    display: none;
+}
+
+.modal {
+    width: 520px;
+    max-width: calc(100vw - 2em);
+    border: none;
+    padding: range.build(30, 40);
+    border-radius: var(--radius);
+    box-shadow: 0 0 30px 0 rgba(var(--color-black-rgb), .25);
+
+    &-title {
+        font-weight: normal;
+        margin-bottom: 30px;
+    }
+}
+
+.result-send-modal {
+    --base-color: var(--color-green);
+
+    width: 400px;
+    text-align: center;
+    color: var(--base-color);
+
+    &::before {
+        --icon-size: 50px;
+
+        display: block;
+        content: '';
+        width: var(--icon-size);
+        height: var(--icon-size);
+        background-color: var(--base-color);
+        mask-image: var(--icon-info);
+        mask-repeat: no-repeat;
+        mask-position: center;
+        mask-size: contain;
+        margin: 0 auto 1.5em;
+    }
+
+    &.is-success {
+        --base-color: var(--color-green);
+    }
+
+    &.is-error {
+        --base-color: var(--color-red);
+    }
+}

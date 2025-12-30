@@ -1,19 +1,25 @@
 import '../bootstrap';
 
 import { scrollPage } from './scroll-page.js';
-import { extendedMenu } from './extended-menu.js';
+import { toggleMenu } from './toggle-menu.js';
 import { checkFilling } from './check-filling.js';
 import { accordion } from './accordion.js';
+import { modal } from './modal.js';
 
 import { categoriesControl } from './news/categories-control.js';
 import { paginationControl } from './news/pagination-control.js';
 
+import { contactForm } from './contact-form.js';
+
 scrollPage();
-extendedMenu();
+toggleMenu();
 checkFilling();
 accordion();
+modal();
 
 categoriesControl();
 paginationControl();
+
+contactForm();
 
 console.log('all scripts inited');

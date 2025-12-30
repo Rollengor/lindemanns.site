@@ -1,6 +1,8 @@
 @use "vars";
 @use "reset";
 
+@use "libs/fancybox";
+
 @use "layout";
 @use "image";
 @use "typography";
@@ -15,6 +17,7 @@
 @use "components/pagination";
 @use "components/breadcrumbs";
 @use "components/accordion";
+@use "components/modal";
 
 @use "sections/header";
 @use "sections/who-we-are";

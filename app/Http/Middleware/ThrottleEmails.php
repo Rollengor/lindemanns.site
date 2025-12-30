@@ -25,7 +25,7 @@ class ThrottleEmails
                 return response()->json(['error' => __('errors.throttleEmails')], 429);
             }
 
-            Cache::put($key, true, 60);
+            Cache::put($key, true, 1);
         }
 
         return $next($request);

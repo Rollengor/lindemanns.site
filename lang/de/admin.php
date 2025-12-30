@@ -95,6 +95,7 @@ return [
     'resume' => 'Lebenslauf',
     'photo' => 'Foto',
     'position' => 'Position',
+    'contact_email' => 'Kontakt E-Mail',
 
     'forgot_your_password' => 'Passwort vergessen?',
     'already_registered' => 'Bereits registriert?',

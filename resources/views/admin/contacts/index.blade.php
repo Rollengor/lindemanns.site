@@ -41,6 +41,11 @@
                     :target="'socials-pane'"
                     :title="__('admin.socials')"
                 />
+
+                <x-admin.tabs.nav-item
+                    :target="'contact-email-pane'"
+                    :title="__('admin.contact_email')"
+                />
             </x-slot:nav>
 
             <x-slot:content>
@@ -54,6 +59,10 @@
 
                 <x-admin.tabs.pane :id="'socials-pane'">
                     @include('admin.contacts.tabs.socials')
+                </x-admin.tabs.pane>
+
+                <x-admin.tabs.pane :id="'contact-email-pane'">
+                    @include('admin.contacts.tabs.contact-email')
                 </x-admin.tabs.pane>
             </x-slot:content>
         </x-admin.tabs.wrapper>

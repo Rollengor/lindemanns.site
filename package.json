@@ -19,6 +19,7 @@
         "vite": "^7.0.4"
     },
     "dependencies": {
+        "@fancyapps/ui": "^6.1.7",
         "bootstrap": "^5.3.8",
         "caniuse-lite": "^1.0.30001750",
         "overlayscrollbars": "^2.12.0",

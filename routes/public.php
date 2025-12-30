@@ -36,7 +36,6 @@ Route::group([
     'middleware' => [App\Http\Middleware\ThrottleEmails::class],
 ], function () {
 
-    //Route::post('/order', [App\Http\Controllers\Public\OrderController::class, 'store'])->name('public.order');
-    //Route::post('/review', [App\Http\Controllers\Public\SendReviewController::class, 'store'])->name('public.review');
+    Route::post('/send-contact-form', [App\Http\Controllers\Public\SendContactFormController::class, 'store'])->name('public.send-contact-form');
 
 });

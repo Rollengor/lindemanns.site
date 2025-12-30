@@ -77,6 +77,12 @@
 
 @vite('resources/js/public/public.js')
 
+<div class="modals">
+    @include('public.modals.contact-modal')
+    @include('public.modals.success-send-modal')
+    @include('public.modals.error-send-modal')
+</div>
+
 @stack('footer-scripts')
 
 </body>

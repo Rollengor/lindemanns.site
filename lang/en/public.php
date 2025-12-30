@@ -16,4 +16,9 @@ return [
     'privacy_notice' => 'Privacy Notice',
     'copyright' => '© 2025 TND Universe. All rights reserved.',
     'contact_us_title' => 'Contact Us to Get Some Exclusive',
+    'error_validate_form' => 'Please check if you have filled in all required fields, or report an error to us.',
+    'success_send_message' => 'Your request has been successfully submitted! We will definitely contact you after it has been processed.',
+    'error_send_message' => 'An unexpected error occurred! Please try again in a minute. We apologize for the inconvenience.',
+    'new_contact' => 'New contact',
+    'new_contact_request' => 'New contact request – :site',
 ];

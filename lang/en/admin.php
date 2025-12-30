@@ -95,6 +95,7 @@ return [
     'resume' => 'Resume',
     'photo' => 'Photo',
     'position' => 'Position',
+    'contact_email' => 'Contact Mail',
 
     'forgot_your_password' => 'Forgot your password?',
     'already_registered' => 'Already registered?',
