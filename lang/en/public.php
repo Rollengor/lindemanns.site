@@ -14,4 +14,6 @@ return [
     'resume' => 'Resume',
     'download_resume' => 'Download Resume',
     'privacy_notice' => 'Privacy Notice',
+    'copyright' => '© 2025 TND Universe. All rights reserved.',
+    'contact_us_title' => 'Contact Us to Get Some Exclusive',
 ];

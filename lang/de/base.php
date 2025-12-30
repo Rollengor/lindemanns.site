@@ -1,0 +1,28 @@
+<?php
+
+return [
+    'about' => 'Über uns',
+    'expertise' => 'Expertise',
+    'portfolio' => 'Portfolio',
+    'news' => 'Neuigkeiten',
+    'contacts' => 'Kontakte',
+    'menu' => 'Menü',
+    'contact_us' => 'Kontaktieren Sie uns',
+    'who_we_are' => 'Wer wir sind',
+    'recent_cases' => 'Aktuelle Fälle',
+    'view_all' => 'Alle anzeigen',
+    'news_and_events' => 'Neuigkeiten & Veranstaltungen',
+    'blog' => 'Blog',
+    'event' => 'Veranstaltung',
+    'all' => 'Alle',
+    'your_name' => 'Ihr Name',
+    'last_name' => 'Nachname',
+    'phone' => 'Telefon',
+    'email' => 'E-Mail',
+    'send' => 'Senden',
+    'follow_us' => 'Folgen Sie uns',
+    'imprint' => 'Impressum',
+    'privacy_notice' => 'Datenschutzerklärung',
+    'terms_of_use' => 'Nutzungsbedingungen',
+    'related_articles' => 'Ähnliche Artikel',
+];

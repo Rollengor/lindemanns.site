@@ -53,7 +53,7 @@ class NewsCategory extends Model
 
         static::saving(function ($model) {
             if (empty($model->getOriginal('slug')) && is_null($model->slug)) {
-                $name = $model->getTranslation('name', config('app.locale'));
+                $name = $model->getTranslation('name', config('app.fallback_locale'));
                 $model->slug = Str::of($name)->slug('-');
             }
         });

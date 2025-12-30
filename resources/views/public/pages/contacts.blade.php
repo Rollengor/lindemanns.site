@@ -28,18 +28,18 @@
         <div class="container contacts-container">
             <div class="contacts-links">
                 <p>
-                    @foreach(data_get($contacts->content_data, 'phones', []) as $phone)
+                    @foreach(data_get($contacts->getTranslation('content_data', config('app.fallback_locale')), 'phones', []) as $phone)
                         <a href="tel:{{ get_only_numbers($phone) }}" class="base-link">{{ $phone }}</a>
                     @endforeach
                 </p>
                 <p>
-                    @foreach(data_get($contacts->content_data, 'emails', []) as $email)
+                    @foreach(data_get($contacts->getTranslation('content_data', config('app.fallback_locale')), 'emails', []) as $email)
                         <a href="mailto:{{ $email }}" class="base-link">{{ $email }}</a>
                     @endforeach
                 </p>
             </div>
 
-            <address>{{ data_get($contacts->content_data, 'address') }}</address>
+            <address>{{ data_get($contacts->getTranslation('content_data', config('app.fallback_locale')), 'address') }}</address>
 
             @include('public.fragments.socials')
         </div>

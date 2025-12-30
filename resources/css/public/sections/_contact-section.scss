@@ -29,7 +29,8 @@
     text-shadow: 0 2px 2px rgba(var(--color-black-rgb), .17);
 
     @media (min-width: 768px) {
-        flex: 0 1 0;
+        max-width: 456px;
+        flex: 1 0 0;
         margin-right: auto;
     }
 }
@@ -38,10 +39,6 @@
     display: flex;
     flex-direction: column;
     gap: range.build(16, 22);
-
-    @media (min-width: 768px) {
-        max-width: 456px;
-    }
 }
 
 .contact-section-title {

@@ -9,12 +9,12 @@
 
                 <div class="contact-section-links">
                     <p>
-                        @foreach(data_get($contactUsSection->content_data, 'phones', []) as $phone)
+                        @foreach(data_get($contactUsSection->getTranslation('content_data', config('app.fallback_locale')), 'phones', []) as $phone)
                             <a href="tel:{{ get_only_numbers($phone) }}" class="base-link">{{ $phone }}</a>
                         @endforeach
                     </p>
                     <p>
-                        @foreach(data_get($contactUsSection->content_data, 'emails', []) as $email)
+                        @foreach(data_get($contactUsSection->getTranslation('content_data', config('app.fallback_locale')), 'emails', []) as $email)
                             <a href="mailto:{{ $email }}" class="base-link">{{ $email }}</a>
                         @endforeach
                     </p>
@@ -23,11 +23,7 @@
 
             <div class="contact-section-form">
                 <div class="contact-section-form-head">
-                    <h4 class="contact-section-form-title">Contact Us to Get Some Exclusive</h4>
-                    {{--<div class="contact-section-form-avatar">
-                        <x-public.circle-logo/>
-                        <img src="/img/avatar.jpg" alt="Circle logo" class="img-fluid">
-                    </div>--}}
+                    <h4 class="contact-section-form-title">{{ __('public.contact_us_title') }}</h4>
                 </div>
 
                 <form action="#" method="POST" class="form contact-section-form-body">

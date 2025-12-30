@@ -72,7 +72,7 @@ class NewsArticle extends Model implements HasMedia
 
         static::saving(function ($model) {
             if (empty($model->getOriginal('slug')) && is_null($model->slug)) {
-                $title = $model->getTranslation('title', config('app.locale'));
+                $title = $model->getTranslation('title', config('app.fallback_locale'));
                 $model->slug = Str::of($title)->slug('-');
             }
         });
