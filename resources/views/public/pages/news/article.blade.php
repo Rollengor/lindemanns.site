@@ -18,7 +18,6 @@
                         <time datetime="{{ $article->created_at->format('Y-m-d') }}">{{ $article->created_at->translatedFormat('d M Y') }}</time>
                         <div>{{ $article->first_category->name }}</div>
                     </div>
-                    <x-public.circle-logo class="news-article-hero-logo"/>
                 </div>
             </div>
         </div>

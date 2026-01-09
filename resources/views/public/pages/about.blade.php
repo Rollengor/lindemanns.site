@@ -25,7 +25,6 @@
                 class="img-fluid"
                 loading="lazy"
             >
-            <img src="/img/circle-logo.svg" alt="logo" class="img-fluid about-hero-logo" loading="lazy">
         </div>
 
         <p class="about-hero-description">{{ data_get($page->content_data, 'description') }}</p>

@@ -60,7 +60,7 @@
     --btn-px: 0;
     --btn-fz: 22px;
     --btn-fw: bold;
-    --btn-color: var(--color-dark);
+    --btn-color: var(--color-secondary-medium);
 
     font-weight: bold;
     padding-right: 24px;
@@ -70,13 +70,13 @@
         content: '';
         width: 12px;
         aspect-ratio: 1;
-        background-color: var(--color-secondary);
+        background-color: var(--color-secondary-medium);
         mask-image: var(--icon-corner-arrow);
         mask-repeat: no-repeat;
         mask-position: center;
         mask-size: contain;
         transition: var(--transition);
-        transition-property: translate;
+        transition-property: translate, background-color;
         rotate: 45deg;
         position: absolute;
         right: 0;
@@ -88,6 +88,7 @@
         &::after {
             opacity: 1;
             translate: 75% 0;
+            background-color: var(--color-secondary);
         }
     }
 }

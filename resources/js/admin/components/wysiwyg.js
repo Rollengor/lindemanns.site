@@ -153,6 +153,7 @@ function init(element) {
 		const parser = new DOMParser();
 		const parseDocument = parser.parseFromString(contents, 'text/html');
         const imageContainers = parseDocument.querySelectorAll('.se-image-container');
+        const videoContainers = parseDocument.querySelectorAll('.se-video-container');
 
         imageContainers.forEach((container) => {
             const image = container.querySelector('img');
@@ -172,6 +173,25 @@ function init(element) {
 
             figure.insertBefore(picture, image);
             picture.appendChild(image);
+            parseDocument.body.insertBefore(figure, container);
+            container.remove();
+        });
+
+        videoContainers.forEach((container) => {
+            const iframe = container.querySelector('iframe');
+            const figure = container.querySelector('figure');
+
+            if (!iframe || !figure) {
+                console.warn('Missing <iframe> or <figure> in a container. Skipping.');
+                return;
+            }
+
+            const float = container.classList.contains('__se__float-left') ? 'left' : (container.classList.contains('__se__float-right') ? 'right' : null);
+
+            if (float) {
+                figure.classList.add(`float-${float}`);
+            }
+
             parseDocument.body.insertBefore(figure, container);
             container.remove();
         });

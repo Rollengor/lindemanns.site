@@ -124,7 +124,7 @@ Route::group([
 
             Route::get('/', [\App\Http\Controllers\Admin\Services\ServiceController::class, 'index'])->name('admin.services.services');
 
-            Route::get('/create', [\App\Http\Controllers\Admin\Services\ServiceController::class, 'create'])->name('admin.services.service.create');
+            Route::get('/create/{service?}', [\App\Http\Controllers\Admin\Services\ServiceController::class, 'create'])->name('admin.services.service.create');
             Route::post('/store', [\App\Http\Controllers\Admin\Services\ServiceController::class, 'store'])->name('admin.services.service.store');
             Route::get('/{service}/edit', [\App\Http\Controllers\Admin\Services\ServiceController::class, 'edit'])->name('admin.services.service.edit');
             Route::patch('/{service}/update', [\App\Http\Controllers\Admin\Services\ServiceController::class, 'update'])->name('admin.services.service.update');
@@ -144,7 +144,7 @@ Route::group([
 
             Route::get('/', [\App\Http\Controllers\Admin\Portfolio\ProjectController::class, 'index'])->name('admin.portfolio.projects');
 
-            Route::get('/create', [\App\Http\Controllers\Admin\Portfolio\ProjectController::class, 'create'])->name('admin.portfolio.project.create');
+            Route::get('/create/{project?}', [\App\Http\Controllers\Admin\Portfolio\ProjectController::class, 'create'])->name('admin.portfolio.project.create');
             Route::post('/store', [\App\Http\Controllers\Admin\Portfolio\ProjectController::class, 'store'])->name('admin.portfolio.project.store');
             Route::get('/{project}/edit', [\App\Http\Controllers\Admin\Portfolio\ProjectController::class, 'edit'])->name('admin.portfolio.project.edit');
             Route::patch('/{project}/update', [\App\Http\Controllers\Admin\Portfolio\ProjectController::class, 'update'])->name('admin.portfolio.project.update');

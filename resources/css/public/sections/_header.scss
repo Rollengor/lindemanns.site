@@ -89,6 +89,8 @@
 .post-page {
     .header {
         &-logo {
+            color: var(--color-gold);
+
             &:hover {
                 color: var(--color-secondary);
             }
@@ -119,6 +121,8 @@
     }
 
     &-logo {
+        color: var(--color-gold);
+
         &:hover {
             color: var(--color-secondary);
         }

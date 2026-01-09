@@ -85,7 +85,7 @@
             aspect-ratio: 1;
             background-color: transparent;
             border-radius: 50%;
-            border: 2px solid var(--color-secondary-large);
+            border: 2px solid var(--color-secondary-medium);
             transition: var(--transition);
             transition-property: background-color;
 
@@ -147,7 +147,7 @@
     &-head:hover {
         .service-info-card {
             &-title {
-                color: var(--color-secondary);
+                color: var(--color-secondary-medium);
             }
         }
     }
@@ -156,10 +156,10 @@
         .service-info-card {
             &-head {
                 &-icon {
-                    background-color: var(--color-secondary-large);
+                    background-color: var(--color-secondary-medium);
 
                     &::before {
-                        background-color: var(--color-white);
+                        background-color: var(--color-gold);
                     }
                 }
             }

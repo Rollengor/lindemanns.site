@@ -5,11 +5,11 @@
         <div class="container home-hero-container">
             <h1>{{ data_get($page->content_data, 'hero.title') }}</h1>
 
-            <div class="home-hero-body">
-                {{--<x-public.circle-logo class="home-hero-logo"/>--}}
-
-                <div class="formatted-text home-hero-description">{!! data_get($page->content_data, 'hero.description') !!}</div>
-            </div>
+            @if(data_get($page->content_data, 'hero.description'))
+                <div class="home-hero-body">
+                    <div class="formatted-text home-hero-description">{!! data_get($page->content_data, 'hero.description') !!}</div>
+                </div>
+            @endif
         </div>
     </section>
 

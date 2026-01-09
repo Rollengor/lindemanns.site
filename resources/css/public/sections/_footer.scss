@@ -38,19 +38,13 @@
 }
 
 .footer-logo {
-    --logo-size: 210px;
-
-    font-size: 22px;
-}
-
-.footer-col {
-
+    color: var(--color-primary);
 }
 
 .footer-contacts {
     display: flex;
     flex-direction: column;
-    gap: range.build(20, 60) 0;
+    gap: range.build(20, 50) 0;
     grid-area: contacts;
 
     @media (max-width: 599px) {
@@ -68,7 +62,8 @@
     flex-direction: column;
     font-size: range.build(18, 22);
     line-height: 1.2;
-    gap: 1.27em;
+    gap: .75em;
+    color: var(--color-secondary-medium);
 }
 
 .footer-menu {

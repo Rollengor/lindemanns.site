@@ -32,6 +32,15 @@
             <x-admin.ajax.view-modal-button
                 class="btn-sm p-2"
 
+                :action="route('admin.portfolio.project.create', $project->id)"
+                :modal_id="'project-create-modal'"
+
+                :iconName="'copy'"
+            />
+
+            <x-admin.ajax.view-modal-button
+                class="btn-sm p-2"
+
                 :action="route('admin.portfolio.project.edit', $project->id)"
                 :modal_id="'project-edit-modal'"
 

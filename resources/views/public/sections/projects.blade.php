@@ -1,4 +1,4 @@
-<div class="portfolio-projects">
+<div class="portfolio-projects-cards">
     @foreach($projects as $project)
         <div class="bg-img-cover project-card" style="background-image: url({{ $project->hasMedia($project->mediaHero) ? $project->getFirstMediaUrl($project->mediaHero, 'md-webp') : '/img/default-vertical.svg' }});">
             <div class="project-card-content">

@@ -16,7 +16,7 @@ class PortfolioPageController extends Controller
         $projects = Project::where('active', 1)
             ->latest()
             ->orderByDesc('sort')
-            ->paginate(12);
+            ->paginate(9);
 
         return view('public.pages.portfolio.page', compact('page', 'projects'));
     }

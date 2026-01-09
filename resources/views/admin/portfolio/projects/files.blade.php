@@ -1,5 +1,5 @@
 @php
-    $files = isset($project) && $project->hasMedia($project->mediaFiles) ? $project->getMedia($project->mediaFiles) : [];
+    $files = !(isset($isClone) && $isClone) && isset($project) && $project->hasMedia($project->mediaFiles) ? $project->getMedia($project->mediaFiles) : [];
 @endphp
 
 @foreach($files as $file)

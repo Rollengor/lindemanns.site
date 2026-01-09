@@ -21,9 +21,16 @@ class ProjectController extends Controller
         return view('admin.portfolio.projects.index', compact('projects'));
     }
 
-    public function create(Request $request): View|JsonResponse|string {
+    public function create(Request $request, ?Project $project = null): View|JsonResponse|string {
+        $data = [];
+
+        if ($project) {
+            $data['project'] = $project;
+            $data['isClone'] = true;
+        }
+
         if ($request->ajax()) {
-            return view('admin.portfolio.projects.create')->render();
+            return view('admin.portfolio.projects.create', $data)->render();
         }
 
         abort(404);

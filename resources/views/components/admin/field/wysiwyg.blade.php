@@ -3,7 +3,7 @@
 	'name' => '',
 	'value' => '',
 	'required' => true,
-	'buttons' => null, // blockquote|fontColor|underline|italic|strike|subscript|superscript|align|list
+	'buttons' => null, // image|video|blockquote|fontColor|underline|italic|strike|subscript|superscript|align|list
 	'charLimit' => null,
 	'height' => null,
 	'defaultWysiwygTag' => null,

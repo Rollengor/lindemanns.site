@@ -5,8 +5,8 @@
             :name="'hero_image'"
             :placeholder="__('admin.hero_image') . ' ( 3 / 2 )'"
             :ratio="'3x2'"
-            :src="isset($project) && $project->hasMedia($project->mediaHero) ? $project->getFirstMediaUrl($project->mediaHero, 'md-webp') : null"
-            :required="isset($project) ? !$project->hasMedia($project->mediaHero) : true"
+            :src="!(isset($isClone) && $isClone) && isset($project) && $project->hasMedia($project->mediaHero) ? $project->getFirstMediaUrl($project->mediaHero, 'md-webp') : null"
+            :required="!(isset($isClone) && $isClone) && isset($project) ? !$project->hasMedia($project->mediaHero) : true"
         />
     </div>
 

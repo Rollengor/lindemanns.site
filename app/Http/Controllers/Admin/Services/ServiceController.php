@@ -21,11 +21,18 @@ class ServiceController extends Controller
         return view('admin.services.services.index', compact('services'));
     }
 
-    public function create(Request $request): View|JsonResponse|string {
-        $categories = ServiceCategory::all();
+    public function create(Request $request, ?Service $service = null): View|JsonResponse|string {
+        $data = [
+            'categories' => ServiceCategory::all(),
+        ];
+
+        if ($service) {
+            $data['service'] = $service;
+            $data['isClone'] = true;
+        }
 
         if ($request->ajax()) {
-            return view('admin.services.services.create', compact('categories'))->render();
+            return view('admin.services.services.create', $data)->render();
         }
 
         abort(404);

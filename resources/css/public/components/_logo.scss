@@ -1,9 +1,11 @@
 @use '../functions/range';
 
 .logo {
-    --logo-size: #{range.build(140, 210)};
+    --logo-size: #{range.build(100, 150)};
 
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: var(--logo-size);
     text-decoration: none;
     color: inherit;

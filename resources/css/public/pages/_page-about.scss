@@ -28,16 +28,6 @@
     }
 }
 
-.about-hero-logo {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    width: range.build(40, 78);
-    background-color: var(--color-white);
-    border-radius: 50%;
-    box-shadow: 0 0 0 range.build(6, 16) var(--color-white);
-}
-
 .about-hero-description {
     color: var(--color-gray);
     margin-top: range.build(20, 30);
@@ -121,7 +111,7 @@
     &-position {
         font-size: range.build(16, 18, px, 768);
         margin-top: range.build(16, 30, px, 768);
-        color: var(--color-secondary);
+        color: var(--color-secondary-medium);
         font-weight: bold;
     }
 
@@ -151,6 +141,7 @@
         font-weight: bold;
         font-size: range.build(18, 22, px, 768);
         margin-top: range.build(20, 50, px, 768);
+        color: var(--color-secondary-medium);
 
         &::after {
             width: max(10px, .6em);

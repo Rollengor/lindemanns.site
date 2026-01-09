@@ -18,6 +18,7 @@
     transition: var(--transition);
     transition-property: color;
     vertical-align: middle;
+    color: var(--color-primary);
 
     &::after {
         display: inline-block;
@@ -25,7 +26,7 @@
         width: 10px;
         aspect-ratio: 1;
         vertical-align: middle;
-        background-color: var(--color-secondary);
+        background-color: var(--color-primary);
         mask-image: var(--icon-corner-arrow);
         mask-repeat: no-repeat;
         mask-position: center;
@@ -33,13 +34,14 @@
         margin-left: -10px;
         translate: 20px 0;
         transition: var(--transition);
-        transition-property: rotate;
+        transition-property: rotate, background-color;
     }
 
     &:hover {
         color: var(--color-secondary);
 
         &::after {
+            background-color: var(--color-secondary);
             rotate: 45deg;
         }
     }

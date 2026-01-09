@@ -37,6 +37,15 @@
             <x-admin.ajax.view-modal-button
                 class="btn-sm p-2"
 
+                :action="route('admin.services.service.create', $service->id)"
+                :modal_id="'service-create-modal'"
+
+                :iconName="'copy'"
+            />
+
+            <x-admin.ajax.view-modal-button
+                class="btn-sm p-2"
+
                 :action="route('admin.services.service.edit', $service->id)"
                 :modal_id="'service-edit-modal'"
 

@@ -38,6 +38,8 @@
                                 :name="'content_data['. $lang .'][hero][description]'"
                                 :value="old('content_data.' . $lang . '.hero.description', data_get($page->getTranslation('content_data', $lang), 'hero.description'))"
                                 :placeholder="__('admin.description')"
+                                :height="100"
+                                :required="false"
                             />
                         </div>
                     </x-admin.tabs.pane>
