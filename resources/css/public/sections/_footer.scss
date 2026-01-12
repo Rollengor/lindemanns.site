@@ -39,6 +39,10 @@
 
 .footer-logo {
     color: var(--color-primary);
+
+    &:hover {
+        color: var(--color-primary);
+    }
 }
 
 .footer-contacts {
