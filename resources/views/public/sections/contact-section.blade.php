@@ -8,16 +8,17 @@
                 </div>
 
                 <div class="contact-section-links">
-                    <p>
-                        @foreach(data_get($contactUsSection->getTranslation('content_data', config('app.fallback_locale')), 'phones', []) as $phone)
+                    @foreach(data_get($contactUsSection->getTranslation('content_data', config('app.fallback_locale')), 'phones', []) as $phone)
+                        <p>
                             <a href="tel:{{ get_only_numbers($phone) }}" class="base-link">{{ $phone }}</a>
-                        @endforeach
-                    </p>
-                    <p>
-                        @foreach(data_get($contactUsSection->getTranslation('content_data', config('app.fallback_locale')), 'emails', []) as $email)
+                        </p>
+                    @endforeach
+                    
+                    @foreach(data_get($contactUsSection->getTranslation('content_data', config('app.fallback_locale')), 'emails', []) as $email)
+                        <p>
                             <a href="mailto:{{ $email }}" class="base-link">{{ $email }}</a>
-                        @endforeach
-                    </p>
+                        </p>
+                    @endforeach
                 </div>
             </div>
 
