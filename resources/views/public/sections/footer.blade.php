@@ -5,7 +5,7 @@
                 <x-public.logo class="footer-logo"/>
 
                 <div class="footer-contacts-links">
-                    <@foreach(data_get($contacts->getTranslation('content_data', config('app.fallback_locale')), 'phones', []) as $phone)
+                    @foreach(data_get($contacts->getTranslation('content_data', config('app.fallback_locale')), 'phones', []) as $phone)
                         <p>
                             <a href="tel:{{ get_only_numbers($phone) }}" class="base-link">{{ $phone }}</a>
                         </p>
