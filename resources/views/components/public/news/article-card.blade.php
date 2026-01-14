@@ -9,7 +9,7 @@
             @if($article->short_description)
                 <p>{{ $article->short_description }}</p>
             @elseif($article->description)
-                {{ $article->description }}
+                {!! $article->description !!}
             @endif
         </div>
         <div class="article-card-info">
