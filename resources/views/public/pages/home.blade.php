@@ -6,9 +6,7 @@
             <h1>{{ data_get($page->content_data, 'hero.title') }}</h1>
 
             @if(data_get($page->content_data, 'hero.description'))
-                <div class="home-hero-body">
-                    <div class="formatted-text home-hero-description">{!! data_get($page->content_data, 'hero.description') !!}</div>
-                </div>
+                <div class="formatted-text home-hero-description">{!! data_get($page->content_data, 'hero.description') !!}</div>
             @endif
         </div>
     </section>

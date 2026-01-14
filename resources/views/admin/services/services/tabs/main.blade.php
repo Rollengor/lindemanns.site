@@ -34,6 +34,14 @@
                                 :placeholder="__('admin.title')"
                             />
 
+                            <!-- inner title -->
+                            <x-admin.field.text
+                                :name="'inner_title['. $lang .']'"
+                                :value="old('inner_title.' . $lang, isset($service) ? $service->getTranslation('inner_title', $lang) : null)"
+                                :placeholder="__('admin.inner_title')"
+                                :required="false"
+                            />
+
                             <!-- description -->
                             <x-admin.field.textarea
                                 :name="'description['. $lang .']'"

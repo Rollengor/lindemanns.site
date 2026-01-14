@@ -30,13 +30,7 @@
         position: relative;
         margin-top: auto;
         z-index: 5;
-        gap: 60px 0;
-
-        @media (min-width: 992px) {
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-        }
+        gap: range.build(16, 30);
     }
 
     h1 {
@@ -52,26 +46,15 @@
     }
 }
 
-.home-hero-body {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px 20px;
-
-    @media (min-width: 992px) {
-        max-width: range.build(500, 670, px, 992);
-    }
-}
-
 .home-hero-logo {
     width: 80px;
 }
 
 .home-hero-description {
     flex: 1 0 0;
-    align-self: center;
 
     h2, h3, h4, h4, h6 {
-        line-height: 1.1;
+        line-height: 1.3;
     }
 
     h2 {

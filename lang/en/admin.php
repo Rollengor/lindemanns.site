@@ -96,6 +96,7 @@ return [
     'photo' => 'Photo',
     'position' => 'Position',
     'contact_email' => 'Contact Mail',
+    'inner_title' => 'Inner Title',
 
     'forgot_your_password' => 'Forgot your password?',
     'already_registered' => 'Already registered?',

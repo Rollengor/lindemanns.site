@@ -96,6 +96,7 @@
                 class="col"
                 :name="'resume'"
                 :placeholder="__('admin.resume')"
+                :required="!(isset($leader) && $leader->hasMedia($leader->mediaResume))"
             />
 
             @if(isset($leader) && $leader->hasMedia($leader->mediaResume))

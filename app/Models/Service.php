@@ -18,6 +18,7 @@ class Service extends Model implements HasMedia
 
     protected $fillable = [
         'title',
+        'inner_title',
         'slug',
         'short_description',
         'description',
@@ -35,6 +36,7 @@ class Service extends Model implements HasMedia
 
     public array $translatable = [
         'title',
+        'inner_title',
         'short_description',
         'description',
 
@@ -49,6 +51,7 @@ class Service extends Model implements HasMedia
     {
         return [
             'title' => 'json',
+            'inner_title' => 'json',
             'short_description' => 'json',
             'description' => 'json',
             'seo_title' => 'json',

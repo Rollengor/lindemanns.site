@@ -2,7 +2,7 @@
 
 @section('content')
     <section class="container inner-page-head service-head">
-        <h1 class="inner-page-title service-head-title">{{ $service->title }}</h1>
+        <h1 class="inner-page-title service-head-title">{{ $service->inner_title ?: $service->title }}</h1>
         <p class="service-head-description">{{ $service->description }}</p>
     </section>
 

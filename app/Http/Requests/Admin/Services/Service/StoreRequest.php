@@ -29,14 +29,21 @@ class StoreRequest extends FormRequest
         $rules['sort'] = ['required', 'integer'];
         $rules['active'] = ['required', 'boolean'];
 
-        foreach (supported_languages_keys() as $locale) {
-            $rules['title'] = ['required', 'array'];
-            $rules['title.' . $locale] = ['required', 'string', 'max:255'];
+        $rules['title'] = ['required', 'array'];
+        $rules['inner_title'] = ['nullable', 'array'];
+        $rules['description'] = ['required', 'array'];
+        $rules['details'] = ['required', 'array'];
 
-            $rules['description'] = ['required', 'array'];
+        $rules['seo_title'] = ['nullable', 'array'];
+        $rules['seo_description'] = ['nullable', 'array'];
+        $rules['seo_keywords'] = ['nullable', 'array'];
+
+        foreach (supported_languages_keys() as $locale) {
+            $rules['title.' . $locale] = ['required', 'string', 'max:255'];
+            $rules['inner_title.' . $locale] = ['nullable', 'string', 'max:255'];
+
             $rules['description.' . $locale] = ['required', 'string'];
 
-            $rules['details'] = ['required', 'array'];
             $rules['details.' . $locale . '.title'] = ['required', 'string', 'max:255'];
             $rules['details.' . $locale . '.list'] = ['required', 'array'];
             $rules['details.' . $locale . '.list.*.title'] = ['required', 'string', 'max:255'];
@@ -48,11 +55,8 @@ class StoreRequest extends FormRequest
             $rules['info.' . $locale . '.list.*.title'] = ['nullable', 'string', 'max:255'];
             $rules['info.' . $locale . '.list.*.description'] = ['nullable', 'string'];*/
 
-            $rules['seo_title'] = ['nullable', 'array'];
             $rules['seo_title.' . $locale] = ['nullable', 'string', 'max:255'];
-            $rules['seo_description'] = ['nullable', 'array'];
             $rules['seo_description.' . $locale] = ['nullable', 'string', 'max:255'];
-            $rules['seo_keywords'] = ['nullable', 'array'];
             $rules['seo_keywords.' . $locale] = ['nullable', 'string', 'max:255'];
         }
 
