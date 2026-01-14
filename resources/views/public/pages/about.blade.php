@@ -63,7 +63,7 @@
                     <ul class="leader-card-info">
                         @foreach($leader->info as $item)
                             <li>
-                                <p>{{ $item['head'] }}</p>
+                                <p>{{ trim($item['head']) }}</p>
                                 <p>{{ $item['description'] }}</p>
                             </li>
                         @endforeach

@@ -54,6 +54,7 @@
                                                 :name="'info['. $lang .'][' . $loop->index . '][head]'"
                                                 :value="$item['head']"
                                                 :placeholder="__('admin.info_head')"
+                                                :required="false"
                                             />
 
                                             <!-- info description -->
@@ -73,6 +74,7 @@
                                             <x-admin.field.text
                                                 :name="'info['. $lang .'][0][head]'"
                                                 :placeholder="__('admin.info_head')"
+                                                :required="false"
                                             />
 
                                             <!-- info description -->

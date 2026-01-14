@@ -134,6 +134,10 @@
             font-size: 1.78em;
             line-height: 1;
             font-weight: normal;
+
+            &:empty {
+                display: none;
+            }
         }
     }
 

@@ -27,16 +27,17 @@ class UpdateRequest extends FormRequest
         $rules['sort'] = ['required', 'integer'];
         $rules['active'] = ['required', 'boolean'];
 
+        $rules['name'] = ['required', 'array'];
+        $rules['position'] = ['required', 'array'];
+        $rules['info'] = ['required', 'array'];
+
         foreach (supported_languages_keys() as $locale) {
-            $rules['name'] = ['required', 'array'];
             $rules['name.' . $locale] = ['required', 'string', 'max:255'];
 
-            $rules['position'] = ['required', 'array'];
             $rules['position.' . $locale] = ['required', 'string', 'max:255'];
 
-            $rules['info'] = ['required', 'array'];
             $rules['info.' . $locale] = ['required', 'array'];
-            $rules['info.' . $locale . '*.head'] = ['required', 'string', 'max:255'];
+            $rules['info.' . $locale . '*.head'] = ['nullable', 'string', 'max:255'];
             $rules['info.' . $locale . '*.description'] = ['required', 'string', 'max:255'];
         }
 
