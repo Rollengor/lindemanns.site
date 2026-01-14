@@ -21,4 +21,5 @@ return [
     'error_send_message' => 'An unexpected error occurred! Please try again in a minute. We apologize for the inconvenience.',
     'new_contact' => 'New contact',
     'new_contact_request' => 'New contact request – :site',
+    'we_offer' => 'We offer',
 ];

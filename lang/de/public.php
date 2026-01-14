@@ -21,4 +21,5 @@ return [
     'error_send_message' => 'Ein unerwarteter Fehler ist aufgetreten! Bitte versuchen Sie es in einer Minute erneut. Wir entschuldigen uns für die Unannehmlichkeiten.',
     'new_contact' => 'Neuer Kontakt',
     'new_contact_request' => 'Neue Kontaktanfrage – :site',
+    'we_offer' => 'Wir bieten',
 ];

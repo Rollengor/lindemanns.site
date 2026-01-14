@@ -1,5 +1,11 @@
 @if($serviceCategories)
     <section class="services">
+        @if (Route::is('public.home'))
+            <div class="container services-head">
+                <h6 class="services-head-title">{{ __('public.we_offer') }}</h6>
+            </div>
+        @endif
+
         <div class="container services-container">
             @foreach($serviceCategories as $category)
                 <div class="services-row">

@@ -4,6 +4,17 @@
     padding: range.build(50, 80) 0;
 }
 
+.services-head {
+    @media (max-width: 767px) {
+        margin-bottom: 30px;
+    }
+
+    &-title {
+        color: var(--color-secondary-medium);
+        text-transform: uppercase;
+    }
+}
+
 .services-container {
     display: flex;
     flex-direction: column;
