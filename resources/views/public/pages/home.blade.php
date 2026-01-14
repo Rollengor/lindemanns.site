@@ -1,7 +1,7 @@
 @extends('public.layouts.base')
 
 @section('content')
-    <section class="home-hero bg-img-cover" style="background-image: url({{ $page->getFirstMediaUrl('hero-image', 'hd-webp') }});">
+    <section class="home-hero bg-img-cover" style="background-image: url({{ $page->getFirstMediaUrl('hero-image', 'xl-webp') }});">
         <div class="container home-hero-container">
             <h1>{{ data_get($page->content_data, 'hero.title') }}</h1>
 
