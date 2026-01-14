@@ -5,7 +5,7 @@
     align-items: center;
     width: 100%;
     height: var(--header-height);
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 50;
@@ -43,6 +43,10 @@
 .header-logo {
     margin-right: auto;
     position: relative;
+
+    @media (min-width: 992px) and (max-width: 1599px) {
+        --logo-size: 110px;
+    }
 
     &:hover {
         color: var(--color-primary);
@@ -98,21 +102,9 @@
     }
 }
 
-.is-header-fixed .header {
-    box-shadow: 0 0 16px 0 rgba(var(--color-black-rgb), .75);
-    position: fixed;
-    top: calc(var(--header-height) * -1);
-    translate: 0% 100%;
-    transition-property: background-color, box-shadow, translate;
-}
-
-.is-header-hide .header {
-    box-shadow: none;
-    translate: none;
-}
-
 .is-page-scrolled .header {
     background-color: var(--color-primary);
+    box-shadow: 0 0 16px 0 rgba(var(--color-black-rgb), .75);
     color: var(--color-white);
 
     &::before {
@@ -145,41 +137,20 @@
             --btn-color-border: var(--color-primary);
         }
     }*/
-}
 
-.is-opened-extended-menu .header {
-    padding-right: var(--compensate-scrollbar, 0);
+    .lang {
+        &::before {
+            border-color: var(--color-white);
+        }
+     }
 
-    /*.header-contact-btn {
+    .main-menu-toggle-button {
         --btn-color: var(--color-white);
-        --btn-color-border: var(--color-primary);
 
-        &:hover {
-            --btn-color: var(--color-white);
-            --btn-color-border: var(--color-primary);
-        }
-    }*/
-}
-
-.is-page-scrolled,
-.is-opened-extended-menu {
-    .header {
-        color: var(--color-white);
-
-        .lang {
-            &::before {
-                border-color: var(--color-white);
-            }
-        }
-
-        .main-menu-toggle-button {
-            --btn-color: var(--color-white);
-
-            span {
-                &::before,
-                &::after {
-                    background-color: var(--color-white);
-                }
+        span {
+            &::before,
+            &::after {
+                background-color: var(--color-white);
             }
         }
     }
