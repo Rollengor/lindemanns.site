@@ -41,11 +41,14 @@
 }
 
 .header-logo {
+    --logo-size: #{range.build(160, 240)};
+
     margin-right: auto;
     position: relative;
+    translate: 0 -14%;
 
     @media (min-width: 992px) and (max-width: 1599px) {
-        --logo-size: 110px;
+        --logo-size: 180px;
     }
 
     &:hover {
@@ -213,8 +216,12 @@
 }
 
 .main-menu-logo {
+    --logo-size: #{range.build(160, 240)};
+
+    translate: 0 -14%;
+
     &:hover {
-        color: var(--color-secondary);
+        color: var(--color-primary);
     }
 }
 

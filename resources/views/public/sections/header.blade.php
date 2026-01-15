@@ -1,10 +1,10 @@
 <header id="header" class="header">
     <div class="container header-container">
-        <x-public.logo class="header-logo"/>
+        <x-public.logo :isHorisontal="true" class="header-logo"/>
 
         <nav id="main-menu" class="main-menu">
             <div class="main-menu-head">
-                <x-public.logo class="main-menu-logo"/>
+                <x-public.logo :isHorisontal="true" class="main-menu-logo"/>
             </div>
 
             <ul>
