@@ -1,6 +1,4 @@
-<div class="portfolio-projects-cards">
-    @foreach($projects as $project)
-        <div class="bg-img-cover project-card" style="background-image: url({{ $project->hasMedia($project->mediaHero) ? $project->getFirstMediaUrl($project->mediaHero, 'md-webp') : '/img/default-vertical.svg' }});">
+<div class="bg-img-cover project-card" style="background-image: url({{ $project->hasMedia($project->mediaHero) ? $project->getFirstMediaUrl($project->mediaHero, 'md-webp') : '/img/default-vertical.svg' }});">
             <div class="project-card-content">
                 <h5 class="project-card-title">{{ $project->title }}</h5>
                 <div class="project-card-description">
@@ -13,6 +11,4 @@
                 </div>
                 <a href="{{ route('public.portfolio.project', $project->slug) }}" class="project-card-link"></a>
             </div>
-        </div>
-    @endforeach
 </div>

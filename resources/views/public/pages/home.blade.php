@@ -24,7 +24,11 @@
                     <a href="{{ route('public.portfolio') }}" class="home-portfolio-link">{{ __('base.view_all') }}</a>
                 </div>
 
-                @include('public.sections.projects')
+                <div class="portfolio-projects-simple-cards">
+                    @foreach($projects as $project)
+                        @include('public.pages.portfolio.simple-card')
+                    @endforeach
+                </div>
             </div>
         </section>
     @endif
