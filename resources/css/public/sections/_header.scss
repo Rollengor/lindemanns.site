@@ -18,6 +18,10 @@
         color: inherit;
         text-decoration: none;
     }
+
+    @media (max-width: 1439px) {
+        font-size: 15px;
+    }
 }
 
 .home-page {
@@ -47,8 +51,16 @@
     position: relative;
     translate: 0 -14%;
 
-    @media (min-width: 992px) and (max-width: 1599px) {
+    @media (max-width: 1599px) {
         --logo-size: 180px;
+    }
+
+    @media (max-width: 1439px) {
+        --logo-size: 170px;
+    }
+
+    @media (max-width: 767px) {
+        --logo-size: 140px;
     }
 
     &:hover {
@@ -130,16 +142,6 @@
             background-color: var(--color-white);
         }
     }
-
-    /*.header-contact-btn {
-        --btn-color: var(--color-white);
-        --btn-color-border: var(--color-white);
-
-        &:hover {
-            --btn-color: var(--color-white);
-            --btn-color-border: var(--color-primary);
-        }
-    }*/
 
     .lang {
         &::before {
@@ -263,6 +265,10 @@
             background-color: rgba(var(--color-black-rgb), .15);
         }
 
+        @media (max-width: 1439px) {
+            padding: .5em 1em;
+        }
+
         @media (max-width: 1259px) {
             padding: .5em 0;
             transition-property: background-color, padding;
@@ -278,10 +284,17 @@
 .header-contact-btn {
     --btn-size: 40px;
     --btn-color: var(--color-white);
+    --btn-fz: inherit;
 
     text-transform: uppercase;
     margin: 0 1.5em;
     z-index: 20;
+
+    @media (max-width: 1439px) {
+        --btn-size: 34px;
+
+        margin: 0 .5em;
+    }
 
     @media (max-width: 767px) {
         display: none;

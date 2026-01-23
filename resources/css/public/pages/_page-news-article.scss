@@ -3,7 +3,7 @@
 .news-article-hero {
     display: flex;
     flex-direction: column;
-    min-height: range.build(400, 700);
+    //min-height: range.build(400, 700);
     color: var(--color-white);
     background-color: var(--color-primary);
     padding: calc(var(--header-height) + 20px) 0 0;
@@ -36,16 +36,12 @@
     display: flex;
     flex-direction: column;
     flex: 1 0 0;
-
-    @media (min-width: 768px) {
-        max-width: range.build(520, 950, px, 768);
-    }
 }
 
 .news-article-title {
-    font-size: range.build(32, 70);
+    font-size: range.build(28, 70);
     line-height: 1.2;
-    margin-bottom: range.build(28, 36);
+    margin-bottom: range.build(28, 50);
 }
 
 .news-article-hero-info {
@@ -116,7 +112,7 @@
     gap: 60px range.build(30, 70, px, 992);
     position: relative;
 
-    @media (min-width: 992px) {
+    @media (min-width: 1440px) {
         flex-direction: row;
         align-items: flex-start;
     }
@@ -125,7 +121,7 @@
 .news-article-description {
     font-size: range.build(16, 18);
 
-    @media (min-width: 992px) {
+    @media (min-width: 1440px) {
         flex: 1 0 0;
     }
 }
@@ -136,7 +132,7 @@
     padding: range.build(26, 30) range.build(26, 30) 0;
     box-shadow: 0 6px 26px rgba(var(--color-dark-rgb), .05);
 
-    @media (min-width: 992px) {
+    @media (min-width: 1440px) {
         width: range.build(300, 416);
     }
 
@@ -186,6 +182,16 @@
 
 .related-news-articles-list {
     margin-top: 1em;
+
+    @media (min-width: 992px) and (max-width: 1679px) {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px 60px;
+    }
+
+    @media (min-width: 992px) and (max-width: 1239px) {
+        gap: 40px 40px;
+    }
 }
 
 .related-article-card {
@@ -194,6 +200,19 @@
 
     &:not(:first-child) {
         border-top: 1px solid rgba(var(--color-black-rgb), .15);
+    }
+
+    @media (min-width: 992px) and (max-width: 1679px) {
+        display: flex;
+        flex-direction: column;
+
+        &:not(:first-child) {
+            border-top: none;
+        }
+
+        &:nth-child(4) {
+            display: none;
+        }
     }
 
     &-title {
@@ -212,6 +231,10 @@
         transition: var(--transition);
         transition-property: opacity;
         opacity: .5;
+
+        @media (min-width: 992px) and (max-width: 1679px) {
+            margin-top: auto;
+        }
 
         time {
             display: flex;

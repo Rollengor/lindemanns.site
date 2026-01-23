@@ -15,7 +15,7 @@ class ProjectPageController extends Controller
         ->where('active', 1)
         ->latest()
         ->orderByDesc('sort')
-        ->take(3)
+        ->take(4)
         ->get();
 
         return view('public.pages.portfolio.project', compact('page', 'project', 'projects'));

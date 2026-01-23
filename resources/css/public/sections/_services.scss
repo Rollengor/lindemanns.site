@@ -22,19 +22,40 @@
 }
 
 .services-row {
+    --gap-x: 0;
+    --gap-y: 30px;
+
     display: flex;
     flex-direction: column;
-    gap: 30px range.build(30, 160, px, 992);
+    gap: var(--gap-y) var(--gap-x);
     position: relative;
 
-    @media (min-width: 600px) {
+    @media (min-width: 768px) {
+        --gap-x: 80px;
+
         display: grid;
-        grid-template-columns: auto 1fr;
+        grid-template-columns: 1.25fr 1fr;
+    }
+
+    @media (min-width: 992px) {
+        --gap-x: 80px;
+    }
+
+    @media (min-width: 1240px) {
+        --gap-x: 100px;
+    }
+
+    @media (min-width: 1440px) {
+        --gap-x: 140px;
+    }
+
+    @media (min-width: 1680px) {
+        --gap-x: 160px;
     }
 
     &:nth-child(even) {
-        @media (min-width: 600px) {
-            grid-template-columns: 1fr auto;
+        @media (min-width: 768px) {
+            grid-template-columns: 1fr 1.25fr;
 
             .services-row-image,
             .services-row-pictures {
@@ -48,29 +69,21 @@
     aspect-ratio: 1 / .866;
     position: relative;
 
+    @media (max-width: 767px) {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
     @media (min-width: 768px) {
         order: 0;
     }
 }
 
 .services-row-image {
-    &-back,
-    &-front {
-        position: absolute;
-        aspect-ratio: 1 / 1.16;
-        border-radius: var(--radius);
-    }
-
-    &-back {
-        width: 50%;
-        top: 0;
-        left: 0;
-    }
-
-    &-front {
-        width: 63%;
-        right: 0;
-        bottom: 0;
+    @media (max-width: 767px) {
+        width: 100%;
+        max-width: 440px;
+        margin: 0 auto;
     }
 }
 
@@ -79,13 +92,9 @@
     flex-direction: column;
     gap: range.build(24, 50);
 
-    @media (min-width: 600px) {
-        width: range.build(350, 400, px, 600, 768);
-        align-self: center;
-    }
-
     @media (min-width: 768px) {
-        width: range.build(300, 560, px, 768);
+        align-self: center;
+        padding: 40px 0;
     }
 
     ul {
@@ -94,7 +103,15 @@
         gap: range.build(16, 32, px, 768);
 
         @media (min-width: 768px) {
-            max-width: 356px;
+            max-width: 360px;
+        }
+
+        @media (min-width: 992px) {
+            max-width: 400px;
+        }
+
+        @media (min-width: 1240px) {
+            max-width: 500px;
         }
     }
 }
@@ -106,7 +123,15 @@
         font-size: 26px;
     }
 
-    @media (min-width: 768px) {
-        font-size: range.build(26, 42, px, 768);
+    @media (min-width: 1240px) {
+        font-size: 34px;
+    }
+
+    @media (min-width: 1440px) {
+        font-size: 38px;
+    }
+
+    @media (min-width: 1680px) {
+        font-size: 42px;
     }
 }

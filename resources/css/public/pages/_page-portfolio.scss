@@ -47,18 +47,34 @@
 }
 
 .portfolio-projects-simple-cards {
-    gap: 60px range.build(20, 78, px, 992);
+    --gap-x: 20px;
+    --gap-y: 60px;
+
+    gap: var(--gap-y) var(--gap-x);
 
     @media (min-width: 600px) {
         --col-count: 2;
+        --gap-y: 50px;
+        --gap-x: #{range.build(20, 60, px, 600, 768)};
+    }
 
-        gap: 60px range.build(20, 60, px, 600, 992);
+    @media (min-width: 768px) {
+        --col-count: 3;
+        --gap-x: 30px;
     }
 
     @media (min-width: 992px) {
         --col-count: 3;
+        --gap-x: 60px;
+    }
 
-        gap: 70px range.build(30, 60, px, 992);
+    @media (min-width: 1440px) {
+        --gap-x: 80px;
+        --gap-y: 70px;
+    }
+
+    @media (min-width: 1680px) {
+        --gap-x: 100px;
     }
 }
 
@@ -223,6 +239,11 @@
     position: relative;
     gap: 26px;
 
+    @media (max-width: 599px) {
+        max-width: 440px;
+        margin: 0 auto;
+    }
+
     &-image {
         aspect-ratio: 1 / 1.2;
         border-radius: var(--radius);
@@ -236,7 +257,11 @@
         transition-property: color;
 
         @media (min-width: 600px) {
-            font-size: range.build(18, 22, px, 600, 992);
+            font-size: range.build(18, 20, px, 600, 768);
+        }
+
+        @media (min-width: 768px) and (max-width: 991px) {
+            font-size: 18px;
         }
 
         @media (min-width: 992px) {

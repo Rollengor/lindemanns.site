@@ -89,6 +89,7 @@
 }
 
 .project-hero-image {
+    width: 100%;
     align-self: flex-start;
     border-radius: var(--radius);
     aspect-ratio: 1 / 0.668;
@@ -165,6 +166,12 @@
     display: flex;
     flex-direction: column;
     gap: range.build(40, 54);
+
+    .project-simple-card:nth-child(4) {
+        @media (min-width: 768px) {
+            display: none;
+        }
+    }
 }
 
 .other-projects-head {

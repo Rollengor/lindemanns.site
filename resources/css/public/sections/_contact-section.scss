@@ -15,9 +15,9 @@
         z-index: 5;
     }
 
-    @media (min-width: 768px) {
+    @media (min-width: 992px) {
         flex-direction: row;
-        padding: range.build(30, 60, px, 768) range.build(20, 60, px, 768);
+        padding: range.build(40, 60, px, 992) range.build(30, 60, px, 992);
     }
 }
 
@@ -28,10 +28,17 @@
     color: var(--color-white);
     text-shadow: 0 2px 2px rgba(var(--color-black-rgb), .17);
 
-    @media (min-width: 768px) {
-        max-width: 456px;
+    @media (min-width: 992px) {
         flex: 1 0 0;
         margin-right: auto;
+    }
+
+    @media (min-width: 1240px) {
+        max-width: 480px;
+    }
+
+    @media (min-width: 1440px) {
+        max-width: 580px;
     }
 }
 
@@ -47,24 +54,45 @@
     letter-spacing: -0.01em;
     font-weight: normal;
 
-    @media (min-width: 768px) {
-        font-size: range.build(30, 70, px, 768);
+    @media (min-width: 992px) {
+        font-size: 60px;
         line-height: 1.1;
+    }
+
+    @media (min-width: 1240px) {
+        font-size: 66px;
+    }
+
+    @media (min-width: 1440px) {
+        font-size: 60px;
+    }
+
+    @media (min-width: 1680px) {
+        font-size: 70px;
     }
 }
 
 .contact-section-links {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    font-size: range.build(18, 36);
+    gap: 14px;
+    font-size: range.build(14, 36);
     line-height: 1.2;
     position: relative;
-    padding-bottom: 10px;
+    padding-bottom: 18px;
 
-    @media (min-width: 768px) {
-        font-size: range.build(16, 32, px, 768);
-        margin-top: range.build(10, 30);
+    @media (min-width: 992px) {
+        font-size: 22px;
+        margin-top: auto;
+        padding-top: range.build(10, 30);
+    }
+
+    @media (min-width: 1240px) {
+        font-size: 23px;
+    }
+
+    @media (min-width: 1440px) {
+        font-size: 28px;
     }
 
     &::after {
@@ -80,6 +108,7 @@
 }
 
 .contact-section-form {
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -88,9 +117,17 @@
     padding: range.build(24, 40) range.build(20, 50);
     align-self: flex-start;
 
-    @media (min-width: 768px) {
-        width: range.build(356, 560, px, 768);
-        padding: range.build(24, 40, px, 768) range.build(20, 50, px, 768);
+    @media (min-width: 992px) {
+        width: 400px;
+        padding: range.build(30, 40, px, 992) range.build(30, 50, px, 992);
+    }
+
+    @media (min-width: 1440px) {
+        width: 450px;
+    }
+
+    @media (min-width: 1680px) {
+        width: 560px;
     }
 }
 
@@ -109,6 +146,18 @@
 
     @media (min-width: 768px) {
         font-size: range.build(24, 36, px, 768);
+    }
+
+    @media (min-width: 1240px) {
+        font-size: 28px;
+    }
+
+    @media (min-width: 1440px) {
+        font-size: 32px;
+    }
+
+    @media (min-width: 1680px) {
+        font-size: 36px;
     }
 }
 
@@ -146,14 +195,6 @@
 
         &:not(:first-child) {
             margin-left: calc(var(--image-size) * -0.25);
-        }
-    }
-}
-
-.contact-section-form-body {
-    .form-fields-row {
-        @media (min-width: 768px) and (max-width: 991px) {
-            --col-count: 1;
         }
     }
 }

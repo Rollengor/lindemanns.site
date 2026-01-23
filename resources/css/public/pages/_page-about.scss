@@ -44,13 +44,28 @@
 }
 
 .leader-card {
+    --gap-y: 40px;
+    --gap-x: 30px;
+
     display: flex;
     flex-direction: column;
-    gap: 40px range.build(30, 138, px, 768);
+    gap: var(--gap-y) var(--gap-x);
 
     @media (min-width: 768px) {
         flex-direction: row;
-        align-items: center;
+        align-items: flex-start;
+    }
+
+    @media (min-width: 992px) {
+        --gap-x: 60px;
+    }
+
+    @media (min-width: 1440px) {
+        --gap-x: 80px;
+    }
+
+    @media (min-width: 1680px) {
+        --gap-x: 138px;
     }
 
     &-picture {
@@ -58,8 +73,14 @@
         overflow: hidden;
         border-radius: var(--radius);
 
+        @media (max-width: 767px) {
+            width: 100%;
+            max-width: 440px;
+            margin: 0 auto;
+        }
+
         @media (min-width: 768px) {
-            width: 50%;
+            width: 46%;
         }
 
         &::before {
@@ -96,7 +117,7 @@
     &-body {
         @media (min-width: 768px) {
             flex: 1 0 0;
-            margin-top: range.build(0, 80, px, 768);
+            align-self: center;
         }
     }
 
@@ -110,7 +131,7 @@
 
     &-position {
         font-size: range.build(16, 18, px, 768);
-        margin-top: range.build(16, 30, px, 768);
+        margin-top: range.build(16, 20, px, 768);
         color: var(--color-secondary-medium);
         font-weight: bold;
     }
@@ -118,20 +139,20 @@
     &-info {
         display: flex;
         flex-direction: column;
-        gap: range.build(20, 40, px, 768);
-        margin-top: range.build(20, 60, px, 768);
+        gap: range.build(22, 26, px, 768);
+        margin-top: range.build(20, 40, px, 768);
         font-size: range.build(16, 18, px, 768);
 
         li {
             display: flex;
             flex-direction: column;
             gap: .5em;
-            padding-bottom: range.build(18, 22, px, 768);
+            padding-bottom: range.build(16, 20, px, 768);
             border-bottom: 1px solid var(--color-gray-medium);
         }
 
         p:first-child {
-            font-size: 1.78em;
+            font-size: 1.5em;
             line-height: 1;
             font-weight: normal;
 
@@ -144,7 +165,7 @@
     &-download-link {
         font-weight: bold;
         font-size: range.build(18, 22, px, 768);
-        margin-top: range.build(20, 50, px, 768);
+        margin-top: range.build(28, 50, px, 768);
         color: var(--color-secondary-medium);
 
         &::after {

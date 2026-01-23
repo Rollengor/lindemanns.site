@@ -68,7 +68,7 @@
         --col-count: 2;
     }
 
-    @media (min-width: 992px) {
+    @media (min-width: 1440px) {
         --col-count: 3;
     }
 }
@@ -140,6 +140,14 @@
         color: var(--color-secondary-medium);
         transition: var(--transition);
         transition-property: color;
+
+        @media (max-width: 424px) {
+            font-size: 18px;
+        }
+
+        @media (min-width: 768px) and (max-width: 991px) {
+            font-size: 18px;
+        }
 
         span {
             flex: 1 0 0;

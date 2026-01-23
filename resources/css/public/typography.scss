@@ -15,17 +15,37 @@ h1, .h1 {
 }
 
 h2, .h2 {
-    font-size: range.build(34, 60);
+    font-size: 34px;
     line-height: 1.05;
+
+    @media (min-width: 768px) {
+        font-size: 38px;
+    }
+
+    @media (min-width: 992px) {
+        font-size: 42px;
+    }
+
+    @media (min-width: 1240px) {
+        font-size: 50px;
+    }
+
+    @media (min-width: 1440px) {
+        font-size: 54px;
+    }
+
+    @media (min-width: 1680px) {
+        font-size: 60px;
+    }
 }
 
 h3, .h3 {
-    font-size: range.build(28, 42);
+    font-size: range.build(24, 42);
     line-height: 1.05;
 }
 
 h4, .h4 {
-    font-size: range.build(26, 36);
+    font-size: range.build(22, 36);
     line-height: 1.05;
 }
 

@@ -36,9 +36,29 @@ $colors: (
     --width-max: #{base.$width-max + px};
     --width-full: 100%;
 
+    @media (max-width: 1679px) {
+        --width-max: 1260px;
+    }
+
+    @media (max-width: 1439px) {
+        --width-max: 1060px;
+    }
+
+    @media (max-width: 1239px) {
+        --width-max: 992px;
+    }
+
+    @media (max-width: 991px) {
+        --width-max: 768px;
+    }
+
     --gap-container: #{range.build(20, 30, px, 375, 768)};
 
     --header-height: #{range.build(80, 110, px, 1400)};
+
+    @media (max-width: 1439px) {
+        --header-height: 70px;
+    }
 
     --radius: #{range.build(10, 20)};
     --radius-sm: #{range.build(6, 12)};
