@@ -15,7 +15,7 @@ return [
     'blog' => 'Blog',
     'event' => 'Veranstaltung',
     'all' => 'Alle',
-    'your_name' => 'Ihr Name',
+    'your_name' => 'Vorname',
     'last_name' => 'Nachname',
     'phone' => 'Telefon',
     'email' => 'E-Mail',
