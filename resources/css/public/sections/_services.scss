@@ -100,7 +100,7 @@
     ul {
         display: flex;
         flex-direction: column;
-        gap: range.build(16, 32, px, 768);
+        gap: range.build(16, 20, px, 768);
 
         @media (min-width: 768px) {
             max-width: 360px;
