@@ -38,7 +38,7 @@
 }
 
 .footer-logo {
-    color: var(--color-primary);
+    color: var(--color-dark);
 
     &:hover {
         color: var(--color-primary);
@@ -55,10 +55,6 @@
         align-items: center;
         text-align: center;
     }
-
-    address {
-        color: var(--color-gray);
-    }
 }
 
 .footer-contacts-links {
@@ -67,7 +63,7 @@
     font-size: range.build(18, 22);
     line-height: 1.2;
     gap: .75em;
-    color: var(--color-secondary-medium);
+    color: inherit;
 }
 
 .footer-menu {
@@ -112,7 +108,7 @@
 
         &:hover,
         &.is-active {
-            color: var(--color-secondary);
+            color: var(--color-primary);
         }
     }
 }
@@ -170,7 +166,3 @@
         }
     }
 }*/
-
-.copyright {
-    color: var(--color-gray);
-}
