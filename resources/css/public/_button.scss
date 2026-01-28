@@ -60,7 +60,7 @@
     --btn-px: 0;
     --btn-fz: 22px;
     --btn-fw: bold;
-    --btn-color: var(--color-secondary-medium);
+    --btn-color: var(--color-dark);
 
     font-weight: bold;
     padding-right: 24px;
@@ -70,7 +70,7 @@
         content: '';
         width: 12px;
         aspect-ratio: 1;
-        background-color: var(--color-secondary-medium);
+        background-color: var(--color-primary);
         mask-image: var(--icon-corner-arrow);
         mask-repeat: no-repeat;
         mask-position: center;
@@ -83,12 +83,12 @@
     }
 
     &:hover {
-        --btn-color: var(--color-secondary);
+        --btn-color: var(--color-primary);
 
         &::after {
             opacity: 1;
             translate: 75% 0;
-            background-color: var(--color-secondary);
+            background-color: var(--color-primary);
         }
     }
 }

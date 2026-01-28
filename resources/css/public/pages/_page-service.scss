@@ -227,7 +227,7 @@
             width: range.build(12, 16);
             aspect-ratio: 1;
             vertical-align: middle;
-            background-color: var(--color-secondary-large);
+            background-color: var(--color-primary);
             mask-image: var(--icon-corner-arrow);
             mask-repeat: no-repeat;
             mask-position: center;
@@ -241,10 +241,10 @@
         }
 
         &:hover {
-            color: var(--color-secondary);
+            color: var(--color-primary);
 
             &::before {
-                background-color: var(--color-secondary);
+                background-color: var(--color-primary);
                 rotate: 45deg;
             }
         }

@@ -1,6 +1,6 @@
 .lang {
     position: relative;
-    padding: .75em 1.25em .75em 0;
+    padding: .5em 1.25em .5em 0;
     cursor: pointer;
     text-transform: uppercase;
 
@@ -33,7 +33,7 @@
     translate: -50% 0;
     text-align: center;
     padding: .25em 0;
-    background-color: var(--color-secondary);
+    background-color: var(--color-primary);
     border-radius: .25em;
     margin-top: 3em;
     margin-left: -.625em;
@@ -43,6 +43,7 @@
     visibility: hidden;
     pointer-events: none;
     color: var(--color-white);
+    box-shadow: 0 0 10px 0 rgba(var(--color-white-rgb), .25);
 }
 
 .lang ul li:not(:first-child) {

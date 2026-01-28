@@ -38,10 +38,10 @@
     }
 
     &:hover {
-        color: var(--color-secondary);
+        color: var(--color-primary);
 
         &::after {
-            background-color: var(--color-secondary);
+            background-color: var(--color-primary);
             rotate: 45deg;
         }
     }
