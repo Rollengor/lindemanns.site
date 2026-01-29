@@ -13,7 +13,6 @@
     transition: var(--transition);
     transition-property: background-color, box-shadow;
     padding-right: var(--f-scrollbar-compensate, 0);
-    border-color: transparent;
 
     &-container {
         transition: var(--transition);
@@ -60,16 +59,6 @@
     margin-right: auto;
     position: relative;
     translate: 0 -14%;
-    transition: var(--transition);
-    transition-property: width, box-shadow, background-color;
-    overflow: hidden;
-    justify-content: flex-start;
-
-    .icon {
-        --icon-size: var(--logo-size);
-
-        min-width: var(--icon-size);
-    }
 
     @media (max-width: 1599px) {
         --logo-size: 180px;
@@ -132,82 +121,28 @@
             color: var(--color-gold);
 
             &:hover {
-                color: var(--color-secondary);
+                color: var(--color-white);
             }
         }
     }
 }
 
 .is-page-scrolled .header {
-    width: auto;
-    height: auto;
-    background-color: rgba(var(--color-white-rgb), .75);
-    backdrop-filter: blur(6px);
-    box-shadow: 0 0 16px 0 rgba(var(--color-black-rgb), .2);
+    background-color: rgba(var(--color-white-rgb), .8);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 0 0 1px rgba(var(--color-black-rgb), .05), 0 0 16px 0 rgba(var(--color-black-rgb), .1);
     color: var(--color-dark);
-    top: range.build(10, 20);
-    left: 50%;
-    translate: -50% 0%;
-    border: range.build(2, 4) solid var(--color-white);
-    border-radius: var(--header-height);
-
-    @media (max-width: 1439px) {
-        font-size: 15px;
-    }
 
     &::before {
         opacity: 0;
         visibility: hidden;
     }
 
-    &-container {
-        --container-pl: 0;
-        --container-pr: 20px;
-
-        width: auto;
-    }
-
     &-logo {
-        color: var(--color-gold);
-
-        width: 56px;
-        min-width: 56px;
-        aspect-ratio: 1;
-        border-radius: 50%;
-        background-color: #fff;
-        translate: none;
-        background-color: var(--color-primary);
-
-        .icon {
-            margin: 0 0 7% 22%;
-            clip-path: polygon(0 0, 15% 0, 15% 100%, 0 100%);
-        }
-
-        @media (max-width: 1599px) {
-            width: 50px;
-            min-width: 50px;
-
-            .icon {
-                margin: 0 0 7% 25%;
-            }
-        }
-
-        @media (max-width: 1439px) {
-            --logo-size: 170px;
-
-            .icon {
-                margin: 0 0 7% 41%;
-                scale: 1.1;
-            }
-        }
-
-        @media (max-width: 767px) {
-            width: 46px;
-            min-width: 46px;
-        }
+        color: var(--color-dark);
 
         &:hover {
-            color: var(--color-secondary);
+            color: var(--color-primary);
         }
     }
 
@@ -284,7 +219,7 @@
         display: block;
         content: '';
         width: 100%;
-        border-bottom: 1px solid var(--color-gray-light);
+        box-shadow: 0 0 0 1px var(--color-gray-light);
         position: absolute;
         left: 0;
         bottom: 0;
