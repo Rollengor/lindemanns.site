@@ -1,11 +1,14 @@
 @extends('public.layouts.base')
 
 @section('content')
-    <section class="home-hero bg-img-cover" style="background-image: url({{ $page->getFirstMediaUrl('hero-image', 'xl-webp') }});">
+    <section
+        class="home-hero bg-img-cover"
+        style="background-image: url({{ $page->getFirstMediaUrl('hero-image', 'xl-webp') }});"
+    >
         <div class="container home-hero-container">
             <h1>{{ data_get($page->content_data, 'hero.title') }}</h1>
 
-            @if(data_get($page->content_data, 'hero.description'))
+            @if (data_get($page->content_data, 'hero.description'))
                 <div class="formatted-text home-hero-description">{!! data_get($page->content_data, 'hero.description') !!}</div>
             @endif
         </div>
@@ -15,17 +18,20 @@
 
     @include('public.sections.services')
 
-    @if($projects->isNotEmpty())
+    @if ($projects->isNotEmpty())
         <section class="home-portfolio">
             <div class="container home-portfolio-container">
                 <div class="home-portfolio-head">
                     <div class="home-portfolio-subtitle">{{ __('base.portfolio') }}</div>
                     <h2 class="home-portfolio-title">{{ __('base.recent_cases') }}</h2>
-                    <a href="{{ route('public.portfolio') }}" class="home-portfolio-link">{{ __('base.view_all') }}</a>
+                    <a
+                        href="{{ route('public.portfolio') }}"
+                        class="home-portfolio-link"
+                    >{{ __('base.view_all') }}</a>
                 </div>
 
-                <div class="portfolio-projects-simple-cards">
-                    @foreach($projects as $project)
+                <div class="portfolio-projects-simple-cards portfolio-projects-any-cards">
+                    @foreach ($projects as $project)
                         @include('public.pages.portfolio.simple-card')
                     @endforeach
                 </div>
@@ -33,16 +39,22 @@
         </section>
     @endif
 
-    @if($newsArticles->isNotEmpty())
+    @if ($newsArticles->isNotEmpty())
         <section class="news">
             <div class="container news-container">
                 <div class="news-head">
                     <h2 class="news-title">{{ __('base.news_and_events') }}</h2>
 
-                    <x-public.news.categories :categories="$newsCategories" :limit-articles="6"/>
+                    <x-public.news.categories
+                        :categories="$newsCategories"
+                        :limit-articles="6"
+                    />
                 </div>
 
-                <div id="news-list" class="news-list">
+                <div
+                    id="news-list"
+                    class="news-list"
+                >
                     @include('public.pages.news.list')
                 </div>
             </div>
