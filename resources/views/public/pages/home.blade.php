@@ -30,9 +30,9 @@
                     >{{ __('base.view_all') }}</a>
                 </div>
 
-                <div class="portfolio-projects-simple-cards portfolio-projects-any-cards">
+                <div class="portfolio-projects-scaled-cards">
                     @foreach ($projects as $project)
-                        @include('public.pages.portfolio.simple-card')
+                        @include('public.pages.portfolio.scaled-card')
                     @endforeach
                 </div>
             </div>

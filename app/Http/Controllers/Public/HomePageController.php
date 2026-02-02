@@ -21,7 +21,7 @@ class HomePageController extends Controller
         })->with(['services' => function ($query) {
             $query->where('active', 1)->orderByDesc('sort');
         }])->where('active', 1)->orderByDesc('sort')->get();
-        $projects = Project::where('active', 1)->latest()->orderByDesc('sort')->limit(6)->get();
+        $projects = Project::where('active', 1)->latest()->orderByDesc('sort')->limit(4)->get();
         $newsCategories = NewsCategory::where('active', '1')->get();
         $newsArticles = NewsArticle::where('active', '1')->latest()->orderByDesc('sort')->limit(6)->get();
         $whoWeAreSection = SiteSection::where('slug', 'who-we-are')->first();

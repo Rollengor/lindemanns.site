@@ -23,6 +23,7 @@ class UpdateRequest extends FormRequest
     {
         $rules['hero_image'] = ['nullable', 'image', 'mimes:jpg,png,webp', 'max:20480'];
 
+        $rules['area'] = ['nullable', 'integer'];
         $rules['sort'] = ['required', 'integer'];
         $rules['active'] = ['required', 'boolean'];
 

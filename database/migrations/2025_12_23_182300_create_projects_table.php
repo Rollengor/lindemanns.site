@@ -26,6 +26,7 @@ return new class extends Migration
             $table->json('location')->nullable();
             $table->json('tags')->nullable();
             $table->json('info')->nullable();
+            $table->unsignedInteger('area')->nullable();
 
             $table->unsignedInteger('sort')->default(1000);
             $table->boolean('active')->default(true);

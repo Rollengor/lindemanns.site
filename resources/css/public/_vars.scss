@@ -8,7 +8,7 @@ $colors: (
     white: #FFFFFF,
     black: #000000,
     dark: #212931,
-    gray: #94938F,
+    gray: #878683,
     gray-light: #F5F5F5,
     gray-medium: #D9D9D9,
     line: #EEE6CF,
@@ -28,7 +28,8 @@ $colors: (
         @include colors.color("color-#{$key}", $value);
     }
 
-    --font-primary: "HeliosExt", sans-serif;
+    --font-primary: "HeliosExt",
+    sans-serif;
 
     --base-line-height: 1.6;
 

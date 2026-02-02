@@ -29,6 +29,7 @@ class Project extends Model implements HasMedia
         'location',
         'tags',
         'info',
+        'area',
 
         'active',
         'sort',

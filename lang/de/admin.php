@@ -97,6 +97,7 @@ return [
     'position' => 'Position',
     'contact_email' => 'Kontakt E-Mail',
     'inner_title' => 'Innerer Titel',
+    'area' => 'Bereich',
 
     'forgot_your_password' => 'Passwort vergessen?',
     'already_registered' => 'Bereits registriert?',
