@@ -66,9 +66,14 @@
 
     .primary-link {
         color: rgba(var(--color-dark-rgb), .5);
+        line-height: 1.6;
 
         &:hover {
             color: var(--color-primary);
+        }
+
+        @media (min-width: 768px) {
+            line-height: 1.2;
         }
     }
 }

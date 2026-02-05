@@ -206,10 +206,14 @@
         display: flex;
         align-items: center;
         margin-top: auto;
-        padding-top: 30px;
+        padding-top: 10px;
         transition: var(--transition);
         transition-property: color, opacity;
         color: var(--color-gray);
+
+        @media (min-width: 768px) {
+            padding-top: 20px;
+        }
 
         &>* {
             transition: var(--transition);
