@@ -1,11 +1,11 @@
 @use '../functions/range';
 
 .pagination {
-    display: flex;
+    display: none;
     justify-content: center;
 
-    &:empty {
-        display: none;
+    &:has(ul) {
+        display: flex;
     }
 
     ul {
