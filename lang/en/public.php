@@ -14,7 +14,7 @@ return [
     'resume' => 'Resume',
     'download_resume' => 'Download Resume',
     'privacy_notice' => 'Privacy Notice',
-    'copyright' => '© 2025 TND Universe. All rights reserved.',
+    'copyright' => '© :year TND Universe. All rights reserved.',
     'contact_us_title' => 'Contact us to get some exclusive offers',
     'by_clicking_send' => 'By clicking “Send,” I agree to the',
     'error_validate_form' => 'Please check if you have filled in all required fields, or report an error to us.',

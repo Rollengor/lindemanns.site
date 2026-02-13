@@ -14,7 +14,7 @@ return [
     'resume' => 'Lebenslauf',
     'download_resume' => 'Lebenslauf herunterladen',
     'privacy_notice' => 'Datenschutzerklärung',
-    'copyright' => '© 2025 TND Universe. Alle Rechte vorbehalten.',
+    'copyright' => '© :year TND Universe. Alle Rechte vorbehalten.',
     'contact_us_title' => 'Kontaktieren Sie uns für exklusive Angebote',
     'by_clicking_send' => 'Mit „Senden“ akzeptiere ich die',
     'error_validate_form' => 'Bitte prüfen Sie, ob Sie alle Pflichtfelder ausgefüllt haben, oder melden Sie uns einen Fehler.',

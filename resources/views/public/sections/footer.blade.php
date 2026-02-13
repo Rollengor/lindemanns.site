@@ -76,7 +76,7 @@
         </div>
 
         <div class="footer-bottom">
-            <div class="copyright">{{ __('public.copyright') }}</div>
+            <div class="copyright">{{ __('public.copyright', ['year' => date('Y')]) }}</div>
 
             {{-- <a href="#" class="creator">
                 <img src="/img/citi-logo.svg" alt="CITI Advertising" class="img-fluid">
