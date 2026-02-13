@@ -1,0 +1,31 @@
+@use '../functions/range';
+@use "../../../../node_modules/swiper/swiper";
+@import "../../../../node_modules/swiper/modules/effect-fade";
+
+.swiper-pagination {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: range.build(30, 50);
+    z-index: 10;
+    gap: 4px range.build(8, 16);
+
+    &-bullet {
+        width: max(10px, 5%);
+        height: range.build(3, 5);
+        border-radius: 10px;
+        background-color: var(--color-white);
+        transition: var(--transition);
+        transition-property: opacity;
+        opacity: 0.5;
+        cursor: pointer;
+
+        &.swiper-pagination-bullet-active {
+            opacity: 1;
+        }
+    }
+}

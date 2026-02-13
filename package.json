@@ -28,6 +28,7 @@
         "slim-select": "^2.13.1",
         "sortablejs": "^1.15.6",
         "suneditor": "^2.47.8",
+        "swiper": "^12.1.0",
         "vanillajs-datepicker": "^1.3.4"
     }
 }

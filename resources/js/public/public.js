@@ -10,6 +10,8 @@ import { categoriesControl } from './news/categories-control.js';
 import { paginationControl } from './news/pagination-control.js';
 
 import { contactForm } from './contact-form.js';
+import { projectGalleryCarousel } from './project/gallery-carousel.js';
+
 
 scrollPage();
 toggleMenu();
@@ -21,5 +23,6 @@ categoriesControl();
 paginationControl();
 
 contactForm();
+projectGalleryCarousel();
 
 console.log('all scripts inited');
