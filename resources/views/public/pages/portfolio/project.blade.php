@@ -10,10 +10,11 @@
             @for ($i = 1; $i <= 6; $i++)
                 <x-swiper.slide>
                     <img
-                        @if ($i <= 2) src="/img/temp/project/{{ $i }}.webp"
+                        {{-- @if ($i <= 2) src="/img/temp/project/{{ $i }}.webp"
                             @else
                                 src="/img/default.svg"
-                                data-src="/img/temp/project/{{ $i }}.webp" @endif
+                                data-src="/img/temp/project/{{ $i }}.webp" @endif --}}
+                        src="/img/temp/project/{{ $i }}.webp"
                         alt="Image"
                         class="img-cover"
                     >

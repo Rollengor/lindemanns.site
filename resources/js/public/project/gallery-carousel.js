@@ -13,7 +13,7 @@ export function projectGalleryCarousel() {
         effect: 'fade',
         pagination: {
             el: '.swiper-pagination',
-            //clickable: true,
+            clickable: true,
         },
         autoplay: {
             delay: 4000,
