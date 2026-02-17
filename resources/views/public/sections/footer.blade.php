@@ -70,8 +70,10 @@
             </nav>
 
             <div class="footer-col footer-socials">
-                <div class="footer-socials-title">{{ __('base.follow_us') }}</div>
-                @include('public.fragments.socials')
+                <div class="footer-socials-content">
+                    <div class="footer-socials-title">{{ __('base.follow_us') }}</div>
+                    @include('public.fragments.socials')
+                </div>
             </div>
         </div>
 

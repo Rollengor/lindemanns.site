@@ -56,15 +56,37 @@
 }
 
 .project-hero-icon {
-    --icon-size: #{range.build(260, 724)};
-    --icon-color: var(--color-secondary);
+    --icon-size: 290px;
+    --icon-color: var(--color-white);
 
+    display: none;
     position: absolute;
-    top: var(--header-height);
-    right: 5%;
-    opacity: .25;
+    bottom: 0;
+    left: 5%;
+    opacity: .5;
     pointer-events: none;
+    translate: 0 22%;
     z-index: 2;
+
+    @media (min-width: 768px) {
+        display: block;
+    }
+
+    @media (min-width: 992px) {
+        --icon-size: #{range.build(290, 400, px, 992, 1240)};
+    }
+
+    @media (min-width: 1240px) {
+        --icon-size: #{range.build(400, 460, px, 1240, 1440)};
+    }
+
+    @media (min-width: 1440px) {
+        --icon-size: #{range.build(460, 520, px, 1440, 1680)};
+    }
+
+    @media (min-width: 1680px) {
+        --icon-size: #{range.build(520, 630, px, 1440)};
+    }
 }
 
 .project-hero-container {

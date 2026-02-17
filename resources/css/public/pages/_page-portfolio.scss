@@ -289,6 +289,28 @@
         }
     }
 
+    &-info {
+        font-size: 12px;
+        line-height: 1.6;
+        color: var(--color-gray);
+        margin-top: -.5em;
+
+        p {
+            display: inline;
+        }
+
+        &-dot {
+            display: inline-block;
+            margin: 0 .5em .125em;
+            vertical-align: middle;
+            width: 4px;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            background-color: var(--color-gray);
+            opacity: 0.75;
+        }
+    }
+
     &-link {
         display: block;
         width: 100%;

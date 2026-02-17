@@ -1,7 +1,7 @@
 @use '../functions/range';
 
 .footer {
-    margin-top: 50px;
+    margin-top: range.build(40, 64);
     border-top: 1px solid var(--color-border);
 }
 
@@ -14,7 +14,7 @@
     grid-template-columns: 1fr;
     grid-template-areas: 'contacts' 'socials' 'menu';
     gap: var(--col-gap-y) var(--col-gap-x);
-    padding: range.build(40, 50) 0;
+    padding: range.build(40, 64) 0;
 
     @media (min-width: 600px) {
         --col-count: 2;
@@ -135,6 +135,14 @@
 
     @media (max-width: 599px) {
         align-items: center;
+        text-align: center;
+    }
+
+    &-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: range.build(20, 26);
         text-align: center;
     }
 

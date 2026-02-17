@@ -1,13 +1,11 @@
 <div class="project-simple-card">
     <img
         @php
-            $projectImage = $project->hasMedia($project->mediaHero) ? $project->getFirstMedia($project->mediaHero) : '/img/default.svg';
+$projectImage = $project->hasMedia($project->mediaHero) ? $project->getFirstMedia($project->mediaHero) : '/img/default.svg';
             $projectImageSizes = [
                 'md' => is_object($projectImage) ? $projectImage->getUrl('md-webp') : $projectImage,
                 'lg' => is_object($projectImage) ? $projectImage->getUrl('lg-webp') : $projectImage
-            ];
-        @endphp
-
+            ]; @endphp
         srcset="
             {{ $projectImageSizes['md'] }},
             {{ $projectImageSizes['lg'] }} 1.5x,
@@ -19,10 +17,37 @@
         loading="lazy"
     >
     <h4 class="project-simple-card-title">{{ $project->title }}</h4>
-    <div class="project-simple-card-tags">
-        @foreach($project['tags'] as $tag)
+
+    @if ($project->area || $project->location)
+        <div class="project-simple-card-info">
+            @if ($project->area)
+                <p>{{ $project->area }} m²</p>
+
+                @if ($project->location)
+                    <span class="project-simple-card-info-dot"></span>
+                @endif
+            @else
+                <p>375 m²</p>
+
+                @if ($project->location)
+                    <span class="project-simple-card-info-dot"></span>
+                @endif
+            @endif
+
+            @if ($project->location)
+                <p>{{ $project->location }}</p>
+            @endif
+        </div>
+    @endif
+
+    {{-- <div class="project-simple-card-tags">
+        @foreach ($project['tags'] as $tag)
             <p>{{ $tag }}</p>
         @endforeach
-    </div>
-    <a href="{{ route('public.portfolio.project', $project->slug) }}" class="project-simple-card-link"></a>
+    </div> --}}
+
+    <a
+        href="{{ route('public.portfolio.project', $project->slug) }}"
+        class="project-simple-card-link"
+    ></a>
 </div>
