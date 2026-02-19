@@ -138,20 +138,20 @@ section:has(.target-anchor-section) {
         display: flex;
         flex-direction: column;
         gap: 1.5em;
-        padding-left: 2em;
 
         li {
             position: relative;
+            padding-left: 1.25em;
 
             &::before {
                 display: block;
                 content: '';
-                width: 0.6em;
+                width: 0.35em;
                 aspect-ratio: 1;
                 border-radius: 50%;
                 position: absolute;
-                top: calc((1em * var(--base-line-height)) / 2);
-                left: -2em;
+                top: calc((1em * var(--base-line-height)) / 2.25);
+                left: 0;
                 translate: 0 -50%;
                 background-color: var(--color-gold);
             }
@@ -193,7 +193,7 @@ section:has(.target-anchor-section) {
     iframe {
         display: block;
         width: 100%;
-        max-width: 700px;
+        //max-width: 700px;
         aspect-ratio: 16 / 9;
         margin: 0 auto;
     }
