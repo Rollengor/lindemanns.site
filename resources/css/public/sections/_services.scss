@@ -67,13 +67,14 @@
     .primary-link {
         color: rgba(var(--color-dark-rgb), .5);
         line-height: 1.6;
+        font-size: range.build(16, 18, px, 1440);
 
         &:hover {
             color: var(--color-primary);
         }
 
         @media (min-width: 768px) {
-            line-height: 1.2;
+            line-height: 1.25;
         }
     }
 }

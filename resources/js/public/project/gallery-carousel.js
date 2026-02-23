@@ -1,5 +1,5 @@
 import Swiper from 'swiper';
-import { EffectFade, Autoplay, Pagination } from "swiper/modules";
+import { EffectFade, Autoplay, Pagination, Navigation } from "swiper/modules";
 
 export function projectGalleryCarousel() {
     const container = document.getElementById('project-gallery-carousel');
@@ -15,11 +15,15 @@ export function projectGalleryCarousel() {
             el: '.swiper-pagination',
             clickable: true,
         },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
         autoplay: {
             delay: 4000,
             disableOnInteraction: false,
         },
-        modules: [EffectFade, Autoplay, Pagination],
+        modules: [EffectFade, Autoplay, Pagination, Navigation],
         on: {
             afterInit: function (swiper) {
                 loadImage(swiper);

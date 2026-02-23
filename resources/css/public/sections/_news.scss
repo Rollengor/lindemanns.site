@@ -62,7 +62,7 @@
 
     display: grid;
     grid-template-columns: repeat(var(--col-count), 1fr);
-    gap: range.build(20, 30) 4px;
+    gap: range.build(20, 30) range.build(16, 30);
 
     @media (min-width: 768px) {
         --col-count: 2;
@@ -81,6 +81,7 @@
     position: relative;
     transition: var(--transition);
     transition-property: color, background-color;
+    background-color: #F7F4F2;
 
     &::after {
         display: block;

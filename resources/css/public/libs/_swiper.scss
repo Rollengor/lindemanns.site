@@ -2,6 +2,39 @@
 @use "../../../../node_modules/swiper/swiper";
 @import "../../../../node_modules/swiper/modules/effect-fade";
 
+.swiper-button-prev,
+.swiper-button-next {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: range.build(40, 50);
+    aspect-ratio: 1;
+    position: absolute;
+    z-index: 15;
+    bottom: range.build(11.5, 27.5);
+    cursor: pointer;
+    transition: var(--transition);
+    transition-property: background-color;
+    border-radius: 50%;
+
+    &:hover {
+        background-color: rgba(var(--color-dark-rgb), .25);
+    }
+
+    .swiper-navigation-icon {
+        translate: 5% 0;
+    }
+}
+
+.swiper-button-prev {
+    left: var(--gap-container);
+    rotate: 180deg;
+}
+
+.swiper-button-next {
+    right: var(--gap-container);
+}
+
 .swiper-pagination {
     display: flex;
     flex-wrap: wrap;
@@ -18,7 +51,7 @@
         width: max(10px, 5%);
         height: range.build(3, 5);
         border-radius: 10px;
-        background-color: var(--color-white);
+        background-color: var(--color-dark);
         transition: var(--transition);
         transition-property: opacity;
         opacity: 0.5;

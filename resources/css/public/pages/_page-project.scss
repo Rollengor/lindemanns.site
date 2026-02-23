@@ -34,6 +34,7 @@
         top: 0;
         left: 0;
         z-index: 5;
+        pointer-events: none;
     }
 
     .swiper-wrapper {
@@ -42,6 +43,23 @@
 
     .swiper-slide {
         height: 100%;
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        @media (min-width: 992px) {
+            display: none;
+        }
+
+        &:hover {
+            background-color: rgba(var(--color-white-rgb), .25);
+        }
+    }
+
+    .swiper-pagination {
+        &-bullet {
+            background-color: var(--color-white);
+        }
     }
 
     .img-cover {
@@ -96,6 +114,7 @@
     gap: range.build(40, 70);
     position: relative;
     z-index: 5;
+    pointer-events: none;
 }
 
 .project-hero-body {
@@ -114,6 +133,10 @@
         // grid-template-rows: 1fr auto;
         max-width: max(50%, 350px);
     }
+}
+
+.project-hero-breadcrumbs {
+    pointer-events: auto;
 }
 
 .project-title {

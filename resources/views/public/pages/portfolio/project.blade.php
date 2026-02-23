@@ -6,6 +6,7 @@
             id="project-gallery-carousel"
             class="project-gallery-carousel"
             :withPagination="true"
+            :withNavigation="true"
         >
             @for ($i = 1; $i <= 6; $i++)
                 <x-swiper.slide>
