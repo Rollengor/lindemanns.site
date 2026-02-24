@@ -34,6 +34,7 @@
 }
 
 .who-we-are-image {
+
     &-back,
     &-front {
         position: absolute;
@@ -89,16 +90,13 @@
 .who-we-are-title {
     color: var(--color-secondary-medium);
     text-transform: uppercase;
+    font-size: range.build(20, 22);
 }
 
 .who-we-are-description {
-    & > * {
+    &>* {
         &:not(:is(h2, h3, h4, h5, h6)) {
             opacity: .5;
         }
-    }
-
-    h2, h3, h4, h5, h6 {
-        font-weight: normal;
     }
 }

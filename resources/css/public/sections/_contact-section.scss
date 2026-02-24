@@ -10,7 +10,7 @@
     position: relative;
     overflow: hidden;
 
-    & > * {
+    &>* {
         position: relative;
         z-index: 5;
     }
@@ -52,7 +52,6 @@
     font-size: range.build(34, 50);
     line-height: 1.2;
     letter-spacing: -0.01em;
-    font-weight: normal;
 
     @media (min-width: 992px) {
         font-size: 60px;
@@ -95,12 +94,17 @@
         font-size: 28px;
     }
 
+    .base-link {
+        text-decoration: none;
+    }
+
     &::after {
         display: block;
         content: '';
         width: 100%;
         height: range.build(2, 4);
-        background: linear-gradient(to right, rgba(var(--color-primary-light-rgb), .5) 5%, var(--color-white) 20%, rgba(var(--color-green-rgb), .75) 75%, var(--color-white) 100%);;
+        background: linear-gradient(to right, rgba(var(--color-primary-light-rgb), .5) 5%, var(--color-white) 20%, rgba(var(--color-green-rgb), .75) 75%, var(--color-white) 100%);
+        ;
         position: absolute;
         left: 0;
         bottom: 0;
@@ -140,7 +144,6 @@
 .contact-section-form-title {
     //max-width: 8em;
     margin-right: auto;
-    font-weight: normal;
     font-size: range.build(20, 36);
     color: var(--color-primary);
 

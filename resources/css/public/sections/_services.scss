@@ -12,6 +12,7 @@
     &-title {
         color: var(--color-secondary-medium);
         text-transform: uppercase;
+        font-size: range.build(20, 22);
     }
 }
 
@@ -131,8 +132,6 @@
 }
 
 .services-row-title {
-    font-weight: normal;
-
     @media (min-width: 600px) {
         font-size: 26px;
     }

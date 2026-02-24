@@ -28,8 +28,18 @@ $colors: (
         @include colors.color("color-#{$key}", $value);
     }
 
-    --font-primary: "HeliosExt",
+    --font-primary: "Nice-Variable",
+    monospace;
+    --font-secondary: "Pangea-Variable",
     sans-serif;
+
+    --font-primary-settings: 'opsz' 6,
+    'MONO' 1;
+    --font-secondary-settings: 'ss01' 1,
+    'APRT' 100,
+    'Xtdr' 0,
+    'Grad' 0,
+    'opsz' 50;
 
     --base-line-height: 1.6;
 

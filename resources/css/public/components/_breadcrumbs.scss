@@ -35,4 +35,15 @@
             color: var(--color-secondary);
         }
     }
+
+    &.is-breadcrumbs-bg-dark {
+        a {
+            opacity: .6;
+
+            &:hover {
+                opacity: 1;
+                color: var(--color-gold);
+            }
+        }
+    }
 }

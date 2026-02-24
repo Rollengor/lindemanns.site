@@ -3,7 +3,7 @@
 @section('content')
     <section class="news-article-hero">
         <div class="container news-article-hero-container">
-            <nav class="breadcrumbs">
+            <nav class="breadcrumbs is-breadcrumbs-bg-dark">
                 <ul>
                     <li><a href="{{ route('public.news') }}">{{ __('base.news') }}</a></li>
                     <li>{{ $article->title }}</li>
@@ -15,14 +15,15 @@
 
                 <div class="news-article-hero-info">
                     <div class="news-article-hero-info-body">
-                        <time datetime="{{ $article->created_at->format('Y-m-d') }}">{{ $article->created_at->translatedFormat('d M Y') }}</time>
+                        <time
+                            datetime="{{ $article->created_at->format('Y-m-d') }}">{{ $article->created_at->translatedFormat('d M Y') }}</time>
                         <div>{{ $article->first_category->name }}</div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <x-public.icon.building-outline class="news-article-hero-icon"/>
+        <x-public.icon.building-outline class="news-article-hero-icon" />
     </section>
 
     <section class="news-article-content">
@@ -31,16 +32,19 @@
                 {!! $article->description !!}
             </article>
 
-            @if($relatedArticles->isNotEmpty())
+            @if ($relatedArticles->isNotEmpty())
                 <div class="related-news-articles">
                     <div class="related-news-articles-head">
                         <h3 class="related-news-articles-title">{{ __('base.related_articles') }}</h3>
-                        <a href="{{ route('public.news') }}" class="related-news-articles-link">{{ __('base.all') }}</a>
+                        <a
+                            href="{{ route('public.news') }}"
+                            class="related-news-articles-link"
+                        >{{ __('base.all') }}</a>
                     </div>
 
                     <div class="related-news-articles-list">
-                        @foreach($relatedArticles as $article)
-                            <x-public.news.related-article-card :article="$article"/>
+                        @foreach ($relatedArticles as $article)
+                            <x-public.news.related-article-card :article="$article" />
                         @endforeach
                     </div>
                 </div>

@@ -1,16 +1,14 @@
-@if(isset($whoWeAreSection))
+@if (isset($whoWeAreSection))
     <section class="who-we-are">
         <div class="container who-we-are-container">
             <div class="who-we-are-pictures">
                 <img
                     @php
-                        $backImage = $whoWeAreSection->hasMedia('back-image') ? $whoWeAreSection->getFirstMedia('back-image') : '/img/default.svg';
+$backImage = $whoWeAreSection->hasMedia('back-image') ? $whoWeAreSection->getFirstMedia('back-image') : '/img/default.svg';
                         $backImageSizes = [
                             'sm' => is_object($backImage) ? $backImage->getUrl('md-webp') : $backImage,
                             'md' => is_object($backImage) ? $backImage->getUrl('lg-webp') : $backImage
-                        ];
-                    @endphp
-
+                        ]; @endphp
                     srcset="
                         {{ $backImageSizes['sm'] }},
                         {{ $backImageSizes['md'] }} 1.5x,
@@ -24,13 +22,11 @@
 
                 <img
                     @php
-                        $frontImage = $whoWeAreSection->hasMedia('front-image') ? $whoWeAreSection->getFirstMedia('front-image') : '/img/default.svg';
+$frontImage = $whoWeAreSection->hasMedia('front-image') ? $whoWeAreSection->getFirstMedia('front-image') : '/img/default.svg';
                         $frontImageSizes = [
                             'sm' => is_object($frontImage) ? $frontImage->getUrl('md-webp') : $frontImage,
                             'md' => is_object($frontImage) ? $frontImage->getUrl('lg-webp') : $frontImage
-                        ];
-                    @endphp
-
+                        ]; @endphp
                     srcset="
                         {{ $frontImageSizes['sm'] }},
                         {{ $frontImageSizes['md'] }} 1.5x,
@@ -44,7 +40,7 @@
             </div>
 
             <div class="who-we-are-body">
-                <h6 class="who-we-are-title">{{ $whoWeAreSection->title }}</h6>
+                <div class="who-we-are-title">{{ $whoWeAreSection->title }}</div>
 
                 <div class="formatted-text who-we-are-description">{!! data_get($whoWeAreSection->content_data, 'vision') !!}</div>
 

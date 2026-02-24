@@ -24,7 +24,7 @@
         </x-swiper.container>
 
         <div class="container project-hero-container">
-            <nav class="breadcrumbs project-hero-breadcrumbs">
+            <nav class="breadcrumbs is-breadcrumbs-bg-dark project-hero-breadcrumbs">
                 <ul>
                     <li><a href="{{ route('public.portfolio') }}">{{ __('base.portfolio') }}</a></li>
                     <li>{{ $project->title }}</li>
