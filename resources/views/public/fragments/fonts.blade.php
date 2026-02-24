@@ -11,7 +11,7 @@
     ];
 @endphp
 
-@foreach ($fonts as $font)
+{{-- @foreach ($fonts as $font)
     <link
         rel="preload"
         href="/fonts/{{ $font['name'] }}.woff2"
@@ -19,12 +19,12 @@
         type="font/woff2"
         crossorigin="anonymous"
     >
-@endforeach
+@endforeach --}}
 
 <style>
     @foreach ($fonts as $font)
         @font-face {
-            font-family: {{ $font['name'] }};
+            font-family: "{{ $font['name'] }}";
             font-style: normal;
             font-weight: {{ $font['weight'] }};
             font-display: swap;
