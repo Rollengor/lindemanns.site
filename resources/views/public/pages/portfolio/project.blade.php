@@ -7,6 +7,7 @@
             class="project-gallery-carousel"
             :withPagination="true"
             :withNavigation="true"
+            :withNavbarContainer="true"
         >
             @php
                 $defaultImage = '/img/default.svg';
@@ -23,13 +24,11 @@
                 <x-swiper.slide>
                     <img
                         @php
-                            $galleryImageSizes = [
+$galleryImageSizes = [
                                 'lg' => is_object($image) ? $image->getUrl('lg-webp') : $defaultImage,
                                 'hd' => is_object($image) ? $image->getUrl('hd-webp') : $defaultImage,
                                 'xl' => is_object($image) ? $image->getUrl('xl-webp') : $defaultImage,
-                            ]; 
-                        @endphp
-
+                            ]; @endphp
                         srcset="
                             {{ $galleryImageSizes['lg'] }},
                             {{ $galleryImageSizes['hd'] }} 1.5x,

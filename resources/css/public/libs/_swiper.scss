@@ -7,11 +7,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: range.build(40, 50);
+    width: range.build(40, 60);
     aspect-ratio: 1;
     position: absolute;
     z-index: 15;
-    bottom: range.build(11.5, 27.5);
     cursor: pointer;
     transition: var(--transition);
     transition-property: background-color;
@@ -26,17 +25,20 @@
     }
 
     .swiper-navigation-icon {
-        translate: 5% 0;
+        display: block;
+        width: 26%;
+        height: auto;
+        translate: 6% 0;
     }
 }
 
 .swiper-button-prev {
-    left: var(--gap-container);
+    left: 0;
     rotate: 180deg;
 }
 
 .swiper-button-next {
-    right: var(--gap-container);
+    right: 0;
 }
 
 .swiper-pagination {
@@ -45,9 +47,6 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    position: absolute;
-    left: 0;
-    bottom: range.build(30, 50);
     z-index: 10;
     gap: 4px range.build(8, 16);
 
@@ -57,7 +56,7 @@
 
     &-bullet {
         width: max(10px, 5%);
-        height: range.build(3, 5);
+        height: range.build(3, 4);
         border-radius: 10px;
         background-color: var(--color-dark);
         transition: var(--transition);

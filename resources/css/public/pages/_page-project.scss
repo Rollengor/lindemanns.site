@@ -40,10 +40,26 @@
         height: 100%;
     }
 
+    .swiper-navbar-container {
+        width: calc(100% - var(--gap-container) * 2);
+        position: absolute;
+        left: 50%;
+        bottom: range.build(30, 50);
+        translate: -50% 0;
+        z-index: 10;
+
+        @media (min-width: 768px) {
+            max-width: var(--width-max);
+        }
+    }
+
     .swiper-button-prev,
     .swiper-button-next {
-        @media (min-width: 992px) {
-            display: none;
+        top: 50%;
+        translate: 0 -50%;
+
+        @media (min-width: 1240px) {
+            width: 60px;
         }
 
         &:hover {

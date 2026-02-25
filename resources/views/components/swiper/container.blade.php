@@ -2,12 +2,17 @@
     'withPagination' => false,
     'withNavigation' => false,
     'withScrollbar' => false,
+    'withNavbarContainer' => false,
 ])
 
 <div {{ $attributes->merge(['class' => 'swiper']) }}>
     <div class="swiper-wrapper">
         {{ $slot }}
     </div>
+
+    @if ($withNavbarContainer)
+        <div class="swiper-navbar-container">
+    @endif
 
     @if ($withPagination)
         <div class="swiper-pagination"></div>
@@ -18,7 +23,11 @@
         <div class="swiper-button-next"></div>
     @endif
 
-    @if ($withNavigation)
+    @if ($withScrollbar)
         <div class="swiper-scrollbar"></div>
     @endif
+
+    @if ($withNavbarContainer)
+</div>
+@endif
 </div>
