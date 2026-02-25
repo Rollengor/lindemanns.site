@@ -269,26 +269,6 @@
         }
     }
 
-    &-tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 6px;
-
-        p {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: range.build(12, 14);
-            line-height: 1.2;
-            padding: .55em 1.25em;
-            border: 1px solid var(--color-gray-medium);
-            border-radius: 5em;
-            backdrop-filter: blur(10px);
-            transition: var(--transition);
-            transition-property: background-color, border-color;
-        }
-    }
-
     &-info {
         font-size: 12px;
         line-height: 1.6;

@@ -26,12 +26,6 @@ $projectImage = $project->hasMedia($project->mediaHero) ? $project->getFirstMedi
                 @if ($project->location)
                     <span class="project-simple-card-info-dot"></span>
                 @endif
-            @else
-                <p>375 m²</p>
-
-                @if ($project->location)
-                    <span class="project-simple-card-info-dot"></span>
-                @endif
             @endif
 
             @if ($project->location)
@@ -39,12 +33,6 @@ $projectImage = $project->hasMedia($project->mediaHero) ? $project->getFirstMedi
             @endif
         </div>
     @endif
-
-    {{-- <div class="project-simple-card-tags">
-        @foreach ($project['tags'] as $tag)
-            <p>{{ $tag }}</p>
-        @endforeach
-    </div> --}}
 
     <a
         href="{{ route('public.portfolio.project', $project->slug) }}"
