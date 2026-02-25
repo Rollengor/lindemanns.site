@@ -1,21 +1,27 @@
-@foreach($projects as $project)
-    <div class="d-flex flex-column flex-sm-row align-items-sm-center px-3 px-sm-4 py-2 border-bottom border-dark border-opacity-25">
+@foreach ($projects as $project)
+    <div
+        class="d-flex flex-column flex-sm-row align-items-sm-center px-3 px-sm-4 py-2 border-bottom border-dark border-opacity-25">
         <div class="d-flex align-items-center col-12 col-sm pe-0 pe-sm-3 gap-3">
             <x-admin.picture
                 style="width: 80px;"
                 class="rounded overflow-hidden"
-                :src="$project->hasMedia($project->mediaHero) ? $project->getFirstMediaUrl($project->mediaHero, 'sm-webp') : null"
+                :src="$project->hasMedia($project->mediaHero)
+                    ? $project->getFirstMediaUrl($project->mediaHero, 'sm-webp')
+                    : null"
                 :ratio="'3x2'"
             />
             <div class="col">
                 <div class="fw-semibold">{{ $project->title }}</div>
-                @if($project->short_description)
-                    <div style="font-size: 14px;" class="line-clamp-1 text-gray">{!! $project->short_description !!}</div>
+                @if ($project->short_description)
+                    <div
+                        style="font-size: 14px;"
+                        class="line-clamp-1 text-gray"
+                    >{!! $project->short_description !!}</div>
                 @endif
             </div>
         </div>
         <div class="col-12 col-sm-auto d-flex align-items-center justify-content-end gap-3 mt-2 mt-sm-0">
-            @if(!$project->active)
+            @if (!$project->active)
                 <x-admin.icon
                     :name="'eye-slash'"
                     :width="'30'"
@@ -31,25 +37,14 @@
 
             <x-admin.ajax.view-modal-button
                 class="btn-sm p-2"
-
-                :action="route('admin.portfolio.project.create', $project->id)"
-                :modal_id="'project-create-modal'"
-
-                :iconName="'copy'"
-            />
-
-            <x-admin.ajax.view-modal-button
-                class="btn-sm p-2"
-
                 :action="route('admin.portfolio.project.edit', $project->id)"
-                :modal_id="'project-edit-modal'"
-
+                :modal_id="'project-control-modal'"
                 :iconName="'pen'"
             />
         </div>
     </div>
 @endforeach
 
-@if($projects->isEmpty())
-    <x-admin.empty-message/>
+@if ($projects->isEmpty())
+    <x-admin.empty-message />
 @endif

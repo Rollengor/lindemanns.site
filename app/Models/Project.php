@@ -26,6 +26,7 @@ class Project extends Model implements HasMedia
         'seo_description',
         'seo_keywords',
 
+        'property_details',
         'location',
         'tags',
         'info',
@@ -44,6 +45,7 @@ class Project extends Model implements HasMedia
         'seo_description',
         'seo_keywords',
 
+        'property_details',
         'location',
         'tags',
         'info',
@@ -58,6 +60,7 @@ class Project extends Model implements HasMedia
             'seo_title' => 'json',
             'seo_description' => 'json',
             'seo_keywords' => 'json',
+            'property_details' => 'json',
             'location' => 'json',
             'tags' => 'json',
             'info' => 'json',
@@ -68,6 +71,7 @@ class Project extends Model implements HasMedia
     public string $mediaHero = 'hero';
     public string $mediaDescription = 'description';
     public string $mediaFiles = 'files';
+    public string $mediaGallery = 'gallery';
 
     public array $mediaSizes = [
         'xl' => 3840,
@@ -87,6 +91,35 @@ class Project extends Model implements HasMedia
                 $model->slug = Str::of($title)->slug('-');
             }
         });
+    }
+
+    public function hasAnyPropertyDetail(): bool
+    {
+        $locale = app()->getLocale();
+
+        $details = $this->property_details;
+
+        if (!is_array($details)) {
+            return false;
+        }
+
+        $filtered = array_filter($details, function ($value) {
+            return !is_null($value) && trim($value) !== '';
+        });
+
+        return count($filtered) > 0;
+    }
+
+    public function getSortedDetails()
+    {
+        $details = $this->property_details;
+
+        if (!is_array($details)) return [];
+
+        $order = ['property_type', 'status', 'year_built'];
+        $sorted = array_merge(array_flip($order), $details);
+
+        return array_intersect_key($sorted, $details);
     }
 
     public function registerMediaConversions(Media $media = null): void

@@ -23,6 +23,7 @@ return new class extends Migration
             $table->json('seo_description')->nullable();
             $table->json('seo_keywords')->nullable();
 
+            $table->json('property_details')->nullable();
             $table->json('location')->nullable();
             $table->json('tags')->nullable();
             $table->json('info')->nullable();

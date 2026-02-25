@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Portfolio;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Portfolio\Project\StoreRequest;
 use App\Http\Requests\Admin\Portfolio\Project\UpdateRequest;
+use Illuminate\Http\RedirectResponse;
 use App\Models\Project;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -21,16 +22,9 @@ class ProjectController extends Controller
         return view('admin.portfolio.projects.index', compact('projects'));
     }
 
-    public function create(Request $request, ?Project $project = null): View|JsonResponse|string {
-        $data = [];
-
-        if ($project) {
-            $data['project'] = $project;
-            $data['isClone'] = true;
-        }
-
+    public function create(Request $request): View|JsonResponse|string {
         if ($request->ajax()) {
-            return view('admin.portfolio.projects.create', $data)->render();
+            return view('admin.portfolio.projects.create')->render();
         }
 
         abort(404);
@@ -63,6 +57,14 @@ class ProjectController extends Controller
                         'name' => $fileName,
                     ])
                     ->toMediaCollection($project->mediaFiles);
+            }
+
+            foreach ($request->input('gallery') ?? [] as $index => $data) {
+                $image = data_get($request->file('gallery'), $index . '.image');
+
+                if ($image) {
+                    $project->addMedia($image)->toMediaCollection($project->mediaGallery)->update(['order_column' => $index]);
+                }
             }
 
             DB::commit();
@@ -99,10 +101,12 @@ class ProjectController extends Controller
             return view('admin.portfolio.projects.edit', compact('project'))->render();
         }
 
+        // return view('admin.portfolio.projects.show-edit', compact('project'));
+
         abort(404);
     }
 
-    public function update(UpdateRequest $request, Project $project): View|JsonResponse|string {
+    public function update(UpdateRequest $request, Project $project): View|JsonResponse|RedirectResponse|string {
         $data = $request->validated();
 
         try {
@@ -143,6 +147,32 @@ class ProjectController extends Controller
                     ->toMediaCollection($project->mediaFiles);
             }
 
+            $galleryCurrentMediaIds = collect($request->input('gallery', []))->pluck('media_id')->all();
+
+            foreach ($request->input('gallery') ?? [] as $index => $data) {
+                $media_id = data_get($data, key: 'media_id');
+                $image = data_get($request->file('gallery'), $index . '.image');
+                $media = Media::find($media_id);
+
+                if ($media && $image) {
+                    $media->delete();
+                }
+
+                if ($image) {
+                    $media = $project->addMedia($image)->toMediaCollection($project->mediaGallery);
+
+                    $galleryCurrentMediaIds[] = $media->id;
+                }
+
+                if ($media) {
+                    $media->update(['order_column' => $index]);
+                }
+            }
+
+            $galleryToDelete = $project->getMedia($project->mediaGallery)->whereNotIn('id', $galleryCurrentMediaIds);
+
+            $galleryToDelete->each->delete();
+
             DB::commit();
         } catch (\Exception $exception) {
             DB::rollBack();
@@ -168,6 +198,10 @@ class ProjectController extends Controller
                 'html' => $this->getViewProjects(),
             ]);
         }
+
+        // return redirect()
+        //     ->back()
+        //     ->with('success', __('admin.success_update_data'));
 
         abort(404);
     }
@@ -245,7 +279,7 @@ class ProjectController extends Controller
     }
 
     public function getViewProjects(): View|string {
-        $projects = Project::all();
+        $projects = Project::latest()->get();
 
         return view('admin.portfolio.projects.list', compact('projects'))->render();
     }

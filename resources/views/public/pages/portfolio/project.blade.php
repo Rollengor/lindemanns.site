@@ -8,19 +8,40 @@
             :withPagination="true"
             :withNavigation="true"
         >
-            @for ($i = 1; $i <= 6; $i++)
+            @php
+                $defaultImage = '/img/default.svg';
+                $gallery = [$defaultImage];
+
+                if ($project->hasMedia($project->mediaGallery)) {
+                    $gallery = $project->getMedia($project->mediaGallery);
+                } elseif ($project->hasMedia($project->mediaHero)) {
+                    $gallery = [$project->getFirstMedia($project->mediaHero)];
+                }
+            @endphp
+
+            @foreach ($gallery as $image)
                 <x-swiper.slide>
                     <img
-                        {{-- @if ($i <= 2) src="/img/temp/project/{{ $i }}.webp"
-                            @else
-                                src="/img/default.svg"
-                                data-src="/img/temp/project/{{ $i }}.webp" @endif --}}
-                        src="/img/temp/project/{{ $i }}.webp"
-                        alt="Image"
+                        @php
+                            $galleryImageSizes = [
+                                'lg' => is_object($image) ? $image->getUrl('lg-webp') : $defaultImage,
+                                'hd' => is_object($image) ? $image->getUrl('hd-webp') : $defaultImage,
+                                'xl' => is_object($image) ? $image->getUrl('xl-webp') : $defaultImage,
+                            ]; 
+                        @endphp
+
+                        srcset="
+                            {{ $galleryImageSizes['lg'] }},
+                            {{ $galleryImageSizes['hd'] }} 1.5x,
+                            {{ $galleryImageSizes['xl'] }} 2x
+                        "
+                        src="{{ $galleryImageSizes['lg'] }}"
+                        alt="{{ $project->title }} gallery image"
                         class="img-cover"
+                        loading="lazy"
                     >
                 </x-swiper.slide>
-            @endfor
+            @endforeach
         </x-swiper.container>
 
         <div class="container project-hero-container">
@@ -34,26 +55,6 @@
             <div class="project-hero-body">
                 <h1 class="project-title">{{ $project->title }}</h1>
 
-                {{-- <img
-                    @php
-                        $heroImage = $project->hasMedia($project->mediaHero) ? $project->getFirstMedia($project->mediaHero) : '/img/default.svg';
-                        $heroImageSizes = [
-                            'md' => is_object($heroImage) ? $heroImage->getUrl('md-webp') : $heroImage,
-                            'lg' => is_object($heroImage) ? $heroImage->getUrl('lg-webp') : $heroImage
-                        ];
-                    @endphp
-
-                    srcset="
-                        {{ $heroImageSizes['md'] }},
-                        {{ $heroImageSizes['lg'] }} 1.5x,
-                        {{ $heroImageSizes['lg'] }} 2x
-                    "
-                    src="{{ $heroImageSizes['lg'] }}"
-                    alt="{{ $project->title }}"
-                    class="img-cover project-hero-image"
-                    loading="lazy"
-                > --}}
-
                 <div class="project-hero-info">{{ $project->location }}</div>
             </div>
         </div>
@@ -64,27 +65,21 @@
     <section class="project-content">
         <div class="container project-content-container">
             <article class="formatted-text project-description">
-                <div class="project-property-details">
-                    <h2><strong>Property details</strong></h2>
+                @if ($project->hasAnyPropertyDetail())
+                    <div class="project-property-details">
+                        <h2><strong>{{ __('base.property_details') }}</strong></h2>
 
-                    <p class="project-property-details-item">
-                        <span>PROPERTY TYPE</span>
-                        <br>
-                        <span class="h2"><strong>Single Family Home</strong></span>
-                    </p>
-
-                    <p class="project-property-details-item">
-                        <span>STATUS</span>
-                        <br>
-                        <span class="h2"><strong>Available</strong></span>
-                    </p>
-
-                    <p class="project-property-details-item">
-                        <span>YEAR BUILT</span>
-                        <br>
-                        <span class="h2"><strong>2008</strong></span>
-                    </p>
-                </div>
+                        @foreach ($project->getSortedDetails() as $key => $value)
+                            @if ($value)
+                                <p class="project-property-details-item">
+                                    <span>{{ __('base.' . $key) }}</span>
+                                    <br>
+                                    <span class="h2"><strong>{{ $value }}</strong></span>
+                                </p>
+                            @endif
+                        @endforeach
+                    </div>
+                @endif
 
                 {!! $project->description !!}
             </article>

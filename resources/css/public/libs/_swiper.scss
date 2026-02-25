@@ -17,6 +17,10 @@
     transition-property: background-color;
     border-radius: 50%;
 
+    &.swiper-button-lock {
+        display: none;
+    }
+
     &:hover {
         background-color: rgba(var(--color-dark-rgb), .25);
     }
@@ -46,6 +50,10 @@
     bottom: range.build(30, 50);
     z-index: 10;
     gap: 4px range.build(8, 16);
+
+    &.swiper-pagination-lock {
+        display: none;
+    }
 
     &-bullet {
         width: max(10px, 5%);

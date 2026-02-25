@@ -63,7 +63,7 @@
                                 :placeholder="__('admin.location')"
                             />
 
-                            <x-admin.dynamic-fields.wrapper>
+                            {{-- <x-admin.dynamic-fields.wrapper>
                                 @php
                                     $tags = isset($project) ? $project->getTranslation('tags', $lang) : [];
                                 @endphp
@@ -92,7 +92,7 @@
                                         </div>
                                     </x-admin.dynamic-fields.group>
                                 </x-slot:template>
-                            </x-admin.dynamic-fields.wrapper>
+                            </x-admin.dynamic-fields.wrapper> --}}
                         </div>
                     </x-admin.tabs.pane>
                 @endforeach

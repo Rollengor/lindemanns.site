@@ -47,6 +47,7 @@ return [
     'sections' => 'Abschnitte',
     'who_we_are' => 'Wer wir sind',
     'contact_us' => 'Kontaktieren Sie uns',
+    'gallery' => 'Galerie',
 
     'username' => 'Benutzername',
     'username_or_email' => 'Benutzername oder E-Mail',

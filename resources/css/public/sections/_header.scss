@@ -33,7 +33,8 @@
     }
 }
 
-.home-page {
+.home-page,
+.post-page {
     .header {
         &::before {
             display: block;
@@ -130,6 +131,10 @@
             &:hover {
                 color: var(--color-white);
             }
+        }
+
+        &::before {
+            backdrop-filter: none;
         }
     }
 }

@@ -27,4 +27,8 @@ return [
     'related_articles' => 'Related Articles',
     'full_name' => 'Full Name',
     'phone_number' => 'Phone Number',
+    'property_details' => 'Property details',
+    'property_type' => 'Property Type',
+    'status' => 'Status',
+    'year_built' => 'Year Built',
 ];

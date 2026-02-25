@@ -47,6 +47,7 @@ return [
     'sections' => 'Sections',
     'who_we_are' => 'Who we are',
     'contact_us' => 'Contact us',
+    'gallery' => 'Gallery',
 
     'username' => 'Username',
     'username_or_email' => 'Username or Email',

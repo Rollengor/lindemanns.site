@@ -3,15 +3,11 @@
 @section('title', __('admin.projects') . ' - ' . config('app.name'))
 
 @section('panel')
-    <x-admin.main-panel
-        :title="__('admin.projects')"
-    >
+    <x-admin.main-panel :title="__('admin.projects')">
         <x-admin.ajax.view-modal-button
             class="mx-auto"
-
             :action="route('admin.portfolio.project.create')"
-            :modal_id="'project-create-modal'"
-
+            :modal_id="'project-control-modal'"
             :title="__('admin.create')"
             :iconName="'plus-circle'"
         />
@@ -20,13 +16,15 @@
 
 @section('content')
     <x-admin.container>
-        <div id="projects-list" class="d-flex flex-column flex-auto mx-n3 mx-sm-n4 mt-n4">
+        <div
+            id="projects-list"
+            class="d-flex flex-column flex-auto mx-n3 mx-sm-n4 mt-n4"
+        >
             @include('admin.portfolio.projects.list')
         </div>
     </x-admin.container>
 @endsection
 
 @push('modals')
-    <x-admin.modal.wrapper id="project-create-modal"/>
-    <x-admin.modal.wrapper id="project-edit-modal"/>
+    <x-admin.modal.wrapper id="project-control-modal" />
 @endpush

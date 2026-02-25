@@ -115,6 +115,7 @@
     ul {
         display: flex;
         flex-direction: column;
+        max-width: calc(100% - 1em);
         gap: range.build(16, 20, px, 768);
 
         @media (min-width: 768px) {

@@ -27,4 +27,8 @@ return [
     'related_articles' => 'Ähnliche Artikel',
     'full_name' => 'Vollständiger Name',
     'phone_number' => 'Telefonnummer',
+    'property_details' => 'Objektdetails',
+    'property_type' => 'Immobilientyp',
+    'status'        => 'Status',
+    'year_built'    => 'Baujahr',
 ];
