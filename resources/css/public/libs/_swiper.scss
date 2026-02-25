@@ -49,7 +49,7 @@
     width: 100%;
     z-index: 10;
     gap: 4px range.build(8, 16);
-    padding: range.build(40, 60);
+    padding: 0 range.build(40, 60);
 
     &.swiper-pagination-lock {
         display: none;
