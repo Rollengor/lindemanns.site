@@ -109,4 +109,7 @@ return [
     'success_save_data' => 'Data save operation completed successfully',
     'success_update_data' => 'Data update operation completed successfully',
     'success_delete_data' => 'Data delete operation completed successfully',
+
+    'success_updated_profile' => 'Success updated profile',
+    'success_updated_password' => 'Success updated password',
 ];

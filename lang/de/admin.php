@@ -109,4 +109,7 @@ return [
     'success_save_data' => 'Das Speichern der Daten wurde erfolgreich abgeschlossen',
     'success_update_data' => 'Die Aktualisierung der Daten wurde erfolgreich abgeschlossen',
     'success_delete_data' => 'Das Löschen der Daten wurde erfolgreich abgeschlossen',
+
+    'success_updated_profile' => 'Profil erfolgreich aktualisiert',
+    'success_updated_password' => 'Passwort erfolgreich aktualisiert',
 ];

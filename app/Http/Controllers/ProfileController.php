@@ -41,7 +41,7 @@ class ProfileController extends Controller
 
         $request->user()->save();
 
-        return redirect()->back()->with('success', __('texts.successUpdatedProfile'));
+        return redirect()->back()->with('success', __('admin.success_updated_profile'));
     }
 
     /**
