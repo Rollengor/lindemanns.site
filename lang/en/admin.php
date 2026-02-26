@@ -100,7 +100,10 @@ return [
     'inner_title' => 'Inner Title',
     'area' => 'Area',
 
+    'forgot_password_message' => 'Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.',
     'forgot_your_password' => 'Forgot your password?',
+    'can_resend_timer' => 'You can resend the email via',
+    'go_to_login' => 'Go to login',
     'already_registered' => 'Already registered?',
     'request_processing' => 'Please wait while your request is processed, this may take a few minutes.',
 

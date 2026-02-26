@@ -100,7 +100,10 @@ return [
     'inner_title' => 'Innerer Titel',
     'area' => 'Bereich',
 
+    'forgot_password_message' => 'Passwort vergessen? Kein Problem. Geben Sie uns einfach Ihre E-Mail-Adresse an und wir senden Ihnen einen Link zum Zurücksetzen des Passworts, mit dem Sie ein neues wählen können.',
     'forgot_your_password' => 'Passwort vergessen?',
+    'can_resend_timer' => 'Sie können die E-Mail erneut senden in',
+    'go_to_login' => 'Zum Login',
     'already_registered' => 'Bereits registriert?',
     'request_processing' => 'Bitte warten Sie, während Ihre Anfrage bearbeitet wird. Dies kann einige Minuten dauern.',
 
