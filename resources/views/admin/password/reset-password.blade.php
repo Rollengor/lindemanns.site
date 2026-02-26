@@ -71,7 +71,7 @@
                         <a
                             href="{{ route('login') }}"
                             class="text-decoration-none"
-                        >{{ __('texts.go_to_login') }}</a>
+                        >{{ __('admin.go_to_login') }}</a>
 
                         <x-admin.lang :withIcon="true" />
                     </div>
