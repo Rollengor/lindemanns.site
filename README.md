@@ -1,5 +1,5 @@
 # Laravel 12 Project Deployment Guide
----
+
 This repository contains a web application built with **Laravel 12**. Follow the instructions below to set up the project locally using **Laravel Sail**.
 <br>
 
@@ -9,7 +9,7 @@ Ensure you have the following installed on your local machine:
 * **Docker Desktop** (Required for Laravel Sail)
 * **PHP 8.3** (Optional, for running composer locally if needed)
 * **Composer**
----
+<br>
 
 ## 🚀 Installation Steps
 
@@ -59,15 +59,7 @@ MEDIA_DISK=media
 ```
 <br>
 
-__5. Media & Database Preparation__
-
-Before running the containers, ensure you have manually added the following to your project:
-
-* **Database**: Import your SQL dump from the hosting to your local environment (after containers are up).
-* **Media**: Place the downloaded media folder from the hosting into public/media.
-<br>
-
-__6. Start the Environment__
+__5. Start the Environment__
 
 Launch the Docker containers:
 
@@ -77,7 +69,7 @@ Launch the Docker containers:
 _(Use the -d flag to run in the background)_
 <br>
 
-__7. Finalize Setup__
+__6. Finalize Setup__
 
 Generate the application key and create the storage symbolic link:
 
@@ -93,12 +85,11 @@ Restart Sail to apply all configuration changes:
 ```
 <br>
 
-__8. Database & Frontend__
+__7. Database & Frontend__
 
 Update dependencies and run migrations:
 
 ```
-composer update
 ./vendor/bin/sail artisan migrate
 ```
 Install and compile frontend assets:
@@ -107,7 +98,15 @@ Install and compile frontend assets:
 ./vendor/bin/sail npm install
 ./vendor/bin/sail npm run build
 ```
----
+<br>
+
+__8. Media & Database Preparation__
+
+Before running the containers, ensure you have manually added the following to your project:
+
+* **Database**: Import your SQL dump from the hosting to your local environment (after containers are up).
+* **Media**: Place the downloaded media folder from the hosting into public/media.
+<br>
 
 ## 💡 Useful Tips
 
@@ -135,8 +134,7 @@ To start a development server with Vite (hot-reloading):
 ```
 ./vendor/bin/sail npm run dev
 ```
-
----
+<br>
 
 ## 📋 Recommended Command Summary
 
